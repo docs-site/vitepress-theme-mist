@@ -1,0 +1,16 @@
+{
+  "name": "@docs-site/vitepress-theme-mist-docs",
+  "version": "1.0.0",
+  "description": "vitepress-theme-mist Instruction Manual.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "docs:dev": "vitepress dev src",
+    "docs:build": "vitepress build src",
+    "docs:preview": "vitepress preview src"
+  },
+  "devDependencies": {
+    "vitepress": "catalog:",
+    "vue": "catalog:"
+  }
+}
