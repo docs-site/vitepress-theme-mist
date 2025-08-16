@@ -7,6 +7,7 @@
     "docs:dev": "pnpm run -C docs docs:dev",
     "docs:build": "pnpm run -C docs docs:build",
     "docs:preview": "pnpm run -C docs docs:preview",
+    "kill:node": "taskkill /f /im node.exe",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
