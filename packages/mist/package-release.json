@@ -1,0 +1,64 @@
+{
+  "name": "vitepress-theme-mist",
+  "version": "1.0.0",
+  "description": "vitepress-theme-mist",
+  "type": "module",
+  "author": "sumu",
+  "keywords": ["vitepress"],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.mjs",
+  "types": "es/index.d.ts",
+  "style": "index.css",
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.mjs",
+      "require": "./lib/index.js"
+    },
+    "./es": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.mjs"
+    },
+    "./es/*.mjs": {
+      "types": "./es/*.d.ts",
+      "import": "./es/*.mjs"
+    },
+    "./es/*": {
+      "types": ["./es/*.d.ts", "./es/*/index.d.ts"],
+      "import": "./es/*.mjs"
+    },
+    "./lib": {
+      "types": "./lib/index.d.ts",
+      "require": "./lib/index.js"
+    },
+    "./lib/*.js": {
+      "types": "./lib/*.d.ts",
+      "require": "./lib/*.js"
+    },
+    "./lib/*": {
+      "types": ["./lib/*.d.ts", "./lib/*/index.d.ts"],
+      "require": "./lib/*.js"
+    },
+    "./*": "./*"
+  },
+  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/master",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/docs-site/vitepress-theme-mist.git"
+  },
+  "bugs": {
+    "url": "https://github.com/docs-site/vitepress-theme-mist/issues"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  },
+  "peerDependencies": {
+    "vitepress": "^1.6.4"
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
+  ]
+}

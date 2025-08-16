@@ -1,0 +1,32 @@
+{
+  "name": "vitepress-theme-mist",
+  "private": true,
+  "version": "1.0.0",
+  "description": "vitepress-theme-mist",
+  "type": "module",
+  "module": "./index.ts",
+  "author": "sumu",
+  "keywords": [
+    "vitepress"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/master",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/docs-site/vitepress-theme-mist.git"
+  },
+  "bugs": {
+    "url": "https://github.com/docs-site/vitepress-theme-mist/issues"
+  },
+  "devDependencies": {
+    "vitepress": "catalog:"
+  },
+  "peerDependencies": {
+    "vitepress": "catalog:"
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
+  ]
+}

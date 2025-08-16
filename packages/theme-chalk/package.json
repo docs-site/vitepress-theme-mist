@@ -1,0 +1,17 @@
+{
+  "name": "@mist/theme-chalk",
+  "private": true,
+  "version": "1.0.0",
+  "description": "@mist/theme-chalk",
+  "main": "index.css",
+  "exports": {
+    "./*": "./src/*",
+    "./src/*": "./src/*"
+  },
+  "keywords": [],
+  "author": "sumu",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "catalog:"
+  }
+}
