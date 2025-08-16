@@ -32,6 +32,27 @@
 >- [Shields.io | Shields.io](https://shields.io/)
 >- [For the Badge](https://forthebadge.com/)
 
+## git提交记录规范
+
+> git 提交信息 emoji： [https://gitmoji.dev/](https://gitmoji.dev/)
+
+- bug修复
+
+```bash
+git commmit -m "fix:[devenv] commit-message" # 开发环境 bug 修复
+git commmit -m "fix:[theme] commit-message"  # vitepress-theme-mist bug 修复
+git commmit -m "fix:[site] commit-message"   # docs目录下site站点 bug 修复
+```
+
+- 新增功能
+
+```bash
+git commmit -m "feat:[devenv] commit-message" # 开发环境新增功能
+git commmit -m "feat:[theme] commit-message"  # vitepress-theme-mist 新增功能
+git commmit -m "feat: [site] commit-message"   # docs目录下site站点新增功能
+```
+
+
 
 ## License
 
