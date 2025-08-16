@@ -29,6 +29,7 @@
     "vue": "catalog:"
   },
   "dependencies": {
+    "@mist/components": "workspace:*",
     "@mist/theme-chalk": "workspace:*"
   }
 }
