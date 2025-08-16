@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {                    // TypeScript 编译器选项配置
+    "outDir": "dist",                     // 输出目录，编译后的文件放在 dist 文件夹
+    "target": "es2018",                   // 目标 JavaScript 版本，编译为 ES2018
+    "module": "esnext",                   // 模块系统，使用 ES Next 模块
+    "baseUrl": ".",                       // 基础路径，相对于当前目录解析模块
+    "sourceMap": false,                   // 是否生成 source map 文件，设为 false 不生成
+    "moduleResolution": "node",           // 模块解析策略，使用 Node.js 方式解析
+    "allowJs": false,                     // 是否允许编译 JavaScript 文件，设为 false 不允许
+    "strict": true,                       // 启用严格模式，进行更严格的类型检查
+    "noUnusedLocals": true,               // 检查未使用的局部变量，有未使用时报错
+    "resolveJsonModule": true,            // 允许导入 JSON 模块
+    "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块默认导入
+    "esModuleInterop": true,              // 启用 ES 模块互操作性，支持 CommonJS 和 ES 模块间的导入
+    "removeComments": false,              // 是否移除注释，设为 false 保留注释
+    "preserveSymlinks": true,             // 保留符号链接，不解析其实际路径
+    "rootDir": ".",                       // 根目录，指定输入文件的根目录
+    "types": [],                          // 类型声明文件，空数组表示自动包含
+    "paths": {                            // 路径映射，用于模块解析的别名配置
+      "@mist/*": ["packages/*"]           // 将 @mist/* 映射到 packages/* 目录
+    }
+  }
+}

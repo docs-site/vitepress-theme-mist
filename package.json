@@ -18,5 +18,8 @@
     "rimraf": "catalog:",
     "vitepress": "catalog:",
     "vue": "catalog:"
+  },
+  "dependencies": {
+    "@mist/theme-chalk": "workspace:*"
   }
 }

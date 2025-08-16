@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",             // 继承基础配置文件 tsconfig.base.json
+  "compilerOptions": {                           // 编译器选项配置
+    "composite": true,                           // 启用项目复合，支持项目引用和增量编译
+    "jsx": "preserve",                           // JSX 处理方式，保留 JSX 语法不转换
+    "lib": ["ES2018", "DOM", "DOM.Iterable"],    // 包含的类型库，ES2018、DOM 和 DOM 迭代器
+    "skipLibCheck": true,                        // 跳过库文件的类型检查，提高编译速度
+    "noImplicitAny": false                       // 允许隐式 any 类型，不强制显式类型声明
+  },
+  "include": ["packages", "typings"],            // 包含的文件和目录，编译 packages 和 typings 目录
+  "exclude": ["**/node_modules", "**/dist", "**/*.md"]  // 排除的文件和目录，不编译 node_modules、dist 和 markdown 文件
+}

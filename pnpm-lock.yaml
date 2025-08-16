@@ -10,7 +10,7 @@ catalogs:
       specifier: ^6.0.1
       version: 6.0.1
     sass:
-      specifier: 1.90.0
+      specifier: ^1.90.0
       version: 1.90.0
     vitepress:
       specifier: ^1.6.4
@@ -22,6 +22,10 @@ catalogs:
 importers:
 
   .:
+    dependencies:
+      '@mist/theme-chalk':
+        specifier: workspace:*
+        version: link:packages/theme-chalk
     devDependencies:
       rimraf:
         specifier: 'catalog:'
@@ -34,6 +38,10 @@ importers:
         version: 3.5.18
 
   docs:
+    dependencies:
+      vitepress-theme-mist:
+        specifier: workspace:*
+        version: link:../packages/mist
     devDependencies:
       vitepress:
         specifier: 'catalog:'

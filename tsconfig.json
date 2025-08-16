@@ -1,0 +1,6 @@
+{
+  "files": [],                         // 要编译的文件列表，空数组表示使用默认配置
+  "references": [                      // 项目引用配置，用于引用其他 TypeScript 配置文件
+    { "path": "./tsconfig.web.json" }, // 引用 tsconfig.web.json 配置文件
+  ]
+}

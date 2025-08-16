@@ -12,5 +12,8 @@
   "devDependencies": {
     "vitepress": "catalog:",
     "vue": "catalog:"
+  },
+  "dependencies": {
+    "vitepress-theme-mist": "workspace:*"
   }
 }
