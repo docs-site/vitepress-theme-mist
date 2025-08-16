@@ -8,6 +8,14 @@
     "docs:build": "pnpm run -C docs docs:build",
     "docs:preview": "pnpm run -C docs docs:preview",
     "kill:node": "taskkill /f /im node.exe",
+    "build": "pnpm run clean && pnpm run to:build build",
+    "publish": "bash build/scripts/publish.sh",
+    "clean": "rimraf dist",
+    "to:build": "pnpm run -C build",
+    "stub": "pnpm run to:build stub && pnpm run packages:stub && pnpm run plugins:stub",
+    "packages:stub": "pnpm -r --filter=./packages/* run stub",
+    "plugins:stub": "pnpm -r --filter=./plugins/* run stub",
+    "plugins:build": "pnpm -r --filter=./plugins/* run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,6 +24,7 @@
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
     "rimraf": "catalog:",
+    "unbuild": "^3.6.1",
     "vitepress": "catalog:",
     "vue": "catalog:"
   },

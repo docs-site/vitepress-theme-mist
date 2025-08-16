@@ -1,6 +1,7 @@
 packages:
   - docs
   - packages/*
+  - build
 
 catalog:
   rimraf: ^6.0.1
