@@ -23,6 +23,8 @@
   "license": "MIT",
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
+    "@vue/runtime-core": "catalog:vue",
+    "@vue/runtime-dom": "catalog:vue",
     "rimraf": "catalog:",
     "unbuild": "^3.6.1",
     "vitepress": "catalog:",

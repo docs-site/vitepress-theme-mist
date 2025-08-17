@@ -1,0 +1,72 @@
+@use "../../mixins/bem" as *;
+
+@include b("back-top") {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  z-index: 999;
+
+  @include e("main") {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #3eaf7c;
+    padding: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #71cda3;
+    }
+  }
+
+  @include e("progress-ring") {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    z-index: 1;
+  }
+
+  @include e("progress-ring-background") {
+    fill: none;
+    stroke: rgba(62, 175, 124, 0.15);
+    stroke-width: 3;
+  }
+
+  @include e("progress-ring-circle") {
+    fill: none;
+    stroke: #3eaf7c;
+    stroke-width: 3;
+    stroke-dasharray: 264;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.15s ease-out;
+  }
+
+  @include e("icon") {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// 动画状态类名保持全局样式(BEM 修饰符不能直接用于动画状态类名)
+.back-top-fade-enter-active,
+.back-top-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.back-top-fade-enter-from,
+.back-top-fade-leave-to {
+  opacity: 0;
+}
