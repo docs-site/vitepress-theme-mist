@@ -40,6 +40,10 @@
       "types": ["./lib/*.d.ts", "./lib/*/index.d.ts"],
       "require": "./lib/*.js"
     },
+    "./config": {
+      "types": "./es/config/index.d.ts",
+      "import": "./es/config/index.mjs"
+    },
     "./*": "./*"
   },
   "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/master",

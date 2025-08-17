@@ -26,6 +26,9 @@ importers:
       '@mist/components':
         specifier: workspace:*
         version: link:packages/components
+      '@mist/config':
+        specifier: workspace:*
+        version: link:packages/config
       '@mist/theme-chalk':
         specifier: workspace:*
         version: link:packages/theme-chalk
@@ -127,6 +130,12 @@ importers:
 
   packages/components:
     devDependencies:
+      vitepress:
+        specifier: 'catalog:'
+        version: 1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.8.2)
+
+  packages/config:
+    dependencies:
       vitepress:
         specifier: 'catalog:'
         version: 1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.8.2)

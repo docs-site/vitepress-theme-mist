@@ -1,7 +1,12 @@
 import DefaultTheme from "vitepress/theme";
-import {MtDataLoader} from "@mist/components";
+
+import { MtDataLoader } from "@mist/components"; // MtDataLoader组件导入
+
 import "../theme-chalk/src/index.scss";
+
 export type DefaultThemeType = typeof DefaultTheme;
+export type * from "@mist/config";
+
 export * from "@mist/components";
 
 export default {
