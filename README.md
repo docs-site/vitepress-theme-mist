@@ -12,8 +12,8 @@
   <a title="Github release" target="_blank" href="https://github.com/docs-site/vitepress-theme-mist/releases">
     <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/docs-site/vitepress-theme-mist?logo=github">
   </a>
-  <a title="Npm Version" target="_blank" href="https://www.npmjs.com/package/@docs-site/vitepress-theme-mist">
-    <img src="https://img.shields.io/npm/v/@docs-site/vitepress-theme-mist?logo=npm&color=%09%23bf00ff" alt="https://img.shields.io/npm/v/@docs-site/vitepress-theme-mist?color=%09%23bf00ff">
+  <a title="Npm Version" target="_blank" href="https://www.npmjs.com/package/vitepress-theme-mist">
+    <img src="https://img.shields.io/npm/v/vitepress-theme-mist?logo=npm&color=%09%23bf00ff" alt="https://img.shields.io/npm/v/vitepress-theme-mist?color=%09%23bf00ff">
   </a>
   <a title="vitepress" target="_blank" href="https://github.com/vuejs/vitepress/releases/tag/v1.6.4">
     <img src="https://badgen.net/static/vitepress/1.6.4/cyan" alt="vitepress">
@@ -27,7 +27,7 @@
 
 ## 参考说明
 
-主要自己不是搞前端的，所以这些vue啊、vite啊还有什么vitepress，这都是啥？都不是太懂，但是又想自定义一下自己的vitepress站点，就来折腾一下，顺便也可以了解了解vitepress主题的开发过程。这个主题主要是自己使用，主题编写的框架主要参考 [vitepress-theme-teek](https://github.com/Kele-Bingtang/vitepress-theme-teek)，觉得作者编写的这个主题挺好的，也容易扩展，希望自己在走这条路的过程中能对前端有一定了解吧。
+声明一下，自己用c的，所以这些vue啊、vite啊还有什么vitepress，这都是啥？都不是太懂，但是就想折腾一下，主题主要是自己使用，编写的框架主要参考 [vitepress-theme-teek](https://github.com/Kele-Bingtang/vitepress-theme-teek)，觉得作者编写的这个主题挺好的，也容易扩展。
 
 <p align="center">
   <a title="Github release" target="_blank" href="https://github.com/Kele-Bingtang/vitepress-theme-teek/releases">
