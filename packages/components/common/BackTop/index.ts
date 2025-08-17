@@ -73,6 +73,7 @@ export default BackTop;
  * @export
  */
 export type { BackTopExpose as MtBackTopExpose } from "./src/BackTop";
+export type { BackTopOption as MtBackTopOption } from "./src/BackTop";
 
 /**
  * @brief 重新导出 instance.ts 文件中的所有导出
