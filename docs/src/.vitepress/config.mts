@@ -1,9 +1,20 @@
 import { defineConfig } from 'vitepress'
 
 // 主题配置
-import getThemeConfig from "./myThemeConfig";
+import { defineMistConfig } from "../../../packages/config";
 
-const myThemeConfig = getThemeConfig({ useTheme: true });
+const myThemeConfig = defineMistConfig({
+    useTheme: true,
+    
+    themeConfig: {
+      logo: '/favicon.svg', // 导航栏标题的logo
+      footer: {
+        message: '前路漫漫亦灿灿',
+        copyright: 'Copyright © 2019-present 苏木'
+      }
+    }
+  }
+);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
