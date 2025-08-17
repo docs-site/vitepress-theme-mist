@@ -25,6 +25,22 @@
   </a>
 </p>
 
+## 参考说明
+
+主要自己不是搞前端的，所以这些vue啊、vite啊还有什么vitepress，这都是啥？都不是太懂，但是又想自定义一下自己的vitepress站点，就来折腾一下，顺便也可以了解了解vitepress主题的开发过程。这个主题主要是自己使用，主题编写的框架主要参考 [vitepress-theme-teek](https://github.com/Kele-Bingtang/vitepress-theme-teek)，觉得作者编写的这个主题挺好的，也容易扩展，希望自己在走这条路的过程中能对前端有一定了解吧。
+
+<p align="center">
+  <a title="Github release" target="_blank" href="https://github.com/Kele-Bingtang/vitepress-theme-teek/releases">
+    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Kele-Bingtang/vitepress-theme-teek?logo=github">
+  </a>
+  <a title="Npm Version" target="_blank" href="https://www.npmjs.com/package/vitepress-theme-teek">
+    <img src="https://img.shields.io/npm/v/vitepress-theme-teek?logo=npm&color=%09%23bf00ff" alt="https://img.shields.io/npm/v/vitepress-theme-teek?color=%09%23bf00ff">
+  </a>
+</P>
+
+- [vitepress-theme-teek](https://github.com/Kele-Bingtang/vitepress-theme-teek)
+
+- [vitepress-theme-teek-docs](https://vp.teek.top/)
 
 ## 小徽章
 
