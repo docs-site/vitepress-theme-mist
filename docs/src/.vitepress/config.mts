@@ -11,7 +11,11 @@ const myThemeConfig = defineMistConfig({
       footer: {
         message: '前路漫漫亦灿灿',
         copyright: 'Copyright © 2019-present 苏木'
-      }
+      },
+      outline: {
+        label: '页面导航',
+        level: [2, 6],
+      },
     }
   }
 );
@@ -50,6 +54,10 @@ export default defineConfig({
         {
           text: '开发指南',
           items: [
+            { text: 'pnpm工作区', link: '/01-开发/pnpm工作区' },
+            { text: 'TS路径映射与包作用域', link: '/01-开发/TS路径映射与包作用域' },
+            { text: '主题入口分析', link: '/01-开发/主题入口分析' },
+            { text: 'DataLoader组件分析', link: '/01-开发/DataLoader组件分析' },
             { text: '主题配置', link: '/01-开发/主题配置' },
           ]
         }
