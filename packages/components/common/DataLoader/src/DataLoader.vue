@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts" name="DataLoader">
 import { useData } from 'vitepress'
 
 const { site, page } = useData()
@@ -16,6 +16,8 @@ const pageData = page.value
   </div>
 </template>
 
+<!-- 移动到 packages/theme-chalk/src/components/common/data-loader.scss 中实现 -->
+<!-- 
 <style scoped>
 .mt-data-loader {
   border: 1px solid #eee;
@@ -32,3 +34,4 @@ const pageData = page.value
   font-size: 0.8rem;
 }
 </style>
+-->
