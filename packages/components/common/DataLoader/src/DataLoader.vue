@@ -1,18 +1,21 @@
 <script setup lang="ts" name="DataLoader">
 import { useData } from 'vitepress'
+import { useNamespace } from "@mist/composables";
 
 const { site, page } = useData()
 const siteData = site.value
 const pageData = page.value
+
+const ns = useNamespace("data-loader"); // 使用 useNamespace 创建一个命名空间，方便后续样式的使用
 </script>
 
 <template>
-  <div class="mt-data-loader">
+  <div :class="ns.b()"> <!-- class="mt-data-loader" -->
     <p>页面数据:</p>
-    <pre class="mt-data-loader-pre">{{ JSON.stringify(pageData, null, 2) }}</pre>
-    
+    <pre :class="ns.e('pre')">{{ JSON.stringify(pageData, null, 2) }}</pre> <!-- class="mt-data-loader__pre" -->
+
     <p>站点数据:</p>
-    <pre class="mt-data-loader-pre">{{ JSON.stringify(siteData, null, 2) }}</pre>
+    <pre :class="ns.e('pre')">{{ JSON.stringify(siteData, null, 2) }}</pre>
   </div>
 </template>
 
@@ -26,7 +29,7 @@ const pageData = page.value
   border-radius: 4px;
   font-size: 0.8rem;
 }
-.mt-data-loader-pre {
+.mt-data-loader__pre {
   background: #f5f5f5;
   padding: 0.5rem;
   border-radius: 4px;

@@ -1,4 +1,7 @@
-.mt-data-loader {
+@use "../../mixins/bem" as *;
+
+// @include b("data-loader") == .mt-data-loader
+@include b("data-loader") {
   border: 1px solid #eee;
   padding: 1rem;
   margin: 1rem 0;
@@ -6,7 +9,8 @@
   font-size: 0.8rem;
 }
 
-.mt-data-loader-pre {
+// @include e("pre") == .data-loader__pre 这里好像会自动加入block前缀
+@include e("pre") {
   background: #f5f5f5;
   padding: 0.5rem;
   border-radius: 4px;

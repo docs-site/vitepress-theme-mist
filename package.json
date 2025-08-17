@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@mist/components": "workspace:*",
+    "@mist/composables": "workspace:*",
     "@mist/config": "workspace:*",
     "@mist/theme-chalk": "workspace:*"
   }
