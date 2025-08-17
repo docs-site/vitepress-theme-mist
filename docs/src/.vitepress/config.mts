@@ -26,8 +26,8 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/Examples' },
-      { text: '开发指南', link: '/01-开发' },
+      { text: 'Examples', link: '/Examples/' },
+      { text: '开发指南', link: '/01-开发/' },
       { 
         text: '组件', 
         items: [
