@@ -14,6 +14,10 @@ top:
 description:
 ---
 
+<script setup>
+import { MtDataLoader } from "vitepress-theme-mist"
+</script>
+
 
 <!-- more -->
 

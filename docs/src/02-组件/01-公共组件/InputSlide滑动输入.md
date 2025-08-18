@@ -14,6 +14,29 @@ top:
 description: MtInputSlide 组件提供美观的滑动输入控件，支持自定义范围、步长和格式化
 ---
 
+
+<script setup>
+import { MtInputSlide } from "vitepress-theme-mist"
+import { ref } from 'vue'
+
+const value1 = ref(50)  // 基础示例
+const value2 = ref(100) // 自定义范围示例
+const value3 = ref(5)   // 设置步长示例
+const value4 = ref(30)  // 禁用状态示例
+const value5 = ref(75)  // 自定义格式化示例
+const formatPercentage = (val) => {
+  return `${val}%`
+}
+
+// 完整示例
+const value6 = ref(500)
+const formatCurrency = (val) => {
+  return `¥${val}`
+}
+</script>
+
+<!-- more -->
+
 ## 简介
 
 `MtInputSlide` 是一个滑动输入组件，它提供了直观的用户界面来选择数值范围内的值。组件支持自定义范围、步长、格式化函数，并且具有悬浮提示功能，使用户能够精确地选择所需的数值。
@@ -83,33 +106,6 @@ description: MtInputSlide 组件提供美观的滑动输入控件，支持自定
   <div class="value-display">当前价格：{{ formatCurrency(value6) }}</div>
 </div>
 
-<script setup>
-import { ref } from 'vue'
-
-// 基础示例
-const value1 = ref(50)
-
-// 自定义范围示例
-const value2 = ref(100)
-
-// 设置步长示例
-const value3 = ref(5)
-
-// 禁用状态示例
-const value4 = ref(30)
-
-// 自定义格式化示例
-const value5 = ref(75)
-const formatPercentage = (val) => {
-  return `${val}%`
-}
-
-// 完整示例
-const value6 = ref(500)
-const formatCurrency = (val) => {
-  return `¥${val}`
-}
-</script>
 
 ## API
 
