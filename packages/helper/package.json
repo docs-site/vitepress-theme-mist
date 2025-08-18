@@ -1,0 +1,22 @@
+{
+  "name": "@mist/helper",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "stub": "unbuild"
+  },
+  "keywords": [],
+  "author": "sumu",
+  "license": "MIT"
+}
