@@ -4,6 +4,7 @@ import {
   MtDataLoader, // MtDataLoader组件
   MtBackTop,    // MtBackTop组件
   MtTransitionCollapse, // MtTransitionCollapse组件
+  MtInputSlide, // MtInputSlide组件
 } from "@mist/components";
 
 import "../theme-chalk/src/index.scss";
@@ -21,5 +22,6 @@ export default {
     app.component("MtDataLoader", MtDataLoader);
     app.component("MtBackTop", MtBackTop);
     app.component("MtTransitionCollapse", MtTransitionCollapse);
+    app.component("MtInputSlide", MtInputSlide);
   },
 } as DefaultThemeType & { extends: DefaultThemeType };
