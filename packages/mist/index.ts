@@ -1,7 +1,9 @@
 import DefaultTheme from "vitepress/theme";
 
-import { MtDataLoader } from "@mist/components"; // MtDataLoader组件导入
-import { MtBackTop } from "@mist/components";    // MtBackTop组件导入
+import { 
+  MtDataLoader, // MtDataLoader组件
+  MtBackTop,    // MtBackTop组件
+} from "@mist/components";
 
 import "../theme-chalk/src/index.scss";
 
