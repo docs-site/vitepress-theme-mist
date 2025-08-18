@@ -67,6 +67,9 @@ export default defineConfig({
           text: '公共组件',
           items: [
             { text: 'DataLoader数据加载', link: '/02-组件/01-公共组件/DataLoader数据加载' },
+            { text: 'BackTop回到顶部', link: '/02-组件/01-公共组件/BackTop回到顶部' },
+            { text: 'TransitionCollapse折叠', link: '/02-组件/01-公共组件/TransitionCollapse折叠' },
+            { text: 'InputSlide滑动输入', link: '/02-组件/01-公共组件/InputSlide滑动输入' },
           ]
         }
       ]
