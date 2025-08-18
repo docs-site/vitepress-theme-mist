@@ -41,6 +41,13 @@ onMounted(() => {
   inputSliderStyle.setProperty(sliderValueVar, inputValue.value.toString());
   inputSliderStyle.setProperty(sliderMinVar, min?.toString() ?? "0");
   inputSliderStyle.setProperty(sliderMaxVar, max?.toString() ?? "100");
+  
+  // 初始化提示框位置
+  setTimeout(() => {
+    if (inputSliderRef.value && inputSliderTooltipRef.value) {
+      calTipPosition(inputSliderRef.value, inputSliderTooltipRef.value);
+    }
+  }, 0);
 });
 
 const calTipPosition = (inputElement: HTMLInputElement, inputTooltipElement: HTMLSpanElement) => {
@@ -118,9 +125,9 @@ watch(
       />
       <Transition name="fade">
         <span
-          v-show="hovering"
+          v-show="hovering && !positioning"
           ref="inputSliderTooltipRef"
-          :class="[ns.e('label__tooltip'), ns.is('opacity-0', hovering && positioning)]"
+          :class="[ns.e('label__tooltip')]"
         >
           {{ !!format ? format(inputValue) : inputValue }}
         </span>
