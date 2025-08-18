@@ -1,10 +1,7 @@
 import DefaultTheme from "vitepress/theme";
 
 import { 
-  MtDataLoader, // MtDataLoader组件
   MtBackTop,    // MtBackTop组件
-  MtTransitionCollapse, // MtTransitionCollapse组件
-  MtInputSlide, // MtInputSlide组件
 } from "@mist/components";
 
 import "../theme-chalk/src/index.scss";
@@ -19,9 +16,6 @@ export default {
   Layout: DefaultTheme.Layout,
   enhanceApp({ app, siteData }) {
     console.log('vitepress-theme-mist enhanceApp called!');// 正式发布时可能会被自动删除
-    app.component("MtDataLoader", MtDataLoader);
     app.component("MtBackTop", MtBackTop);
-    app.component("MtTransitionCollapse", MtTransitionCollapse);
-    app.component("MtInputSlide", MtInputSlide);
   },
 } as DefaultThemeType & { extends: DefaultThemeType };
