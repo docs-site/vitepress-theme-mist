@@ -1,0 +1,18 @@
+/*!
+ * @file transition-collapse.scss
+ * @brief 定义折叠展开动画的标准 CSS 过渡样式
+ *
+ * 此文件包含用于实现折叠组件展开和收起时平滑过渡效果的 CSS 样式。
+ * 主要控制 max-height、padding-top 和 padding-bottom 属性的变化，
+ * 以提供流畅的动画体验。
+ */
+
+@use "../mixins/config" as *;
+
+.#{$namespace}-collapse-transition-leave-active,
+.#{$namespace}-collapse-transition-enter-active {
+  transition:
+    0.3s max-height ease-in-out,
+    0.3s padding-top ease-in-out,
+    0.3s padding-bottom ease-in-out;
+}

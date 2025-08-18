@@ -3,6 +3,7 @@ import DefaultTheme from "vitepress/theme";
 import { 
   MtDataLoader, // MtDataLoader组件
   MtBackTop,    // MtBackTop组件
+  MtTransitionCollapse, // MtTransitionCollapse组件
 } from "@mist/components";
 
 import "../theme-chalk/src/index.scss";
@@ -19,5 +20,6 @@ export default {
     console.log('vitepress-theme-mist enhanceApp called!');// 正式发布时可能会被自动删除
     app.component("MtDataLoader", MtDataLoader);
     app.component("MtBackTop", MtBackTop);
+    app.component("MtTransitionCollapse", MtTransitionCollapse);
   },
 } as DefaultThemeType & { extends: DefaultThemeType };
