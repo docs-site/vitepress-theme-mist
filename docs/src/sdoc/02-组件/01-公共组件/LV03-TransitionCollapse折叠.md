@@ -1,5 +1,5 @@
 ---
-title: TransitionCollapse折叠
+title: LV03-TransitionCollapse折叠
 date: 2025-08-18 11:37:00
 icon: material-symbols:animation
 index: true

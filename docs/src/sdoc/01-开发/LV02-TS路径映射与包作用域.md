@@ -1,5 +1,5 @@
 ---
-title: TS路径映射与包作用域
+title: LV02-TS路径映射与包作用域
 date: 2025-08-15 10:50:12
 icon: famicons:logo-markdown
 index: true

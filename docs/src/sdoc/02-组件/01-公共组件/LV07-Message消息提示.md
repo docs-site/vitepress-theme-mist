@@ -1,5 +1,5 @@
 ---
-title: Message消息提示
+title: LV07-Message消息提示
 date: 2025-08-19 20:37:00
 icon: material-symbols:notifications
 index: true

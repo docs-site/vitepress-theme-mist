@@ -1,5 +1,5 @@
 ---
-title: InputSlide滑动输入
+title: LV04-InputSlide滑动输入
 date: 2025-08-18 12:03:00
 icon: material-symbols:slider
 index: true

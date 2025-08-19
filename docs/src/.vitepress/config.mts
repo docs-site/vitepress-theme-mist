@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-
+import { getSidebarData, getNavData } from './get-nav-sidebar'
 // 主题配置
 import { defineMistConfig } from "../../../packages/config";
 
@@ -28,55 +28,16 @@ export default defineConfig({
   base: '/vitepress-theme-mist/', // 计划将站点部署到 https://docs-site.github.io/vitepress-theme-mist/，那么应该将 base 设置为 '/vitepress-theme-mist/'。它应该始终以 / 开头和结尾。
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/Examples/' },
-      { text: '开发指南', link: '/01-开发/' },
-      { 
-        text: '组件', 
-        items: [
-          { text: '公共组件', link: '/02-组件/01-公共组件/' }
-        ]
-      }
-    ],
-
-    sidebar: {
-      '/Examples/': [
-        {
-          text: 'Examples',
-          items: [
-            { text: 'Markdown Examples', link: '/Examples/markdown-examples' },
-            { text: 'Runtime API Examples', link: '/Examples/api-examples' }
-          ]
-        }
-      ],
-      '/01-开发/': [
-        {
-          text: '开发指南',
-          items: [
-            { text: 'pnpm工作区', link: '/01-开发/pnpm工作区' },
-            { text: 'TS路径映射与包作用域', link: '/01-开发/TS路径映射与包作用域' },
-            { text: '主题入口分析', link: '/01-开发/主题入口分析' },
-            { text: 'DataLoader组件分析', link: '/01-开发/DataLoader组件分析' },
-            { text: '主题配置', link: '/01-开发/主题配置' },
-          ]
-        }
-      ],
-      '/02-组件/': [
-        {
-          text: '公共组件',
-          items: [
-            { text: 'DataLoader数据加载', link: '/02-组件/01-公共组件/DataLoader数据加载' },
-            { text: 'BackTop回到顶部', link: '/02-组件/01-公共组件/BackTop回到顶部' },
-            { text: 'TransitionCollapse折叠', link: '/02-组件/01-公共组件/TransitionCollapse折叠' },
-            { text: 'InputSlide滑动输入', link: '/02-组件/01-公共组件/InputSlide滑动输入' },
-            { text: 'Icon图标', link: '/02-组件/01-公共组件/Icon图标' },
-            { text: 'Button按钮', link: '/02-组件/01-公共组件/Button按钮' },
-            { text: 'Message消息提示', link: '/02-组件/01-公共组件/Message消息提示' },
-          ]
-        }
-      ]
-    },
+    nav: getNavData({ 
+      dirName: 'sdoc', 
+      maxLevel: 2, 
+      debugPrint: false 
+    }),
+    sidebar: getSidebarData({ 
+      dirName: 'sdoc', 
+      maxLevel: 6,
+      debugPrint: false 
+    }),
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
