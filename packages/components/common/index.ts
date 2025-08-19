@@ -4,3 +4,4 @@ export * from "./TransitionCollapse";
 export * from "./InputSlide";
 export * from "./Icon";
 export * from "./Button";
+export * from "./Message";
