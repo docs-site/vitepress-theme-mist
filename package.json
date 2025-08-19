@@ -28,6 +28,7 @@
     "@mist/composables": "workspace:*",
     "@mist/config": "workspace:*",
     "@mist/helper": "workspace:*",
+    "@mist/static": "workspace:*",
     "@mist/theme-chalk": "workspace:*"
   },
   "devDependencies": {
@@ -38,5 +39,4 @@
     "vitepress": "catalog:",
     "vue": "catalog:"
   }
-  
 }

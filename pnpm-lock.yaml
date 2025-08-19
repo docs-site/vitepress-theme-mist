@@ -45,6 +45,9 @@ importers:
       '@mist/helper':
         specifier: workspace:*
         version: link:packages/helper
+      '@mist/static':
+        specifier: workspace:*
+        version: link:packages/static
       '@mist/theme-chalk':
         specifier: workspace:*
         version: link:packages/theme-chalk
@@ -179,6 +182,8 @@ importers:
       vitepress:
         specifier: 'catalog:'
         version: 1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2)
+
+  packages/static: {}
 
   packages/theme-chalk:
     devDependencies:

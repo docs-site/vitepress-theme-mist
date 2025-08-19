@@ -6,9 +6,14 @@ import {
 
 import "../theme-chalk/src/index.scss";
 
+// 引入社交图标库
+import "@mist/static/iconfont/social/iconfont.js";
+import "@mist/static/iconfont/social/iconfont.css";
+
 export type DefaultThemeType = typeof DefaultTheme;
 export type * from "@mist/config";
 
+export * from "@mist/static";
 export * from "@mist/components";
 
 export default {
