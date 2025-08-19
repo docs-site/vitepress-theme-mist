@@ -54,6 +54,9 @@
   "bugs": {
     "url": "https://github.com/docs-site/vitepress-theme-mist/issues"
   },
+  "dependencies": {
+    "@iconify/vue": "^5.0.0"
+  },
   "devDependencies": {
     "vitepress": "^1.6.4"
   },

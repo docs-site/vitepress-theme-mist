@@ -10,6 +10,9 @@
   "keywords": [],
   "author": "sumu",
   "license": "MIT",
+  "dependencies": {
+    "@iconify/vue": "catalog:"
+  },
   "devDependencies": {
     "vitepress": "catalog:"
   }

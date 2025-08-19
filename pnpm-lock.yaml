@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    '@iconify/vue':
+      specifier: ^5.0.0
+      version: 5.0.0
     rimraf:
       specifier: ^6.0.1
       version: 6.0.1
@@ -148,6 +151,10 @@ importers:
         version: 3.5.18(typescript@5.9.2)
 
   packages/components:
+    dependencies:
+      '@iconify/vue':
+        specifier: 'catalog:'
+        version: 5.0.0(vue@3.5.18(typescript@5.9.2))
     devDependencies:
       vitepress:
         specifier: 'catalog:'
@@ -750,6 +757,11 @@ packages:
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+
+  '@iconify/vue@5.0.0':
+    resolution: {integrity: sha512-C+KuEWIF5nSBrobFJhT//JS87OZ++QDORB6f2q2Wm6fl2mueSTpFBeBsveK0KW9hWiZ4mNiPjsh6Zs4jjdROSg==}
+    peerDependencies:
+      vue: '>=3'
 
   '@isaacs/balanced-match@4.0.1':
     resolution: {integrity: sha512-yzMTt9lEb8Gv7zRioUilSglI0c0smZ9k5D65677DLWLtWJaXIS3CqcGyUFByYKlnUj6TkjLVs54fBl6+TiGQDQ==}
@@ -3177,6 +3189,11 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify/types@2.0.0': {}
+
+  '@iconify/vue@5.0.0(vue@3.5.18(typescript@5.9.2))':
+    dependencies:
+      '@iconify/types': 2.0.0
+      vue: 3.5.18(typescript@5.9.2)
 
   '@isaacs/balanced-match@4.0.1': {}
 
