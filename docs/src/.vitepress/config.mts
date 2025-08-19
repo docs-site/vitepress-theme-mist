@@ -70,6 +70,9 @@ export default defineConfig({
             { text: 'BackTop回到顶部', link: '/02-组件/01-公共组件/BackTop回到顶部' },
             { text: 'TransitionCollapse折叠', link: '/02-组件/01-公共组件/TransitionCollapse折叠' },
             { text: 'InputSlide滑动输入', link: '/02-组件/01-公共组件/InputSlide滑动输入' },
+            { text: 'Icon图标', link: '/02-组件/01-公共组件/Icon图标' },
+            { text: 'Button按钮', link: '/02-组件/01-公共组件/Button按钮' },
+            { text: 'Message消息提示', link: '/02-组件/01-公共组件/Message消息提示' },
           ]
         }
       ]
