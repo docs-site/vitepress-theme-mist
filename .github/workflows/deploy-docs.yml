@@ -92,7 +92,8 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |
-          pnpm run docs:build
+          pnpm stub
+          pnpm docs:build
 
       - name: 部署文档
         uses: JamesIves/github-pages-deploy-action@v4
