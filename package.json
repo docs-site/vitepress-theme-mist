@@ -28,6 +28,7 @@
     "@mist/composables": "workspace:*",
     "@mist/config": "workspace:*",
     "@mist/helper": "workspace:*",
+    "@mist/locale": "workspace:*",
     "@mist/static": "workspace:*",
     "@mist/theme-chalk": "workspace:*"
   },
