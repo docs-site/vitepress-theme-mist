@@ -55,9 +55,14 @@
     "url": "https://github.com/docs-site/vitepress-theme-mist/issues"
   },
   "dependencies": {
-    "@iconify/vue": "^5.0.0"
+    "@iconify/vue": "^5.0.0",
+    "js-yaml": "^4.1.0",
+    "markdown-it-container": "^4.0.0"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/markdown-it": "^14.1.2",
+    "@types/markdown-it-container": "^2.0.10",
     "vitepress": "^1.6.4"
   },
   "peerDependencies": {
