@@ -7,6 +7,9 @@ import { join, resolve, posix } from "path";
 import container from "markdown-it-container";
 import yaml from "js-yaml";
 
+// 这里的目录修改时，packages/components/theme/DemoCode/src/index.vue 中也需要对应修改
+const COMPONENTS_TEST_PATH = 'test'
+
 interface ContainerOpts {
   marker?: string | undefined;
   validate?(params: string): boolean;
@@ -16,7 +19,7 @@ interface ContainerOpts {
 const demoPlugin = (md: MarkdownIt, option: Demo = {}) => {
   const siteConfig: SiteConfig = (globalThis as any).VITEPRESS_CONFIG;
   const srcDir = siteConfig.srcDir;
-  const path = "examples";
+  const path = COMPONENTS_TEST_PATH;
   const demoPath = join(srcDir, path);
 
   const options: ContainerOpts = {

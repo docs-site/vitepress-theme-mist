@@ -34,7 +34,8 @@ const decodedDescription = computed(() => decodeURIComponent(props.description))
 const effect = computed(() => props.effect === "true");
 
 // 预加载 Demo 组件，防止 VitePress 打包时不包含 Demo 组件
-const moduleFiles = (import.meta as any).glob("/examples/**/*.vue", { eager: true });
+// 注意："/test" 是 demo 组件的默认路径前缀，如需修改请同步更新此处
+const moduleFiles = (import.meta as any).glob("/test/**/*.vue", { eager: true });
 
 const DemoComponent = defineAsyncComponent(async () => {
   try {
