@@ -7,10 +7,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["vitepress"],
+  "keywords": [
+    "vitepress"
+  ],
   "author": "sumu",
   "license": "MIT",
   "dependencies": {
     "vitepress": "catalog:"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "catalog:"
   }
 }

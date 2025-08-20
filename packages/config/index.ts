@@ -2,6 +2,12 @@
 import type { DefaultTheme, UserConfig } from "vitepress";
 import type { MistConfig } from "./types";
 // import type { PluginOption } from "vite";
+import {
+  demoPlugin,
+  containerPlugin,
+} from "../markdown";
+
+export type * from "./types";
 
 /**
  * @brief 定义Mist主题的配置
@@ -31,7 +37,7 @@ import type { MistConfig } from "./types";
  */
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {
   // 获取用户的配置，进行逻辑处理
-  const { useTheme = true, ...themeConfig } = config;
+  const { useTheme = true, markdown = {}, ...themeConfig } = config;
 
   if (!useTheme) return {};
 
@@ -43,6 +49,15 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
     vite: {
       // 添加主题需要的 Vite 插件
       plugins: [],
+    },
+    markdown: {
+      config: md => {
+        const { container = {}, demo } = markdown;
+        // 使用链式调用可以简化代码结构，提高可读性。
+        // 每个 `.use()` 方法都会返回 `md` 实例本身，因此可以连续调用多个插件。
+        // 这种方式避免了多次重复书写 `md.use(...)`，使代码更加简洁明了。
+        if (!demo?.disabled) md.use(demoPlugin, demo).use(containerPlugin, container.label);
+      },
     },
     themeConfig: {
       logo: '/favicon.svg', // 导航栏标题的logo

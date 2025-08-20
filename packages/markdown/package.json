@@ -1,0 +1,24 @@
+{
+  "name": "@mist/markdown",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "sumu",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/js-yaml": "catalog:",
+    "@types/markdown-it": "catalog:",
+    "@types/markdown-it-container": "catalog:",
+    "vitepress": "catalog:"
+  },
+  "dependencies": {
+    "@types/node": "catalog:",
+    "js-yaml": "catalog:",
+    "markdown-it-container": "catalog:"
+  }
+}

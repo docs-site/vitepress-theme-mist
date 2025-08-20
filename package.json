@@ -29,6 +29,7 @@
     "@mist/config": "workspace:*",
     "@mist/helper": "workspace:*",
     "@mist/locale": "workspace:*",
+    "@mist/markdown": "workspace:*",
     "@mist/static": "workspace:*",
     "@mist/theme-chalk": "workspace:*"
   },
