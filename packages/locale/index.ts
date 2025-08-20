@@ -4,7 +4,7 @@ export type LocalesItem = {
 
 export type Language = {
   lang: string;
-  tk: LocalesItem;
+  mt: LocalesItem;
 };
 
 export { default as zhCn } from "./lang/zh-cn";
