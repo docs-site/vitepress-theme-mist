@@ -34,6 +34,7 @@
     "@mist/theme-chalk": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "catalog:",
     "@vue/runtime-core": "catalog:vue",
     "@vue/runtime-dom": "catalog:vue",
     "rimraf": "catalog:",

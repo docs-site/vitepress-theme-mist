@@ -1,10 +1,13 @@
 @use "./base"; // 引入基础样式
 
-@use "./components/common/data-loader"; // Data Loader 组件样式
+
 @use "./components/common/back-top"; // BackTop 组件样式
-@use "./components/common/input-slide"; // InputSlide 组件样式
-@use "./components/common/icon"; // Icon 组件样式
 @use "./components/common/button"; // Button 组件样式
+@use "./components/common/data-loader"; // Data Loader 组件样式
+
+@use "./components/common/icon"; // Icon 组件样式
+@use "./components/common/input-slide"; // InputSlide 组件样式
 @use "./components/common/message"; // Message 组件样式
+
 
 @use "./components/theme/demo-code"; // Democode 组件样式
