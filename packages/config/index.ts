@@ -1,11 +1,7 @@
 // myThemeConfig.ts
 import type { DefaultTheme, UserConfig } from "vitepress";
+import type { MistConfig } from "./types";
 // import type { PluginOption } from "vite";
-
-interface ThemeConfig {
-  useTheme?: boolean; // 是否开启主题
-  // ...
-}
 
 /**
  * @brief 定义Mist主题的配置
@@ -33,7 +29,7 @@ interface ThemeConfig {
  * @example 禁用主题
  * const config = defineMistConfig({ useTheme: false });
  */
-export const defineMistConfig = (config: ThemeConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {
+export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {
   // 获取用户的配置，进行逻辑处理
   const { useTheme = true, ...themeConfig } = config;
 
