@@ -58,9 +58,13 @@ jobs:
       - name: Publish to npm
         run: |
           cd dist/vitepress-theme-mist
-          pnpm publish --access public # 发布公开包
+          # 设置npm registry并配置认证
+          echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+          echo "always-auth=true" >> .npmrc
+          pnpm publish --access public --no-git-checks # 发布公开包
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_NPM }} # 使用NPM_TOKEN环境变量进行身份验证
+          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_NPM }} # 使用个人访问令牌进行身份验证
 
       # 步骤 7: 创建并推送版本标签
       - name: Create and push version tag
