@@ -1,0 +1,14 @@
+@use "../../mixins/bem" as *;
+@use "../../mixins/function" as *;
+@use "../../mixins/mixins" as *;
+@use "../../mixins/config" as *;
+
+:root {
+  @include set-css-var("theme-enhance-text-color", var(--vp-c-text-1));
+  @include set-css-var("theme-enhance-inner-bg-color", getCssVar("fill-color-dark"));
+}
+
+@include b(segmented) {
+  color: getCssVar("theme-enhance-text-color");
+  background-color: getCssVar("theme-enhance-inner-bg-color");
+}
