@@ -1,8 +1,37 @@
 <script setup lang="ts" name="MistLayout">
+import type { MistConfig } from "@mist/config";
 import DefaultTheme from "vitepress/theme";
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+
+import { useMistConfig } from "@mist/components/theme/ConfigProvider";
+
 
 const { Layout } = DefaultTheme;
+const { getMistConfigRef } = useMistConfig();
+
+// 支持 provide、frontmatter.tk、frontmatter、theme 配置
+const mistConfig = getMistConfigRef<Required<MistConfig>>(null, {
+  useTheme: true,
+});
+
+// 调试控制选项
+const debugMode = ref(true);
+
+// 打印 mistConfig 所有成员的方法
+const logMistConfigMembers = () => {
+  // 如果 debugMode 为 false，则不执行打印操作
+  if (!debugMode.value) return;
+  
+  console.log('--- mistConfig 所有成员 ---');
+  console.log('mistConfig 对象:', mistConfig.value);
+  console.log('mistConfig 键名:', Object.keys(mistConfig.value));
+  console.log('mistConfig 键值对:', Object.entries(mistConfig.value));
+};
+
+// 在组件挂载后打印 mistConfig 成员
+onMounted(() => {
+  logMistConfigMembers();
+});
 
 // 插槽配置数组
 const showSlotDebug = ref(false); // 默认不启用调试模式,设置为true后，所有插槽都会显示
