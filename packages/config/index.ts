@@ -37,9 +37,9 @@ export type * from "./types";
  */
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {
   // 获取用户的配置，进行逻辑处理
-  const { useTheme = true, markdown = {}, ...themeConfig } = config;
+  const { markdown = {}, ...MistThemeConfig } = config;
 
-  if (!useTheme) return {};
+  if (!MistThemeConfig.useTheme) return {};
 
   return {
     // ignoreDeadLinks 默认值修改为 true，当用户在 VitePress 手动改为 false 才为 false
@@ -59,13 +59,6 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
         if (!demo?.disabled) md.use(demoPlugin, demo).use(containerPlugin, container.label);
       },
     },
-    themeConfig: {
-      logo: '/favicon.svg', // 导航栏标题的logo
-      footer: {
-        message: '莫道桑榆晚, 为霞尚满天.',
-        copyright: 'Copyright © 2019-present 苏木'
-      },
-      ...themeConfig.themeConfig // 合并用户传入的themeConfig
-    }
+    themeConfig: MistThemeConfig,
   };
 };
