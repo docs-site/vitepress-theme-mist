@@ -3,6 +3,8 @@ import DefaultTheme from "vitepress/theme";
 import { 
   MtBackTop,    // MtBackTop组件
   MtDemoCode,
+  MistConfigProvider,
+  MtLayout,
 } from "@mist/components";
 
 import "../theme-chalk/src/index.scss";
@@ -19,7 +21,7 @@ export * from "@mist/components";
 
 export default {
   extends: DefaultTheme,
-  Layout: DefaultTheme.Layout,
+  Layout: MistConfigProvider(MtLayout),
   enhanceApp({ app, siteData }) {
     console.log('vitepress-theme-mist enhanceApp called!');// 正式发布时可能会被自动删除
     app.component("MtBackTop", MtBackTop);
