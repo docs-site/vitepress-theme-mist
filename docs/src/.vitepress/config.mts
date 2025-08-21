@@ -4,21 +4,9 @@ import { getSidebarData, getNavData } from './get-nav-sidebar'
 import { defineMistConfig } from "../../../packages/config";
 
 const myThemeConfig = defineMistConfig({
-    useTheme: true,
-    
-    themeConfig: {
-      logo: '/favicon.svg', // 导航栏标题的logo
-      footer: {
-        message: '前路漫漫亦灿灿',
-        copyright: 'Copyright © 2019-present 苏木'
-      },
-      outline: {
-        label: '页面导航',
-        level: [2, 6],
-      },
-    }
-  }
-);
+  useTheme: true,
+  themeName: 'vitepress-theme-mist',
+});
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -38,7 +26,10 @@ export default defineConfig({
       maxLevel: 6,
       debugPrint: false 
     }),
-
+    outline: {
+      label: '页面导航',
+      level: [2, 6],
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ]
