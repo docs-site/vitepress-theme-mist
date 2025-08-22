@@ -10,5 +10,6 @@ export * from "./useNamespace";
 export * from "./usePopoverSize";
 export * from "./useScopeDispose";
 export * from "./useStorage";
+export * from "./useThemeColor";
 export * from "./useWindowSize";
 export * from "./useZIndex";

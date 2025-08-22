@@ -11,6 +11,7 @@ import { mobileMaxWidthMedia } from "./themeEnhance";
 import LayoutSwitch from "./LayoutSwitch.vue";
 import LayoutPageWidthSlide from "./LayoutPageWidthSlide.vue";
 import LayoutDocWidthSlide from "./LayoutDocWidthSlide.vue";
+import ThemeColor from "./ThemeColor.vue";
 defineOptions({ name: "ThemeEnhance" });
 
 const { getMistConfigRef } = useMistConfig();
@@ -19,6 +20,7 @@ const isMobile = useMediaQuery(mobileMaxWidthMedia);
 const disabledList = computed(() => {
   return {
     layoutSwitch: themeEnhanceConfig.value.layoutSwitch?.disabled ?? false,
+    themeColor: themeEnhanceConfig.value.themeColor?.disabled ?? false,
   };
 });
 </script>
@@ -41,6 +43,9 @@ const disabledList = computed(() => {
         <LayoutDocWidthSlide />
       </template>
 
+      <template v-if="!disabledList.themeColor">
+        <ThemeColor />
+      </template>
     </div>
   </MtPopover>
 </template>

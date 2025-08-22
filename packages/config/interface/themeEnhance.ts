@@ -1,6 +1,8 @@
 import type {
+  ThemeColorName,
   LayoutMode,
   LayoutModeVal,
+  ThemeColorOption,
 } from "../../components/theme/ThemeEnhance/src/themeEnhance";
 
 export interface ThemeEnhance {
@@ -71,5 +73,95 @@ export interface ThemeEnhance {
      * @default false
      */
     disablePageMaxWidthHelp?: boolean;
+  };
+  /**
+   * 布局主题色配置
+   */
+  themeColor?: {
+    /**
+     * 禁用布局主题色切换
+     *
+     * @default false
+     */
+    disabled?: boolean;
+    /**
+     * 从 0 完全自定义布局主题色，不使用内置主题色
+     *
+     * @default false
+     * @version 1.4.1
+     */
+    customize?:
+      | boolean
+      | {
+          /**
+           * 是否使用 vitepress 的主题色
+           *
+           * @default true
+           */
+          vitepressTheme?: boolean;
+          /**
+           * 是否使用 elementPlus 的主题色
+           *
+           * @default true
+           */
+          elementPlusTheme?: boolean;
+        };
+    /**
+     * 布局默认主题色
+     *
+     * @default ThemeColorName.vpDefault
+     */
+    defaultColorName?:
+      | ThemeColorName
+      | "vp-default"
+      | "vp-green"
+      | "vp-yellow"
+      | "vp-red"
+      | "ep-blue"
+      | "ep-green"
+      | "ep-yellow"
+      | "ep-red"
+      | string;
+    /**
+     * 切换布局成功后的回调
+     *
+     * @since 1.3.2
+     */
+    switchColorDone?: (color: string) => void;
+    /**
+     * 是否将主题色扩散到其他元素（根据主题色计算其他元素需要的颜色）
+     *
+     * @default false
+     */
+    defaultSpread?: boolean;
+    /**
+     * 禁用帮助提示
+     *
+     * @default false
+     */
+    disableHelp?: boolean;
+    /**
+     * 是否在移动端禁用
+     *
+     * @default false
+     */
+    disabledInMobile?: boolean;
+    /**
+     * 自定义主题色，将会追加到内置主题色后面
+     */
+    append?: {
+      /**
+       * 主题组名称
+       */
+      label: string;
+      /**
+       * 主题组提示信息，鼠标悬停时显示
+       */
+      tip?: string;
+      /**
+       * 主题组内容
+       */
+      options: ThemeColorOption[];
+    }[];
   };
 }
