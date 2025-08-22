@@ -33,7 +33,10 @@ const usedSlots = [
 <template>
   <Layout>
     <template #aside-outline-before>
+      <slot name="mist-article-share-before" />
       <MtArticleShare v-if="mistConfig.articleShare.enabled" />
+      <slot name="mist-article-share-after" />
+      <slot name="aside-outline-before" /> <!-- 将插槽内容传递给vitepress -->
     </template>
     <!-- 通过了 v-for 遍历所有 未使用 VitePress 的插槽，并使用 #[name]="slotData" 将插槽内容传递给 VitePress -->
     <template
