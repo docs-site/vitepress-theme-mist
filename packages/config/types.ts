@@ -1,6 +1,7 @@
 import type { 
   ArticleShare,
-  Markdown 
+  Markdown,
+  ThemeEnhance,
 } from "./interface";
 
 export type * from "./interface";
@@ -9,5 +10,6 @@ export interface MistConfig {
   articleShare?: ArticleShare; // 文章分享配置
   markdown?: Markdown;// markdown插件配置
   themeName?: string; // 主题名称
+  themeEnhance?: ThemeEnhance; // 主题增强配置
   // ...
 }

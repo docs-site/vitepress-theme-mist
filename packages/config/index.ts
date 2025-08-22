@@ -42,6 +42,10 @@ const defaultMistConfig: Required<MistConfig> = {
     enabled: true,
   },
   themeName: "mist",
+  themeEnhance: {
+    enabled: true,
+    position: 'top',
+  },
 } as Required<MistConfig>;
 
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {

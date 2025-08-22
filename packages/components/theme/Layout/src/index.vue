@@ -6,13 +6,13 @@ import { onMounted, useSlots } from 'vue';
 import { useMistConfig } from "@mist/components/theme/ConfigProvider";
 import { logMistConfigMembers, logSlotInfo } from './debugUtils';
 import { MtArticleShare } from "@mist/components/theme/ArticleShare";
-
+import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
 
 const { Layout } = DefaultTheme;
 const { getMistConfigRef } = useMistConfig();
 const slots = useSlots();
 
-// 支持 provide、frontmatter.tk、frontmatter、theme 配置
+// 支持 provide、frontmatter.mt、frontmatter、theme 配置
 const mistConfig = getMistConfigRef<Required<MistConfig>>(null, {
   useTheme: true,
 });
@@ -26,6 +26,7 @@ onMounted(() => {
 // 维护已使用的插槽，防止外界传来的插槽覆盖已使用的插槽
 const usedSlots = [
   "aside-outline-before",
+  "nav-bar-content-after"
 ];
 </script>
 
@@ -33,6 +34,17 @@ const usedSlots = [
 <template>
   <template v-if="mistConfig.useTheme">
     <Layout>
+
+      <template #nav-bar-content-after>
+        <slot name="nav-bar-content-after" />
+
+        <MtThemeEnhance v-if="mistConfig.themeEnhance.enabled ?? true">
+          <template v-for="(_, name) in $slots" :key="name" #[name]="scope">
+            <slot :name="name" v-bind="scope" />
+          </template>
+        </MtThemeEnhance>
+      </template>
+
       <template #aside-outline-before>
         <slot name="mist-article-share-before" />
         <MtArticleShare v-if="mistConfig.articleShare.enabled" />
