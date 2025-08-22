@@ -2,21 +2,7 @@
  * Customize default theme styling by overriding CSS variables:
  * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
  */
-
-:root {
-  --lm-c-green-1: rgba(66, 185, 131, 1.0);
-  --lm-c-green-2: rgba(66, 185, 131, 0.9);
-  --lm-c-green-3: rgba(66, 185, 131, 0.8);
-  --lm-c-green-soft: rgba(66, 185, 131, 0.16);
-
-}
-
-:root {
-  --vp-c-brand-1: var(--lm-c-green-1);
-  --vp-c-brand-2: var(--lm-c-green-2);
-  --vp-c-brand-3: var(--lm-c-green-3);
-  --vp-c-brand-soft: var(--lm-c-green-soft);
-}
+@use "../mixins/function" as *; // 这里若是没有引入，则会导致EP颜色解析异常（#{getCssVar("...")}不会被展开）
 
 /* VitePress 绿色 */
 html[theme-color="vp-green"] {
