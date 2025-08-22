@@ -76,7 +76,7 @@ export const slotConfigs = ref({
   'nav-screen-content-after': { enabled: false, color: '#DC143C' }
 });
 
-// 可以在vue布局组件调试的时候使用
+// 在vue布局组件调试的时候使用
 // <template>
 //   <Layout>
 //     <!-- 插槽调试 -->
