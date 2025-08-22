@@ -1,5 +1,6 @@
 <script setup lang="ts" name="ThemeEnhance">
 import type { ThemeEnhance } from "@mist/config";
+import { computed } from "vue";
 import { readingIcon } from "@mist/static/icons";
 import { useMediaQuery } from "@Mist/composables";
 import { useMistConfig } from "@mist/components/theme/ConfigProvider";
@@ -7,11 +8,19 @@ import { MtIcon } from "@mist/components/common/Icon";
 import { MtPopover } from "@mist/components/common/Popover";
 import { ns } from "./namespace";
 import { mobileMaxWidthMedia } from "./themeEnhance";
+import LayoutSwitch from "./LayoutSwitch.vue";
+import LayoutPageWidthSlide from "./LayoutPageWidthSlide.vue";
+import LayoutDocWidthSlide from "./LayoutDocWidthSlide.vue";
 defineOptions({ name: "ThemeEnhance" });
 
 const { getMistConfigRef } = useMistConfig();
 const themeEnhanceConfig = getMistConfigRef<ThemeEnhance>("themeEnhance", { position: "top" });
 const isMobile = useMediaQuery(mobileMaxWidthMedia);
+const disabledList = computed(() => {
+  return {
+    layoutSwitch: themeEnhanceConfig.value.layoutSwitch?.disabled ?? false,
+  };
+});
 </script>
 
 <template>
@@ -24,5 +33,14 @@ const isMobile = useMediaQuery(mobileMaxWidthMedia);
     <template #reference>
       <MtIcon :icon="readingIcon" :size="20" />
     </template>
+    <div :class="ns.e('content')">
+
+      <template v-if="!disabledList.layoutSwitch">
+        <LayoutSwitch />
+        <LayoutPageWidthSlide />
+        <LayoutDocWidthSlide />
+      </template>
+
+    </div>
   </MtPopover>
 </template>

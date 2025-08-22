@@ -9,5 +9,6 @@ export * from "./useMounted";
 export * from "./useNamespace";
 export * from "./usePopoverSize";
 export * from "./useScopeDispose";
+export * from "./useStorage";
 export * from "./useWindowSize";
 export * from "./useZIndex";
