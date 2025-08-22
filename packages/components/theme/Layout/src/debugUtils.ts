@@ -5,7 +5,7 @@ import { ref } from 'vue';
 // 调试配置对象
 export const debugConfig = ref({
   showMistConfig: false, // 是否启用调试模式
-  showSlots: false,     // 是否显示插槽调试信息
+  showSlots: false,     // 是否显示插槽调试信息，移动到站点主题目录中使用，这里仅作参考
   usableSlots: false,   // 是否在控制台显示所有可用的插槽
 });
 
@@ -75,3 +75,23 @@ export const slotConfigs = ref({
   'nav-screen-content-before': { enabled: false, color: '#4169E1' },
   'nav-screen-content-after': { enabled: false, color: '#DC143C' }
 });
+
+// 可以在vue布局组件调试的时候使用
+// <template>
+//   <Layout>
+//     <!-- 插槽调试 -->
+//      <template
+//         v-for="name in Object.keys($slots)"
+//         :key="name"
+//         #[name]="slotData"
+//       >
+//         <slot :name="name" v-bind="slotData"></slot>
+//       </template>
+//     <template v-for="(slot, name) in slotConfigs" #[name] :key="name">
+//         <div v-if="debugConfig.showSlots || slot.enabled" :style="`color: ${slot.color}`">
+//           <!-- {{ console.log('Rendering slot:', name, 'enabled:', slot.enabled, 'color:', slot.color) }} -->
+//           #{{ name }}
+//         </div>
+//     </template>
+//   </Layout>
+// </template>
