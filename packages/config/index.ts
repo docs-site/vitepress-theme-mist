@@ -35,11 +35,30 @@ export type * from "./types";
  * @example 禁用主题
  * const config = defineMistConfig({ useTheme: false });
  */
+// 默认配置
+const defaultMistConfig: Required<MistConfig> = {
+  useTheme: true,
+  articleShare: {
+    enabled: true,
+  },
+  themeName: "mist",
+} as Required<MistConfig>;
+
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {
   // 获取用户的配置，进行逻辑处理
   const { markdown = {}, ...MistThemeConfig } = config;
+  
+  // 合并默认配置和用户配置
+  const mergedConfig: MistConfig = {
+    ...defaultMistConfig,
+    ...MistThemeConfig,
+    articleShare: {
+      ...defaultMistConfig.articleShare,
+      ...MistThemeConfig.articleShare,
+    }
+  };
 
-  if (!MistThemeConfig.useTheme) return {};
+  // if (!mergedConfig.useTheme) return {};
 
   return {
     // ignoreDeadLinks 默认值修改为 true，当用户在 VitePress 手动改为 false 才为 false
@@ -59,6 +78,6 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
         if (!demo?.disabled) md.use(demoPlugin, demo).use(containerPlugin, container.label);
       },
     },
-    themeConfig: MistThemeConfig,
+    themeConfig: mergedConfig,
   };
 };
