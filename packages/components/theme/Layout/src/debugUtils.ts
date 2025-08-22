@@ -4,8 +4,9 @@ import { ref } from 'vue';
 
 // 调试配置对象
 export const debugConfig = ref({
-  showMistConfig: true, // 是否启用调试模式
+  showMistConfig: false, // 是否启用调试模式
   showSlots: false,     // 是否显示插槽调试信息
+  usableSlots: false,   // 是否在控制台显示所有可用的插槽
 });
 
 // 打印 mistConfig 所有成员的方法
@@ -18,6 +19,21 @@ export const logMistConfigMembers = (mistConfig: Ref<Required<MistConfig> | null
 
   console.log('mistConfig 键名:', Object.keys(mistConfig.value || {}));
   console.log('mistConfig 键值对:', Object.entries(mistConfig.value || {}));
+};
+
+// 打印插槽信息的方法
+export const logSlotInfo = (slots: any) => {
+  // 如果 debugConfig.showSlots 为 false，则不执行打印操作
+  if (!debugConfig.value.usableSlots) return;
+
+  console.log('--- available slot info ---');
+  if (slots) {
+    const slotNames = Object.keys(slots);
+    console.log('slot total num:', slotNames.length);
+    console.log('slot name list:', slotNames);
+  } else {
+    console.log('No available slots were found!');
+  }
 };
 
 // 插槽配置对象
