@@ -42,7 +42,11 @@ function setCanvasSize() {
 function createTextParticle(x: number, y: number) {
   const config = textConfig.value;
   let textToDisplay: string;
-  if (config.random) {
+  
+  // 确保 textArray 存在且有内容
+  if (!config.textArray || config.textArray.length === 0) {
+    textToDisplay = 'Mist';
+  } else if (config.random) {
     textToDisplay = config.textArray[Math.floor(Math.random() * config.textArray.length)];
   } else {
     textToDisplay = config.textArray[currentTextIndex];

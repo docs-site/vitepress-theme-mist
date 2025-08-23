@@ -86,12 +86,14 @@ onMounted(() => {
         const rect = element.getBoundingClientRect()
         return { id: sectionId, top: rect.top, bottom: rect.bottom }
       })
-      .filter(Boolean)
+      .filter((section): section is NonNullable<typeof section> => section !== null)
 
     if (sections.length === 0) return
 
     // 找到最接近视窗顶部的section
     const viewportHeight = window.innerHeight
+    if (sections.length === 0) return;
+    
     const currentSection = sections.reduce((prev, current) => {
       const prevDistance = Math.abs(prev.top - viewportHeight * 0.15)
       const currentDistance = Math.abs(current.top - viewportHeight * 0.15)
@@ -99,9 +101,9 @@ onMounted(() => {
       return current.top < viewportHeight * 0.5 && currentDistance < prevDistance
         ? current
         : prev
-    })
+    }, sections[0])
 
-    if (currentSection?.id !== activeSection.value) {
+    if (currentSection && currentSection.id !== activeSection.value) {
       activeSection.value = currentSection.id
     }
   }
