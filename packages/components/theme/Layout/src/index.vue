@@ -8,6 +8,8 @@ import { logMistConfigMembers, logSlotInfo } from './debugUtils';
 import { MtArticleShare } from "@mist/components/theme/ArticleShare";
 import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
 
+import { MtBackTop } from "@mist/components/common/BackTop";
+
 const { Layout } = DefaultTheme;
 const { getMistConfigRef } = useMistConfig();
 
@@ -29,7 +31,8 @@ onMounted(() => {
 // 维护已使用的插槽，防止外界传来的插槽覆盖已使用的插槽
 const usedSlots = [
   "aside-outline-before",
-  "nav-bar-content-after"
+  "nav-bar-content-after",
+  "doc-footer-before",
 ];
 </script>
 
@@ -53,6 +56,12 @@ const usedSlots = [
         <MtArticleShare v-if="mistConfig.articleShare.enabled" />
         <slot name="mist-article-share-after" />
         <slot name="aside-outline-before" /> <!-- 将插槽内容传递给vitepress -->
+      </template>
+      
+      <!-- doc-footer-before插槽 -->
+      <template #doc-footer-before>
+        <slot name="doc-footer-before" /> <!-- 将插槽内容传递给vitepress -->
+        <MtBackTop />
       </template>
       
       <!-- 通过了 v-for 遍历所有 未使用 VitePress 的插槽，并使用 #[name]="slotData" 将插槽内容传递给 VitePress -->
