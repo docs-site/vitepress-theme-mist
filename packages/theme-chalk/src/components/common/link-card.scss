@@ -1,0 +1,67 @@
+@use "../../mixins/bem" as *;
+@use "../../mixins/function" as *;
+@use "../../mixins/mixins" as *;
+
+:root {
+  @include set-css-var("link-card-bg-color", var(--vp-c-bg-soft));
+  @include set-css-var("link-card-hover-bg-color", var(--vp-c-yellow-soft));
+  @include set-css-var("link-card-border-radius", 8px);
+  @include set-css-var("link-card-padding", 8px 16px 8px 8px);
+  @include set-css-var("link-card-margin-top", 15px);
+  @include set-css-var("link-card-transition-duration", 0.5s);
+  @include set-css-var("link-card-text-color", var(--vp-c-text-1));
+  @include set-css-var("link-card-content-margin", 0 0 0 16px);
+  @include set-css-var("link-card-title-font-size", 16px);
+  @include set-css-var("link-card-title-font-weight", 500);
+  @include set-css-var("link-card-title-line-height", 25px);
+  @include set-css-var("link-card-description-font-size", 14px);
+  @include set-css-var("link-card-logo-width", 80px);
+}
+
+@include b(link-card) {
+  background-color: getCssVar("link-card-bg-color");
+  border-radius: getCssVar("link-card-border-radius");
+  padding: getCssVar("link-card-padding");
+  transition: color getCssVar("link-card-transition-duration"), 
+              background-color getCssVar("link-card-transition-duration");
+  margin-top: getCssVar("link-card-margin-top");
+
+  &:hover {
+    background-color: getCssVar("link-card-hover-bg-color");
+  }
+
+  @include e(link) {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  @include e(content) {
+    flex: 1;
+    margin: getCssVar("link-card-content-margin");
+  }
+
+  @include e(title) {
+    font-weight: getCssVar("link-card-title-font-weight");
+    font-size: getCssVar("link-card-title-font-size");
+    line-height: getCssVar("link-card-title-line-height");
+    color: getCssVar("link-card-text-color");
+    margin: 0;
+    transition: color getCssVar("link-card-transition-duration");
+  }
+
+  @include e(description) {
+    font-size: getCssVar("link-card-description-font-size");
+    color: getCssVar("link-card-text-color");
+    margin: 0;
+    transition: color getCssVar("link-card-transition-duration");
+  }
+
+  @include e(logo) {
+    img {
+      width: getCssVar("link-card-logo-width");
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
