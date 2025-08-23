@@ -9,6 +9,7 @@ import { MtArticleShare } from "@mist/components/theme/ArticleShare";
 import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
 
 import { MtBackTop } from "@mist/components/common/BackTop";
+import { MtClickEffect } from "@mist/components/common/ClickEffect";
 
 const { Layout } = DefaultTheme;
 const { getMistConfigRef } = useMistConfig();
@@ -30,6 +31,7 @@ onMounted(() => {
 
 // 维护已使用的插槽，防止外界传来的插槽覆盖已使用的插槽
 const usedSlots = [
+  "layout-top",
   "aside-outline-before",
   "nav-bar-content-after",
   "doc-footer-before",
@@ -40,7 +42,14 @@ const usedSlots = [
 <template>
   <template v-if="mistConfig.useTheme">
     <Layout>
-
+      <!-- layout-top插槽 -->
+      <template #layout-top>
+        <slot name="mist-click-effect-before" />
+        <MtClickEffect />
+        <slot name="mist-click-effect-after" />
+        <slot name="layout-top" />
+      </template>
+      
       <template #nav-bar-content-after>
         <slot name="nav-bar-content-after" />
 
