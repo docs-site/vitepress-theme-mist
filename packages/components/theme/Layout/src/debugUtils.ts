@@ -5,7 +5,6 @@ import { ref } from 'vue';
 // 调试配置对象
 export const debugConfig = ref({
   showMistConfig: false, // 是否启用调试模式
-  showSlots: false,     // 是否显示插槽调试信息，移动到站点主题目录中使用，这里仅作参考
   usableSlots: false,   // 是否在控制台显示所有可用的插槽
 });
 
@@ -14,11 +13,17 @@ export const logMistConfigMembers = (mistConfig: Ref<Required<MistConfig> | null
   // 如果 debugConfig.enabled 为 false，则不执行打印操作
   if (!debugConfig.value.showMistConfig) return;
   
-  console.log('--- mistConfig 所有成员(', Object.keys(mistConfig.value || {}).length,') ---');
-  console.log('mistConfig 对象:', mistConfig.value);
-
-  console.log('mistConfig 键名:', Object.keys(mistConfig.value || {}));
-  console.log('mistConfig 键值对:', Object.entries(mistConfig.value || {}));
+  console.log('--- mistConfig all members ---');
+  
+  if (mistConfig.value) {
+    const keyNames = Object.keys(mistConfig.value);
+    const keyValue = Object.entries(mistConfig.value);
+    console.log('mistConfig object:', mistConfig.value);
+    console.log('mistConfig object key:', keyNames);
+    console.log('mistConfig object value:', keyValue);
+  } else {
+    console.log('mistConfig is empty, no available configuration information');
+  }
 };
 
 // 打印插槽信息的方法
@@ -36,6 +41,16 @@ export const logSlotInfo = (slots: any) => {
   }
 };
 
+// 使用插槽调试示例：
+/* .vitepress/theme/components/MistLayoutProvider.vue
+<script setup lang="ts" name="MistLayoutProvider">
+import Mist from "vitepress-theme-mist";
+import { ref } from 'vue';
+
+// 调试配置对象
+const debugConfig = ref({
+  showMistConfig: false, // 是否启用调试模式
+});
 // 插槽配置对象
 export const slotConfigs = ref({
   // layout: 'doc' (默认) 在 frontmatter 中被启用
@@ -76,22 +91,17 @@ export const slotConfigs = ref({
   'nav-screen-content-after': { enabled: false, color: '#DC143C' }
 });
 
-// 在vue布局组件调试的时候使用
-// <template>
-//   <Layout>
-//     <!-- 插槽调试 -->
-//      <template
-//         v-for="name in Object.keys($slots)"
-//         :key="name"
-//         #[name]="slotData"
-//       >
-//         <slot :name="name" v-bind="slotData"></slot>
-//       </template>
-//     <template v-for="(slot, name) in slotConfigs" #[name] :key="name">
-//         <div v-if="debugConfig.showSlots || slot.enabled" :style="`color: ${slot.color}`">
-//           <!-- {{ console.log('Rendering slot:', name, 'enabled:', slot.enabled, 'color:', slot.color) }} -->
-//           #{{ name }}
-//         </div>
-//     </template>
-//   </Layout>
-// </template>
+</script>
+
+<template>
+  <Mist.Layout>
+    <!-- 自定义内容 -->
+    <template v-for="(slot, name) in slotConfigs" #[name] :key="name">
+        <div v-if="debugConfig.showMistConfig || slot.enabled" :style="`color: ${slot.color}`">
+          <!-- {{ console.log('Rendering slot:', name, 'enabled:', slot.enabled, 'color:', slot.color) }} -->
+          #{{ name }}
+        </div>
+    </template>
+  </Mist.Layout>
+</template>
+*/

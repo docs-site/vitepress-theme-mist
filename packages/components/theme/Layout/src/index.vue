@@ -10,6 +10,9 @@ import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
 
 const { Layout } = DefaultTheme;
 const { getMistConfigRef } = useMistConfig();
+
+// useSlots() 只返回直接传递的插槽(也就是.vitepress/theme/components/MistLayoutProvider.vue)传递过来的，
+// 而 $slots 包含所有可用的插槽。
 const slots = useSlots();
 
 // 支持 provide、frontmatter.mt、frontmatter、theme 配置
