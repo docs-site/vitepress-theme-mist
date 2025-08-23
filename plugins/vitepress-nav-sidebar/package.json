@@ -1,14 +1,13 @@
 {
   "name": "@docs-site/vitepress-nav-sidebar",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A VitePress plugin for automatically generating navigation and sidebar data",
   "author": "sumu",
   "keywords": [
     "vitepress",
     "vite",
-    "plugin",
-    "contentLoad"
+    "plugin"
   ],
   "license": "MIT",
   "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/master/plugins/vitepress-plugin-file-content-loader",
