@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { getSidebarData, getNavData } from './get-nav-sidebar'
+import { getSidebarData, getNavData } from '@docs-site/vitepress-nav-sidebar'
 // 主题配置
 import { defineMistConfig } from "../../../packages/config";
 

@@ -166,6 +166,9 @@ importers:
 
   docs:
     dependencies:
+      '@docs-site/vitepress-nav-sidebar':
+        specifier: ^1.0.2
+        version: 1.0.2
       vitepress-theme-mist:
         specifier: workspace:*
         version: link:../packages/mist
@@ -360,6 +363,9 @@ packages:
   '@babel/types@7.28.2':
     resolution: {integrity: sha512-ruv7Ae4J5dUYULmeXw1gmb7rYRz57OWCPM57pHojnLq/3Z1CK2lNSLTCVjxVk1F/TZHwOZZrOWi0ur95BbLxNQ==}
     engines: {node: '>=6.9.0'}
+
+  '@docs-site/vitepress-nav-sidebar@1.0.2':
+    resolution: {integrity: sha512-gT0HJg2YxBYtZiPx9fgJwC1td1wjSTyf441Z3UUgMnzR+Qr1DVeUtml5MYeakDGndRQiqHw//kWEwgcyLJ1YgA==}
 
   '@docsearch/css@3.8.2':
     resolution: {integrity: sha512-y05ayQFyUmCXze79+56v/4HpycYF3uFqB78pLPrSV5ZKAlDuIAAJNhaRi8tTdRNXh05yxX/TyNnzD6LwSM89vQ==}
@@ -3029,6 +3035,10 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
+
+  '@docs-site/vitepress-nav-sidebar@1.0.2':
+    dependencies:
+      glob: 11.0.3
 
   '@docsearch/css@3.8.2': {}
 
