@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {                    // 编译选项配置
+    "baseUrl": "src",                     // 模块解析的基础目录
+    "outDir": "./dist",                   // 输出目录
+    "target": "es2018",                   // 目标 ECMAScript 版本
+    "module": "esnext",                   // 模块系统
+    "lib": [                              // 要包含的库文件
+      "esnext"                            // 包含 esnext 库
+    ],
+    "sourceMap": false,
+    "moduleResolution": "node",
+    "allowJs": false,                     // 不允许编译 JavaScript 文件
+    "strict": true,                       // 启用所有严格的类型检查选项
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,            // 允许导入 JSON 模块
+    "allowSyntheticDefaultImports": true, // 允许从没有设置默认导出的模块中默认导入
+    "esModuleInterop": true,              // 允许默认导入非 ES 模块
+    "removeComments": false,
+    "preserveSymlinks": true,
+    "rootDir": ".",
+    "moduleDetection": "force",           // 强制进行模块检测
+    "isolatedModules": true,              // 确保每个文件都是一个模块
+    "skipLibCheck": true,                 // 跳过声明文件的类型检查
+    "declaration": true,                  // 生成相应的 .d.ts 声明文件
+    "newLine": "lf"                       // 设置换行符为 LF (Unix 风格)
+  },
+  "include": [                            // 包含的文件或目录
+    "src/**/*.ts",                        // 包含 src 目录下的所有 .ts 文件
+    "src/**/*.d.ts",                      // 包含 src 目录下的所有 .d.ts 文件
+    "test/**/*.test.ts"                   // 包含 test 目录下的所有测试文件
+  ],
+  "exclude": [                            // 排除的文件或目录
+    "node_modules"                        // 排除 node_modules 目录
+  ]
+}

@@ -31,4 +31,5 @@ export const externalModule = [
   "vitepress-plugin-permalink/usePermalink",
   "vitepress-plugin-sidebar-resolve",
   "@vue/compiler-dom",
+  "vitepress-nav-sidebar"
 ];

@@ -13,7 +13,7 @@ catalogs:
       specifier: ^4.0.9
       version: 4.0.9
     '@types/markdown-it':
-      specifier: 14.1.2
+      specifier: ^14.1.2
       version: 14.1.2
     '@types/markdown-it-container':
       specifier: ^2.0.10
@@ -245,6 +245,22 @@ importers:
       sass:
         specifier: 'catalog:'
         version: 1.90.0
+
+  plugins/vitepress-nav-sidebar:
+    dependencies:
+      glob:
+        specifier: ^11.0.3
+        version: 11.0.3
+    devDependencies:
+      tsx:
+        specifier: ^4.20.3
+        version: 4.20.4
+      unbuild:
+        specifier: ^3.6.0
+        version: 3.6.1(sass@1.90.0)(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2))
+      vitepress:
+        specifier: 'catalog:'
+        version: 1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2)
 
 packages:
 

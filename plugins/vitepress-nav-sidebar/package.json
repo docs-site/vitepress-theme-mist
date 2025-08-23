@@ -1,0 +1,65 @@
+{
+  "name": "@docs-site/vitepress-nav-sidebar",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A VitePress plugin for automatically generating navigation and sidebar data",
+  "author": "sumu",
+  "keywords": [
+    "vitepress",
+    "vite",
+    "plugin",
+    "contentLoad"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/master/plugins/vitepress-plugin-file-content-loader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/docs-site/vitepress-theme-mist.git"
+  },
+  "bugs": {
+    "url": "https://github.com/docs-site/vitepress-theme-mist/issues"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.mjs",
+      "require": "./dist/types.cjs",
+      "default": "./dist/types.mjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "index.d.ts": [
+        "dist/index.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "stub": "unbuild --stub",
+    "build": "unbuild",
+    "build:tsc": "tsc --project tsconfig.prod.json",
+    "test": "glob -c \"tsx --test\" \"./test/**/*.test.ts\""
+  },
+  "dependencies": {
+    "glob": "^11.0.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.3",
+    "unbuild": "^3.6.0",
+    "vitepress": "catalog:"
+  }
+}

@@ -2,11 +2,12 @@ packages:
   - docs
   - packages/*
   - build
+  - plugins/*
 
 catalog:
   '@iconify/vue': ^5.0.0
   '@types/js-yaml': ^4.0.9
-  '@types/markdown-it': 14.1.2
+  '@types/markdown-it': ^14.1.2
   '@types/markdown-it-container': ^2.0.10
   '@types/node': ^24.3.0
   js-yaml: ^4.1.0
