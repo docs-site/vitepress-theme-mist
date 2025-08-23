@@ -86,3 +86,42 @@ export const useMistConfig = () => {
 
   return { getMistConfig, getMistConfigRef };
 };
+/**
+ * @brief 返回功能页面状态
+ */
+export const usePageState = () => {
+  const { frontmatter } = useData();
+
+  // 当前页面是否为首页
+  const isHomePage = computed(
+    () => !isCategoriesPage.value && !isTagsPage.value && frontmatter.value.layout === "home"
+  );
+  // 当前页面是否为分类页
+  const isCategoriesPage = computed(() => !!frontmatter.value.categoriesPage);
+  // 当前页面是否为标签页
+  const isTagsPage = computed(() => !!frontmatter.value.tagsPage);
+  // 当前页面是否为归档页
+  const isArchivesPage = computed(() => !!frontmatter.value.archivesPage);
+  // 当前页面是否为目录页
+  const isCataloguePage = computed(() => !!frontmatter.value.catalogue);
+  // 当前页面是否为文章清单页
+  const isArticleOverviewPage = computed(() => !!frontmatter.value.articleOverviewPage);
+  // 当前页面是否为登录页
+  const isLoginUrl = computed(() => !!frontmatter.value.loginPage);
+  // 当前页面是否为风险链接页
+  const isRiskLinkPage = computed(() => !!frontmatter.value.riskLinkPage);
+  // 当前页面是否为导航页
+  const isNavigation = computed(() => !!frontmatter.value.navigation || !!frontmatter.value.Navigation);
+
+  return {
+    isHomePage,
+    isCategoriesPage,
+    isTagsPage,
+    isArchivesPage,
+    isCataloguePage,
+    isArticleOverviewPage,
+    isLoginUrl,
+    isRiskLinkPage,
+    isNavigation,
+  };
+};

@@ -3,17 +3,18 @@ import type { MistConfig } from "@mist/config";
 import DefaultTheme from "vitepress/theme";
 import { onMounted, useSlots } from 'vue';
 
-import { useMistConfig } from "@mist/components/theme/ConfigProvider";
+import { useMistConfig, usePageState } from "@mist/components/theme/ConfigProvider";
 import { logMistConfigMembers, logSlotInfo } from './debugUtils';
 import { MtArticleShare } from "@mist/components/theme/ArticleShare";
 import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
+import { MtHomeUnderline } from "@mist/components/theme/HomeUnderline";
 
 import { MtBackTop } from "@mist/components/common/BackTop";
 import { MtClickEffect } from "@mist/components/common/ClickEffect";
 
 const { Layout } = DefaultTheme;
 const { getMistConfigRef } = useMistConfig();
-
+const { isHomePage } = usePageState();
 // useSlots() 只返回直接传递的插槽(也就是.vitepress/theme/components/MistLayoutProvider.vue)传递过来的，
 // 而 $slots 包含所有可用的插槽。
 const slots = useSlots();
@@ -46,6 +47,7 @@ const usedSlots = [
       <template #layout-top>
         <slot name="mist-click-effect-before" />
         <MtClickEffect />
+        <MtHomeUnderline v-if=isHomePage />
         <slot name="mist-click-effect-after" />
         <slot name="layout-top" />
       </template>
