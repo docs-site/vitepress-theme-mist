@@ -6,6 +6,7 @@ A VitePress plugin for automatically generating navigation and sidebar data.
 
 ```bash
 npm install @docs-site/vitepress-nav-sidebar
+pnpm add @docs-site/vitepress-nav-sidebar
 ```
 
 ## Usage
