@@ -16,11 +16,14 @@ export default defineConfig({
   base: '/vitepress-theme-mist/', // 计划将站点部署到 https://docs-site.github.io/vitepress-theme-mist/，那么应该将 base 设置为 '/vitepress-theme-mist/'。它应该始终以 / 开头和结尾。
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: getNavData({ 
-      dirName: 'sdoc', 
-      maxLevel: 2, 
-      debugPrint: false 
-    }),
+    nav: [
+      ...getNavData({ dirName: 'sdoc', maxLevel: 2, debugPrint: false }),
+      { text: '功能页',
+        items: [
+          { text: '导航页',  link: '/@pages/Navigation' }
+        ]
+      },
+    ],
     sidebar: getSidebarData({ 
       dirName: 'sdoc', 
       maxLevel: 6,
