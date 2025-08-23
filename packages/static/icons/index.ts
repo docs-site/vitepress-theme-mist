@@ -62,3 +62,4 @@ export { default as alignLeftIcon } from "./theme-enhance/alignLeft";
 export { default as alignTextLeftIcon } from "./theme-enhance/alignTextLeft";
 export { default as scaleIcon } from "./theme-enhance/scale";
 export { default as waterIcon } from "./theme-enhance/water";
+export { default as homeUnderlineIcon } from "./underline";
