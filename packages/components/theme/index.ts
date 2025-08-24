@@ -1,3 +1,4 @@
+export * from "./ArticleAnalyze";
 export * from "./ArticleBreadcrumb";
 export * from "./ArticleInfo";
 export * from "./ArticleShare";

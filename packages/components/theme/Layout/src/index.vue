@@ -10,6 +10,7 @@ import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
 import { MtHomeUnderline } from "@mist/components/theme/HomeUnderline";
 import { MtNavigationPage } from "@mist/components/theme/NavigationPage";
 import { MtCataloguePage } from "@mist/components/theme/CataloguePage";
+import { MtArticleAnalyze } from "@mist/components/theme/ArticleAnalyze";
 
 import { MtBackTop } from "@mist/components/common/BackTop";
 import { MtClickEffect } from "@mist/components/common/ClickEffect";
@@ -37,8 +38,9 @@ const usedSlots = [
   "layout-top",
   "aside-outline-before",
   "nav-bar-content-after",
-  "doc-footer-before",
   "page-top",
+  "doc-before",
+  "doc-footer-before",
 ];
 </script>
 
@@ -88,7 +90,14 @@ const usedSlots = [
         </MtCataloguePage>
         <slot name="mist-page-top-after" />
       </template>
-      
+
+      <template #doc-before>
+        <slot name="doc-before" />
+        <slot name="mist-article-analyze-before" />
+        <MtArticleAnalyze />
+        <slot name="mist-article-analyze-after" />
+      </template>
+
       <!-- doc-footer-before插槽 -->
       <template #doc-footer-before>
         <slot name="doc-footer-before" /> <!-- 将插槽内容传递给vitepress -->
