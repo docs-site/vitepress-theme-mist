@@ -12,5 +12,7 @@ export * from "./usePopoverSize";
 export * from "./useScopeDispose";
 export * from "./useStorage";
 export * from "./useThemeColor";
+export * from "./useVpRouter";
+export * from "./useUvPv";
 export * from "./useWindowSize";
 export * from "./useZIndex";

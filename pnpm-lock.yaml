@@ -55,6 +55,9 @@ catalogs:
     '@docs-site/vitepress-plugin-catalogue':
       specifier: ^1.0.3
       version: 1.0.3
+    '@docs-site/vitepress-plugin-doc-analysis':
+      specifier: ^1.0.0
+      version: 1.0.0
     '@docs-site/vitepress-plugin-file-content-loader':
       specifier: ^1.0.2
       version: 1.0.2
@@ -220,6 +223,9 @@ importers:
       '@docs-site/vitepress-plugin-catalogue':
         specifier: catalog:mist-plugins
         version: 1.0.3
+      '@docs-site/vitepress-plugin-doc-analysis':
+        specifier: catalog:mist-plugins
+        version: 1.0.0
       '@docs-site/vitepress-plugin-file-content-loader':
         specifier: catalog:mist-plugins
         version: 1.0.2(vitepress@1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2))
@@ -496,6 +502,9 @@ packages:
 
   '@docs-site/vitepress-plugin-catalogue@1.0.3':
     resolution: {integrity: sha512-9M2VLpWrMJM+HhYvgM2jUxSJcfYa8jaaxDtUhI8CwVvQlLO6w+bm/yj42dqB/8OzZATBlZO2POHrHQGELNBMjw==}
+
+  '@docs-site/vitepress-plugin-doc-analysis@1.0.0':
+    resolution: {integrity: sha512-DmH0nX3F4xhAyL4CQMrzcW+WBkgBGDBETH2yIkoPirSxu7LsKKifAU8V3URTHJM6O/HWpH1YR8zX1QogJ8Z/HA==}
 
   '@docs-site/vitepress-plugin-file-content-loader@1.0.2':
     resolution: {integrity: sha512-qCGD0t5+kaZOBYztU0jITxdOIxN89dAIDxBr5CRSm+s3fSD2z24yT3k0RDroxofYj3xv1f9jFJp+Qv9e3w5R2Q==}
@@ -3389,6 +3398,11 @@ snapshots:
       glob: 11.0.3
 
   '@docs-site/vitepress-plugin-catalogue@1.0.3':
+    dependencies:
+      gray-matter: 4.0.3
+      picocolors: 1.1.1
+
+  '@docs-site/vitepress-plugin-doc-analysis@1.0.0':
     dependencies:
       gray-matter: 4.0.3
       picocolors: 1.1.1
