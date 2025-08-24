@@ -102,9 +102,63 @@ function findProjectRoot(startDir) {
   return startDir;
 }
 
+// 清理操作配置
+const CLEAN_OPERATIONS = {
+  dist: {
+    name: '仅清理dist和cache目录',
+    tasks: [
+      { type: 'dir', name: 'dist', description: 'dist 目录' },
+      { type: 'vitepress-subdir', parent: '.vitepress', name: 'dist', description: '.vitepress/dist 目录' },
+      { type: 'vitepress-subdir', parent: '.vitepress', name: 'cache', description: '.vitepress/cache 目录' }
+    ]
+  },
+  all: {
+    name: '清理所有目录 (dist、cache、node_modules)',
+    tasks: [
+      { type: 'dir', name: 'dist', description: 'dist 目录' },
+      { type: 'vitepress-subdir', parent: '.vitepress', name: 'dist', description: '.vitepress/dist 目录' },
+      { type: 'vitepress-subdir', parent: '.vitepress', name: 'cache', description: '.vitepress/cache 目录' },
+      { type: 'dir', name: 'node_modules', description: 'node_modules 目录' }
+    ]
+  }
+};
+
+// 执行清理任务
+async function performCleanTask(projectRoot, task, dirsToRemove) {
+  console.log(`🔍 搜索 ${task.description}...`);
+  
+  try {
+    let foundDirs = [];
+    
+    if (task.type === 'dir') {
+      foundDirs = findDirs(projectRoot, task.name);
+    } else if (task.type === 'vitepress-subdir') {
+      const parentDirs = findDirs(projectRoot, task.parent);
+      for (const parentDir of parentDirs) {
+        const targetDir = path.join(parentDir, task.name);
+        if (dirExists(targetDir)) {
+          foundDirs.push(targetDir);
+        }
+      }
+    }
+    
+    console.log(`  找到 ${foundDirs.length} 个 ${task.description}`);
+    foundDirs.forEach(dir => {
+      dirsToRemove.add(dir);
+      console.log(`  📁 ${dir}`);
+    });
+  } catch (error) {
+    console.error(`  搜索 ${task.description} 失败:`, error.message);
+  }
+}
+
 // 主函数
 async function main() {
-  console.log('🔍 开始清理项目...');
+  // 获取命令行参数
+  const args = process.argv.slice(2);
+  const cleanMode = args[0] || 'dist'; // 默认清理dist相关目录
+  
+  console.log(`🔍 开始清理项目 (模式: ${cleanMode})...`);
   
   // 获取当前工作目录
   const cwd = process.cwd();
@@ -117,66 +171,22 @@ async function main() {
   // 存储找到的所有目录
   const dirsToRemove = new Set();
   
-  // 查找node_modules目录,这个目录暂不清理
-  // console.log('🔍 搜索 node_modules 目录...');
-  // const nodeModulesDirs = findDirs(projectRoot, 'node_modules');
-  // console.log(`  找到 ${nodeModulesDirs.length} 个 node_modules 目录`);
-  // nodeModulesDirs.forEach(dir => {
-  //   dirsToRemove.add(dir);
-  //   console.log(`  📁 ${dir}`);
-  // });
-  
-  // 查找dist目录
-  console.log('🔍 搜索 dist 目录...');
-  const distDirs = findDirs(projectRoot, 'dist');
-  console.log(`  找到 ${distDirs.length} 个 dist 目录`);
-  distDirs.forEach(dir => {
-    dirsToRemove.add(dir);
-    console.log(`  📁 ${dir}`);
-  });
-  
-  // 查找.vitepress/dist目录
-  console.log('🔍 搜索 .vitepress/dist 目录...');
-  try {
-    const vitepressDirs = findDirs(projectRoot, '.vitepress');
-    const vitepressDistDirs = [];
-    
-    for (const vpDir of vitepressDirs) {
-      const distDir = path.join(vpDir, 'dist');
-      if (dirExists(distDir)) {
-        vitepressDistDirs.push(distDir);
-      }
-    }
-    
-    console.log(`  找到 ${vitepressDistDirs.length} 个 .vitepress/dist 目录`);
-    vitepressDistDirs.forEach(dir => {
-      dirsToRemove.add(dir);
-      console.log(`  📁 ${dir}`);
+  // 检查清理模式是否有效
+  if (!CLEAN_OPERATIONS[cleanMode]) {
+    console.error(`❌ 未知的清理模式: ${cleanMode}`);
+    console.log('支持的清理模式:');
+    Object.keys(CLEAN_OPERATIONS).forEach(mode => {
+      console.log(`  ${mode}  - ${CLEAN_OPERATIONS[mode].name}`);
     });
-  } catch (error) {
-    console.error('  搜索 .vitepress/dist 失败:', error.message);
+    process.exit(1);
   }
   
-  // 查找.vitepress/cache目录
-  console.log('🔍 搜索 .vitepress/cache 目录...');
-  try {
-    const vitepressDirs = findDirs(projectRoot, '.vitepress');
-    const vitepressCacheDirs = [];
-    
-    for (const vpDir of vitepressDirs) {
-      const cacheDir = path.join(vpDir, 'cache');
-      if (dirExists(cacheDir)) {
-        vitepressCacheDirs.push(cacheDir);
-      }
-    }
-    
-    console.log(`  找到 ${vitepressCacheDirs.length} 个 .vitepress/cache 目录`);
-    vitepressCacheDirs.forEach(dir => {
-      dirsToRemove.add(dir);
-      console.log(`  📁 ${dir}`);
-    });
-  } catch (error) {
-    console.error('  搜索 .vitepress/cache 失败:', error.message);
+  const operation = CLEAN_OPERATIONS[cleanMode];
+  console.log(`📋 清理模式: ${operation.name}`);
+  
+  // 执行所有清理任务
+  for (const task of operation.tasks) {
+    await performCleanTask(projectRoot, task, dirsToRemove);
   }
   
   // 删除所有找到的目录
