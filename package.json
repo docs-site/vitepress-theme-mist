@@ -38,7 +38,7 @@
     "@vue/runtime-core": "catalog:vue",
     "@vue/runtime-dom": "catalog:vue",
     "rimraf": "catalog:",
-    "unbuild": "^3.6.1",
+    "unbuild": "3.2.0",
     "vitepress": "catalog:",
     "vue": "catalog:"
   }
