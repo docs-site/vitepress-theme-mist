@@ -47,6 +47,14 @@ const defaultMistConfig: Required<MistConfig> = {
     enabled: true,
     position: 'top',
   },
+  codeBlock: {
+    disabled: false,
+    collapseHeight: 500,
+    copiedDone: undefined,
+    overlay: false,
+    overlayHeight: 400,
+    langTextTransform: "lowercase", // 语言文本显示样式
+  }
 } as Required<MistConfig>;
 
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {

@@ -3,6 +3,7 @@ export * from "./ArticleBreadcrumb";
 export * from "./ArticleInfo";
 export * from "./ArticleShare";
 export * from "./CataloguePage";
+export * from "./CodeBlockToggle";
 export * from "./ConfigProvider";
 export * from "./DemoCode";
 export * from "./HomeUnderline";

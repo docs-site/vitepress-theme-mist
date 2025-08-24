@@ -4,6 +4,7 @@ import type {
   Author,
   Breadcrumb,
   ClickEffect,
+  CodeBlock,
   DocAnalysis,
   Markdown,
   Plugins,
@@ -29,6 +30,7 @@ export interface MistConfig {
   author?: Author; // 文章作者配置
   breadcrumb?: Breadcrumb; // 面包屑配置
   clickEffect?: ClickEffect; // 点击特效配置
+  codeBlock?: CodeBlock; // 代码块配置
   docAnalysis?: DocAnalysis; // 文章分析配置
   markdown?: Markdown;// markdown插件配置
   themeName?: string; // 主题名称

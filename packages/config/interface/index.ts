@@ -3,6 +3,7 @@ export type * from "./articleShare";
 export type * from "./author";
 export type * from "./breadcrumb";
 export type * from "./clickEffect";
+export type * from "./codeBlock";
 export type * from "./docAnalysis";
 export type * from "./markdown";
 export type * from "./plugins";

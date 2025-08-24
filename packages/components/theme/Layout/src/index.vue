@@ -11,6 +11,7 @@ import { MtHomeUnderline } from "@mist/components/theme/HomeUnderline";
 import { MtNavigationPage } from "@mist/components/theme/NavigationPage";
 import { MtCataloguePage } from "@mist/components/theme/CataloguePage";
 import { MtArticleAnalyze } from "@mist/components/theme/ArticleAnalyze";
+import { MtCodeBlockToggle } from "@mist/components/theme/CodeBlockToggle";
 
 import { MtBackTop } from "@mist/components/common/BackTop";
 import { MtClickEffect } from "@mist/components/common/ClickEffect";
@@ -94,6 +95,7 @@ const usedSlots = [
       <template #doc-before>
         <slot name="doc-before" />
         <slot name="mist-article-analyze-before" />
+        <MtCodeBlockToggle v-if="!mistConfig.codeBlock.disabled" />
         <MtArticleAnalyze />
         <slot name="mist-article-analyze-after" />
       </template>
