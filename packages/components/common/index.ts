@@ -11,3 +11,4 @@ export * from "./Message";
 export * from "./FocusTrap";
 export * from "./Popover";
 export * from "./Segmented";
+export * from "./TitleTag";
