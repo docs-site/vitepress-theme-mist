@@ -3,6 +3,8 @@
  * @brief 提供主题配置管理功能，用于创建和配置布局组件。
  */
 import type { MistConfig } from "@mist/config";
+import type { PostData } from "@mist/config/post/types";
+import { emptyPost } from "@mist/config/post/helper";
 import type { Component, Ref, InjectionKey } from "vue";
 import { computed, defineComponent, h, inject, unref } from "vue";
 import { useData } from "vitepress";
@@ -124,4 +126,25 @@ export const usePageState = () => {
     isRiskLinkPage,
     isNavigation,
   };
+};
+
+/**
+ * 返回全部文章数据
+ */
+export const useAllPosts = (): PostData => {
+  const { theme } = useData();
+  const posts = theme.value.posts;
+
+  return posts || emptyPost;
+};
+
+/**
+ * 返回文章数据，当处于国际化环境时，返回对应语言的 Posts 数据，否则返回全部 Posts 数据
+ */
+export const usePosts = (): Ref<PostData> => {
+  const { localeIndex } = useData();
+  const posts = useAllPosts();
+
+  // 兼容国际化功能，先从多语言下获取 posts 数据，获取不到说明没有使用多语言功能，则获取所有 posts 数据。因为多语言可以随时切换，因此使用 computed
+  return computed(() => posts.locales?.[localeIndex.value] || posts);
 };

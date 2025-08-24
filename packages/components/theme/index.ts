@@ -1,4 +1,5 @@
 export * from "./ArticleBreadcrumb";
+export * from "./ArticleInfo";
 export * from "./ArticleShare";
 export * from "./CataloguePage";
 export * from "./ConfigProvider";

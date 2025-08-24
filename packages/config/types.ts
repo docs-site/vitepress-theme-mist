@@ -1,4 +1,5 @@
 import type {
+  ArticleAnalyze,
   ArticleShare,
   Author,
   Breadcrumb,
@@ -16,6 +17,7 @@ export type { FileContentLoaderData, FileContentLoaderOptions } from "@docs-site
 
 export interface MistConfig {
   useTheme?: boolean; // 是否开启主题
+  articleAnalyze?: ArticleAnalyze; // 文章信息配置
   articleShare?: ArticleShare; // 文章分享配置
   author?: Author; // 文章作者配置
   breadcrumb?: Breadcrumb; // 面包屑配置

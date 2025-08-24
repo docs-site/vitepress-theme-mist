@@ -1,3 +1,4 @@
+export type * from "./articleAnalyze";
 export type * from "./articleShare";
 export type * from "./author";
 export type * from "./breadcrumb";
