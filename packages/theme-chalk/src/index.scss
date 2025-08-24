@@ -2,6 +2,8 @@
 
 
 @use "./components/common/back-top"; // BackTop 组件样式
+@use "./components/common/breadcrumb-item";
+@use "./components/common/breadcrumb";
 @use "./components/common/button"; // Button 组件样式
 @use "./components/common/data-loader"; // Data Loader 组件样式
 

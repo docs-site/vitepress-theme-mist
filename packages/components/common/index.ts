@@ -1,4 +1,5 @@
 export * from "./ArticlePage";
+export * from "./Breadcrumb";
 export * from "./ClickEffect";
 export * from "./DataLoader";
 export * from "./BackTop";
