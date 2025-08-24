@@ -24,7 +24,7 @@ export const externalModule = [
   "tinyglobby",
   "vitepress-plugin-auto-frontmatter",
   "@docs-site/vitepress-plugin-catalogue",
-  "vitepress-plugin-doc-analysis",
+  "@docs-site/vitepress-plugin-doc-analysis",
   "@docs-site/vitepress-plugin-file-content-loader",
   "vitepress-plugin-md-h1",
   "vitepress-plugin-permalink",
