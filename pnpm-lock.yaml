@@ -22,7 +22,7 @@ catalogs:
       specifier: ^24.3.0
       version: 24.3.0
     gray-matter:
-      specifier: ^4.0.3
+      specifier: 4.0.3
       version: 4.0.3
     js-yaml:
       specifier: ^4.1.0
@@ -51,6 +51,10 @@ catalogs:
     vue:
       specifier: ^3.5.18
       version: 3.5.18
+  mist-plugins:
+    '@docs-site/vitepress-plugin-file-content-loader':
+      specifier: ^1.0.2
+      version: 1.0.2
   vue:
     '@vue/runtime-core':
       specifier: ^3.5.18
@@ -210,6 +214,12 @@ importers:
 
   packages/config:
     dependencies:
+      '@docs-site/vitepress-plugin-file-content-loader':
+        specifier: catalog:mist-plugins
+        version: 1.0.2(vitepress@1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2))
+      gray-matter:
+        specifier: 'catalog:'
+        version: 4.0.3
       vitepress:
         specifier: 'catalog:'
         version: 1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2)
@@ -464,6 +474,11 @@ packages:
 
   '@docs-site/vitepress-nav-sidebar@1.0.2':
     resolution: {integrity: sha512-gT0HJg2YxBYtZiPx9fgJwC1td1wjSTyf441Z3UUgMnzR+Qr1DVeUtml5MYeakDGndRQiqHw//kWEwgcyLJ1YgA==}
+
+  '@docs-site/vitepress-plugin-file-content-loader@1.0.2':
+    resolution: {integrity: sha512-qCGD0t5+kaZOBYztU0jITxdOIxN89dAIDxBr5CRSm+s3fSD2z24yT3k0RDroxofYj3xv1f9jFJp+Qv9e3w5R2Q==}
+    peerDependencies:
+      vitepress: ^1.6.4
 
   '@docsearch/css@3.8.2':
     resolution: {integrity: sha512-y05ayQFyUmCXze79+56v/4HpycYF3uFqB78pLPrSV5ZKAlDuIAAJNhaRi8tTdRNXh05yxX/TyNnzD6LwSM89vQ==}
@@ -3350,6 +3365,13 @@ snapshots:
   '@docs-site/vitepress-nav-sidebar@1.0.2':
     dependencies:
       glob: 11.0.3
+
+  '@docs-site/vitepress-plugin-file-content-loader@1.0.2(vitepress@1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2))':
+    dependencies:
+      gray-matter: 4.0.3
+      picocolors: 1.1.1
+      tinyglobby: 0.2.14
+      vitepress: 1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2)
 
   '@docsearch/css@3.8.2': {}
 

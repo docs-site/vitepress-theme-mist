@@ -6,6 +6,7 @@ import {
   demoPlugin,
   containerPlugin,
 } from "../markdown";
+import { registerPluginAndGet } from "./vitePlugins";
 
 export type * from "./types";
 
@@ -50,8 +51,9 @@ const defaultMistConfig: Required<MistConfig> = {
 
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {
   // 获取用户的配置，进行逻辑处理
-  const { markdown = {}, ...MistThemeConfig } = config;
-  
+  const { vitePlugins, markdown = {}, ...MistThemeConfig } = config;
+  const plugins = registerPluginAndGet(vitePlugins, MistThemeConfig.useTheme);
+
   // 合并默认配置和用户配置
   const mergedConfig: MistConfig = {
     ...defaultMistConfig,
@@ -71,7 +73,7 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
     head: [],
     vite: {
       // 添加主题需要的 Vite 插件
-      plugins: [],
+      plugins: plugins,
     },
     markdown: {
       config: md => {

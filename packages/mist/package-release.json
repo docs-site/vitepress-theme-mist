@@ -63,7 +63,8 @@
     "@types/js-yaml": "^4.0.9",
     "@types/markdown-it": "^14.1.2",
     "@types/markdown-it-container": "^2.0.10",
-    "vitepress": "^1.6.4"
+    "vitepress": "^1.6.4",
+    "@docs-site/vitepress-plugin-file-content-loader": "^1.0.2"
   },
   "peerDependencies": {
     "vitepress": "^1.6.4"
