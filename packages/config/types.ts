@@ -10,6 +10,9 @@ import type {
 export type * from "./interface";
 export type * from "./post/types";
 
+export type { Catalogue, CatalogueInfo, CatalogueItem, CatalogueOption } from "@docs-site/vitepress-plugin-catalogue";
+export type { FileContentLoaderData, FileContentLoaderOptions } from "@docs-site/vitepress-plugin-file-content-loader";
+
 export interface MistConfig {
   useTheme?: boolean; // 是否开启主题
   articleShare?: ArticleShare; // 文章分享配置
