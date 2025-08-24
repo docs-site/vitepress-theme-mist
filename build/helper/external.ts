@@ -25,7 +25,7 @@ export const externalModule = [
   "vitepress-plugin-auto-frontmatter",
   "vitepress-plugin-catalogue",
   "vitepress-plugin-doc-analysis",
-  "vitepress-plugin-file-content-loader",
+  "@docs-site/vitepress-plugin-file-content-loader",
   "vitepress-plugin-md-h1",
   "vitepress-plugin-permalink",
   "vitepress-plugin-permalink/usePermalink",
