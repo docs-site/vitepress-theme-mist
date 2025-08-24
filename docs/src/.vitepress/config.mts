@@ -6,6 +6,9 @@ import { defineMistConfig } from "../../../packages/config";
 const myThemeConfig = defineMistConfig({
   useTheme: true,
   themeName: 'vitepress-theme-mist',
+  clickEffect: {
+    enabled: true,
+  }
 });
 
 // https://vitepress.dev/reference/site-config

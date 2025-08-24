@@ -1,12 +1,18 @@
 // https://vitepress.dev/guide/custom-theme
-import { h } from 'vue'
 import type { Theme } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
 
-import './style.css'
+import Mist from "vitepress-theme-mist";
+
 import MistLayoutProvider from "./components/MistLayoutProvider.vue";
 
-import Mist from "vitepress-theme-mist"; 
+import './style.css'
+
+// 工作区本地引入
+import "@mist/theme-chalk/vp-plus/doc-fade-in.scss"; // 进入文档页淡入效果
+
+//工作区外部引入
+// import "vitepress-theme-mist/theme-chalk/vp-plus/doc-fade-in.scss";
+
 export default {
   extends: Mist,
   Layout: MistLayoutProvider,
