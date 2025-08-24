@@ -121,6 +121,13 @@ const createCatalogueList = (
     const index = parseInt(indexStr as string, 10);
 
     if (statSync(fileAbsolutePath).isDirectory()) {
+      // 检查是否存在同名的 Markdown 文件，如果存在则跳过该目录
+      const mdFilePath = fileAbsolutePath + '.md';
+      const mdFileUpperPath = fileAbsolutePath + '.MD';
+      if (existsSync(mdFilePath) || existsSync(mdFileUpperPath)) {
+        return;
+      }
+      
       // 是文件夹目录
       const mdTitle = titleFormMd ? tryGetMarkdownTitle(root, dirOrFilename) : "";
 
