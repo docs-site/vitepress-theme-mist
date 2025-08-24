@@ -23,7 +23,7 @@ export const externalModule = [
   "picocolors",
   "tinyglobby",
   "vitepress-plugin-auto-frontmatter",
-  "vitepress-plugin-catalogue",
+  "@docs-site/vitepress-plugin-catalogue",
   "vitepress-plugin-doc-analysis",
   "@docs-site/vitepress-plugin-file-content-loader",
   "vitepress-plugin-md-h1",

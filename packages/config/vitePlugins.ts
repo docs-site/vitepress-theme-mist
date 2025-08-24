@@ -4,6 +4,7 @@ import type { PostData, MtContentData } from "./post/types";
 
 import FileContentLoader, { FileContentLoaderOptions } from "@docs-site/vitepress-plugin-file-content-loader";
 import { transformData, transformRaw } from "./post";
+import Catalogue from "@docs-site/vitepress-plugin-catalogue";
 
 export const registerPluginAndGet = (vitePlugins: Plugins = {}, mistTheme = true) => {
   const plugins: any[] = [];
@@ -26,7 +27,10 @@ export const registerPluginAndGet = (vitePlugins: Plugins = {}, mistTheme = true
 export const registerTightPlugins = (vitePlugins: Plugins, ignoreDir: Record<string, any[]>) => {
   const plugins: any[] = [];
 
-  const { fileContentLoaderIgnore = [] } = vitePlugins || {};
+  const { catalogueOption = {}, fileContentLoaderIgnore = [] } = vitePlugins || {};
+
+  // 目录页插件
+  plugins.push(Catalogue(catalogueOption));
 
   const fileContentLoaderOptions: FileContentLoaderOptions<MtContentData, PostData> = {
     pattern: ["**/*.md"],

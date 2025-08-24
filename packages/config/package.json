@@ -13,6 +13,7 @@
   "author": "sumu",
   "license": "MIT",
   "dependencies": {
+    "@docs-site/vitepress-plugin-catalogue": "catalog:mist-plugins",
     "@docs-site/vitepress-plugin-file-content-loader": "catalog:mist-plugins",
     "gray-matter": "catalog:",
     "vitepress": "catalog:"
