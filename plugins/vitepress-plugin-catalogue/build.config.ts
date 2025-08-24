@@ -9,11 +9,8 @@ export default defineBuildConfig({
     output: {
       exports: "named",
     },
-    esbuild: {
-      minify: true,
-    },
   },
-  externals: ["vitepress", "vite"],
+  externals: ["vite"],
   // 钩子函数
   hooks: {
     'build:done': (ctx) => {

@@ -36,6 +36,19 @@ export default defineConfig({
 
 插件默认忽略 `[**/node_modules/**", "**/dist/**]` 目录下的文件，且只扫描 Markdown 文档。
 
+## Usage
+
+获取插件分析后的数据：
+
+```javascript
+import { useData } from "vitepress";
+
+const { theme } = useData();
+
+// themeConfigKey 默认为 contentLoader，如果需要修改请查看 Options 配置项
+const fileContent = theme.value.[themeConfigKey];
+```
+
 ## Options
 
 ### Parameters
@@ -55,19 +68,6 @@ export default defineConfig({
 | ------------- | ---------------------------------------- | ------------------------------------------------------------ | ------- |
 | transformData | 转换处理好的单条数据，并返回转换后的数据 | `(data: FileContentLoaderData) => T | Promise<T> `           |         |
 | includeSrc    | 转换处理好的所有数据，并返回转换后的数据 | `(raw: (FileContentLoaderData Awaited<T>)[]) => R | Promise<R>` |         |
-
-## Usage
-
-获取插件分析后的数据：
-
-```javascript
-import { useData } from "vitepress";
-
-const { theme } = useData();
-
-// themeConfigKey 默认为 contentLoader，如果需要修改请查看 Options 配置项
-const fileContent = theme.value.[themeConfigKey];
-```
 
 ## TypeScript
 

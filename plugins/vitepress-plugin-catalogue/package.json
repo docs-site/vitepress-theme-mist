@@ -1,23 +1,23 @@
 {
-  "name": "@docs-site/vitepress-plugin-file-content-loader",
+  "name": "@docs-site/vitepress-plugin-catalogue",
   "type": "module",
   "version": "1.0.1",
-  "description": "扫描项目里的指定文件，处理文件内容",
+  "description": "扫描 Markdown 文档，获取目录信息",
   "author": "",
   "keywords": [
     "vitepress",
     "vite",
     "plugin",
-    "contentLoad"
+    "catalogue"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/docs-Site/vitepress-theme-mist/tree/master/plugins/vitepress-plugin-file-content-loader",
+  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/master/plugins/vitepress-plugin-catalogue",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/docs-Site/vitepress-theme-mist.git"
+    "url": "git+https://github.com/docs-site/vitepress-theme-mist.git"
   },
   "bugs": {
-    "url": "https://github.com/docs-Site/vitepress-theme-mist/issues"
+    "url": "https://github.com/docs-site/vitepress-theme-mist/issues"
   },
   "files": [
     "dist",
@@ -40,14 +40,9 @@
   },
   "dependencies": {
     "gray-matter": "catalog:",
-    "picocolors": "catalog:",
-    "tinyglobby": "catalog:"
+    "picocolors": "catalog:"
   },
   "devDependencies": {
-    "vite": "catalog:",
-    "vitepress": "catalog:"
-  },
-  "peerDependencies": {
-    "vitepress": "catalog:"
+    "vite": "catalog:"
   }
 }
