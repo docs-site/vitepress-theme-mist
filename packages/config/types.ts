@@ -1,6 +1,7 @@
 import type {
   ArticleShare,
   Author,
+  Breadcrumb,
   ClickEffect,
   Markdown,
   Plugins,
@@ -17,6 +18,7 @@ export interface MistConfig {
   useTheme?: boolean; // 是否开启主题
   articleShare?: ArticleShare; // 文章分享配置
   author?: Author; // 文章作者配置
+  breadcrumb?: Breadcrumb; // 面包屑配置
   clickEffect?: ClickEffect; // 点击特效配置
   markdown?: Markdown;// markdown插件配置
   themeName?: string; // 主题名称

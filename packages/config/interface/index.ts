@@ -1,5 +1,6 @@
 export type * from "./articleShare";
 export type * from "./author";
+export type * from "./breadcrumb";
 export type * from "./clickEffect";
 export type * from "./markdown";
 export type * from "./plugins";
