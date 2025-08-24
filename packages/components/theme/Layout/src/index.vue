@@ -9,13 +9,14 @@ import { MtArticleShare } from "@mist/components/theme/ArticleShare";
 import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
 import { MtHomeUnderline } from "@mist/components/theme/HomeUnderline";
 import { MtNavigationPage } from "@mist/components/theme/NavigationPage";
+import { MtCataloguePage } from "@mist/components/theme/CataloguePage";
 
 import { MtBackTop } from "@mist/components/common/BackTop";
 import { MtClickEffect } from "@mist/components/common/ClickEffect";
 
 const { Layout } = DefaultTheme;
 const { getMistConfigRef } = useMistConfig();
-const { isHomePage, isNavigation } = usePageState();
+const { isHomePage, isNavigation, isCataloguePage } = usePageState();
 // useSlots() 只返回直接传递的插槽(也就是.vitepress/theme/components/MistLayoutProvider.vue)传递过来的，
 // 而 $slots 包含所有可用的插槽。
 const slots = useSlots();
@@ -73,14 +74,19 @@ const usedSlots = [
       
       <!-- page-top插槽 - 导航页面组件 -->
       <template #page-top>
-        <slot name="mist-navigation-page-before" />
+        <slot name="page-top" />
+        <slot name="mist-page-top-before" />
         <MtNavigationPage v-if="isNavigation" >
           <template v-for="(_, name) in $slots" :key="name" #[name]="scope">
             <slot :name="name" v-bind="scope" />
           </template>
         </MtNavigationPage>
-        <slot name="mist-navigation-page-after" />
-        <slot name="page-top" />
+        <MtCataloguePage v-if="isCataloguePage">
+          <template v-for="(_, name) in $slots" :key="name" #[name]="scope">
+            <slot :name="name" v-bind="scope" />
+          </template>
+        </MtCataloguePage>
+        <slot name="mist-page-top-after" />
       </template>
       
       <!-- doc-footer-before插槽 -->

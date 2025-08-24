@@ -1,4 +1,5 @@
 export * from "./ArticleShare";
+export * from "./CataloguePage";
 export * from "./ConfigProvider";
 export * from "./DemoCode";
 export * from "./HomeUnderline";
