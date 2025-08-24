@@ -2,7 +2,7 @@
 import type { ThemeEnhance } from "@mist/config";
 import { computed } from "vue";
 import { readingIcon } from "@mist/static/icons";
-import { useMediaQuery } from "@Mist/composables";
+import { useMediaQuery } from "@mist/composables";
 import { useMistConfig } from "@mist/components/theme/ConfigProvider";
 import { MtIcon } from "@mist/components/common/Icon";
 import { MtPopover } from "@mist/components/common/Popover";
