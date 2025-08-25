@@ -8,10 +8,7 @@ import MistLayoutProvider from "./components/MistLayoutProvider.vue";
 import './style.css'
 
 // 工作区本地引入
-import "@mist/theme-chalk/vp-plus/doc-fade-in.scss"; // 进入文档页淡入效果
-
-//工作区外部引入
-// import "vitepress-theme-mist/theme-chalk/vp-plus/doc-fade-in.scss";
+import "@mist/theme-chalk/mt-plus/fade-up-animation.scss"; // 淡入效果
 
 export default {
   extends: Mist,

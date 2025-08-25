@@ -32,12 +32,17 @@ export default defineConfig({
       maxLevel: 6,
       debugPrint: false 
     }),
+    logo: '/favicon.svg', // 导航栏标题的logo
+    docFooter: {
+      prev: '上一篇',
+      next: '下一篇',
+    },
     outline: {
       label: '页面导航',
       level: [2, 6],
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/docs-site/vitepress-theme-mist.git' }
     ]
   }
 })
