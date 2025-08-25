@@ -73,50 +73,6 @@
 # subject，提交信息
 ```
 
-- fix：bug修复
-
-```bash
-git commit -m "fix:[devenv] commit-message" # 开发环境 bug 修复
-git commit -m "fix:[theme] commit-message"  # vitepress-theme-mist bug 修复
-git commit -m "fix:[site] commit-message"   # docs目录下site站点 bug 修复
-```
-
-- feat：新增功能
-
-```bash
-git commit -m "feat:[devenv] commit-message" # 开发环境新增功能
-git commit -m "feat:[theme] commit-message"  # vitepress-theme-mist 新增功能
-git commit -m "feat:[site] commit-message"   # docs目录下site站点新增功能
-```
-
-- perf：优化相关，比如提升性能、体验等
-
-```bash
-git commit -m "perf:[devenv] commit-message" # 开发环境优化
-git commit -m "perf:[theme] commit-message"  # vitepress-theme-mist 优化
-git commit -m "perf:[site] commit-message"   # docs目录下site站点优化
-```
-
-- refactor：重构（即不是新增功能，也不是修改bug的代码变动）。
-
-```bash
-git commit -m "refactor:[devenv] commit-message" # 开发环境相关修改
-git commit -m "refactor:[theme] commit-message"  # vitepress-theme-mist 相关修改
-git commit -m "refactor: [site] commit-message"  # docs目录下site站点相关修改
-```
-- chore：一些杂项，还有构建过程或辅助工具的变动。
-
-```bash
-git commit -m "chore[release]: commit-message" # 更新版本号
-git commit -m "chore[build]: commit-message"   # 构建流程相关修改(build)
-```
-
-- docs：开发文档更新或者新增
-
-```bash
-git commit -m "docs: commit-message" # 开发文档更新
-```
-
 ## License
 
 [MIT](https://mit-license.org/) License © 2025 [docs-site](https://github.com/docs-site/)
