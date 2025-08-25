@@ -6,51 +6,14 @@
 $fade-up-animation: fade-up 0.6s 0.1s backwards;
 $fade-up-slide-animation: fade-up-slide 0.7s cubic-bezier(0, 0, 0.58, 1) forwards;
 
-@include b(banner) {
-  @include e(content) {
-    animation: $fade-up-animation;
-  }
-}
-
-@include b(home-feature) {
+// 目录页
+@include b(doc) {
   animation: $fade-up-animation;
 }
 
-@include b(home-card-list) {
+// 导航页
+@include b(navigation-page) {
   animation: $fade-up-animation;
-}
-
-@include b(post-list) {
-  animation: $fade-up-animation;
-}
-
-@include b(footer-group) {
-  animation: $fade-up-animation;
-}
-
-@include b(archives) {
-  animation: $fade-up-animation;
-}
-
-@include b(article-page) {
-  @include b(aside-outline) {
-    animation: $fade-up-animation;
-  }
-  @include b(doc) {
-    > div {
-      animation: $fade-up-animation;
-    }
-  }
-}
-
-@include b(login) {
-  animation: $fade-up-animation;
-}
-
-@include b(risk-link) {
-  > * {
-    animation: $fade-up-animation;
-  }
 }
 
 /* 文章页淡入效果 */

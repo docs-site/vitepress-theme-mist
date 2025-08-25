@@ -1,1 +1,1 @@
-import "@misttheme-chalk/mt-code-block-toggle.css";
+import "@mist/theme-chalk/mt-code-block-toggle.css";
