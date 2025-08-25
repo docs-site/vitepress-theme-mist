@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MtArticleInfo } from "@mist/components/theme/ArticleInfo";
+import { MtArticleInfo } from "vitepress-theme-mist";
 import { ref } from "vue";
 
 // 模拟文章数据 - 包含更多字段

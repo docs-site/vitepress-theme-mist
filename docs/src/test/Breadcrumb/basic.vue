@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MtBreadcrumb, MtBreadcrumbItem } from "@mist/components/common/Breadcrumb";
+import { MtBreadcrumb, MtBreadcrumbItem } from "vitepress-theme-mist";
 </script>
 
 <template>

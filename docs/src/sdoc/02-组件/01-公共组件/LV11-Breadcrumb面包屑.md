@@ -19,7 +19,7 @@ description:
 <!-- more -->
 
 <script setup>
-import { MtBreadcrumb, MtBreadcrumbItem } from "@mist/components/common/Breadcrumb"
+import { MtBreadcrumb, MtBreadcrumbItem } from "vitepress-theme-mist"
 </script>
 
 ## 一、组件介绍

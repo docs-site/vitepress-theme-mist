@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { MtBreadcrumb, MtBreadcrumbItem } from "@mist/components/common/Breadcrumb";
-import { MtIcon } from "@mist/components/common/Icon";
-import { houseIcon, folderOpenedIcon, editPenIcon } from "@mist/static";
+import { MtBreadcrumb, MtBreadcrumbItem } from "vitepress-theme-mist";
+import { MtIcon } from "vitepress-theme-mist";
+import { houseIcon, folderOpenedIcon, editPenIcon } from "vitepress-theme-mist";
 </script>
 
 <template>
