@@ -18,7 +18,10 @@
     "packages:stub": "pnpm -r --filter=./packages/* run stub",
     "plugins:stub": "pnpm -r --filter=./plugins/* run stub",
     "plugins:build": "pnpm -r --filter=./plugins/* run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "cz": "git add . && git-cz",
+    "lint:lint-staged": "lint-staged -c .husky/lintstagedrc.js"
   },
   "keywords": [],
   "author": "",
@@ -35,12 +38,23 @@
     "@mist/theme-chalk": "workspace:*"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@types/node": "catalog:",
     "@vue/runtime-core": "catalog:vue",
     "@vue/runtime-dom": "catalog:vue",
+    "commitizen": "^4.3.1",
+    "cz-git": "^1.12.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^16.1.5",
     "rimraf": "catalog:",
     "unbuild": "3.2.0",
     "vitepress": "catalog:",
     "vue": "catalog:"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
   }
 }
