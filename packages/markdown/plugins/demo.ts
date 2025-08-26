@@ -8,7 +8,7 @@ import container from "markdown-it-container";
 import yaml from "js-yaml";
 
 // 这里的目录修改时，packages/components/theme/DemoCode/src/index.vue 中也需要对应修改
-const COMPONENTS_TEST_PATH = 'test'
+const COMPONENTS_TEST_PATH = "test";
 
 interface ContainerOpts {
   marker?: string | undefined;

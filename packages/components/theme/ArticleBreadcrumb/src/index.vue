@@ -37,7 +37,7 @@ const breadcrumbList = computed(() => {
 
   if (firstLevelUrl) {
     // 移除第一级URL的文件名部分，只保留目录路径
-    basePath = firstLevelUrl.substring(0, firstLevelUrl.lastIndexOf('/') + 1);
+    basePath = firstLevelUrl.substring(0, firstLevelUrl.lastIndexOf("/") + 1);
   }
 
   relativePathArrConst.forEach((item, index) => {
@@ -45,8 +45,10 @@ const breadcrumbList = computed(() => {
     const fileName = item.replace(/^\d+\./, "").split(".")?.[0] || "";
 
     // 兼容国际化功能，如果配置多语言，在面包屑去掉多语言根目录名
-    if ((index !== relativePathArrConst.length - 1 || breadcrumb.value.showCurrentName) &&
-      fileName !== localeIndex.value) {
+    if (
+      (index !== relativePathArrConst.length - 1 || breadcrumb.value.showCurrentName) &&
+      fileName !== localeIndex.value
+    ) {
       // 构建路径URL
       let url = "";
 
@@ -65,7 +67,7 @@ const breadcrumbList = computed(() => {
 
         // 组合基础路径和当前层级路径
         if (pathSegments.length > 0) {
-          url = basePath + pathSegments.join('/') + '/';
+          url = basePath + pathSegments.join("/") + "/";
         }
       }
 

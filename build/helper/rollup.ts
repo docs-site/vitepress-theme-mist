@@ -18,7 +18,7 @@ export function writeBundles(bundle: RollupBuild, options: OutputOptions[]) {
  * @returns {Promise<void[]>} 返回一个 Promise，解析为空数组
  * @details 该函数接收一个返回 Rollup 构建对象的函数和一组输出选项，
  *          然后为每个输出选项调用该函数获取构建对象，并执行写入操作
- * 
+ *
  */
 export function writeBundlesFn(getBundleFn: (format: "esm" | "cjs") => Promise<RollupBuild>, options: OutputOptions[]) {
   return Promise.all(

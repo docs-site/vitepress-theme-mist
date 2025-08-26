@@ -1,6 +1,5 @@
 @use "./base"; // 引入基础样式
 
-
 @use "./components/common/back-top"; // BackTop 组件样式
 @use "./components/common/breadcrumb-item";
 @use "./components/common/breadcrumb";
@@ -13,7 +12,7 @@
 @use "./components/common/message"; // Message 组件样式
 @use "./components/common/popover"; // Popover 组件样式
 @use "./components/common/segmented-item"; // Segmented 组件样式
-@use "./components/common/segmented";      // Segmented 组件样式
+@use "./components/common/segmented"; // Segmented 组件样式
 @use "./components/common/title-tag";
 
 @use "./components/theme/article-analyze";

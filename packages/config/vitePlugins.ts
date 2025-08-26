@@ -1,7 +1,6 @@
 import type { Plugins } from "./interface";
 import type { PostData, MtContentData } from "./post/types";
 
-
 import FileContentLoader, { FileContentLoaderOptions } from "@docs-site/vitepress-plugin-file-content-loader";
 import { transformData, transformRaw } from "./post";
 import Catalogue from "@docs-site/vitepress-plugin-catalogue";
@@ -30,10 +29,7 @@ export const registerPluginAndGet = (vitePlugins: Plugins = {}, mistTheme = true
 const registerLoosePlugins = (vitePlugins: Plugins, ignoreDir: Record<string, any[]>) => {
   const plugins: any[] = [];
 
-  const {
-    docAnalysis = true,
-    docAnalysisOption = {},
-  } = vitePlugins || {};
+  const { docAnalysis = true, docAnalysisOption = {} } = vitePlugins || {};
 
   // 文档内容分析插件
   if (docAnalysis) {

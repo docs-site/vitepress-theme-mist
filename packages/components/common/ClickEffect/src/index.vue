@@ -1,6 +1,6 @@
 <script setup lang="ts" name="ClickEffect">
 import { ref, onMounted, onUnmounted, computed } from "vue";
-import { useMediaQuery } from '@mist/composables'
+import { useMediaQuery } from "@mist/composables";
 import { useMistConfig } from "@mist/components/theme/ConfigProvider";
 import type { ClickEffect } from "@mist/config";
 
@@ -13,9 +13,9 @@ let particles: any[] = [];
 const { getMistConfigRef } = useMistConfig();
 const clickEffectConfig = getMistConfigRef<ClickEffect>("clickEffect", {
   enabled: false,
-  textArray: ['富强', '民主', '文明', '和谐', '自由', '平等', '公正', '法治', '爱国', '敬业', '诚信', '友善'],
+  textArray: ["富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善"],
   fontSize: 16,
-  random: false
+  random: false,
 });
 
 // Configuration for the text effect
@@ -27,7 +27,7 @@ let currentTextIndex = 0;
 function setCanvasSize() {
   const canvasEl = canvas.value;
   if (!canvasEl) return;
-  
+
   canvasEl.width = window.innerWidth * 2;
   canvasEl.height = window.innerHeight * 2;
   canvasEl.style.width = window.innerWidth + "px";
@@ -42,10 +42,10 @@ function setCanvasSize() {
 function createTextParticle(x: number, y: number) {
   const config = textConfig.value;
   let textToDisplay: string;
-  
+
   // 确保 textArray 存在且有内容
   if (!config.textArray || config.textArray.length === 0) {
-    textToDisplay = 'Mist';
+    textToDisplay = "Mist";
   } else if (config.random) {
     textToDisplay = config.textArray[Math.floor(Math.random() * config.textArray.length)];
   } else {
@@ -55,7 +55,7 @@ function createTextParticle(x: number, y: number) {
 
   const color = getRandomColor(); // Use the color generation from the script
   const initialY = y;
-  
+
   return {
     x,
     y,
@@ -64,16 +64,16 @@ function createTextParticle(x: number, y: number) {
     color,
     fontSize: config.fontSize,
     alpha: 1, // For fading out
-    speedY: -0.8,           // 向上移动速度 (更慢)
+    speedY: -0.8, // 向上移动速度 (更慢)
     fadeStartDistance: 25, // 开始淡出前移动距离
-    fadeDuration: 50,       // 淡出持续时间(帧数)
+    fadeDuration: 50, // 淡出持续时间(帧数)
     draw(ctx: CanvasRenderingContext2D) {
       ctx.save();
       ctx.globalAlpha = this.alpha;
       ctx.font = `bold ${this.fontSize}px sans-serif`;
       ctx.fillStyle = this.color;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
       ctx.fillText(this.text, this.x, this.y);
       ctx.restore();
     },
@@ -89,10 +89,10 @@ function createTextParticle(x: number, y: number) {
         const fadeProgress = (distanceTraveled - this.fadeStartDistance) / this.fadeDuration;
         this.alpha = Math.max(0, 1 - fadeProgress);
       }
-      
+
       // Particle is considered "dead" when alpha is 0
       return this.alpha > 0;
-    }
+    },
   };
 }
 
@@ -100,19 +100,19 @@ function createTextParticle(x: number, y: number) {
 function animate() {
   const canvasEl = canvas.value;
   if (!canvasEl) return;
-  
+
   const ctx = canvasEl.getContext("2d");
   if (!ctx) return;
-  
+
   ctx.clearRect(0, 0, canvasEl.width / 2, canvasEl.height / 2); // Clear scaled canvas
-  
+
   // 更新并绘制文本粒子
   particles = particles.filter(particle => {
     const shouldKeep = particle.update();
     particle.draw(ctx);
     return shouldKeep;
   });
-  
+
   animationFrameId = requestAnimationFrame(animate);
 }
 
@@ -120,9 +120,9 @@ function animate() {
 function handleClick(e: MouseEvent | TouchEvent) {
   // 检查是否启用了点击特效
   if (!clickEffectConfig.value.enabled) return;
-  
+
   let x: number, y: number;
-  
+
   if (e instanceof MouseEvent) {
     x = e.clientX;
     y = e.clientY;
@@ -132,7 +132,7 @@ function handleClick(e: MouseEvent | TouchEvent) {
   } else {
     return;
   }
-  
+
   // 创建一个文本粒子
   particles.push(createTextParticle(x, y));
 }
@@ -149,7 +149,7 @@ function getRandomColor(): string {
 
 onMounted(() => {
   if (isMobile.value) return;
-  
+
   setCanvasSize();
   const tapEvent = "ontouchstart" in window ? "touchstart" : "mousedown";
   window.addEventListener(tapEvent, handleClick);
@@ -159,7 +159,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   if (isMobile.value) return;
-  
+
   const tapEvent = "ontouchstart" in window ? "touchstart" : "mousedown";
   window.removeEventListener(tapEvent, handleClick);
   window.removeEventListener("resize", setCanvasSize);

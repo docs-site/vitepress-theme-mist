@@ -32,7 +32,7 @@ export interface MistConfig {
   clickEffect?: ClickEffect; // 点击特效配置
   codeBlock?: CodeBlock; // 代码块配置
   docAnalysis?: DocAnalysis; // 文章分析配置
-  markdown?: Markdown;// markdown插件配置
+  markdown?: Markdown; // markdown插件配置
   themeName?: string; // 主题名称
   themeEnhance?: ThemeEnhance; // 主题增强配置
   vitePlugins?: Plugins; // 内置 Vite 插件配置

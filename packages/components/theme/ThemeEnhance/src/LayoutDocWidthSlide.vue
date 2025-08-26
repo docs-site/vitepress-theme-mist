@@ -47,7 +47,7 @@ const shouldActivateMaxWidth = useMediaQuery(activateMaxWidthSlideMedia);
 
 watch(shouldActivateMaxWidth, () => {
   const value = docMaxWidth.value;
-  if (typeof value === 'number') {
+  if (typeof value === "number") {
     updateMaxWidth(value);
   }
 });

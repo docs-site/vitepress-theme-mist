@@ -26,7 +26,7 @@ const props = defineProps<ButtonOption>();
  * @details 定义组件可以触发的事件
  */
 const emit = defineEmits<{
-  click: [event: MouseEvent]
+  click: [event: MouseEvent];
 }>();
 
 /**
@@ -57,7 +57,7 @@ const blur = () => {
  * @param {MouseEvent} event - 鼠标事件对象
  */
 const handleClick = (event: MouseEvent) => {
-  emit('click', event);
+  emit("click", event);
 };
 
 /**
@@ -65,11 +65,7 @@ const handleClick = (event: MouseEvent) => {
  * @details 根据props动态生成按钮的样式类名
  */
 const buttonClass = computed(() => {
-  return [
-    ns.b(),
-    ns.m(props.type || 'default'),
-    ns.m(props.size || 'default')
-  ];
+  return [ns.b(), ns.m(props.type || "default"), ns.m(props.size || "default")];
 });
 
 /**
@@ -78,7 +74,7 @@ const buttonClass = computed(() => {
  */
 defineExpose({
   focus,
-  blur
+  blur,
 });
 </script>
 

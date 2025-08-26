@@ -2,10 +2,7 @@
 import type { DefaultTheme, UserConfig } from "vitepress";
 import type { MistConfig } from "./types";
 // import type { PluginOption } from "vite";
-import {
-  demoPlugin,
-  containerPlugin,
-} from "../markdown";
+import { demoPlugin, containerPlugin } from "../markdown";
 import { registerPluginAndGet } from "./vitePlugins";
 
 export type * from "./types";
@@ -45,7 +42,7 @@ const defaultMistConfig: Required<MistConfig> = {
   themeName: "mist",
   themeEnhance: {
     enabled: true,
-    position: 'top',
+    position: "top",
   },
   codeBlock: {
     disabled: false,
@@ -54,7 +51,7 @@ const defaultMistConfig: Required<MistConfig> = {
     overlay: false,
     overlayHeight: 400,
     langTextTransform: "lowercase", // 语言文本显示样式
-  }
+  },
 } as Required<MistConfig>;
 
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {
@@ -69,7 +66,7 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
     articleShare: {
       ...defaultMistConfig.articleShare,
       ...MistThemeConfig.articleShare,
-    }
+    },
   };
 
   // if (!mergedConfig.useTheme) return {};

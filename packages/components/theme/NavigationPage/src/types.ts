@@ -3,20 +3,20 @@
  */
 export interface NavigationLinkItem {
   /** 站点图标 */
-  icon?: string | { svg: string }
+  icon?: string | { svg: string };
   /** 徽章 */
   badge?:
     | string
     | {
-        text?: string
-        type?: 'info' | 'tip' | 'warning' | 'danger'
-      }
+        text?: string;
+        type?: "info" | "tip" | "warning" | "danger";
+      };
   /** 站点名称 */
-  title: string
+  title: string;
   /** 站点描述 */
-  desc?: string
+  desc?: string;
   /** 站点链接 */
-  link: string
+  link: string;
 }
 
 /**
@@ -24,7 +24,7 @@ export interface NavigationLinkItem {
  */
 export interface NavigationData {
   /** 导航组标题 */
-  title: string
+  title: string;
   /** 导航链接项列表 */
-  items: NavigationLinkItem[]
+  items: NavigationLinkItem[];
 }

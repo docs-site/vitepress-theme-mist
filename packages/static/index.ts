@@ -13,9 +13,9 @@
  * @section img_resources 图片资源 (./img/)
  * - 备案相关图片等静态图片资源
  * @section usage 基本用法
- * 
+ *
  * @subsection svg_usage SVG 图标使用
- * 
+ *
  * @code{.vue} 主体内部使用，外部使用时 从 vitepress-theme-mist 导入
  * <template>
  *   <!-- 导入图标 -->

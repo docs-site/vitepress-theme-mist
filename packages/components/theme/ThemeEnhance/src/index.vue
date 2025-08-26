@@ -36,7 +36,6 @@ const disabledList = computed(() => {
       <MtIcon :icon="readingIcon" :size="20" />
     </template>
     <div :class="ns.e('content')">
-
       <template v-if="!disabledList.layoutSwitch">
         <LayoutSwitch />
         <LayoutPageWidthSlide />

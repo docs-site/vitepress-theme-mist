@@ -43,9 +43,12 @@ const shouldActivateMaxWidth = useMediaQuery(activateMaxWidthSlideMedia);
 
 // 初始化会马上触发一次
 watch(shouldActivateMaxWidth, () => {
-  const value = typeof pageMaxWidth.value === 'number' ? pageMaxWidth.value :
-                (typeof pageMaxWidth.value === 'string' ? Number(pageMaxWidth.value) :
-                 (themeEnhanceConfig.value.layoutSwitch?.defaultPageMaxWidth || 90) * 100);
+  const value =
+    typeof pageMaxWidth.value === "number"
+      ? pageMaxWidth.value
+      : typeof pageMaxWidth.value === "string"
+        ? Number(pageMaxWidth.value)
+        : (themeEnhanceConfig.value.layoutSwitch?.defaultPageMaxWidth || 90) * 100;
   updatePageMaxWidth(value);
 });
 

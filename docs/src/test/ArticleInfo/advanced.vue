@@ -17,14 +17,14 @@ const mockPostFull = ref({
     sidebar: true,
     article: true,
     sticky: 0,
-    catalogue: false
+    catalogue: false,
   },
   author: {
     name: "苏木",
-    link: "https://github.com/docs-site/vitepress-theme-mist"
+    link: "https://github.com/docs-site/vitepress-theme-mist",
   },
   date: "2025-08-24",
-  capture: "本文详细介绍了 Vue 3 Composition API 的使用方法和最佳实践..."
+  capture: "本文详细介绍了 Vue 3 Composition API 的使用方法和最佳实践...",
 });
 
 // 模拟文章数据 - 只包含基本信息
@@ -35,9 +35,9 @@ const mockPostBasic = ref({
   frontmatter: {
     title: "CSS Grid 布局详解",
     date: "2025-08-20",
-    permalink: "/guide/css-grid"
+    permalink: "/guide/css-grid",
   },
-  date: "2025-08-20"
+  date: "2025-08-20",
 });
 
 // 模拟作用域
@@ -49,7 +49,7 @@ const postScope = "post";
   <div class="article-info-demo">
     <h3>ArticleInfo 高级用法</h3>
     <p>ArticleInfo 组件支持多种配置和用法，可以满足不同的展示需求。</p>
-    
+
     <div class="demo-section">
       <h4>1. 完整信息展示（文章页）</h4>
       <div class="demo-container">
@@ -57,7 +57,7 @@ const postScope = "post";
       </div>
       <p class="demo-description">在文章页中展示完整的文章信息，包括作者、创建时间、分类和标签。</p>
     </div>
-    
+
     <div class="demo-section">
       <h4>2. 基本信息展示（首页列表）</h4>
       <div class="demo-container">
@@ -65,7 +65,7 @@ const postScope = "post";
       </div>
       <p class="demo-description">在首页文章列表中只展示基本的文章信息。</p>
     </div>
-    
+
     <div class="demo-section">
       <h4>3. 带分割线的展示</h4>
       <div class="demo-container">
@@ -73,7 +73,7 @@ const postScope = "post";
       </div>
       <p class="demo-description">使用 split 属性在各项信息之间添加分割线。</p>
     </div>
-    
+
     <div class="demo-section">
       <h4>4. 使用插槽添加额外内容</h4>
       <div class="demo-container">

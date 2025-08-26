@@ -4,106 +4,103 @@
 
 // 设置按钮相关的 CSS 变量
 :root {
-  @include set-css-var('button-font-size', 14px);
-  @include set-css-var('button-font-weight', 500);
-  @include set-css-var('button-border-radius', 4px);
-  @include set-css-var('button-height', 32px);
-  @include set-css-var('button-padding-vertical', 8px);
-  @include set-css-var('button-padding-horizontal', 15px);
-  @include set-css-var('button-transition-duration', 0.1s);
-  
+  @include set-css-var("button-font-size", 14px);
+  @include set-css-var("button-font-weight", 500);
+  @include set-css-var("button-border-radius", 4px);
+  @include set-css-var("button-height", 32px);
+  @include set-css-var("button-padding-vertical", 8px);
+  @include set-css-var("button-padding-horizontal", 15px);
+  @include set-css-var("button-transition-duration", 0.1s);
+
   // 默认按钮
-  @include set-css-var('button-text-color', #606266);
-  @include set-css-var('button-bg-color', #fff);
-  @include set-css-var('button-border-color', #dcdfe6);
-  
+  @include set-css-var("button-text-color", #606266);
+  @include set-css-var("button-bg-color", #fff);
+  @include set-css-var("button-border-color", #dcdfe6);
+
   // 默认按钮 hover 状态
-  @include set-css-var('button-hover-text-color', #409eff);
-  @include set-css-var('button-hover-bg-color', #ecf5ff);
-  @include set-css-var('button-hover-border-color', #c6e2ff);
-  
+  @include set-css-var("button-hover-text-color", #409eff);
+  @include set-css-var("button-hover-bg-color", #ecf5ff);
+  @include set-css-var("button-hover-border-color", #c6e2ff);
+
   // 默认按钮 active 状态
-  @include set-css-var('button-active-text-color', #3a8ee6);
-  @include set-css-var('button-active-border-color', #3a8ee6);
-  
-  
+  @include set-css-var("button-active-text-color", #3a8ee6);
+  @include set-css-var("button-active-border-color", #3a8ee6);
+
   // 主要按钮
-  @include set-css-var('button-primary-text-color', #fff);
-  @include set-css-var('button-primary-bg-color', #409eff);
-  @include set-css-var('button-primary-border-color', #409eff);
-  @include set-css-var('button-primary-hover-bg-color', #66b1ff);
-  @include set-css-var('button-primary-hover-border-color', #66b1ff);
-  @include set-css-var('button-primary-active-bg-color', #3a8ee6);
-  @include set-css-var('button-primary-active-border-color', #3a8ee6);
-  @include set-css-var('button-primary-disabled-bg-color', #a0cfff);
-  @include set-css-var('button-primary-disabled-border-color', #a0cfff);
-  
+  @include set-css-var("button-primary-text-color", #fff);
+  @include set-css-var("button-primary-bg-color", #409eff);
+  @include set-css-var("button-primary-border-color", #409eff);
+  @include set-css-var("button-primary-hover-bg-color", #66b1ff);
+  @include set-css-var("button-primary-hover-border-color", #66b1ff);
+  @include set-css-var("button-primary-active-bg-color", #3a8ee6);
+  @include set-css-var("button-primary-active-border-color", #3a8ee6);
+  @include set-css-var("button-primary-disabled-bg-color", #a0cfff);
+  @include set-css-var("button-primary-disabled-border-color", #a0cfff);
+
   // 成功按钮
-  @include set-css-var('button-success-text-color', #fff);
-  @include set-css-var('button-success-bg-color', #67c23a);
-  @include set-css-var('button-success-border-color', #67c23a);
-  @include set-css-var('button-success-hover-bg-color', #85ce61);
-  @include set-css-var('button-success-hover-border-color', #85ce61);
-  @include set-css-var('button-success-active-bg-color', #5daf34);
-  @include set-css-var('button-success-active-border-color', #5daf34);
-  @include set-css-var('button-success-disabled-bg-color', #b3e19d);
-  @include set-css-var('button-success-disabled-border-color', #b3e19d);
-  
+  @include set-css-var("button-success-text-color", #fff);
+  @include set-css-var("button-success-bg-color", #67c23a);
+  @include set-css-var("button-success-border-color", #67c23a);
+  @include set-css-var("button-success-hover-bg-color", #85ce61);
+  @include set-css-var("button-success-hover-border-color", #85ce61);
+  @include set-css-var("button-success-active-bg-color", #5daf34);
+  @include set-css-var("button-success-active-border-color", #5daf34);
+  @include set-css-var("button-success-disabled-bg-color", #b3e19d);
+  @include set-css-var("button-success-disabled-border-color", #b3e19d);
+
   // 警告按钮
-  @include set-css-var('button-warning-text-color', #fff);
-  @include set-css-var('button-warning-bg-color', #e6a23c);
-  @include set-css-var('button-warning-border-color', #e6a23c);
-  @include set-css-var('button-warning-hover-bg-color', #ebb563);
-  @include set-css-var('button-warning-hover-border-color', #ebb563);
-  @include set-css-var('button-warning-active-bg-color', #cf9236);
-  @include set-css-var('button-warning-active-border-color', #cf9236);
-  @include set-css-var('button-warning-disabled-bg-color', #f3d19e);
-  @include set-css-var('button-warning-disabled-border-color', #f3d19e);
-  
+  @include set-css-var("button-warning-text-color", #fff);
+  @include set-css-var("button-warning-bg-color", #e6a23c);
+  @include set-css-var("button-warning-border-color", #e6a23c);
+  @include set-css-var("button-warning-hover-bg-color", #ebb563);
+  @include set-css-var("button-warning-hover-border-color", #ebb563);
+  @include set-css-var("button-warning-active-bg-color", #cf9236);
+  @include set-css-var("button-warning-active-border-color", #cf9236);
+  @include set-css-var("button-warning-disabled-bg-color", #f3d19e);
+  @include set-css-var("button-warning-disabled-border-color", #f3d19e);
+
   // 危险按钮
-  @include set-css-var('button-danger-text-color', #fff);
-  @include set-css-var('button-danger-bg-color', #f56c6c);
-  @include set-css-var('button-danger-border-color', #f56c6c);
-  @include set-css-var('button-danger-hover-bg-color', #f78989);
-  @include set-css-var('button-danger-hover-border-color', #f78989);
-  @include set-css-var('button-danger-active-bg-color', #dd6161);
-  @include set-css-var('button-danger-active-border-color', #dd6161);
-  @include set-css-var('button-danger-disabled-bg-color', #fab6b6);
-  @include set-css-var('button-danger-disabled-border-color', #fab6b6);
-  
+  @include set-css-var("button-danger-text-color", #fff);
+  @include set-css-var("button-danger-bg-color", #f56c6c);
+  @include set-css-var("button-danger-border-color", #f56c6c);
+  @include set-css-var("button-danger-hover-bg-color", #f78989);
+  @include set-css-var("button-danger-hover-border-color", #f78989);
+  @include set-css-var("button-danger-active-bg-color", #dd6161);
+  @include set-css-var("button-danger-active-border-color", #dd6161);
+  @include set-css-var("button-danger-disabled-bg-color", #fab6b6);
+  @include set-css-var("button-danger-disabled-border-color", #fab6b6);
+
   // 信息按钮
-  @include set-css-var('button-info-text-color', #fff);
-  @include set-css-var('button-info-bg-color', #909399);
-  @include set-css-var('button-info-border-color', #909399);
-  @include set-css-var('button-info-hover-bg-color', #a6a9ad);
-  @include set-css-var('button-info-hover-border-color', #a6a9ad);
-  @include set-css-var('button-info-active-bg-color', #82848a);
-  @include set-css-var('button-info-active-border-color', #82848a);
-  @include set-css-var('button-info-disabled-bg-color', #c8c9cc);
-  @include set-css-var('button-info-disabled-border-color', #c8c9cc);
-  
+  @include set-css-var("button-info-text-color", #fff);
+  @include set-css-var("button-info-bg-color", #909399);
+  @include set-css-var("button-info-border-color", #909399);
+  @include set-css-var("button-info-hover-bg-color", #a6a9ad);
+  @include set-css-var("button-info-hover-border-color", #a6a9ad);
+  @include set-css-var("button-info-active-bg-color", #82848a);
+  @include set-css-var("button-info-active-border-color", #82848a);
+  @include set-css-var("button-info-disabled-bg-color", #c8c9cc);
+  @include set-css-var("button-info-disabled-border-color", #c8c9cc);
+
   // 文本按钮
-  @include set-css-var('button-text-text-color', #409eff);
-  @include set-css-var('button-text-hover-text-color', #66b1ff);
-  @include set-css-var('button-text-active-text-color', #3a8ee6);
-  @include set-css-var('button-text-disabled-text-color', #c0c4cc);
-  
-  
+  @include set-css-var("button-text-text-color", #409eff);
+  @include set-css-var("button-text-hover-text-color", #66b1ff);
+  @include set-css-var("button-text-active-text-color", #3a8ee6);
+  @include set-css-var("button-text-disabled-text-color", #c0c4cc);
+
   // 尺寸相关
-  @include set-css-var('button-large-height', 40px);
-  @include set-css-var('button-large-padding-vertical', 12px);
-  @include set-css-var('button-large-padding-horizontal', 19px);
-  @include set-css-var('button-large-font-size', 14px);
-  @include set-css-var('button-large-round-padding-horizontal', 23px);
-  @include set-css-var('button-large-circle-padding', 12px);
-  
-  @include set-css-var('button-small-height', 24px);
-  @include set-css-var('button-small-padding-vertical', 5px);
-  @include set-css-var('button-small-padding-horizontal', 11px);
-  @include set-css-var('button-small-font-size', 12px);
-  @include set-css-var('button-small-round-padding-horizontal', 11px);
-  @include set-css-var('button-small-circle-padding', 5px);
-  
+  @include set-css-var("button-large-height", 40px);
+  @include set-css-var("button-large-padding-vertical", 12px);
+  @include set-css-var("button-large-padding-horizontal", 19px);
+  @include set-css-var("button-large-font-size", 14px);
+  @include set-css-var("button-large-round-padding-horizontal", 23px);
+  @include set-css-var("button-large-circle-padding", 12px);
+
+  @include set-css-var("button-small-height", 24px);
+  @include set-css-var("button-small-padding-vertical", 5px);
+  @include set-css-var("button-small-padding-horizontal", 11px);
+  @include set-css-var("button-small-font-size", 12px);
+  @include set-css-var("button-small-round-padding-horizontal", 11px);
+  @include set-css-var("button-small-circle-padding", 5px);
 }
 
 @include b("button") {
@@ -111,174 +108,173 @@
   justify-content: center;
   align-items: center;
   line-height: 1;
-  height: getCssVar('button-height');
+  height: getCssVar("button-height");
   white-space: nowrap;
   cursor: pointer;
-  background-color: getCssVar('button-bg-color');
-  border: 1px solid getCssVar('button-border-color');
-  color: getCssVar('button-text-color');
+  background-color: getCssVar("button-bg-color");
+  border: 1px solid getCssVar("button-border-color");
+  color: getCssVar("button-text-color");
   -webkit-appearance: none;
   text-align: center;
   box-sizing: border-box;
   outline: none;
   margin: 0;
-  transition: all getCssVar('button-transition-duration') ease;
-  font-weight: getCssVar('button-font-weight');
-  padding: getCssVar('button-padding-vertical') getCssVar('button-padding-horizontal');
-  font-size: getCssVar('button-font-size');
-  border-radius: getCssVar('button-border-radius');
+  transition: all getCssVar("button-transition-duration") ease;
+  font-weight: getCssVar("button-font-weight");
+  padding: getCssVar("button-padding-vertical") getCssVar("button-padding-horizontal");
+  font-size: getCssVar("button-font-size");
+  border-radius: getCssVar("button-border-radius");
 
   &:hover,
   &:focus {
-    color: getCssVar('button-hover-text-color');
-    border-color: getCssVar('button-hover-border-color');
-    background-color: getCssVar('button-hover-bg-color');
+    color: getCssVar("button-hover-text-color");
+    border-color: getCssVar("button-hover-border-color");
+    background-color: getCssVar("button-hover-bg-color");
   }
 
   &:active {
-    color: getCssVar('button-active-text-color');
-    border-color: getCssVar('button-active-border-color');
+    color: getCssVar("button-active-text-color");
+    border-color: getCssVar("button-active-border-color");
     outline: none;
   }
 
-
   // 主要按钮
   @include m("primary") {
-    color: getCssVar('button-primary-text-color');
-    background-color: getCssVar('button-primary-bg-color');
-    border-color: getCssVar('button-primary-border-color');
+    color: getCssVar("button-primary-text-color");
+    background-color: getCssVar("button-primary-bg-color");
+    border-color: getCssVar("button-primary-border-color");
 
     &:hover,
     &:focus {
-      background: getCssVar('button-primary-hover-bg-color');
-      border-color: getCssVar('button-primary-hover-border-color');
-      color: getCssVar('button-primary-text-color');
+      background: getCssVar("button-primary-hover-bg-color");
+      border-color: getCssVar("button-primary-hover-border-color");
+      color: getCssVar("button-primary-text-color");
     }
 
     &:active {
-      background: getCssVar('button-primary-active-bg-color');
-      border-color: getCssVar('button-primary-active-border-color');
-      color: getCssVar('button-primary-text-color');
+      background: getCssVar("button-primary-active-bg-color");
+      border-color: getCssVar("button-primary-active-border-color");
+      color: getCssVar("button-primary-text-color");
     }
 
     &.is-disabled,
     &.is-disabled:hover,
     &.is-disabled:focus {
-      color: getCssVar('button-primary-text-color');
-      background-color: getCssVar('button-primary-disabled-bg-color');
-      border-color: getCssVar('button-primary-disabled-border-color');
+      color: getCssVar("button-primary-text-color");
+      background-color: getCssVar("button-primary-disabled-bg-color");
+      border-color: getCssVar("button-primary-disabled-border-color");
     }
   }
 
   // 成功按钮
   @include m("success") {
-    color: getCssVar('button-success-text-color');
-    background-color: getCssVar('button-success-bg-color');
-    border-color: getCssVar('button-success-border-color');
+    color: getCssVar("button-success-text-color");
+    background-color: getCssVar("button-success-bg-color");
+    border-color: getCssVar("button-success-border-color");
 
     &:hover,
     &:focus {
-      background: getCssVar('button-success-hover-bg-color');
-      border-color: getCssVar('button-success-hover-border-color');
-      color: getCssVar('button-success-text-color');
+      background: getCssVar("button-success-hover-bg-color");
+      border-color: getCssVar("button-success-hover-border-color");
+      color: getCssVar("button-success-text-color");
     }
 
     &:active {
-      background: getCssVar('button-success-active-bg-color');
-      border-color: getCssVar('button-success-active-border-color');
-      color: getCssVar('button-success-text-color');
+      background: getCssVar("button-success-active-bg-color");
+      border-color: getCssVar("button-success-active-border-color");
+      color: getCssVar("button-success-text-color");
     }
 
     &.is-disabled,
     &.is-disabled:hover,
     &.is-disabled:focus {
-      color: getCssVar('button-success-text-color');
-      background-color: getCssVar('button-success-disabled-bg-color');
-      border-color: getCssVar('button-success-disabled-border-color');
+      color: getCssVar("button-success-text-color");
+      background-color: getCssVar("button-success-disabled-bg-color");
+      border-color: getCssVar("button-success-disabled-border-color");
     }
   }
 
   // 警告按钮
   @include m("warning") {
-    color: getCssVar('button-warning-text-color');
-    background-color: getCssVar('button-warning-bg-color');
-    border-color: getCssVar('button-warning-border-color');
+    color: getCssVar("button-warning-text-color");
+    background-color: getCssVar("button-warning-bg-color");
+    border-color: getCssVar("button-warning-border-color");
 
     &:hover,
     &:focus {
-      background: getCssVar('button-warning-hover-bg-color');
-      border-color: getCssVar('button-warning-hover-border-color');
-      color: getCssVar('button-warning-text-color');
+      background: getCssVar("button-warning-hover-bg-color");
+      border-color: getCssVar("button-warning-hover-border-color");
+      color: getCssVar("button-warning-text-color");
     }
 
     &:active {
-      background: getCssVar('button-warning-active-bg-color');
-      border-color: getCssVar('button-warning-active-border-color');
-      color: getCssVar('button-warning-text-color');
+      background: getCssVar("button-warning-active-bg-color");
+      border-color: getCssVar("button-warning-active-border-color");
+      color: getCssVar("button-warning-text-color");
     }
 
     &.is-disabled,
     &.is-disabled:hover,
     &.is-disabled:focus {
-      color: getCssVar('button-warning-text-color');
-      background-color: getCssVar('button-warning-disabled-bg-color');
-      border-color: getCssVar('button-warning-disabled-border-color');
+      color: getCssVar("button-warning-text-color");
+      background-color: getCssVar("button-warning-disabled-bg-color");
+      border-color: getCssVar("button-warning-disabled-border-color");
     }
   }
 
   // 危险按钮
   @include m("danger") {
-    color: getCssVar('button-danger-text-color');
-    background-color: getCssVar('button-danger-bg-color');
-    border-color: getCssVar('button-danger-border-color');
+    color: getCssVar("button-danger-text-color");
+    background-color: getCssVar("button-danger-bg-color");
+    border-color: getCssVar("button-danger-border-color");
 
     &:hover,
     &:focus {
-      background: getCssVar('button-danger-hover-bg-color');
-      border-color: getCssVar('button-danger-hover-border-color');
-      color: getCssVar('button-danger-text-color');
+      background: getCssVar("button-danger-hover-bg-color");
+      border-color: getCssVar("button-danger-hover-border-color");
+      color: getCssVar("button-danger-text-color");
     }
 
     &:active {
-      background: getCssVar('button-danger-active-bg-color');
-      border-color: getCssVar('button-danger-active-border-color');
-      color: getCssVar('button-danger-text-color');
+      background: getCssVar("button-danger-active-bg-color");
+      border-color: getCssVar("button-danger-active-border-color");
+      color: getCssVar("button-danger-text-color");
     }
 
     &.is-disabled,
     &.is-disabled:hover,
     &.is-disabled:focus {
-      color: getCssVar('button-danger-text-color');
-      background-color: getCssVar('button-danger-disabled-bg-color');
-      border-color: getCssVar('button-danger-disabled-border-color');
+      color: getCssVar("button-danger-text-color");
+      background-color: getCssVar("button-danger-disabled-bg-color");
+      border-color: getCssVar("button-danger-disabled-border-color");
     }
   }
 
   // 信息按钮
   @include m("info") {
-    color: getCssVar('button-info-text-color');
-    background-color: getCssVar('button-info-bg-color');
-    border-color: getCssVar('button-info-border-color');
+    color: getCssVar("button-info-text-color");
+    background-color: getCssVar("button-info-bg-color");
+    border-color: getCssVar("button-info-border-color");
 
     &:hover,
     &:focus {
-      background: getCssVar('button-info-hover-bg-color');
-      border-color: getCssVar('button-info-hover-border-color');
-      color: getCssVar('button-info-text-color');
+      background: getCssVar("button-info-hover-bg-color");
+      border-color: getCssVar("button-info-hover-border-color");
+      color: getCssVar("button-info-text-color");
     }
 
     &:active {
-      background: getCssVar('button-info-active-bg-color');
-      border-color: getCssVar('button-info-active-border-color');
-      color: getCssVar('button-info-text-color');
+      background: getCssVar("button-info-active-bg-color");
+      border-color: getCssVar("button-info-active-border-color");
+      color: getCssVar("button-info-text-color");
     }
 
     &.is-disabled,
     &.is-disabled:hover,
     &.is-disabled:focus {
-      color: getCssVar('button-info-text-color');
-      background-color: getCssVar('button-info-disabled-bg-color');
-      border-color: getCssVar('button-info-disabled-border-color');
+      color: getCssVar("button-info-text-color");
+      background-color: getCssVar("button-info-disabled-bg-color");
+      border-color: getCssVar("button-info-disabled-border-color");
     }
   }
 
@@ -288,46 +284,42 @@
     background: transparent;
     padding-left: 0;
     padding-right: 0;
-    color: getCssVar('button-text-text-color');
+    color: getCssVar("button-text-text-color");
 
     &:hover,
     &:focus {
-      color: getCssVar('button-text-hover-text-color');
+      color: getCssVar("button-text-hover-text-color");
       background-color: transparent;
     }
 
     &:active {
-      color: getCssVar('button-text-active-text-color');
+      color: getCssVar("button-text-active-text-color");
       background-color: transparent;
     }
 
     &.is-disabled,
     &.is-disabled:hover,
     &.is-disabled:focus {
-      color: getCssVar('button-text-disabled-text-color');
+      color: getCssVar("button-text-disabled-text-color");
       background-color: transparent;
     }
   }
 
-
   // 大尺寸
   @include m("large") {
-    height: getCssVar('button-large-height');
-    padding: getCssVar('button-large-padding-vertical') getCssVar('button-large-padding-horizontal');
-    font-size: getCssVar('button-large-font-size');
-    border-radius: getCssVar('button-border-radius');
-
+    height: getCssVar("button-large-height");
+    padding: getCssVar("button-large-padding-vertical") getCssVar("button-large-padding-horizontal");
+    font-size: getCssVar("button-large-font-size");
+    border-radius: getCssVar("button-border-radius");
   }
 
   // 小尺寸
   @include m("small") {
-    height: getCssVar('button-small-height');
-    padding: getCssVar('button-small-padding-vertical') getCssVar('button-small-padding-horizontal');
-    font-size: getCssVar('button-small-font-size');
+    height: getCssVar("button-small-height");
+    padding: getCssVar("button-small-padding-vertical") getCssVar("button-small-padding-horizontal");
+    font-size: getCssVar("button-small-font-size");
     border-radius: 3px;
-
   }
-
 
   // 图标
   @include e("icon") {

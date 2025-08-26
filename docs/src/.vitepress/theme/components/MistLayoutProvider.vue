@@ -7,4 +7,3 @@ import Mist from "vitepress-theme-mist";
     <!-- 自定义内容 -->
   </Mist.Layout>
 </template>
-

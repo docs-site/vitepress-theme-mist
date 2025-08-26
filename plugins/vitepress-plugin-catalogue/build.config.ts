@@ -13,9 +13,9 @@ export default defineBuildConfig({
   externals: ["vite"],
   // 钩子函数
   hooks: {
-    'build:done': (ctx) => {
-      const pkg = require('./package.json')
-      console.log(`✅ Build completed successfully! Package: ${pkg.name}@${pkg.version}`)
-    }
-  }
+    "build:done": ctx => {
+      const pkg = require("./package.json");
+      console.log(`✅ Build completed successfully! Package: ${pkg.name}@${pkg.version}`);
+    },
+  },
 });

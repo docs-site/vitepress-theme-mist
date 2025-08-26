@@ -1,28 +1,28 @@
-import type { Ref } from 'vue';
+import type { Ref } from "vue";
 import type { MistConfig } from "@mist/config";
-import { ref } from 'vue';
+import { ref } from "vue";
 
 // 调试配置对象
 export const debugConfig = ref({
   showMistConfig: false, // 是否启用调试模式
-  usableSlots: false,   // 是否在控制台显示所有可用的插槽
+  usableSlots: false, // 是否在控制台显示所有可用的插槽
 });
 
 // 打印 mistConfig 所有成员的方法
 export const logMistConfigMembers = (mistConfig: Ref<Required<MistConfig> | null>) => {
   // 如果 debugConfig.enabled 为 false，则不执行打印操作
   if (!debugConfig.value.showMistConfig) return;
-  
-  console.log('--- mistConfig all members ---');
-  
+
+  console.log("--- mistConfig all members ---");
+
   if (mistConfig.value) {
     const keyNames = Object.keys(mistConfig.value);
     const keyValue = Object.entries(mistConfig.value);
-    console.log('mistConfig object:', mistConfig.value);
-    console.log('mistConfig object key:', keyNames);
-    console.log('mistConfig object value:', keyValue);
+    console.log("mistConfig object:", mistConfig.value);
+    console.log("mistConfig object key:", keyNames);
+    console.log("mistConfig object value:", keyValue);
   } else {
-    console.log('mistConfig is empty, no available configuration information');
+    console.log("mistConfig is empty, no available configuration information");
   }
 };
 
@@ -31,13 +31,13 @@ export const logSlotInfo = (slots: any) => {
   // 如果 debugConfig.showSlots 为 false，则不执行打印操作
   if (!debugConfig.value.usableSlots) return;
 
-  console.log('--- available slot info ---');
+  console.log("--- available slot info ---");
   if (slots) {
     const slotNames = Object.keys(slots);
-    console.log('slot total num:', slotNames.length);
-    console.log('slot name list:', slotNames);
+    console.log("slot total num:", slotNames.length);
+    console.log("slot name list:", slotNames);
   } else {
-    console.log('No available slots were found!');
+    console.log("No available slots were found!");
   }
 };
 

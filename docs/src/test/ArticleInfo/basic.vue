@@ -17,14 +17,14 @@ const mockPost = ref({
     sidebar: true,
     article: true,
     sticky: 0,
-    catalogue: false
+    catalogue: false,
   },
   author: {
     name: "苏木",
-    link: "https://github.com/docs-site/vitepress-theme-mist"
+    link: "https://github.com/docs-site/vitepress-theme-mist",
   },
   date: "2025-08-24",
-  capture: "本文详细介绍了 Vue 3 Composition API 的使用方法和最佳实践..."
+  capture: "本文详细介绍了 Vue 3 Composition API 的使用方法和最佳实践...",
 });
 
 // 模拟作用域
@@ -35,13 +35,15 @@ const scope = "article";
   <div class="article-info-demo">
     <h3>ArticleInfo 基础用法</h3>
     <p>ArticleInfo 组件用于显示文章的基本信息，包括作者、创建时间、分类、标签等。</p>
-    
+
     <div class="demo-container">
       <MtArticleInfo :post="mockPost" :scope="scope" />
     </div>
-    
+
     <div class="demo-description">
-      <p>以上是 ArticleInfo 组件的基础用法展示。在实际使用中，该组件会自动从文章的 frontmatter 中提取相关信息并展示。</p>
+      <p>
+        以上是 ArticleInfo 组件的基础用法展示。在实际使用中，该组件会自动从文章的 frontmatter 中提取相关信息并展示。
+      </p>
     </div>
   </div>
 </template>

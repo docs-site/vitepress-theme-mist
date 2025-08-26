@@ -1,7 +1,7 @@
 import DefaultTheme from "vitepress/theme";
 
-import { 
-  MtBackTop,    // MtBackTop组件
+import {
+  MtBackTop, // MtBackTop组件
   MtDemoCode,
   MistConfigProvider,
   MtLayout,
@@ -23,7 +23,7 @@ export default {
   extends: DefaultTheme,
   Layout: MistConfigProvider(MtLayout),
   enhanceApp({ app, siteData }) {
-    console.log('vitepress-theme-mist enhanceApp called!');// 正式发布时可能会被自动删除
+    console.log("vitepress-theme-mist enhanceApp called!"); // 正式发布时可能会被自动删除
     app.component("MtBackTop", MtBackTop);
     app.component("MtDemoCode", MtDemoCode);
   },

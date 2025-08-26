@@ -22,8 +22,9 @@
   background-color: getCssVar("link-card-bg-color");
   border-radius: getCssVar("link-card-border-radius");
   padding: getCssVar("link-card-padding");
-  transition: color getCssVar("link-card-transition-duration"), 
-              background-color getCssVar("link-card-transition-duration");
+  transition:
+    color getCssVar("link-card-transition-duration"),
+    background-color getCssVar("link-card-transition-duration");
   margin-top: getCssVar("link-card-margin-top");
 
   &:hover {

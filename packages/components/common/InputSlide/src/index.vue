@@ -41,7 +41,7 @@ onMounted(() => {
   inputSliderStyle.setProperty(sliderValueVar, inputValue.value.toString());
   inputSliderStyle.setProperty(sliderMinVar, min?.toString() ?? "0");
   inputSliderStyle.setProperty(sliderMaxVar, max?.toString() ?? "100");
-  
+
   // 初始化提示框位置
   setTimeout(() => {
     if (inputSliderRef.value && inputSliderTooltipRef.value) {
@@ -124,11 +124,7 @@ watch(
         :class="[ns.e('label__input'), ns.e('label__input-progress'), ns.is('disabled', disabled)]"
       />
       <Transition name="fade">
-        <span
-          v-show="hovering && !positioning"
-          ref="inputSliderTooltipRef"
-          :class="[ns.e('label__tooltip')]"
-        >
+        <span v-show="hovering && !positioning" ref="inputSliderTooltipRef" :class="[ns.e('label__tooltip')]">
           {{ !!format ? format(inputValue) : inputValue }}
         </span>
       </Transition>
