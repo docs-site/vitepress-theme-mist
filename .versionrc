@@ -58,5 +58,6 @@
   ],
   "skip": {
     "tag": true
-  }
+  },
+  "message": "chore(release): {{currentTag}} [publish]"
 }
