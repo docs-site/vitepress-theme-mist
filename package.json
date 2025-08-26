@@ -27,6 +27,11 @@
     "release-patch": "standard-version --release-as patch",
     "release-as": "standard-version --release-as",
     "release-prerelease": "standard-version --prerelease",
+    "cs": "changeset",
+    "cs:version": "pnpm changeset version",
+    "cs:release": "pnpm run plugins:build && changeset publish",
+    "cs:pre": "changeset pre enter",
+    "cs:pre:exit": "changeset pre enter exit",
     "lint:lint-staged": "lint-staged -c .husky/lintstagedrc.js",
     "lint:prettier-check": "prettier ./**/*.{js,jsx,ts,tsx,vue,css,less,sass,scss} --check",
     "lint:prettier-write": "prettier ./**/*.{js,jsx,ts,tsx,vue,css,less,sass,scss} --write",
@@ -47,6 +52,7 @@
     "@mist/theme-chalk": "workspace:*"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.6",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.34.0",
