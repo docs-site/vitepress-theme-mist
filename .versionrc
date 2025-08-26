@@ -56,7 +56,7 @@
       "hidden": false
     }
   ],
-  "template": {
-    "commit": "- **{{scope}}**: ccccc {{subject}} ([{{hash}}](https://github.com/docs-site/vitepress-theme-mist/commit/{{hash}}))"
+  "skip": {
+    "tag": true
   }
 }
