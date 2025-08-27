@@ -52,6 +52,9 @@ catalogs:
       specifier: ^3.5.18
       version: 3.5.18
   mist-plugins:
+    '@docs-site/vitepress-nav-sidebar':
+      specifier: ^1.0.2
+      version: 1.0.2
     '@docs-site/vitepress-plugin-catalogue':
       specifier: ^1.0.3
       version: 1.0.3
@@ -274,6 +277,9 @@ importers:
 
   packages/config:
     dependencies:
+      '@docs-site/vitepress-nav-sidebar':
+        specifier: catalog:mist-plugins
+        version: 1.0.2
       '@docs-site/vitepress-plugin-catalogue':
         specifier: catalog:mist-plugins
         version: 1.0.3

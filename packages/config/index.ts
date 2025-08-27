@@ -3,7 +3,7 @@ import type { DefaultTheme, UserConfig } from "vitepress";
 import type { MistConfig } from "./types";
 // import type { PluginOption } from "vite";
 import { demoPlugin, containerPlugin } from "../markdown";
-import { registerPluginAndGet } from "./vitePlugins";
+import { registerPluginAndGet, generateNavAndSidebar } from "./vitePlugins";
 
 export type * from "./types";
 
@@ -93,6 +93,17 @@ const defaultMistConfig: Required<MistConfig> = {
     enabled: true,
     position: "top",
   },
+  navSidebar: {
+    docDirName: 'sdoc',
+    nav: {
+      maxLevel: 2,
+      debugPrint: false
+    },
+    sidebar: {
+      maxLevel: 6,
+      debugPrint: false
+    }
+  },
   vitePlugins: {
     enabled: true,
     docAnalysis: true,
@@ -113,10 +124,25 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
       ...defaultMistConfig.articleShare,
       ...MistThemeConfig.articleShare,
     },
+    navSidebar: {
+      ...defaultMistConfig.navSidebar,
+      ...MistThemeConfig.navSidebar,
+      nav: {
+        ...defaultMistConfig.navSidebar?.nav,
+        ...MistThemeConfig.navSidebar?.nav,
+      },
+      sidebar: {
+        ...defaultMistConfig.navSidebar?.sidebar,
+        ...MistThemeConfig.navSidebar?.sidebar,
+      },
+    },
   };
 
   // if (!mergedConfig.useTheme) return {};
-
+  
+  // 获取导航和侧边栏配置
+  const { nav, sidebar } = generateNavAndSidebar(mergedConfig.navSidebar);
+  
   return {
     // ignoreDeadLinks 默认值修改为 true，当用户在 VitePress 手动改为 false 才为 false
     ignoreDeadLinks: true,
@@ -135,6 +161,10 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
         if (!demo?.disabled) md.use(demoPlugin, demo).use(containerPlugin, container.label);
       },
     },
-    themeConfig: mergedConfig,
+    themeConfig: {
+      ...mergedConfig,
+      nav,
+      sidebar
+    },
   };
 };

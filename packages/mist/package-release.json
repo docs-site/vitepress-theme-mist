@@ -58,6 +58,7 @@
     "@iconify/vue": "^5.0.0",
     "js-yaml": "^4.1.0",
     "markdown-it-container": "^4.0.0",
+    "@docs-site/vitepress-nav-sidebar": "^1.0.2",
     "@docs-site/vitepress-plugin-file-content-loader": "^1.0.2",
     "@docs-site/vitepress-plugin-catalogue": "^1.0.3",
     "@docs-site/vitepress-plugin-doc-analysis": "^1.0.0"

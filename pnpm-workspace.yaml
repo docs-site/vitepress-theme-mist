@@ -23,6 +23,7 @@ catalog:
 
 catalogs:
   mist-plugins:
+    '@docs-site/vitepress-nav-sidebar': ^1.0.2
     '@docs-site/vitepress-plugin-catalogue': ^1.0.3
     '@docs-site/vitepress-plugin-doc-analysis': ^1.0.0
     '@docs-site/vitepress-plugin-file-content-loader': ^1.0.2

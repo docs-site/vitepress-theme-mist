@@ -6,5 +6,6 @@ export type * from "./clickEffect";
 export type * from "./codeBlock";
 export type * from "./docAnalysis";
 export type * from "./markdown";
+export type * from "./navSidebar";
 export type * from "./plugins";
 export type * from "./themeEnhance";
