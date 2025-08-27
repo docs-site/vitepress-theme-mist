@@ -161,6 +161,8 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
     vite: {
       // 添加主题需要的 Vite 插件
       plugins: plugins,
+      // 解决项目启动后终端打印 Scss 的废弃警告：The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+      css: { preprocessorOptions: { scss: { api: "modern" } } },
     },
     markdown: {
       config: md => {
