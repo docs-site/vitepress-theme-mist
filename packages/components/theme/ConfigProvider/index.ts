@@ -9,7 +9,7 @@ import type { Component, Ref, InjectionKey } from "vue";
 import { computed, defineComponent, h, inject, unref } from "vue";
 import { useData } from "vitepress";
 import { isFunction, isObject } from "@mist/helper";
-
+import { useAnchorScroll } from "@mist/composables";
 export const mistConfigContext: InjectionKey<MistConfig | Ref<MistConfig>> = Symbol("mistConfig");
 
 /**
@@ -31,6 +31,7 @@ export const MistConfigProvider = (layout: Component) => {
     name: "MistConfigProvider",
     setup(_, { slots }) {
       // 自定义一些全局逻辑
+      useAnchorScroll().startWatch(); // 监听浏览器滚动，当滚动到锚点，自动在 URL 后面添加锚点信息
       return () => h(layout, null, slots);
     },
   });
