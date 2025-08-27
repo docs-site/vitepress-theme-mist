@@ -59,5 +59,15 @@
   "skip": {
     "tag": true
   },
-  "message": "chore(release): {{currentTag}} [publish]"
+  "message": "chore(release): {{currentTag}} [publish]",
+  "bumpFiles": [
+	{
+      "filename": "package.json",
+      "type": "json"
+    },
+    {
+      "filename": "packages/mist/version.ts",
+      "updater": "build/scripts/version-updater.js"
+    }
+  ]
 }
