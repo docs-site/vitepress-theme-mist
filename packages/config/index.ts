@@ -108,13 +108,23 @@ const defaultMistConfig: Required<MistConfig> = {
     enabled: true,
     docAnalysis: true,
     fileContentLoaderIgnore: [],
+    demoOption: {
+      str: "mist",
+    }
   },
 } as Required<MistConfig>;
 
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {
   // 获取用户的配置，进行逻辑处理
   const { vitePlugins, markdown = {}, ...MistThemeConfig } = config;
-  const plugins = registerPluginAndGet(vitePlugins, MistThemeConfig.useTheme);
+  
+  // 合并默认配置和用户配置的 vitePlugins
+  const mergedVitePlugins = {
+    ...defaultMistConfig.vitePlugins,
+    ...vitePlugins,
+  };
+  
+  const plugins = registerPluginAndGet(mergedVitePlugins, MistThemeConfig.useTheme);
 
   // 合并默认配置和用户配置
   const mergedConfig: MistConfig = {

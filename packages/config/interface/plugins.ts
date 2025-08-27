@@ -1,5 +1,7 @@
 import type { CatalogueOption } from "@docs-site/vitepress-plugin-catalogue";
 import type { DocAnalysisOption } from "@docs-site/vitepress-plugin-doc-analysis";
+import type { DemoOption } from "@docs-site/vitepress-plugin-demo";
+
 export interface Plugins {
   enabled?: boolean; // 是否启用插件
   /**
@@ -22,4 +24,6 @@ export interface Plugins {
    * @default []
    */
   fileContentLoaderIgnore?: string[];
+
+  demoOption?: DemoOption;
 }

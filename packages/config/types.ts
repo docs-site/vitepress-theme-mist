@@ -23,6 +23,7 @@ export type {
   FileInfo as DocDocAnalysisFileInfo,
   FilePathInfo,
 } from "@docs-site/vitepress-plugin-doc-analysis";
+export type { DemoOption } from "@docs-site/vitepress-plugin-demo"
 
 export interface MistConfig {
   useTheme?: boolean; // 是否开启主题

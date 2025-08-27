@@ -6,6 +6,7 @@ import { transformData, transformRaw } from "./post";
 import Catalogue from "@docs-site/vitepress-plugin-catalogue";
 import DocAnalysis from "@docs-site/vitepress-plugin-doc-analysis";
 import { getNavData, getSidebarData } from "@docs-site/vitepress-nav-sidebar";
+import VitePluginVitePressDemo from "@docs-site/vitepress-plugin-demo"
 
 export const registerPluginAndGet = (vitePlugins: Plugins = {}, mistTheme = true) => {
   const plugins: any[] = [];
@@ -30,7 +31,7 @@ export const registerPluginAndGet = (vitePlugins: Plugins = {}, mistTheme = true
 const registerLoosePlugins = (vitePlugins: Plugins, ignoreDir: Record<string, any[]>) => {
   const plugins: any[] = [];
 
-  const { docAnalysis = true, docAnalysisOption = {} } = vitePlugins || {};
+  const { docAnalysis = true, docAnalysisOption = {}, demoOption = {}} = vitePlugins || {};
 
   // 文档内容分析插件
   if (docAnalysis) {
@@ -38,6 +39,8 @@ const registerLoosePlugins = (vitePlugins: Plugins, ignoreDir: Record<string, an
     plugins.push(DocAnalysis(docAnalysisOption));
   }
 
+  // Data demo
+  plugins.push(VitePluginVitePressDemo(demoOption));
   return plugins;
 };
 
