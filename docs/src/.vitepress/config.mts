@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress'
-import { getSidebarData, getNavData } from '@docs-site/vitepress-nav-sidebar'
 // 主题配置
 import { defineMistConfig } from "../../../packages/config";
 
@@ -8,7 +7,18 @@ const myThemeConfig = defineMistConfig({
   themeName: 'vitepress-theme-mist',
   clickEffect: {
     enabled: true,
-  }
+  },
+  navSidebar: {
+    docDirName: 'sdoc',
+    nav: {
+      maxLevel: 2,
+      debugPrint: false
+    },
+    sidebar: {
+      maxLevel: 6,
+      debugPrint: false
+    }
+  },
 });
 
 // https://vitepress.dev/reference/site-config
@@ -19,19 +29,6 @@ export default defineConfig({
   base: '/vitepress-theme-mist/', // 计划将站点部署到 https://docs-site.github.io/vitepress-theme-mist/，那么应该将 base 设置为 '/vitepress-theme-mist/'。它应该始终以 / 开头和结尾。
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      ...getNavData({ dirName: 'sdoc', maxLevel: 2, debugPrint: false }),
-      { text: '功能页',
-        items: [
-          { text: '导航页',  link: '/@pages/Navigation' }
-        ]
-      },
-    ],
-    sidebar: getSidebarData({ 
-      dirName: 'sdoc', 
-      maxLevel: 6,
-      debugPrint: false 
-    }),
     logo: '/favicon.svg', // 导航栏标题的logo
     docFooter: {
       prev: '上一篇',
