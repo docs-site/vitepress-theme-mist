@@ -1,0 +1,55 @@
+{
+  "name": "@docs-site/vitepress-plugin-sidebar-resolve",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "扫描 Markdown 文档，自动生成侧边栏",
+  "author": "",
+  "keywords": [
+    "vitepress",
+    "vite",
+    "plugin",
+    "sidebar"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/master/plugins/vitepress-plugin-sidebar-resolve",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/docs-site/vitepress-theme-mist.git"
+  },
+  "bugs": {
+    "url": "https://github.com/docs-site/vitepress-theme-mist/issues"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "stub": "unbuild --stub",
+    "build": "unbuild"
+  },
+  "dependencies": {
+    "gray-matter": "catalog:",
+    "picocolors": "catalog:"
+  },
+  "devDependencies": {
+    "vite": "catalog:",
+    "vitepress": "catalog:"
+  },
+  "peerDependencies": {
+    "vitepress": "catalog:"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
