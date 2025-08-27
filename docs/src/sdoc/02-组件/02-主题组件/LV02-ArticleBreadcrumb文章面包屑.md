@@ -19,7 +19,7 @@ description:
 <!-- more -->
 
 <script setup>
-import { MtArticleBreadcrumb } from "@mist/components/theme/ArticleBreadcrumb"
+import { MtArticleBreadcrumb } from "vitepress-theme-mist"
 </script>
 
 ## 一、组件介绍
@@ -34,7 +34,7 @@ ArticleBreadcrumb（文章面包屑）是一个为文章页面设计的面包屑
 
 ```vue
 <script setup lang="ts">
-import { MtArticleBreadcrumb } from "@mist/components/theme/ArticleBreadcrumb";
+import { MtArticleBreadcrumb } from "vitepress-theme-mist";
 </script>
 
 <template>
@@ -185,7 +185,7 @@ export default defineConfig({
 
 ```vue
 <script setup lang="ts">
-import { MtArticleBreadcrumb } from "@mist/components/theme/ArticleBreadcrumb";
+import { MtArticleBreadcrumb } from "vitepress-theme-mist";
 import { useData } from "vitepress";
 
 const { page } = useData();
@@ -239,7 +239,7 @@ breadcrumb: false
 
 ```vue
 <script setup lang="ts">
-import { MtArticleBreadcrumb } from "@mist/components/theme/ArticleBreadcrumb";
+import { MtArticleBreadcrumb } from "vitepress-theme-mist";
 import { useData } from "vitepress";
 
 const { frontmatter } = useData();

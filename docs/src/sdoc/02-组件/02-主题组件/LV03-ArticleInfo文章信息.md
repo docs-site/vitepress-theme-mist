@@ -19,7 +19,7 @@ description:
 <!-- more -->
 
 <script setup>
-import { MtArticleInfo } from "@mist/components/theme/ArticleInfo"
+import { MtArticleInfo } from "vitepress-theme-mist"
 </script>
 
 ## 一、组件介绍
@@ -39,7 +39,7 @@ ArticleInfo/basic
 
 ```vue
 <script setup lang="ts">
-import { MtArticleInfo } from "@mist/components/theme/ArticleInfo";
+import { MtArticleInfo } from "vitepress-theme-mist";
 </script>
 
 <template>
@@ -53,7 +53,7 @@ import { MtArticleInfo } from "@mist/components/theme/ArticleInfo";
 
 ```vue
 <script setup lang="ts">
-import { MtArticleInfo } from "@mist/components/theme/ArticleInfo";
+import { MtArticleInfo } from "vitepress-theme-mist";
 </script>
 
 <template>
@@ -71,7 +71,7 @@ ArticleInfo/advanced
 
 ```vue
 <script setup lang="ts">
-import { MtArticleInfo } from "@mist/components/theme/ArticleInfo";
+import { MtArticleInfo } from "vitepress-theme-mist";
 </script>
 
 <template>
@@ -201,7 +201,7 @@ export default defineConfig({
 
 ```vue
 <script setup lang="ts">
-import { MtArticleInfo } from "@mist/components/theme/ArticleInfo";
+import { MtArticleInfo } from "vitepress-theme-mist";
 import { useData } from "vitepress";
 
 const { page } = useData();
