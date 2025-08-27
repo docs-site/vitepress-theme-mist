@@ -28,7 +28,7 @@ export const googleAnalytics = (options: GoogleAnalyticsOptions) => {
   const { id, production = true } = options || {};
   // 确保在生产环境下执行
   if (production && process.env.NODE_ENV !== "production") return;
-  if (!id) return console.warn("[Teek Warning] Google analytics id is empty");
+  if (!id) return console.warn("[Mist Warning] Google analytics id is empty");
 
   if (!document.querySelector(`#google-analytics-${id}`)) {
     const gtagScript = document.createElement("script");

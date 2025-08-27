@@ -96,7 +96,7 @@ const usedSlots = [
       <template #doc-before>
         <slot name="doc-before" />
         <slot name="mist-article-analyze-before" />
-        <MtCodeBlockToggle v-if="!mistConfig.codeBlock.disabled" />
+        <MtCodeBlockToggle v-if="!mistConfig.codeBlock.enabled" />
         <MtArticleAnalyze />
         <slot name="mist-article-analyze-after" />
       </template>

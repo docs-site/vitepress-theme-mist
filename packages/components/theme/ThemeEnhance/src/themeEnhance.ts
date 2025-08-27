@@ -31,7 +31,7 @@ export interface ThemeColorOption {
   ariaLabel?: string;
 }
 
-// Teek 内置的主题色
+// Mist 内置的主题色
 export const themeColorList = [
   ThemeColorName.vpDefault,
   ThemeColorName.vpGreen,

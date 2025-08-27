@@ -25,7 +25,7 @@ export const baiduAnalytics = (options: BaiduAnalyticsOptions) => {
   const { id, production = true } = options || {};
   // 确保在生产环境下执行
   if (production && process.env.NODE_ENV !== "production") return;
-  if (!id) return console.warn("[Teek Warning] Baidu analytics id is empty");
+  if (!id) return console.warn("[Mist Warning] Baidu analytics id is empty");
 
   // 如果百度统计脚本未加载，则注入脚本
   if (!document.querySelector(`#baidu-analytics-${id}`)) {

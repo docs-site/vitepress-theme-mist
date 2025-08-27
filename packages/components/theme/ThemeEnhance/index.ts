@@ -8,3 +8,4 @@ export default ThemeEnhance;
 export * from "./src/themeEnhance";
 export * from "./src/namespace";
 export * from "./src/instance";
+export * from "./src/useThemeColorList";

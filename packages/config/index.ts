@@ -36,21 +36,67 @@ export type * from "./types";
 // 默认配置
 const defaultMistConfig: Required<MistConfig> = {
   useTheme: true,
+  articleAnalyze: {
+    showIcon: true,
+    dateFormat: "yyyy-MM-dd",
+    showInfo: true,
+    showAuthor: true,
+    showCreateDate: true,
+    showUpdateDate: false,
+    showCategory: false,
+    showTag: false,
+    teleport: {
+      position: "after",
+      className: "teleport",
+    },
+  },
   articleShare: {
     enabled: true,
   },
-  themeName: "mist",
-  themeEnhance: {
+  author: {
+    name: "苏木",
+  },
+  breadcrumb: {
     enabled: true,
-    position: "top",
+    showCurrentName: false,
+    separator: "/",
+    homeLabel: "首页",
+  },
+  clickEffect: {
+    enabled: false,
+    textArray: [ "富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善" ],
+    fontSize: 16,
+    random: false,
   },
   codeBlock: {
-    disabled: false,
+    enabled: true,
     collapseHeight: 500,
     copiedDone: undefined,
     overlay: false,
     overlayHeight: 400,
     langTextTransform: "lowercase", // 语言文本显示样式
+  },
+  docAnalysis: {
+    enabled: true,
+    title: "${icon}站点信息",
+    wordCount: true,
+    readingTime: true,
+    statistics: {
+      siteView: true,
+      pageView: true,
+      permalink: true,
+    },
+  },
+  markdown: {},
+  themeName: "mist",
+  themeEnhance: {
+    enabled: true,
+    position: "top",
+  },
+  vitePlugins: {
+    enabled: true,
+    docAnalysis: true,
+    fileContentLoaderIgnore: [],
   },
 } as Required<MistConfig>;
 

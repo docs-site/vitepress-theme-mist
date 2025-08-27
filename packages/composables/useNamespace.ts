@@ -64,11 +64,11 @@ export const useNamespace = (block: string = "", namespaceOverrides?: string) =>
   };
 
   /**
-   * CSS 变量，当 name = color，返回 var(--tk-color)
+   * CSS 变量，当 name = color，返回 var(--mt-color)
    */
   const cssVar = (name: string) => `var(--${finalNamespace}-${name})`;
   /**
-   * CSS 变量名称当 name = color，返回 --tk-color
+   * CSS 变量名称当 name = color，返回 --mt-color
    */
   const cssVarName = (name: string) => `--${finalNamespace}-${name}`;
   /**

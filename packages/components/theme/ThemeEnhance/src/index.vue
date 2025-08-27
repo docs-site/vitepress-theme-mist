@@ -36,6 +36,7 @@ const disabledList = computed(() => {
       <MtIcon :icon="readingIcon" :size="20" />
     </template>
     <div :class="ns.e('content')">
+      <slot name="mist-theme-enhance-top" />
       <template v-if="!disabledList.layoutSwitch">
         <LayoutSwitch />
         <LayoutPageWidthSlide />
@@ -45,6 +46,8 @@ const disabledList = computed(() => {
       <template v-if="!disabledList.themeColor">
         <ThemeColor />
       </template>
+
+      <slot name="mist-theme-enhance-bottom" />
     </div>
   </MtPopover>
 </template>

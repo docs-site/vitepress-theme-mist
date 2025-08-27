@@ -7,7 +7,7 @@ export const hexToRgb = (str: any) => {
   let hex: any = "";
   const reg = /^\#?[0-9A-Fa-f]{6}$/;
 
-  if (!reg.test(str)) return console.error("[Teek Error] 输入错误的 hex");
+  if (!reg.test(str)) return console.error("[Mist Error] 输入错误的 hex");
 
   str = str.replace("#", "");
   hex = str.match(/../g);
@@ -26,7 +26,7 @@ export const hexToRgb = (str: any) => {
 export const rgbToHex = (r: any, g: any, b: any) => {
   const reg = /^\d{1,3}$/;
 
-  if (!reg.test(r) || !reg.test(g) || !reg.test(b)) return console.error("[Teek Error] 输入错误的 rgb 颜色值");
+  if (!reg.test(r) || !reg.test(g) || !reg.test(b)) return console.error("[Mist Error] 输入错误的 rgb 颜色值");
 
   const hex = [r.toString(16), g.toString(16), b.toString(16)];
   for (let i = 0; i < 3; i++) if (hex[i].length === 1) hex[i] = `0${hex[i]}`;
@@ -43,7 +43,7 @@ export const rgbToHex = (r: any, g: any, b: any) => {
 export const getDarkColor = (color: string, level: number) => {
   const reg = /^\#?[0-9A-Fa-f]{6}$/;
 
-  if (!reg.test(color)) return console.error("[Teek Error] 输入错误的 hex 颜色值");
+  if (!reg.test(color)) return console.error("[Mist Error] 输入错误的 hex 颜色值");
 
   const rgb = hexToRgb(color);
   for (let i = 0; i < 3; i++) rgb[i] = Math.round(20.5 * level + rgb[i] * (1 - level));
@@ -60,7 +60,7 @@ export const getDarkColor = (color: string, level: number) => {
 export const getLightColor = (color: string, level: number) => {
   const reg = /^\#?[0-9A-Fa-f]{6}$/;
 
-  if (!reg.test(color)) return console.error("[Teek Error] 输入错误的 hex 颜色值");
+  if (!reg.test(color)) return console.error("[Mist Error] 输入错误的 hex 颜色值");
 
   const rgb = hexToRgb(color);
   for (let i = 0; i < 3; i++) rgb[i] = Math.round(255 * level + rgb[i] * (1 - level));

@@ -4,9 +4,9 @@ export interface CodeBlock {
   /**
    * 是否禁用新版代码块
    *
-   * @default false
+   * @default true
    */
-  disabled?: boolean;
+  enabled?: boolean;
   /**
    * 超出高度后自动折叠，设置 true 则默认折叠，false 则默认不折叠
    *
