@@ -3,7 +3,7 @@ import type { DefaultTheme, UserConfig } from "vitepress";
 import type { MistConfig } from "./types";
 // import type { PluginOption } from "vite";
 import { demoPlugin, containerPlugin } from "../markdown";
-import { registerPluginAndGet, generateNavAndSidebar } from "./vitePlugins";
+import { registerPluginAndGet } from "./vitePlugins";
 
 export type * from "./types";
 
@@ -117,6 +117,12 @@ const defaultMistConfig: Required<MistConfig> = {
       navOption: {
         maxLevel: 2,
         debugPrint: false
+      },
+      sideBarOption: {
+        type: "object",
+        ignoreList: ["index.md", "README.md"],
+        initItems: false, // 这个设置为true的话进入某个导航栏路径时可能不显示侧边栏
+        collapsed: true,
       }
     }
   },
@@ -158,9 +164,6 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
 
   // if (!mergedConfig.useTheme) return {};
   
-  // 获取导航和侧边栏配置
-  const { sidebar } = generateNavAndSidebar(mergedConfig.navSidebar);
-  
   return {
     // ignoreDeadLinks 默认值修改为 true，当用户在 VitePress 手动改为 false 才为 false
     ignoreDeadLinks: true,
@@ -183,7 +186,6 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
     },
     themeConfig: {
       ...mergedConfig,
-      sidebar
     },
   };
 };

@@ -1,9 +1,10 @@
 import type { Plugin } from "vite";
 import type { DefaultTheme } from "vitepress";
 import { join } from "node:path";
-import { NavSidebarOption } from "./types";
+import { NavSidebarOption, SidebarOption } from "./types";
 import logger from "./log";
 import createNavigationData from "./getDataToNavigation";
+import createFilePathSidebar from "./getDataToSideBar";
 
 export * from "./types";
 
@@ -22,7 +23,7 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
         srcDir, // 此工作区中的站点配置中未配置，默认为 D:/xxx/vitepress-theme-mist/docs/src
       } = config.vitepress;
 
-      const { path, debugInfo } = option;
+      const { path, debugInfo, sideBarOption } = option;
       const baseDir = path ? join(srcDir, path) : srcDir;
       
       if(debugInfo) {
@@ -35,6 +36,12 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
 
       // 设置导航栏
       setNavBar(themeConfig, navData);
+
+      const sideBarData = createFilePathSidebar(
+        {...option.sideBarOption, path: baseDir }, 
+        option.path,
+      ); //  展开原始的 option 对象，并覆盖 path 属性为 baseDir
+      setSideBar(themeConfig, sideBarData, sideBarOption?.type);
     },
   };
 }
@@ -52,4 +59,29 @@ const setNavBar = (
   ];
 
   logger.info("Injected Navigation Data Successfully. 注入导航栏数据成功!");
+};
+
+const setSideBar = (
+  themeConfig: any,
+  autoSidebar: DefaultTheme.SidebarMulti | DefaultTheme.SidebarItem[],
+  type: SidebarOption["type"]
+) => {
+  // 防止 themeConfig 为 undefined
+  themeConfig = themeConfig || {};
+
+  if (type === "object") {
+    themeConfig.sidebar = {
+      ...autoSidebar,
+      ...(Array.isArray(themeConfig.sidebar) ? logger.warn("自定义 Sidebar 必须是对象形式") : themeConfig.sidebar),
+    };
+  } else {
+    themeConfig.sidebar = [
+      ...(autoSidebar as DefaultTheme.SidebarItem[]),
+      ...(Object.prototype.toString.call(themeConfig.sidebar) === "[object Object]"
+        ? logger.warn("自定义 Sidebar 必须是数组形式")
+        : themeConfig.sidebar || []),
+    ];
+  }
+
+  logger.info("Injected Sidebar Data Successfully. 注入侧边栏数据成功!");
 };
