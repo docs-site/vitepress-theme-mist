@@ -277,6 +277,9 @@ importers:
 
   packages/config:
     dependencies:
+      '@docs-site/vitepress-auto-nav-sidebar':
+        specifier: workspace:*
+        version: link:../../plugins/vitepress-auto-nav-sidebar
       '@docs-site/vitepress-nav-sidebar':
         specifier: catalog:mist-plugins
         version: 1.0.2

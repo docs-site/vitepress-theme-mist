@@ -110,6 +110,9 @@ const defaultMistConfig: Required<MistConfig> = {
     fileContentLoaderIgnore: [],
     demoOption: {
       str: "mist",
+    },
+    navSidebarOption: {
+      path: "sdoc",
     }
   },
 } as Required<MistConfig>;

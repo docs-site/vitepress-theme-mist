@@ -7,6 +7,7 @@ import Catalogue from "@docs-site/vitepress-plugin-catalogue";
 import DocAnalysis from "@docs-site/vitepress-plugin-doc-analysis";
 import { getNavData, getSidebarData } from "@docs-site/vitepress-nav-sidebar";
 import VitePluginVitePressDemo from "@docs-site/vitepress-plugin-demo"
+import VitePluginVitePressAutoNavSidebar from "@docs-site/vitepress-auto-nav-sidebar"
 
 export const registerPluginAndGet = (vitePlugins: Plugins = {}, mistTheme = true) => {
   const plugins: any[] = [];
@@ -50,7 +51,11 @@ const registerLoosePlugins = (vitePlugins: Plugins, ignoreDir: Record<string, an
 export const registerTightPlugins = (vitePlugins: Plugins, ignoreDir: Record<string, any[]>) => {
   const plugins: any[] = [];
 
-  const { catalogueOption = {}, fileContentLoaderIgnore = [] } = vitePlugins || {};
+  const { 
+    catalogueOption = {}, 
+    fileContentLoaderIgnore = [],
+    navSidebarOption = {},
+  } = vitePlugins || {};
 
   // 目录页插件
   plugins.push(Catalogue(catalogueOption));
@@ -71,6 +76,8 @@ export const registerTightPlugins = (vitePlugins: Plugins, ignoreDir: Record<str
   // Post 数据处理插件
   plugins.push(FileContentLoader<MtContentData, PostData>(fileContentLoaderOptions));
 
+  // 自动侧边栏插件
+  plugins.push(VitePluginVitePressAutoNavSidebar(navSidebarOption))
   return plugins;
 };
 
