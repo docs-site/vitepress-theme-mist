@@ -1,0 +1,39 @@
+{
+  "name": "@docs-site/vitepress-auto-nav-sidebar",
+  "version": "1.0.0",
+  "main": "./dist/index.cjs",
+  "type": "module",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stub": "unbuild --stub",
+    "build": "unbuild"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "vite": "catalog:",
+    "vitepress": "catalog:"
+  },
+  "dependencies": {
+    "picocolors": "catalog:"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
