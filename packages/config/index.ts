@@ -113,6 +113,11 @@ const defaultMistConfig: Required<MistConfig> = {
     },
     navSidebarOption: {
       path: "sdoc",
+      debugInfo: false,
+      navOption: {
+        maxLevel: 2,
+        debugPrint: false
+      }
     }
   },
 } as Required<MistConfig>;
@@ -154,7 +159,7 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
   // if (!mergedConfig.useTheme) return {};
   
   // 获取导航和侧边栏配置
-  const { nav, sidebar } = generateNavAndSidebar(mergedConfig.navSidebar);
+  const { sidebar } = generateNavAndSidebar(mergedConfig.navSidebar);
   
   return {
     // ignoreDeadLinks 默认值修改为 true，当用户在 VitePress 手动改为 false 才为 false
@@ -178,7 +183,6 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
     },
     themeConfig: {
       ...mergedConfig,
-      nav,
       sidebar
     },
   };

@@ -13,6 +13,10 @@ export const info = (message: string, level: ColorsKey = "green", option: LogOpt
   logger.info(picocolors[level](message), option);
 };
 
+export const prt = (message: string, level: ColorsKey = "green", option: LogOptions = { timestamp: true }) => {
+  logger.info(message, option);
+};
+
 export const warn = (message: string, level: ColorsKey = "yellow", option: LogOptions = { timestamp: true }) => {
   logger.warn(picocolors[level](message), option);
 };
@@ -27,6 +31,7 @@ export const error = (message: string, level: ColorsKey = "red", option: LogOpti
 
 export default {
   info,
+  prt,
   warn,
   warnOnce,
   error,
