@@ -1,7 +1,8 @@
+@use "../mixins/function" as *;
+
 /**
  * 侧边栏字体大小
  * -------------------------------------------------------------------------- */
-
 .VPSidebar {
   .nav {
     .item {
@@ -9,8 +10,14 @@
         /* 一级菜单字体加大 */
         font-size: 15px;
       }
+
       p.text {
         font-size: 14px; // 默认是14，这里保持不变
+        transition: transform getCssVar("transition-duration") ease-in-out;
+
+        &:hover {
+          transform: translate(4px);
+        }
       }
     }
   }

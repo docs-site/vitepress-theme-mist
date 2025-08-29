@@ -11,6 +11,7 @@ import "./style.css";
 import "@mist/theme-chalk/mt-plus/fade-up-animation.scss"; // 淡入效果
 import "@mist/theme-chalk/vp-plus/index-rainbow.scss"; // 首页图片彩虹动画
 import "@mist/theme-chalk/vp-plus/sidebar.scss"; // 侧边栏调整
+import "@mist/theme-chalk/vp-plus/aside.scss"; // 右侧导航栏
 
 export default {
   extends: Mist,
