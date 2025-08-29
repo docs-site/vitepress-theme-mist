@@ -7,6 +7,7 @@ import Catalogue from "@docs-site/vitepress-plugin-catalogue";
 import DocAnalysis from "@docs-site/vitepress-plugin-doc-analysis";
 import VitePluginVitePressDemo from "@docs-site/vitepress-plugin-demo"
 import VitePluginVitePressAutoNavSidebar from "@docs-site/vitepress-auto-nav-sidebar"
+import Permalink from "@docs-site/vitepress-plugin-permalink";
 
 export const registerPluginAndGet = (vitePlugins: Plugins = {}, mistTheme = true) => {
   const plugins: any[] = [];
@@ -31,7 +32,13 @@ export const registerPluginAndGet = (vitePlugins: Plugins = {}, mistTheme = true
 const registerLoosePlugins = (vitePlugins: Plugins, ignoreDir: Record<string, any[]>) => {
   const plugins: any[] = [];
 
-  const { docAnalysis = true, docAnalysisOption = {}, demoOption = {}} = vitePlugins || {};
+  const { 
+    docAnalysis = true, 
+    docAnalysisOption = {}, 
+    demoOption = {},
+    permalink = true,
+    permalinkOption = {},
+  } = vitePlugins || {};
 
   // 文档内容分析插件
   if (docAnalysis) {
@@ -41,6 +48,12 @@ const registerLoosePlugins = (vitePlugins: Plugins, ignoreDir: Record<string, an
 
   // Data demo
   plugins.push(VitePluginVitePressDemo(demoOption));
+
+  // 自动生成永久链接插件
+  if (permalink) {
+    plugins.push(...Permalink(permalinkOption));
+  }
+  
   return plugins;
 };
 

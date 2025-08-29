@@ -18,6 +18,7 @@
     "@docs-site/vitepress-plugin-demo": "catalog:mist-plugins",
     "@docs-site/vitepress-plugin-doc-analysis": "catalog:mist-plugins",
     "@docs-site/vitepress-plugin-file-content-loader": "catalog:mist-plugins",
+    "@docs-site/vitepress-plugin-permalink": "catalog:mist-plugins",
     "gray-matter": "catalog:",
     "vitepress": "catalog:"
   },
