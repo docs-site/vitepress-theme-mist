@@ -1,7 +1,7 @@
 import type { DefaultTheme } from "vitepress";
-import type { NavSidebarOption } from "./types";
+import type { NavOption } from "./types";
 import { isSome } from "./utils";
-import { readdirSync, statSync, existsSync } from "node:fs";
+import { readdirSync, statSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 
 // 默认忽略的文件夹列表
@@ -38,23 +38,25 @@ export const DEFAULT_IGNORE_DIR = ["node_modules", "dist", ".vitepress", "public
  * ],
  */
 function scanDirectory(
-  option: NavSidebarOption,
+  option: NavOption,
   fullDirPath: string,
   currentLevel: number = 1,
   currentPath: string = ""
 ): DefaultTheme.NavItem[] {
-  // 获取最大层级配置，默认为无穷大
+  const {
+    maxLevel = Infinity,
+    ignoreList = [],
+  } = option;
+  // 最大层级配置，默认为无穷大
   // D:\xxx\vitepress-theme-mist\docs\src\sdoc\lv1
   // D:\xxx\vitepress-theme-mist\docs\src\sdoc\lv1\lv2
   // D:\xxx\vitepress-theme-mist\docs\src\sdoc\lv1\lv2\lv3
-  const maxLevel = option.navOption?.maxLevel ?? Infinity; //Infinity;
-
   // 如果当前层级已经超过最大层级，则不继续扫描
   if (currentLevel > maxLevel) {
     return [];
   }
 
-  const ignoreListAll = [...DEFAULT_IGNORE_DIR];
+  const ignoreListAll = [...DEFAULT_IGNORE_DIR, ...ignoreList];
 
   const navItems: DefaultTheme.NavItem[] = [];
   // 读取目录名（文件和文件夹） D:\xxx\vitepress-theme-mist\docs\src\sdoc
@@ -100,7 +102,7 @@ function scanDirectory(
         if (existsSync(mdFilePath) && statSync(mdFilePath).isFile()) {
           return; // 跳过该目录
         }
-        if(option.navOption?.debugPrint) {
+        if(option.debugPrint) {
           console.log("Scan Dir: ", filePath);
         }
         // 递归调用时传入选项和下一级层级
@@ -132,44 +134,75 @@ function scanDirectory(
   return navItems;
 }
 
-export default (option: NavSidebarOption, baseDir: string) => {
+// 获取默认导航数据
+function createTestSidebarData(): DefaultTheme.NavItem[] {
+  const navDataArray: DefaultTheme.NavItem[] = [];
+
+  // 默认导航数据
+  navDataArray.push({ text: 'Guide', link: '/guide' });
+  navDataArray.push(
+    {
+      text: 'Dropdown Menu',
+      items: [
+        { text: 'Item A', link: '/item-1' },
+        { text: 'Item B', link: '/item-2' },
+        { text: 'Item C', link: '/item-3' }
+      ]
+    }
+  );
+  navDataArray.push(
+    {
+      text: 'Dropdown Menu',
+      items: [
+        {
+          // 该部分的标题
+          text: 'Section A Title',
+          items: [
+            { text: 'Section A Item A', link: '...' },
+            { text: 'Section B Item B', link: '...' }
+          ]
+        }
+      ]
+    },
+  );
+
+  return navDataArray;
+}
+
+export default (option: NavOption, baseDir: string, srcDir: string) => {
   //  export type NavItem = NavItemComponent | NavItemWithLink | NavItemWithChildren
   const navDataArray: DefaultTheme.NavItem[] = [];
 
-  // 检查 baseDir 路径是否存在
-  const stats = statSync(baseDir);
-  if (stats.isDirectory()) {
-    // 扫描目录并生成导航数据
-    const sdocNavItems = scanDirectory(option, baseDir);
-    navDataArray.push(...sdocNavItems);
-  } else {
-    // 默认导航数据
-    navDataArray.push({ text: 'Guide', link: '/guide' });
-    navDataArray.push(
-      {
-        text: 'Dropdown Menu',
-        items: [
-          { text: 'Item A', link: '/item-1' },
-          { text: 'Item B', link: '/item-2' },
-          { text: 'Item C', link: '/item-3' }
-        ]
-      }
-    );
-    navDataArray.push(
-      {
-        text: 'Dropdown Menu',
-        items: [
-          {
-            // 该部分的标题
-            text: 'Section A Title',
-            items: [
-              { text: 'Section A Item A', link: '...' },
-              { text: 'Section B Item B', link: '...' }
-            ]
-          }
-        ]
-      },
-    );
+  try {
+    // 检查 baseDir 路径是否存在
+    const stats = statSync(baseDir);
+    if (stats.isDirectory()) {
+      // 扫描目录并生成导航数据
+      const sdocNavItems = scanDirectory(option, baseDir);
+      navDataArray.push(...sdocNavItems);
+    } else {
+      // 使用默认导航数据
+      navDataArray.push(...createTestSidebarData());
+    }
+  } catch (error) {
+    // 如果路径不存在或无法访问，则使用默认导航数据
+    navDataArray.push(...createTestSidebarData());
+  }
+
+  // 如果 debugPrint 为 true，则打印导航数据到控制台
+  if (option.debugPrint) {
+    console.log("Navigation Data:", JSON.stringify(navDataArray, null, 4));
+  }
+
+  // 如果 saveToFile 为 true，则将数据保存到文件中
+  if (option.saveToFile) {
+    const cacheDir = resolve(srcDir, ".vitepress", "cache");
+    // 确保缓存目录存在
+    if (!existsSync(cacheDir)) {
+      mkdirSync(cacheDir, { recursive: true });
+    }
+    const filePath = resolve(cacheDir, "navigation-data.json");
+    writeFileSync(filePath, JSON.stringify(navDataArray, null, 2));
   }
 
   return navDataArray;

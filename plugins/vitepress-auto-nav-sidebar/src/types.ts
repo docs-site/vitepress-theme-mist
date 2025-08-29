@@ -1,10 +1,36 @@
 import type { DefaultTheme } from "vitepress";
 
 export interface NavOption {
+  /**
+   * 最大扫描的层级，vitepress导航栏最大支持3级显示
+   *
+   * @default []
+   */
   maxLevel?: number;          // 最大遍历层级 @default 1
-  ignoreDirNames?: string[];  // 忽略的文件夹名称 @default ['demo', 'asserts', '.git', '.github']
-  ignoreFileNames?: string[]; // 忽略的文件名 @default ['index.md']
+  /**
+   * 生成导航栏时，忽略的文件/文件夹列表，支持正则表达式
+   *
+   * @default []
+   */
+  ignoreList?: Array<RegExp | string>;
+  /**
+   * 文章所在的目录，基于 .vitepress 目录层级添加，开头不需要有 /
+   *
+   * @default 'vitepress 的 srcDir 配置项'
+   */
+  path?: string;
+  /**
+   * 调试信息显示
+   *
+   * @default []
+   */
   debugPrint?: boolean;       // 是否打印调试信息 @default false
+  /**
+   * 是否将数据保存到文件中
+   *
+   * @default false
+   */
+  saveToFile?: boolean;        // 是否将数据保存到文件中 @default false
 }
 
 export interface DirectoryStructure {
@@ -180,6 +206,18 @@ export interface SidebarOption {
    * @default false
    */
   checkRewritesPrefix?: boolean;
+  /**
+   * 调试信息显示
+   *
+   * @default []
+   */
+  debugPrint?: boolean;       // 是否打印调试信息 @default false
+  /**
+   * 是否将数据保存到文件中
+   *
+   * @default false
+   */
+  saveToFile?: boolean;        // 是否将数据保存到文件中 @default false
 }
 
 export interface NavSidebarOption {

@@ -32,14 +32,17 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
       }
       
       // 获取导航栏数据
-      const navData = createNavigationData(option, baseDir);
-
-      // 设置导航栏
-      setNavBar(themeConfig, navData);
+      const navData = createNavigationData(
+        { ...option.navOption, path: option.path},
+        baseDir,
+        srcDir
+      );
+      setNavBar(themeConfig, navData); // 设置导航栏
 
       const sideBarData = createFilePathSidebar(
-        {...option.sideBarOption, path: baseDir }, 
+        {...option.sideBarOption, path: baseDir },
         option.path,
+        srcDir
       ); //  展开原始的 option 对象，并覆盖 path 属性为 baseDir
       setSideBar(themeConfig, sideBarData, sideBarOption?.type);
     },
