@@ -27,7 +27,6 @@ export const externalModule = [
   "@docs-site/vitepress-plugin-file-content-loader",
   "@docs-site/vitepress-plugin-sidebar-resolve",
   "@vue/compiler-dom",
-  "@docs-site/vitepress-nav-sidebar",
   "@docs-site/vitepress-plugin-demo",
   "@docs-site/vitepress-auto-nav-sidebar",
 ];

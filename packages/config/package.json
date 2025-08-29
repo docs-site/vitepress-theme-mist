@@ -14,7 +14,6 @@
   "license": "MIT",
   "dependencies": {
     "@docs-site/vitepress-auto-nav-sidebar": "catalog:mist-plugins",
-    "@docs-site/vitepress-nav-sidebar": "catalog:mist-plugins",
     "@docs-site/vitepress-plugin-catalogue": "catalog:mist-plugins",
     "@docs-site/vitepress-plugin-demo": "catalog:mist-plugins",
     "@docs-site/vitepress-plugin-doc-analysis": "catalog:mist-plugins",

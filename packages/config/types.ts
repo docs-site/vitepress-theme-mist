@@ -7,7 +7,6 @@ import type {
   CodeBlock,
   DocAnalysis,
   Markdown,
-  NavSidebarConfig,
   Plugins,
   ThemeEnhance,
 } from "./interface";
@@ -35,7 +34,6 @@ export interface MistConfig {
   codeBlock?: CodeBlock; // 代码块配置
   docAnalysis?: DocAnalysis; // 文章分析配置
   markdown?: Markdown; // markdown插件配置
-  navSidebar?: NavSidebarConfig; // 导航和侧边栏配置
   themeName?: string; // 主题名称
   themeEnhance?: ThemeEnhance; // 主题增强配置
   vitePlugins?: Plugins; // 内置 Vite 插件配置

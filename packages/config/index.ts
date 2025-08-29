@@ -150,19 +150,7 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
     articleShare: {
       ...defaultMistConfig.articleShare,
       ...MistThemeConfig.articleShare,
-    },
-    navSidebar: {
-      ...defaultMistConfig.navSidebar,
-      ...MistThemeConfig.navSidebar,
-      nav: {
-        ...defaultMistConfig.navSidebar?.nav,
-        ...MistThemeConfig.navSidebar?.nav,
-      },
-      sidebar: {
-        ...defaultMistConfig.navSidebar?.sidebar,
-        ...MistThemeConfig.navSidebar?.sidebar,
-      },
-    },
+    }
   };
 
   // if (!mergedConfig.useTheme) return {};

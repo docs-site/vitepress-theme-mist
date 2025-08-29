@@ -5,7 +5,6 @@ import FileContentLoader, { FileContentLoaderOptions } from "@docs-site/vitepres
 import { transformData, transformRaw } from "./post";
 import Catalogue from "@docs-site/vitepress-plugin-catalogue";
 import DocAnalysis from "@docs-site/vitepress-plugin-doc-analysis";
-import { getNavData, getSidebarData } from "@docs-site/vitepress-nav-sidebar";
 import VitePluginVitePressDemo from "@docs-site/vitepress-plugin-demo"
 import VitePluginVitePressAutoNavSidebar from "@docs-site/vitepress-auto-nav-sidebar"
 
@@ -81,39 +80,3 @@ export const registerTightPlugins = (vitePlugins: Plugins, ignoreDir: Record<str
   return plugins;
 };
 
-/**
- * 生成导航和侧边栏数据
- * @param navSidebar - 导航和侧边栏配置
- * @returns 包含导航和侧边栏数据的对象
- */
-export const generateNavAndSidebar = (navSidebar: any) => {
-  // 获取文档目录名称，默认为 'sdoc'
-  const docDirName = navSidebar?.docDirName || 'sdoc';
-  
-  // 生成导航数据
-  const navData = [
-    ...getNavData({
-      dirName: docDirName,
-      maxLevel: navSidebar?.nav?.maxLevel || 2,
-      debugPrint: navSidebar?.nav?.debugPrint || false
-    }),
-    {
-      text: '功能页',
-      items: [
-        { text: '导航页', link: '/@pages/Navigation' }
-      ]
-    },
-  ];
-  
-  // 生成侧边栏数据
-  const sidebarData = getSidebarData({
-    dirName: docDirName,
-    maxLevel: navSidebar?.sidebar?.maxLevel || 6,
-    debugPrint: navSidebar?.sidebar?.debugPrint || false
-  });
-  
-  return {
-    nav: navData,
-    sidebar: sidebarData
-  };
-};

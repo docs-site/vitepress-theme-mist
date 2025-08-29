@@ -55,9 +55,6 @@ catalogs:
     '@docs-site/vitepress-auto-nav-sidebar':
       specifier: ^1.0.0
       version: 1.0.0
-    '@docs-site/vitepress-nav-sidebar':
-      specifier: ^1.0.2
-      version: 1.0.2
     '@docs-site/vitepress-plugin-catalogue':
       specifier: ^1.0.3
       version: 1.0.3
@@ -283,9 +280,6 @@ importers:
       '@docs-site/vitepress-auto-nav-sidebar':
         specifier: catalog:mist-plugins
         version: 1.0.0
-      '@docs-site/vitepress-nav-sidebar':
-        specifier: catalog:mist-plugins
-        version: 1.0.2
       '@docs-site/vitepress-plugin-catalogue':
         specifier: catalog:mist-plugins
         version: 1.0.3
@@ -741,9 +735,6 @@ packages:
 
   '@docs-site/vitepress-auto-nav-sidebar@1.0.0':
     resolution: {integrity: sha512-8nx7CECvKMYxoSI1AjfmJFNVTnJ0qbXGCEKpAO7hfrnezHtmeE3TZy/Ov6vkhneMSZ3wR11a3nfgmx6aVByxmQ==}
-
-  '@docs-site/vitepress-nav-sidebar@1.0.2':
-    resolution: {integrity: sha512-gT0HJg2YxBYtZiPx9fgJwC1td1wjSTyf441Z3UUgMnzR+Qr1DVeUtml5MYeakDGndRQiqHw//kWEwgcyLJ1YgA==}
 
   '@docs-site/vitepress-plugin-catalogue@1.0.3':
     resolution: {integrity: sha512-9M2VLpWrMJM+HhYvgM2jUxSJcfYa8jaaxDtUhI8CwVvQlLO6w+bm/yj42dqB/8OzZATBlZO2POHrHQGELNBMjw==}
@@ -5414,10 +5405,6 @@ snapshots:
     dependencies:
       gray-matter: 4.0.3
       picocolors: 1.1.1
-
-  '@docs-site/vitepress-nav-sidebar@1.0.2':
-    dependencies:
-      glob: 11.0.3
 
   '@docs-site/vitepress-plugin-catalogue@1.0.3':
     dependencies:
