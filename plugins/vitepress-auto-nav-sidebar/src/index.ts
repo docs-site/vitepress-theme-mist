@@ -33,8 +33,8 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
       
       // 获取导航栏数据
       const navData = createNavigationData(
-        { ...option.navOption, path: option.path},
-        baseDir,
+        { ...option.navOption, path: baseDir},
+        option.path,
         srcDir
       );
       setNavBar(themeConfig, navData); // 设置导航栏

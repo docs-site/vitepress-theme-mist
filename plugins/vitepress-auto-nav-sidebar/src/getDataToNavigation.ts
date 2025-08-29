@@ -13,6 +13,7 @@ export const DEFAULT_IGNORE_DIR = ["node_modules", "dist", ".vitepress", "public
  *          支持最大层级限制、忽略特定目录、自动处理序号前缀等功能
  * @param option 导航侧边栏配置选项
  * @param fullDirPath 要扫描的完整目录路径
+ * @param prefix 前缀，也是要扫描的目录名
  * @param currentLevel 当前扫描的层级（默认为1）
  * @param currentPath 当前相对路径（用于递归构建链接路径）
  *
@@ -39,7 +40,8 @@ export const DEFAULT_IGNORE_DIR = ["node_modules", "dist", ".vitepress", "public
  */
 function scanDirectory(
   option: NavOption,
-  fullDirPath: string,
+  fullDirPath: string,   // D:\xxx\vitepress-theme-mist\docs\src\sdoc
+  prefix: string  = "/", // sdoc
   currentLevel: number = 1,
   currentPath: string = ""
 ): DefaultTheme.NavItem[] {
@@ -74,11 +76,11 @@ function scanDirectory(
     dirOrFilename.endsWith('.md')
   );
 
-  // 如果只有.md文件而没有子目录，则生成/option.path/这一项
-  if (!hasDirectories && hasMdFiles && currentLevel === 1 && option.path) {
+  // 如果只有.md文件而没有子目录，则生成/prefix/这一项
+  if (!hasDirectories && hasMdFiles && currentLevel === 1 && prefix) {
     const navItem: DefaultTheme.NavItem = {
-      text: option.path,
-      link: `/${option.path}/`
+      text: prefix,
+      link: `/${prefix}/`
     };
     navItems.push(navItem);
   } else {
@@ -107,7 +109,7 @@ function scanDirectory(
         }
         // 递归调用时传入选项和下一级层级
         const nextPath = currentPath ? `${currentPath}/${dirName}` : dirName;
-        const childNavItems = scanDirectory(option, filePath, currentLevel + 1, nextPath);
+        const childNavItems = scanDirectory(option, filePath, prefix, currentLevel + 1, nextPath);
         const displayName = dirName.replace(/^\d+-/, '');
         if (childNavItems.length > 0) {
           const navItem: DefaultTheme.NavItem = {
@@ -116,7 +118,7 @@ function scanDirectory(
           };
           navItems.push(navItem);
         } else {
-          const basePath = option.path ? `/${option.path}` : '';
+          const basePath = prefix ? `/${prefix}` : '';
           const fullPath = currentPath ? `${basePath}/${currentPath}/${dirName}/` : `${basePath}/${dirName}/`;
           
           const navItem: DefaultTheme.NavItem = {
@@ -169,16 +171,21 @@ function createTestSidebarData(): DefaultTheme.NavItem[] {
   return navDataArray;
 }
 
-export default (option: NavOption, baseDir: string, srcDir: string) => {
+export default (option: NavOption = {}, prefix: string = "/", srcDir: string) => {
+  const {
+    path,
+  } = option;
+
+  if (!path) return []; // 防止path是undefined
   //  export type NavItem = NavItemComponent | NavItemWithLink | NavItemWithChildren
   const navDataArray: DefaultTheme.NavItem[] = [];
 
   try {
     // 检查 baseDir 路径是否存在
-    const stats = statSync(baseDir);
+    const stats = statSync(path);
     if (stats.isDirectory()) {
       // 扫描目录并生成导航数据
-      const sdocNavItems = scanDirectory(option, baseDir);
+      const sdocNavItems = scanDirectory(option, path, prefix);
       navDataArray.push(...sdocNavItems);
     } else {
       // 使用默认导航数据
