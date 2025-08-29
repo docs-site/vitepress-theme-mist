@@ -52,6 +52,9 @@ catalogs:
       specifier: ^3.5.18
       version: 3.5.18
   mist-plugins:
+    '@docs-site/vitepress-auto-nav-sidebar':
+      specifier: ^1.0.0
+      version: 1.0.0
     '@docs-site/vitepress-nav-sidebar':
       specifier: ^1.0.2
       version: 1.0.2
@@ -278,8 +281,8 @@ importers:
   packages/config:
     dependencies:
       '@docs-site/vitepress-auto-nav-sidebar':
-        specifier: workspace:*
-        version: link:../../plugins/vitepress-auto-nav-sidebar
+        specifier: catalog:mist-plugins
+        version: 1.0.0
       '@docs-site/vitepress-nav-sidebar':
         specifier: catalog:mist-plugins
         version: 1.0.2
@@ -735,6 +738,9 @@ packages:
   '@commitlint/types@19.8.1':
     resolution: {integrity: sha512-/yCrWGCoA1SVKOks25EGadP9Pnj0oAIHGpl2wH2M2Y46dPM2ueb8wyCVOD7O3WCTkaJ0IkKvzhl1JY7+uCT2Dw==}
     engines: {node: '>=v18'}
+
+  '@docs-site/vitepress-auto-nav-sidebar@1.0.0':
+    resolution: {integrity: sha512-8nx7CECvKMYxoSI1AjfmJFNVTnJ0qbXGCEKpAO7hfrnezHtmeE3TZy/Ov6vkhneMSZ3wR11a3nfgmx6aVByxmQ==}
 
   '@docs-site/vitepress-nav-sidebar@1.0.2':
     resolution: {integrity: sha512-gT0HJg2YxBYtZiPx9fgJwC1td1wjSTyf441Z3UUgMnzR+Qr1DVeUtml5MYeakDGndRQiqHw//kWEwgcyLJ1YgA==}
@@ -5403,6 +5409,11 @@ snapshots:
     dependencies:
       '@types/conventional-commits-parser': 5.0.1
       chalk: 5.6.0
+
+  '@docs-site/vitepress-auto-nav-sidebar@1.0.0':
+    dependencies:
+      gray-matter: 4.0.3
+      picocolors: 1.1.1
 
   '@docs-site/vitepress-nav-sidebar@1.0.2':
     dependencies:
