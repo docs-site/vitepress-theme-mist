@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.10](https://github.com/docs-site/vitepress-theme-mist/compare/v1.0.8...v1.0.10) (2025-08-29)
+
+
+### Features
+
+* **plugins:** 🚀 添加@docs-site/vitepress-auto-nav-sidebar插件 ([3fc1262](https://github.com/docs-site/vitepress-theme-mist/commit/3fc1262ca787d0ffeafd5394efdb1a17257dc155))
+* **plugins:** 🚀 添加@docs-site/vitepress-plugin-permalink插件 ([6f1c429](https://github.com/docs-site/vitepress-theme-mist/commit/6f1c42978a211f4a2cb45f3d98349372dfcd48d3))
+* **plugins:** 🚀 添加@docs-site/vitepress-plugin-sidebar-resolve自动侧边栏插件 ([86c3377](https://github.com/docs-site/vitepress-theme-mist/commit/86c3377ae987417950ac98092d0b56dfec5b402a))
+* **plugins:** 🚀 添加一个vite插件示例 ([2faddd6](https://github.com/docs-site/vitepress-theme-mist/commit/2faddd6a03b5788b1507f491ed2413b938ff4654))
+
+
+### Bug Fixes
+
+* **theme:** 🐞 修复项目启动后终端打印 Scss 的废弃警告 ([4080cfb](https://github.com/docs-site/vitepress-theme-mist/commit/4080cfbfa08e2be00dc3deca2de9166bb0818d08))
+
+
+### Others
+
+* **release:** 1.0.9 [publish] ([2eaeb7a](https://github.com/docs-site/vitepress-theme-mist/commit/2eaeb7a7c6ae69f57f5064d01dc3cfda2afb2963))
+
+
+### Code Refactoring
+
+* **plugins:** ♻️ 挂载nav数据到themeConfig ([7a98e64](https://github.com/docs-site/vitepress-theme-mist/commit/7a98e643ef854e97bf184b05d8996fedf33ac080))
+* **plugins:** ♻️ 挂载sidebar数据到themeConfig ([e40c757](https://github.com/docs-site/vitepress-theme-mist/commit/e40c7571a1fc7ba5aad17ddb20c20b644e5a7760))
+* **plugins:** ♻️ 优化@docs-site/vitepress-auto-nav-sidebar功能 ([cfbfb0b](https://github.com/docs-site/vitepress-theme-mist/commit/cfbfb0b07158520e3eec9f82bc6546b486f3d6b3))
+* **plugins:** ♻️ 优化自动导航栏的接口 ([5f91e32](https://github.com/docs-site/vitepress-theme-mist/commit/5f91e32085cce35bff11fa439d8445ffeb350965))
+* **theme:** ♻️ 把@docs-site/vitepress-auto-nav-sidebar添加到主题(本地添加) ([66e0ec9](https://github.com/docs-site/vitepress-theme-mist/commit/66e0ec906601e6f213324ab4e80e3edc91ee0494))
+* **theme:** ♻️ 把@docs-site/vitepress-plugin-permalink注册到主题 ([b966fda](https://github.com/docs-site/vitepress-theme-mist/commit/b966fda7a2b5a78dc76c8a9bb417b08079559b83))
+* **theme:** ♻️ 调整aside和sidebar的悬停样式和动画 ([c94126f](https://github.com/docs-site/vitepress-theme-mist/commit/c94126fcf5a3c2d09242cf651a5981816e6e90d8))
+* **theme:** ♻️ 删除主题对vitepress-nav-sidebar的依赖 ([fd326c8](https://github.com/docs-site/vitepress-theme-mist/commit/fd326c890aec15a27593117289e255043feb7bfb))
+* **theme:** ♻️ 主题中@docs-site/vitepress-auto-nav-sidebar插件改为在线包 ([fa477ce](https://github.com/docs-site/vitepress-theme-mist/commit/fa477ceca105d5785b72ccbf60bfb26ccf35199d))
+* **theme:** ♻️ 注册插件demo到主题中 ([58f4563](https://github.com/docs-site/vitepress-theme-mist/commit/58f456303fca90195cefb18e5b1a2d058dbfe1b1))
+
 ### [1.0.9](https://github.com/docs-site/vitepress-theme-mist/compare/v1.0.8...v1.0.9) (2025-08-29)
 
 
