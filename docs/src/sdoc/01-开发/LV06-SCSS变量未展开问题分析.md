@@ -1,18 +1,25 @@
 ---
 title: LV06-SCSS变量未展开问题分析
-date: 2025-08-22 10:59:28
+date: 2025-08-30 22:11:55
 icon: famicons:logo-markdown
+permalink: /docs/126b038aaf6337eb840fdd0c
 index: true
 tags:
 categories:
-copyright: true
+copyright: false
 keywords:
 cover:
 comments:
 mathjax:
 top:
 description:
+tdoc:
+  detailDate: 2025-08-30 22:11:55.894
+  fulluuid: b840fdd0c70b48a3bc5e1e4e1caf63f9
+  useduuid: b840fdd0c
 ---
+
+
 
 # SCSS变量未展开问题分析
 
@@ -465,4 +472,5 @@ html[theme-color="ep-blue"] {
 ## 九、总结
 
 这个问题是由于 SCSS 文件缺少必要的导入语句导致的。通过系统性的分析和调试，确定了根本原因并提供了有效的解决方案。这个问题提醒我们在使用 SCSS 函数和 mixin 时，必须确保正确导入相关文件，否则可能导致编译时错误或运行时问题。
+
 

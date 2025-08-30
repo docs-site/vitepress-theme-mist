@@ -1,3 +1,24 @@
+---
+title: LV08-Git提交规范与工具集成
+date: 2025-08-30 22:11:55
+icon: famicons:logo-markdown
+permalink: /docs/126b038aaf6337fe04f52cc5
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-08-30 22:11:55.895
+  fulluuid: e04f52cc57f94bf0a64876f234687634
+  useduuid: e04f52cc5
+---
+
 # Git 提交规范与工具集成
 
 在现代前端开发中，规范化的 Git 提交信息对于项目维护和版本管理至关重要。本文将详细介绍 husky、cz-git 和 @commitlint/cli 三个工具的使用方法，以及如何建立一套完整的 Git 提交规范体系。
@@ -1200,3 +1221,4 @@ git push
 
 - pre-commit 阶段：运行 lint-staged 对暂存文件进行代码检查和格式化
 - commit-msg 阶段：使用 commitlint 验证提交信息是否符合规范
+

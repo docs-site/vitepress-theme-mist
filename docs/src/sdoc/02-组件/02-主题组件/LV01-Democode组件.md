@@ -1,18 +1,24 @@
 ---
 title: LV01-Democode组件
-date: 2025-08-20 16:37:00
-icon: material-symbols:notifications
+date: 2025-08-30 22:13:41
+icon: famicons:logo-markdown
+permalink: /docs/126b038ab01d20b88d1d36c0
 index: true
 tags:
 categories:
-copyright: true
+copyright: false
 keywords:
 cover:
 comments:
 mathjax:
 top:
 description:
+tdoc:
+  detailDate: 2025-08-30 22:13:41.523
+  fulluuid: 88d1d36c00614b0193e3eb476f974e38
+  useduuid: 88d1d36c0
 ---
+
 
 # Demo 插件与 MtDemoCode 组件分析
 
@@ -357,3 +363,4 @@ HelloWorld
 `demo` 插件和 `MtDemoCode` 组件构成了一个完整的解决方案，使得开发者能够在 Markdown 文档中轻松地插入交互式的 Vue 组件示例。这种设计不仅提高了文档的可读性和实用性，还增强了用户体验，使读者能够直接查看和尝试代码效果。
 
 通过合理的文件组织和样式管理，该功能模块具有良好的可维护性和扩展性。
+

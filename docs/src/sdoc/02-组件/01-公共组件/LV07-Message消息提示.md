@@ -1,18 +1,24 @@
 ---
 title: LV07-Message消息提示
-date: 2025-08-19 20:37:00
-icon: material-symbols:notifications
+date: 2025-08-30 22:13:20
+icon: famicons:logo-markdown
+permalink: /docs/126b038ab0082f5ab50b98eb
 index: true
 tags:
 categories:
-copyright: true
+copyright: false
 keywords:
 cover:
 comments:
 mathjax:
 top:
-description: MtMessage 组件提供全局的消息提示功能，支持多种类型和自定义配置
+description:
+tdoc:
+  detailDate: 2025-08-30 22:13:20.757
+  fulluuid: ab50b98eb8c24f3bb44a87810ab98869
+  useduuid: ab50b98eb
 ---
+
 
 <script setup>
 import { MtMessage } from "vitepress-theme-mist"
@@ -269,3 +275,4 @@ MtMessage({
 4. **响应式**: 消息会监听窗口大小变化，自动调整位置。
 
 5. **键盘事件**: 按空格键可以关闭当前获得焦点的消息。
+

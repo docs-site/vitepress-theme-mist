@@ -1,18 +1,24 @@
 ---
 title: LV08-Popover气泡卡片
-date: 2025-08-20 20:24:00
-icon: material-symbols:chat-bubble-outline
+date: 2025-08-30 22:13:20
+icon: famicons:logo-markdown
+permalink: /docs/126b038ab0082f6105b682ed
 index: true
 tags:
 categories:
-copyright: true
+copyright: false
 keywords:
 cover:
 comments:
 mathjax:
 top:
-description: MtPopover 组件提供了一个轻量级的弹出框，用于显示额外的信息或操作，支持多种触发方式和定位选项
+description:
+tdoc:
+  detailDate: 2025-08-30 22:13:20.758
+  fulluuid: 105b682edc8d4ab1b1b4ce93d5a11c21
+  useduuid: 105b682ed
 ---
+
 
 <script setup>
 import { MtPopover, MtButton } from "vitepress-theme-mist"
@@ -558,3 +564,4 @@ const visible = ref(false)
   gap: 40px;
 }
 </style>
+

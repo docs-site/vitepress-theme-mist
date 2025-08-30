@@ -1,3 +1,24 @@
+---
+title: LV01-file-content-loader
+date: 2025-08-30 22:12:46
+icon: famicons:logo-markdown
+permalink: /docs/126b038aafbe288e3c883da7
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-08-30 22:12:46.648
+  fulluuid: e3c883da7860440b9619f6194c57b185
+  useduuid: e3c883da7
+---
+
 # vitepress-plugin-file-content-loader
 
 ## 一、概述
@@ -466,3 +487,4 @@ npm run dev
 4. **易用性**：简洁的 API 设计和详细的文档说明
 
 在未来的发展中，该插件还可以进一步优化，例如支持更多的文件格式、提供更丰富的数据处理选项等。但就目前而言，它已经能够很好地满足大部分项目的需求，是构建内容驱动型网站的重要工具。
+

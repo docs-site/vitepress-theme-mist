@@ -1,18 +1,24 @@
 ---
 title: LV05-DataLoader组件分析
-date: 2025-08-17 10:59:28
+date: 2025-08-30 22:11:55
 icon: famicons:logo-markdown
+permalink: /docs/126b038aaf6337dbe16093e2
 index: true
 tags:
 categories:
-copyright: true
+copyright: false
 keywords:
 cover:
 comments:
 mathjax:
 top:
 description:
+tdoc:
+  detailDate: 2025-08-30 22:11:55.893
+  fulluuid: be16093e26c94f5bb9cdb4d84767c30c
+  useduuid: be16093e2
 ---
+
 
 # DataLoader 组件导入过程分析
 
@@ -331,3 +337,4 @@ DataLoader 组件通过标准的 ES6 模块重新导出机制，实现了从组�
 - 别名导出解决命名空间管理问题
 
 这种设计不仅使组件易于使用，还提供了良好的类型安全性和开发体验。
+

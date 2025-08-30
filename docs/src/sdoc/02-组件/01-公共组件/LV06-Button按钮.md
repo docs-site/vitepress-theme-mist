@@ -1,18 +1,24 @@
 ---
 title: LV06-Button按钮
-date: 2025-08-19 15:55:00
-icon: material-symbols:smart-button
+date: 2025-08-30 22:13:20
+icon: famicons:logo-markdown
+permalink: /docs/126b038ab0082f5943b1bb6d
 index: true
 tags:
 categories:
-copyright: true
+copyright: false
 keywords:
 cover:
 comments:
 mathjax:
 top:
-description: MtButton 组件提供基础按钮样式和交互效果，仿照 Element Plus 风格，支持不同主题和尺寸
+description:
+tdoc:
+  detailDate: 2025-08-30 22:13:20.757
+  fulluuid: 943b1bb6d08045eeb01d3426665b68c8
+  useduuid: 943b1bb6d
 ---
+
 
 <script setup>
 import { MtButton } from "vitepress-theme-mist"
@@ -192,3 +198,4 @@ const handleSizeClick = () => {
   color: #666;
 }
 </style>
+

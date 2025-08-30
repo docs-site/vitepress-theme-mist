@@ -1,17 +1,22 @@
 ---
-title: LV01-pnpm的工作区
-date: 2025-08-15 09:50:28
+title: LV01-pnpm工作区
+date: 2025-08-30 22:11:55
 icon: famicons:logo-markdown
+permalink: /docs/126b038aaf6337a306a8b07a
 index: true
 tags:
 categories:
-copyright: true
+copyright: false
 keywords:
 cover:
 comments:
 mathjax:
 top:
 description:
+tdoc:
+  detailDate: 2025-08-30 22:11:55.890
+  fulluuid: 306a8b07a8dc4a7aaef1c4854247aea9
+  useduuid: 306a8b07a
 ---
 
 
@@ -828,4 +833,5 @@ pnpm remove @my-workspace/sub-package -O -w
 （3）然后运行 `pnpm install` 来更新依赖
 
 使用 `-w` 或 `--workspace-root` 标志可以指定在根工作区中安装依赖，而不是在某个特定的子包中。
+
 

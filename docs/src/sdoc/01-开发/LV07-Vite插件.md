@@ -1,18 +1,24 @@
 ---
 title: LV07-Vite插件
-date: 2025-08-23 10:59:28
+date: 2025-08-30 22:11:55
 icon: famicons:logo-markdown
+permalink: /docs/126b038aaf6337e8d3eeda2f
 index: true
 tags:
 categories:
-copyright: true
+copyright: false
 keywords:
 cover:
 comments:
 mathjax:
 top:
 description:
+tdoc:
+  detailDate: 2025-08-30 22:11:55.894
+  fulluuid: 8d3eeda2fbae4a0fab1a34b7af8197a9
+  useduuid: 8d3eeda2f
 ---
+
 
 VitePress 处于 Vite 环境下，因此天然支持 Vite 插件。
 
@@ -345,3 +351,4 @@ export default defineBuildConfig({
 
 > `devDependencies` 是开发依赖，不会随着插件一起安装到项目里，因此需要我们斟酌哪些第三方依赖是运行必须的，则放到 `dependencies` 里，哪些是开发时必须的，则放到 `devDependencies` 里。
 >
+

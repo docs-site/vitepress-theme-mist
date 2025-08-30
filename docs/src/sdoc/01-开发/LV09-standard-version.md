@@ -1,3 +1,24 @@
+---
+title: LV09-standard-version
+date: 2025-08-30 22:11:55
+icon: famicons:logo-markdown
+permalink: /docs/126b038aaf6338009322f86c
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-08-30 22:11:55.896
+  fulluuid: 09322f86c448437ca5a97e886e27ca76
+  useduuid: 09322f86c
+---
+
 # Standard-Version 自动生成CHANGELOG.md
 
 ## 一、Standard-Version是什么
@@ -557,3 +578,4 @@ All notable changes to this project will be documented in this file. See [standa
 （2）检查生成的 CHANGELOG.md 文件内容
 
 （3）验证 Git 标签是否正确创建
+

@@ -1,3 +1,24 @@
+---
+title: LV02-catalogue分析文档
+date: 2025-08-30 22:12:46
+icon: famicons:logo-markdown
+permalink: /docs/126b038aafbe289291cd52cc
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-08-30 22:12:46.649
+  fulluuid: 291cd52cc5e642808cbe11a806f445fa
+  useduuid: 291cd52cc
+---
+
 # vitepress-plugin-catalogue 插件深度解析
 
 ## 一、概述
@@ -680,3 +701,4 @@ npm run dev
 4. **易于集成**：生成的数据结构清晰，便于在 Vue 组件中使用
 
 在未来的发展中，该插件还可以进一步优化，例如支持更多的自定义选项、提供更丰富的数据处理功能等。但就目前而言，它已经能够很好地满足大部分项目的需求，是构建结构化文档网站的重要工具。
+

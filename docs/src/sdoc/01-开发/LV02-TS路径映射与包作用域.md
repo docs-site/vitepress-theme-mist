@@ -1,18 +1,24 @@
 ---
 title: LV02-TS路径映射与包作用域
-date: 2025-08-15 10:50:12
+date: 2025-08-30 22:11:55
 icon: famicons:logo-markdown
+permalink: /docs/126b038aaf6337a72a610880
 index: true
 tags:
 categories:
-copyright: true
+copyright: false
 keywords:
 cover:
 comments:
 mathjax:
 top:
 description:
+tdoc:
+  detailDate: 2025-08-30 22:11:55.890
+  fulluuid: 72a6108807af4d71b279ba4354e1c2c4
+  useduuid: 72a610880
 ---
+
 
 <!-- more -->
 
@@ -984,3 +990,4 @@ import "../packages/theme-chalk/src/var/theme-color.scss";
 （5）**构建兼容性**：通过正确的配置，确保开发和生产环境的一致性。
 
 这种方式特别适用于大型项目或者组件库的开发，能够有效提升开发效率和代码质量。通过结合使用TypeScript路径映射和npm包作用域，我们不仅解决了代码组织的问题，还建立了清晰的模块边界，使得项目更易于维护和扩展。
+

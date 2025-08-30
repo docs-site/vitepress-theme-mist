@@ -1,18 +1,24 @@
 ---
 title: LV09-Segmented分段器
-date: 2025-08-20 22:05:00
-icon: material-symbols:segment
+date: 2025-08-30 22:13:20
+icon: famicons:logo-markdown
+permalink: /docs/126b038ab0082f739117afcb
 index: true
 tags:
 categories:
-copyright: true
+copyright: false
 keywords:
 cover:
 comments:
 mathjax:
 top:
-description: MtSegmented 组件提供分段选择功能，支持多种数据类型和自定义配置
+description:
+tdoc:
+  detailDate: 2025-08-30 22:13:20.759
+  fulluuid: 39117afcbb0c46afbde8737010526fa2
+  useduuid: 39117afcb
 ---
+
 
 <script setup>
 import { MtSegmented, MtSegmentedItem } from "vitepress-theme-mist"
@@ -390,3 +396,4 @@ const customOptions = [
 6. **表单集成**: 组件基于 `fieldset` 和 `input[type="radio"]` 实现，可以很好地与表单集成使用。
 
 7. **响应式**: 组件完全支持 Vue 3 的响应式系统，可以与 `ref`、`reactive` 等响应式 API 无缝配合使用。
+

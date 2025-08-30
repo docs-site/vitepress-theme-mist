@@ -1,18 +1,24 @@
 ---
 title: LV03-TransitionCollapse折叠
-date: 2025-08-18 11:37:00
-icon: material-symbols:animation
+date: 2025-08-30 22:13:20
+icon: famicons:logo-markdown
+permalink: /docs/126b038ab0082f28da076120
 index: true
 tags:
 categories:
-copyright: true
+copyright: false
 keywords:
 cover:
 comments:
 mathjax:
 top:
-description: MtTransitionCollapse 组件提供平滑的折叠展开动画效果
+description:
+tdoc:
+  detailDate: 2025-08-30 22:13:20.754
+  fulluuid: 8da07612073543848cc34948ab19bc11
+  useduuid: 8da076120
 ---
+
 
 <script setup>
 import { MtTransitionCollapse } from "vitepress-theme-mist"
@@ -56,4 +62,5 @@ const show = ref(false)
     </div>
   </MtTransitionCollapse>
 </div>
+
 

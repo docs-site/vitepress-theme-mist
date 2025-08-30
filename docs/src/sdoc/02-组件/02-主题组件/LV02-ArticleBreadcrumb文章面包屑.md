@@ -1,18 +1,24 @@
 ---
 title: LV02-ArticleBreadcrumb文章面包屑
-date: 2025-08-24 12:05:00
-icon: material-symbols:segment
+date: 2025-08-30 22:13:41
+icon: famicons:logo-markdown
+permalink: /docs/126b038ab01d20cb4d311ceb
 index: true
 tags:
 categories:
-copyright: true
+copyright: false
 keywords:
 cover:
 comments:
 mathjax:
 top:
 description:
+tdoc:
+  detailDate: 2025-08-30 22:13:41.524
+  fulluuid: b4d311ceb1ad4c10912d7663095ea868
+  useduuid: b4d311ceb
 ---
+
 
 这一部分来了解一下ArticleBreadcrumb文章面包屑组件。
 
@@ -253,3 +259,4 @@ const showBreadcrumb = computed(() => {
 <template>
   <MtArticleBreadcrumb v-if="showBreadcrumb" />
 </template>
+
