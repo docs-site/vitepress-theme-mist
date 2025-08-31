@@ -1,6 +1,6 @@
 {
   "name": "@docs-site/vitepress-auto-nav-sidebar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/index.cjs",
   "type": "module",
   "module": "./dist/index.mjs",

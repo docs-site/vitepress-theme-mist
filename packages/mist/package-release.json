@@ -4,7 +4,9 @@
   "description": "vitepress-theme-mist",
   "type": "module",
   "author": "sumu",
-  "keywords": ["vitepress"],
+  "keywords": [
+    "vitepress"
+  ],
   "license": "MIT",
   "main": "lib/index.js",
   "module": "es/index.mjs",
@@ -25,7 +27,10 @@
       "import": "./es/*.mjs"
     },
     "./es/*": {
-      "types": ["./es/*.d.ts", "./es/*/index.d.ts"],
+      "types": [
+        "./es/*.d.ts",
+        "./es/*/index.d.ts"
+      ],
       "import": "./es/*.mjs"
     },
     "./lib": {
@@ -37,7 +42,10 @@
       "require": "./lib/*.js"
     },
     "./lib/*": {
-      "types": ["./lib/*.d.ts", "./lib/*/index.d.ts"],
+      "types": [
+        "./lib/*.d.ts",
+        "./lib/*/index.d.ts"
+      ],
       "require": "./lib/*.js"
     },
     "./config": {
@@ -60,9 +68,9 @@
     "markdown-it-container": "^4.0.0",
     "@docs-site/vitepress-plugin-file-content-loader": "^1.0.2",
     "@docs-site/vitepress-plugin-catalogue": "^1.0.3",
-    "@docs-site/vitepress-plugin-doc-analysis": "^1.0.0",
+    "@docs-site/vitepress-plugin-doc-analysis": "^1.0.1",
     "@docs-site/vitepress-plugin-demo": "^1.0.0",
-    "@docs-site/vitepress-auto-nav-sidebar": "^1.0.0",
+    "@docs-site/vitepress-auto-nav-sidebar": "^1.0.1",
     "@docs-site/vitepress-plugin-permalink": "^1.0.0"
   },
   "devDependencies": {
