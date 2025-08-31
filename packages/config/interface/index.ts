@@ -5,6 +5,7 @@ export type * from "./breadcrumb";
 export type * from "./clickEffect";
 export type * from "./codeBlock";
 export type * from "./docAnalysis";
+export type * from "./docFooterCopyright";
 export type * from "./markdown";
 export type * from "./plugins";
 export type * from "./themeEnhance";

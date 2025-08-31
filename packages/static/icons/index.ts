@@ -52,6 +52,11 @@ export { default as questionFilledIcon } from "./questionFilled";
 export { default as topIcon } from "./top";
 export { default as lockIcon } from "./lock";
 
+export { default as docFooterUserIcon } from "./docFooterUser";
+export { default as docFooterLinkIcon } from "./docFooterLink";
+export { default as docFooterCopyrightIcon } from "./docFooterCopyright";
+export { default as docFooterCCIcon } from "./docFooterCC";
+
 export { default as autoWidthIcon } from "./theme-enhance/autoWidth";
 export { default as clickIcon } from "./theme-enhance/click";
 export { default as fullScreenOneIcon } from "./theme-enhance/fullScreenOne";

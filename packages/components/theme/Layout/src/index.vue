@@ -12,6 +12,7 @@ import { MtNavigationPage } from "@mist/components/theme/NavigationPage";
 import { MtCataloguePage } from "@mist/components/theme/CataloguePage";
 import { MtArticleAnalyze } from "@mist/components/theme/ArticleAnalyze";
 import { MtCodeBlockToggle } from "@mist/components/theme/CodeBlockToggle";
+import { MtDocFooterCopyright } from "@mist/components/theme/DocFooterCopyright";
 
 import { MtBackTop } from "@mist/components/common/BackTop";
 import { MtClickEffect } from "@mist/components/common/ClickEffect";
@@ -106,6 +107,7 @@ const usedSlots = [
         <slot name="doc-footer-before" />
         <!-- 将插槽内容传递给vitepress -->
         <MtBackTop />
+        <MtDocFooterCopyright />
       </template>
 
       <!-- 通过了 v-for 遍历所有 未使用 VitePress 的插槽，并使用 #[name]="slotData" 将插槽内容传递给 VitePress -->

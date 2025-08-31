@@ -6,6 +6,7 @@ export * from "./CataloguePage";
 export * from "./CodeBlockToggle";
 export * from "./ConfigProvider";
 export * from "./DemoCode";
+export * from "./DocFooterCopyright";
 export * from "./HomeUnderline";
 export * from "./Layout";
 export * from "./ThemeEnhance";

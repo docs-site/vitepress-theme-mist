@@ -1,0 +1,137 @@
+@use "../../mixins/function" as *;
+@use "../../mixins/config" as *;
+@use "../../mixins/mixins" as *;
+@use "../../mixins/bem" as *;
+
+/* 文章页淡入效果 */
+$fade-up-animation: fade-up 0.6s 0.1s backwards;
+
+html[doc-footer-copyright="#{$namespace}"] {
+  @include b("doc-footer-copyright") {
+    font-size: 14px;
+    color: #666;
+    padding: 1.2rem;
+    margin-top: 2rem;
+    line-height: 1.6;
+    
+    /* 边框样式 */
+    border: 1px solid #e2e2e3;
+    border-radius: 8px;
+    transition: all 0.2s;
+    
+    /* 相对定位，用于右上角图标的绝对定位 */
+    position: relative;
+    
+    /* 添加淡入动画效果 */
+    animation: $fade-up-animation;
+  }
+
+  /* 右上角图标样式 */
+  @include e("corner-icon") {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 20px;
+    height: 20px;
+    color: #{getCssVarWithDefault(("theme-color"), var(--vp-c-brand-1))}; /* 使用主题色 */
+    transition: color 0.2s; /* 添加颜色过渡效果 */
+  }
+
+  /* 容器hover效果 */
+  @include b("doc-footer-copyright") {
+    &:hover {
+      border-color: var(--vp-c-tip-1);
+    }
+  }
+
+  @include e("line") {
+    display: flex;
+    align-items: flex-start; /* 改为顶部对齐，适应换行 */
+    flex-wrap: wrap; /* 允许换行 */
+    word-break: break-all; /* 强制长单词换行 */
+  }
+
+  @include e("line") {
+    & + #{&} {
+      margin-top: 0.5rem;
+    }
+  }
+
+  /* 左侧图标样式调整 */
+  @include e("line") {
+    > .mt-icon {
+      width: 16px;
+      height: 16px;
+      margin-right: 8px; /* 图标与文字之间的间距 */
+      margin-top: 2px; /* 微调图标位置，与文字对齐 */
+      flex-shrink: 0; /* 防止图标被压缩 */
+      color: #{getCssVarWithDefault(("theme-color"), var(--vp-c-brand-1))}; /* 使用主题色 */
+      transition: color 0.2s; /* 添加颜色过渡效果 */
+    }
+  }
+
+  /* 链接基础样式 */
+  @include b("doc-footer-copyright") {
+    a {
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    a:hover {
+      color: var(--vp-c-tip-1);
+      text-decoration: underline;
+    }
+  }
+
+  /* 作者链接样式 */
+  @include e("author-link") {
+    font-weight: 600;
+    color: var(--vp-c-tip-1);
+  }
+
+  /* 文章链接样式 */
+  @include e("url-link") {
+    color: var(--vp-c-tip-1);
+  }
+
+  /* 许可协议链接样式 */
+  @include e("license-link") {
+    color: var(--vp-c-tip-1);
+  }
+
+  /* 移动端优化 - 保持一行布局，超出换行 */
+  @media (max-width: 768px) {
+    @include b("doc-footer-copyright") {
+      padding: 1rem;
+    }
+    
+    /* 链接换行优化 */
+    @include e("url-link") {
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+    
+    /* 作者和许可协议链接也优化换行 */
+    @include e("author-link") {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    @include e("license-link") {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+  }
+}
+
+/* 淡入动画关键帧 */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
