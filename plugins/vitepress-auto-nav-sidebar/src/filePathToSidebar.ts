@@ -1,12 +1,12 @@
 import type { DefaultTheme } from "vitepress";
 import type { SidebarOption } from "./types";
-import { isSome, getTitleFromMarkdown, isIllegalIndex } from "./utils";
-import logger from "./log";
-import { getInfoFromMarkdownDir, resolveFileName } from "./nodeHelper";
-
 import { readdirSync, statSync, readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { basename, resolve } from "node:path";
 import matter from "gray-matter";
+import { getTitleFromMarkdown, isIllegalIndex, isSome } from "./utils";
+import logger from "./log";
+import { getInfoFromMarkdownDir, resolveFileName } from "./nodeHelper";
+
 // 默认忽略的文件夹列表
 export const DEFAULT_IGNORE_DIR = ["node_modules", "dist", ".vitepress", "public"];
 
@@ -61,6 +61,119 @@ function createTestSidebarData(sidebarObj: DefaultTheme.SidebarMulti, sidebarArr
 }
 
 /**
+ * 基于文件路径生成侧边栏数据
+ * @param  option Sidebar 配置选项
+ * @param prefix 指定前缀，在生成侧边栏的 link 时，会自动加上前缀
+ */
+export default (option: SidebarOption = {}, prefix = "/", srcDir: string) => {
+    const {
+    path,
+    ignoreList = [],
+    scannerRootMd = true,
+    collapsed,
+    titleFormMd = false,
+    initItems = true,
+    initItemsText = false,
+    sidebarResolved,
+    ignoreWarn = false,
+    indexSeparator,
+    prefixTransform,
+    suffixTransform,
+    type = "object",
+    rootTitle = "Root",
+  } = option;
+  // 获取要返回数组类型还是对象类型
+  const isSidebarObject = type === "object";
+  if (!path) return isSidebarObject ? {} : [];
+
+  // 确保 prefix 始终都有 / 结尾
+  prefix = prefix.replace(/\/$/, "") + "/";
+
+  const sidebarObj: DefaultTheme.SidebarMulti = {};
+  const sidebarArray: DefaultTheme.SidebarItem[] = [];
+  try {
+    // 检查 baseDir 路径是否存在
+    const stats = statSync(path);
+    if (stats.isDirectory()) {
+      // 只扫描根目录的 md 文件，且不扫描 index.md（首页文档）
+      const key = prefix === "/" ? prefix : `/${prefix}`;
+
+      // 是否扫描要扫描的目录下的md文档，例如 D:\xxx\vitepress-theme-mist\docs\src\Examples 中就只有md文档，
+      // 若是为false的话就不会有侧边栏生成
+      if (scannerRootMd) {
+        const rootSidebarItems = createSidebarItems(path, { ...option, ignoreIndexMd: true }, key, scannerRootMd);
+        if (rootSidebarItems?.length) {
+          if (isSidebarObject) sidebarObj[key] = rootSidebarItems;
+          else sidebarArray.push({ text: rootTitle, items: rootSidebarItems });
+        }
+      }
+      // 获取指定根目录下的所有目录绝对路径
+      const dirPaths = readDirPaths(path, ignoreList);
+      // 遍历根目录下的每个子目录，生成对应的侧边栏数据
+      dirPaths.forEach(dirPath => {
+        // dirPath 是每个目录的绝对路径
+        const fileName = basename(dirPath);
+
+        // 创建 SidebarItems
+        const sidebarItems = createSidebarItems(dirPath, option, `${key}${fileName}/`);
+
+        if (!ignoreWarn && !sidebarItems.length) {
+          return logger.warn(`该目录 '${dirPath}' 内部没有任何文件或文件序号出错，将忽略生成对应侧边栏`);
+        }
+
+        const { name, title } = resolveFileName(fileName, dirPath, indexSeparator);
+        const info = getInfoFromMarkdownDir(dirPath, fileName);
+        const mdTitle = titleFormMd ? info.title : "";
+        // 标题添加前缀和后缀
+        const sidebarPrefix = (info.prefix && (prefixTransform?.(info.prefix) ?? info.prefix)) ?? "";
+        const sidebarSuffix = (info.suffix && (suffixTransform?.(info.suffix) ?? info.suffix)) ?? "";
+        const text = sidebarPrefix + (mdTitle || title) + sidebarSuffix;
+
+        const sidebarItem = {
+          text,
+          collapsed: typeof collapsed === "function" ? collapsed(prefix + name, text) : collapsed,
+          items: sidebarItems,
+        };
+
+        // 数组类型侧边栏
+        if (isSidebarObject) {
+          // 对象类型侧边栏
+          sidebarObj[`${key}${fileName}/`] = initItems
+            ? [{ ...sidebarItem, text: initItemsText ? text : "" }]
+            : sidebarItems;
+        } else sidebarArray.push(sidebarItem);
+      });
+    } else {
+      // 使用测试数据
+      createTestSidebarData(sidebarObj, sidebarArray);
+    }
+  } catch (error) {
+    // 如果路径不存在或无法访问，则使用测试数据
+    createTestSidebarData(sidebarObj, sidebarArray);
+  }
+  // 根据配置的type来返回数组类型或者对象类型
+  const finalSidebar = isSidebarObject ? sidebarObj : sidebarArray;
+
+  // 如果 debugPrint 为 true，则打印侧边栏数据到控制台
+  if (option.debugPrint) {
+    console.log("Sidebar Data:", JSON.stringify(finalSidebar, null, 4));
+  }
+
+  // 如果 saveToFile 为 true，则将数据保存到文件中
+  if (option.saveToFile) {
+    const cacheDir = resolve(srcDir, ".vitepress", "cache");
+    // 确保缓存目录存在
+    if (!existsSync(cacheDir)) {
+      mkdirSync(cacheDir, { recursive: true });
+    }
+    const filePath = resolve(cacheDir, "sidebar-data.json");
+    writeFileSync(filePath, JSON.stringify(finalSidebar, null, 2));
+  }
+
+  return sidebarResolved?.(finalSidebar) ?? finalSidebar;
+};
+
+/**
  * 指定根目录下的所有目录绝对路径，win 如 ['D:\docs\01.guide', 'D:\docs\02.design']，linux 如 ['/usr/local/docs/01.guide', '/usr/local/docs/02.design']
  * @param sourceDir 指定文件/文件夹的根目录
  */
@@ -88,7 +201,7 @@ const readDirPaths = (sourceDir: string, ignoreList: SidebarOption["ignoreList"]
 };
 
 /**
- * 将目录映射为对应的侧边栏配置数据，处理成 VitePress 格式
+ * @brief 将目录映射为对应的侧边栏配置数据，处理成 VitePress 格式
  *
  * @param root 文件/文件夹的根目录绝对路径
  * @param option 配置项
@@ -247,112 +360,3 @@ const createSidebarItems = (
 
   return sidebarItemsResolved?.(sidebarItems) ?? sidebarItems;
 };
-
-export default (option: SidebarOption, prefix = "/", srcDir: string) => {
-    const {
-    path,
-    ignoreList = [],
-    scannerRootMd = true,
-    collapsed,
-    titleFormMd = false,
-    initItems = true,
-    initItemsText = false,
-    sidebarResolved,
-    ignoreWarn = false,
-    indexSeparator,
-    prefixTransform,
-    suffixTransform,
-    type = "object",
-    rootTitle = "Root",
-  } = option;
-  // 获取要返回数组类型还是对象类型
-  const isSidebarObject = type === "object";
-  if (!path) return isSidebarObject ? {} : [];
-
-  // 确保 prefix 始终都有 / 结尾
-  prefix = prefix.replace(/\/$/, "") + "/";
-
-  const sidebarObj: DefaultTheme.SidebarMulti = {};
-  const sidebarArray: DefaultTheme.SidebarItem[] = [];
-  try {
-    // 检查 baseDir 路径是否存在
-    const stats = statSync(path);
-    if (stats.isDirectory()) {
-      // 只扫描根目录的 md 文件，且不扫描 index.md（首页文档）
-      const key = prefix === "/" ? prefix : `/${prefix}`;
-
-      // 是否扫描要扫描的目录下的md文档，例如 D:\xxx\vitepress-theme-mist\docs\src\Examples 中就只有md文档，
-      // 若是为false的话就不会有侧边栏生成
-      if (scannerRootMd) {
-        const rootSidebarItems = createSidebarItems(path, { ...option, ignoreIndexMd: true }, key, scannerRootMd);
-        if (rootSidebarItems?.length) {
-          if (isSidebarObject) sidebarObj[key] = rootSidebarItems;
-          else sidebarArray.push({ text: rootTitle, items: rootSidebarItems });
-        }
-      }
-      // 获取指定根目录下的所有目录绝对路径
-      const dirPaths = readDirPaths(path, ignoreList);
-      // 遍历根目录下的每个子目录，生成对应的侧边栏数据
-      dirPaths.forEach(dirPath => {
-        // dirPath 是每个目录的绝对路径
-        const fileName = basename(dirPath);
-
-        // 创建 SidebarItems
-        const sidebarItems = createSidebarItems(dirPath, option, `${key}${fileName}/`);
-
-        if (!ignoreWarn && !sidebarItems.length) {
-          return logger.warn(`该目录 '${dirPath}' 内部没有任何文件或文件序号出错，将忽略生成对应侧边栏`);
-        }
-
-        const { name, title } = resolveFileName(fileName, dirPath, indexSeparator);
-        const info = getInfoFromMarkdownDir(dirPath, fileName);
-        const mdTitle = titleFormMd ? info.title : "";
-        // 标题添加前缀和后缀
-        const sidebarPrefix = (info.prefix && (prefixTransform?.(info.prefix) ?? info.prefix)) ?? "";
-        const sidebarSuffix = (info.suffix && (suffixTransform?.(info.suffix) ?? info.suffix)) ?? "";
-        const text = sidebarPrefix + (mdTitle || title) + sidebarSuffix;
-
-        const sidebarItem = {
-          text,
-          collapsed: typeof collapsed === "function" ? collapsed(prefix + name, text) : collapsed,
-          items: sidebarItems,
-        };
-
-        // 数组类型侧边栏
-        if (isSidebarObject) {
-          // 对象类型侧边栏
-          sidebarObj[`${key}${fileName}/`] = initItems
-            ? [{ ...sidebarItem, text: initItemsText ? text : "" }]
-            : sidebarItems;
-        } else sidebarArray.push(sidebarItem);
-      });
-    } else {
-      // 使用测试数据
-      createTestSidebarData(sidebarObj, sidebarArray);
-    }
-  } catch (error) {
-    // 如果路径不存在或无法访问，则使用测试数据
-    createTestSidebarData(sidebarObj, sidebarArray);
-  }
-  // 根据配置的type来返回数组类型或者对象类型
-  const finalSidebar = isSidebarObject ? sidebarObj : sidebarArray;
-
-  // 如果 debugPrint 为 true，则打印侧边栏数据到控制台
-  if (option.debugPrint) {
-    console.log("Sidebar Data:", JSON.stringify(finalSidebar, null, 4));
-  }
-
-  // 如果 saveToFile 为 true，则将数据保存到文件中
-  if (option.saveToFile) {
-    const cacheDir = resolve(srcDir, ".vitepress", "cache");
-    // 确保缓存目录存在
-    if (!existsSync(cacheDir)) {
-      mkdirSync(cacheDir, { recursive: true });
-    }
-    const filePath = resolve(cacheDir, "sidebar-data.json");
-    writeFileSync(filePath, JSON.stringify(finalSidebar, null, 2));
-  }
-
-  return sidebarResolved?.(finalSidebar) ?? finalSidebar;
-};
-

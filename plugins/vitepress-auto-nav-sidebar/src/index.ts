@@ -1,12 +1,14 @@
 import type { Plugin } from "vite";
-import type { DefaultTheme } from "vitepress";
+import type { NavSidebarOption, SidebarOption } from "./types";
+import { DefaultTheme } from "vitepress";
 import { join } from "node:path";
-import { NavSidebarOption, SidebarOption } from "./types";
+import createNavigationData from "./filePathToNavigation";
+import createFilePathSidebar from "./filePathToSidebar";
 import logger from "./log";
-import createNavigationData from "./getDataToNavigation";
-import createFilePathSidebar from "./getDataToSideBar";
+
 
 export * from "./types";
+export * from "./utils";
 
 export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOption = {}): Plugin & { name: string } {
   let isExecute = false;
@@ -25,27 +27,29 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
 
       const { path, debugInfo, sideBarOption } = option;
       const baseDir = path ? join(srcDir, path) : srcDir;
-      
+
       if(debugInfo) {
         logger.prt(`srcDir: ${srcDir}`);
         logger.prt(`baseDir: ${baseDir}"`);
       }
-      
+      //=============================================
       // 获取导航栏数据
       const navData = createNavigationData(
-        { ...option.navOption, path: baseDir},
+        { ...option.navOption, path: baseDir },
         option.path,
         srcDir
       );
       setNavBar(themeConfig, navData); // 设置导航栏
-
+      //=============================================
+      // 获取侧边栏数据
+      //  filePath 规则
       const sideBarData = createFilePathSidebar(
-        {...option.sideBarOption, path: baseDir },
+        { ...option.sideBarOption, path: baseDir }, // 展开原始的 option 对象，并覆盖 path 属性为 baseDir
         option.path,
         srcDir
-      ); //  展开原始的 option 对象，并覆盖 path 属性为 baseDir
+      );
       setSideBar(themeConfig, sideBarData, sideBarOption?.type);
-    },
+    }
   };
 }
 

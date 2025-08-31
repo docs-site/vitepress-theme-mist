@@ -4,7 +4,7 @@ import { getTitleFromMarkdown } from "./utils";
 import matter from "gray-matter";
 
 /**
- * 解析文件名，返回文件序号、文件标题、文件类型
+ * @brief 解析文件名，返回文件序号、文件标题、文件类型
  * @param filename 文件名
  * @param filePath 文件绝对路径
  */
@@ -43,7 +43,7 @@ export const resolveFileName = (filename: string, filePath: string, separator: s
 };
 
 /**
- * 使用点分隔符解析文件名
+ * @brief 使用点分隔符解析文件名
  */
 const parseDotSeparator = (filename: string, isDirectory: boolean) => {
   const parts = filename.split(".");
@@ -72,7 +72,7 @@ const parseDotSeparator = (filename: string, isDirectory: boolean) => {
 };
 
 /**
- * 检查是否符合自定义分隔符模式：数字开头 + 自定义分隔符 + 内容（对于目录）或内容 + . + 扩展名（对于文件）
+ * @brief 检查是否符合自定义分隔符模式：数字开头 + 自定义分隔符 + 内容（对于目录）或内容 + . + 扩展名（对于文件）
  */
 const isExtraSeparator = (filename: string, separator: string) => {
   // 必须包含自定义分隔符
@@ -86,7 +86,7 @@ const isExtraSeparator = (filename: string, separator: string) => {
 };
 
 /**
- * 解析符合自定义分隔符模式的文件名或目录名
+ * @brief 解析符合自定义分隔符模式的文件名或目录名
  */
 const parseExtraSeparator = (filename: string, isDirectory: boolean, separator: string) => {
   const firstSeparatorIndex = filename.indexOf(separator);
@@ -104,7 +104,7 @@ const parseExtraSeparator = (filename: string, isDirectory: boolean, separator: 
 };
 
 /**
- * 按顺序从该目录下的 [index.md, 目录名.md] 文件获取数据
+ * @brief 按顺序从该目录下的 [index.md, 目录名.md] 文件获取数据
  * @param root 目录绝对路径
  * @param dirOrFilename 文件夹名
  */
