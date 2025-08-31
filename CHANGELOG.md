@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/docs-site/vitepress-theme-mist/compare/v1.0.10...v1.1.0) (2025-08-31)
+
+
+### Features
+
+* **theme:** 🚀 添加DocFooterCopyright组件 ([fba1c05](https://github.com/docs-site/vitepress-theme-mist/commit/fba1c05f147dfe30cc465a09da28fb65fc154a41))
+
+
+### Bug Fixes
+
+* **site:** 🐞 修复工作区站点配置文件语法报错问题 ([936c67d](https://github.com/docs-site/vitepress-theme-mist/commit/936c67d48b07eddb146af2424872362ed3bc71d5))
+
+
+### Docs
+
+* **site:** 📚 更新工作区内站点开发文档 [deploy] ([93c1a0c](https://github.com/docs-site/vitepress-theme-mist/commit/93c1a0c1b387c937381e9f7d2ed9d1c43eb911bb))
+
+
+### Code Refactoring
+
+* **plugins:** ♻️ 更新@docs-site/vitepress-auto-nav-sidebar代码逻辑 ([9d257e0](https://github.com/docs-site/vitepress-theme-mist/commit/9d257e0d1e2b5e4da9737a61a7ccae46d8e6ece8))
+
+
+### Others
+
+* **release:** 🔨 更新插件并发布 ([ddb99a1](https://github.com/docs-site/vitepress-theme-mist/commit/ddb99a1857f8a2eaac5ab7ebb4c16ab0add9fe36))
+
 ### [1.0.10](https://github.com/docs-site/vitepress-theme-mist/compare/v1.0.8...v1.0.10) (2025-08-29)
 
 
