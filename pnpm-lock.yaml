@@ -51,25 +51,6 @@ catalogs:
     vue:
       specifier: ^3.5.18
       version: 3.5.18
-  mist-plugins:
-    '@docs-site/vitepress-auto-nav-sidebar':
-      specifier: ^1.0.0
-      version: 1.0.0
-    '@docs-site/vitepress-plugin-catalogue':
-      specifier: ^1.0.3
-      version: 1.0.3
-    '@docs-site/vitepress-plugin-demo':
-      specifier: ^1.0.0
-      version: 1.0.0
-    '@docs-site/vitepress-plugin-doc-analysis':
-      specifier: ^1.0.0
-      version: 1.0.0
-    '@docs-site/vitepress-plugin-file-content-loader':
-      specifier: ^1.0.2
-      version: 1.0.2
-    '@docs-site/vitepress-plugin-permalink':
-      specifier: ^1.0.0
-      version: 1.0.0
   vue:
     '@vue/runtime-core':
       specifier: ^3.5.18
@@ -281,23 +262,23 @@ importers:
   packages/config:
     dependencies:
       '@docs-site/vitepress-auto-nav-sidebar':
-        specifier: catalog:mist-plugins
-        version: 1.0.0
+        specifier: workspace:*
+        version: link:../../plugins/vitepress-auto-nav-sidebar
       '@docs-site/vitepress-plugin-catalogue':
-        specifier: catalog:mist-plugins
-        version: 1.0.3
+        specifier: workspace:*
+        version: link:../../plugins/vitepress-plugin-catalogue
       '@docs-site/vitepress-plugin-demo':
-        specifier: catalog:mist-plugins
-        version: 1.0.0
+        specifier: workspace:*
+        version: link:../../plugins/vitepress-plugin-demo
       '@docs-site/vitepress-plugin-doc-analysis':
-        specifier: catalog:mist-plugins
-        version: 1.0.0
+        specifier: workspace:*
+        version: link:../../plugins/vitepress-plugin-doc-analysis
       '@docs-site/vitepress-plugin-file-content-loader':
-        specifier: catalog:mist-plugins
-        version: 1.0.2(vitepress@1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2))
+        specifier: workspace:*
+        version: link:../../plugins/vitepress-plugin-file-content-loader
       '@docs-site/vitepress-plugin-permalink':
-        specifier: catalog:mist-plugins
-        version: 1.0.0(vitepress@1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2))
+        specifier: workspace:*
+        version: link:../../plugins/vitepress-plugin-permalink
       gray-matter:
         specifier: 'catalog:'
         version: 4.0.3
@@ -760,28 +741,6 @@ packages:
   '@commitlint/types@19.8.1':
     resolution: {integrity: sha512-/yCrWGCoA1SVKOks25EGadP9Pnj0oAIHGpl2wH2M2Y46dPM2ueb8wyCVOD7O3WCTkaJ0IkKvzhl1JY7+uCT2Dw==}
     engines: {node: '>=v18'}
-
-  '@docs-site/vitepress-auto-nav-sidebar@1.0.0':
-    resolution: {integrity: sha512-8nx7CECvKMYxoSI1AjfmJFNVTnJ0qbXGCEKpAO7hfrnezHtmeE3TZy/Ov6vkhneMSZ3wR11a3nfgmx6aVByxmQ==}
-
-  '@docs-site/vitepress-plugin-catalogue@1.0.3':
-    resolution: {integrity: sha512-9M2VLpWrMJM+HhYvgM2jUxSJcfYa8jaaxDtUhI8CwVvQlLO6w+bm/yj42dqB/8OzZATBlZO2POHrHQGELNBMjw==}
-
-  '@docs-site/vitepress-plugin-demo@1.0.0':
-    resolution: {integrity: sha512-kb/nBDdCAU0+sB8PYjw1A3ay+oQ2OvS6Eaiuqnj/nXvpZDSiAsapDjfBpIZV9bTozsXKxqz3PISdKwGBBHOEeA==}
-
-  '@docs-site/vitepress-plugin-doc-analysis@1.0.0':
-    resolution: {integrity: sha512-DmH0nX3F4xhAyL4CQMrzcW+WBkgBGDBETH2yIkoPirSxu7LsKKifAU8V3URTHJM6O/HWpH1YR8zX1QogJ8Z/HA==}
-
-  '@docs-site/vitepress-plugin-file-content-loader@1.0.2':
-    resolution: {integrity: sha512-qCGD0t5+kaZOBYztU0jITxdOIxN89dAIDxBr5CRSm+s3fSD2z24yT3k0RDroxofYj3xv1f9jFJp+Qv9e3w5R2Q==}
-    peerDependencies:
-      vitepress: ^1.6.4
-
-  '@docs-site/vitepress-plugin-permalink@1.0.0':
-    resolution: {integrity: sha512-JJ6x8ZUnK8JA5+rHb1kJHzIqRqz8EKOCDP4W/xODf3jlci/f7EL+U4pQOchybtxryMJVly8qZTE4UGppM6vkyA==}
-    peerDependencies:
-      vitepress: ^1.6.4
 
   '@docsearch/css@3.8.2':
     resolution: {integrity: sha512-y05ayQFyUmCXze79+56v/4HpycYF3uFqB78pLPrSV5ZKAlDuIAAJNhaRi8tTdRNXh05yxX/TyNnzD6LwSM89vQ==}
@@ -5433,38 +5392,6 @@ snapshots:
     dependencies:
       '@types/conventional-commits-parser': 5.0.1
       chalk: 5.6.0
-
-  '@docs-site/vitepress-auto-nav-sidebar@1.0.0':
-    dependencies:
-      gray-matter: 4.0.3
-      picocolors: 1.1.1
-
-  '@docs-site/vitepress-plugin-catalogue@1.0.3':
-    dependencies:
-      gray-matter: 4.0.3
-      picocolors: 1.1.1
-
-  '@docs-site/vitepress-plugin-demo@1.0.0':
-    dependencies:
-      picocolors: 1.1.1
-
-  '@docs-site/vitepress-plugin-doc-analysis@1.0.0':
-    dependencies:
-      gray-matter: 4.0.3
-      picocolors: 1.1.1
-
-  '@docs-site/vitepress-plugin-file-content-loader@1.0.2(vitepress@1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2))':
-    dependencies:
-      gray-matter: 4.0.3
-      picocolors: 1.1.1
-      tinyglobby: 0.2.14
-      vitepress: 1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2)
-
-  '@docs-site/vitepress-plugin-permalink@1.0.0(vitepress@1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2))':
-    dependencies:
-      gray-matter: 4.0.3
-      picocolors: 1.1.1
-      vitepress: 1.6.4(@algolia/client-search@5.35.0)(@types/node@24.3.0)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(typescript@5.9.2)
 
   '@docsearch/css@3.8.2': {}
 
