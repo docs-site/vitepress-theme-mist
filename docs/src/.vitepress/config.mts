@@ -7,18 +7,7 @@ const myThemeConfig = defineMistConfig({
   themeName: 'vitepress-theme-mist',
   clickEffect: {
     enabled: true,
-  },
-  navSidebar: {
-    docDirName: 'sdoc',
-    nav: {
-      maxLevel: 2,
-      debugPrint: false
-    },
-    sidebar: {
-      maxLevel: 6,
-      debugPrint: false
-    }
-  },
+  }
 });
 
 // https://vitepress.dev/reference/site-config
