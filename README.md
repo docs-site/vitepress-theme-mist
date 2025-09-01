@@ -27,7 +27,7 @@
 
 ## 参考说明
 
-自己用c的，这些vue啊、vite啊还有什么vitepress，一开始看到的时候，这都是啥？不是很懂的样子，但还是想折腾一下，主题主要是自己使用，编写的框架主要参考 [vitepress-theme-teek](https://github.com/Kele-Bingtang/vitepress-theme-teek)和 [element-plus](https://github.com/element-plus/element-plus)。
+主题主要是参考[vitepress-theme-teek](https://github.com/Kele-Bingtang/vitepress-theme-teek)，一个轻量、简洁高效、灵活配置，易于扩展的 VitePress 主题。本来就已经很简洁了，但是自己想省事，自定义一下，在线安装毕竟还是快，就折腾一下。完全是按自己的喜欢来增减功能，原版可以看 [vitepress-theme-teek](https://github.com/Kele-Bingtang/vitepress-theme-teek)和 [element-plus](https://github.com/element-plus/element-plus)。
 
 - [vitepress-theme-teek](https://github.com/Kele-Bingtang/vitepress-theme-teek)、[vitepress-theme-teek-docs](https://vp.teek.top/)
 
