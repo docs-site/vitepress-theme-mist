@@ -24,27 +24,62 @@ const breadcrumb = getMistConfigRef<BreadcrumbType>("breadcrumb", {
   homeLabel: t("mt.articleBreadcrumb.home"),
 });
 
-const relativePathArr = computed(() => page.value.filePath.split("/") || []);
+// 解析页面文件路径，处理 permalink 的情况
+// 示例:
+// 1. 普通情况: page.value.filePath = "docs/src/guide/getting-started.md"
+//    relativePathArr.value = ["docs", "src", "guide", "getting-started.md"]
+//
+// 2. 使用 permalink: page.value.filePath = "/guide/getting-started.html"
+//    theme.value.permalinks.inv["/guide/getting-started.html"] = "docs/src/guide/getting-started.md"
+//    relativePathArr.value = ["docs", "src", "guide", "getting-started.md"]
+const relativePathArr = computed(() => {
+  let filePath = page.value.filePath;
+  
+  // 如果存在 permalinks，尝试将 permalink 转换为实际的文件路径
+  // 这样可以确保后续的面包屑构建基于实际的文件结构
+  if (theme.value.permalinks) {
+    const permalinkPath = filePath;
+    // permalink 可能以 .html 结尾，需要尝试两种形式
+    // 例如: "/guide/getting-started.html" 和 "/guide/getting-started"
+    const possiblePaths = [permalinkPath, permalinkPath.replace(/\.html$/, "")];
+    
+    for (const path of possiblePaths) {
+      // 在 permalinks.inv 中查找 permalink 对应的实际文件路径
+      // theme.value.permalinks.inv["/guide/getting-started.html"] = "docs/src/guide/getting-started.md"
+      const realPath = theme.value.permalinks.inv[path];
+      if (realPath) {
+        filePath = realPath;
+        break;
+      }
+    }
+  }
+  
+  // 将文件路径按 "/" 分割成数组
+  // 例如: "docs/src/guide/getting-started.md" => ["docs", "src", "guide", "getting-started.md"]
+  return filePath.split("/") || [];
+});
 
+// 构建面包屑列表
+// 示例:
+// 假设 relativePathArr.value = ["docs", "src", "guide", "getting-started.md"]
+// 那么 breadcrumbList 将包含:
+// [
+//   { fileName: "docs", url: "docs/" },
+//   { fileName: "src", url: "docs/src/" },
+//   { fileName: "guide", url: "docs/src/guide/" },
+//   { fileName: "getting-started", url: "docs/src/guide/getting-started/" }
+// ]
 const breadcrumbList = computed(() => {
   const classifyList: { fileName: string; url: string }[] = [];
   const relativePathArrConst: string[] = relativePathArr.value;
 
-  // 获取第一级目录的URL作为基础路径
-  const firstLevelItem = relativePathArrConst[0];
-  const firstLevelUrl = theme.value.catalogues?.inv[firstLevelItem]?.url;
-  let basePath = "";
-
-  if (firstLevelUrl) {
-    // 移除第一级URL的文件名部分，只保留目录路径
-    basePath = firstLevelUrl.substring(0, firstLevelUrl.lastIndexOf("/") + 1);
-  }
-
   relativePathArrConst.forEach((item, index) => {
     // 去除「序号.」的前缀，并获取文件名
+    // 例如: "01.guide.md" => "guide"
     const fileName = item.replace(/^\d+\./, "").split(".")?.[0] || "";
 
     // 兼容国际化功能，如果配置多语言，在面包屑去掉多语言根目录名
+    // 同时检查是否需要显示当前页面名称
     if (
       (index !== relativePathArrConst.length - 1 || breadcrumb.value.showCurrentName) &&
       fileName !== localeIndex.value
@@ -52,22 +87,32 @@ const breadcrumbList = computed(() => {
       // 构建路径URL
       let url = "";
 
-      // 首先尝试从catalogues.inv中查找当前项的URL
-      const invUrl = theme.value.catalogues?.inv[item]?.url;
-      if (invUrl) {
-        url = invUrl;
-      } else if (basePath && index > 0) {
-        // 如果没有找到URL且有基础路径，构建层级URL
-        // 构建到当前层级的路径
+      // 如果不是最后一级或者需要显示当前名称，则构建URL
+      if (index !== relativePathArrConst.length - 1 || breadcrumb.value.showCurrentName) {
+        // 构建到当前层级的路径，去除序号前缀
+        // 例如: 当 index=2 时，pathSegments = ["docs", "src", "guide"]
         const pathSegments: string[] = [];
-        for (let i = 1; i <= index; i++) {
-          const segment = relativePathArrConst[i].replace(/^\d+\./, "");
+        for (let i = 0; i <= index; i++) {
+          // 去除序号前缀
+          // 例如: "01.guide" => "guide"
+          let segment = relativePathArrConst[i].replace(/^\d+\./, "");
+          
+          // 如果是最后一级且看起来像文件（包含点号），则去除扩展名
+          // 例如: "getting-started.md" => "getting-started"
+          if (i === index && segment.includes(".")) {
+            segment = segment.replace(/\.[^.]+$/, "");
+          }
           pathSegments.push(segment);
         }
 
-        // 组合基础路径和当前层级路径
+        // 构建URL，不以/开头，以/结尾
+        // 例如: ["docs", "src", "guide"] => "docs/src/guide/"
         if (pathSegments.length > 0) {
-          url = basePath + pathSegments.join("/") + "/";
+          url = pathSegments.join("/");
+          // 确保路径以/结尾
+          if (!url.endsWith("/")) {
+            url += "/";
+          }
         }
       }
 
