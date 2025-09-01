@@ -1,1 +1,1 @@
-import "@teek/theme-chalk/src/components/theme/footer-info.scss";
+import "@mist/theme-chalk/src/components/theme/footer-info.scss";

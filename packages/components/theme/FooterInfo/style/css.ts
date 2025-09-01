@@ -1,1 +1,1 @@
-import "@mist/theme-chalk/tk-footer-info.css";
+import "@mist/theme-chalk/mt-footer-info.css";
