@@ -77,6 +77,7 @@ const defaultMistConfig: Required<MistConfig> = {
     overlayHeight: 400,
     langTextTransform: "lowercase", // 语言文本显示样式
   },
+  comment: false,
   docAnalysis: {
     enabled: true,
     title: "${icon}站点信息",

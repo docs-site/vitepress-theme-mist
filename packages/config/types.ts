@@ -38,6 +38,8 @@ export interface MistConfig {
   breadcrumb?: Breadcrumb; // 面包屑配置
   clickEffect?: ClickEffect; // 点击特效配置
   codeBlock?: CodeBlock; // 代码块配置
+  comment?: // 评论配置,toComment要用到，这里先添加
+    | boolean;
   docAnalysis?: DocAnalysis; // 文章分析配置
   docFooterCopyright?: DocFooterCopyright; // 页脚版权配置
   footerInfo?: FooterInfo; // 页脚配置
