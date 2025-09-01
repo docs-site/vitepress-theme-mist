@@ -19,6 +19,9 @@ tdoc:
   useduuid: 047e5064f
 ---
 
+<script setup>
+import { MtBackTop } from "vitepress-theme-mist"
+</script>
 
 <!-- more -->
 
