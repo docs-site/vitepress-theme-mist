@@ -7,11 +7,13 @@ import type {
   ClickEffect,
   CodeBlock,
   DocAnalysis,
+  FooterInfo,
   DocFooterCopyright,
   Markdown,
   Plugins,
   ThemeEnhance,
   ToComment,
+  Social,
 } from "./interface";
 
 export type * from "./interface";
@@ -38,7 +40,9 @@ export interface MistConfig {
   codeBlock?: CodeBlock; // 代码块配置
   docAnalysis?: DocAnalysis; // 文章分析配置
   docFooterCopyright?: DocFooterCopyright; // 页脚版权配置
+  footerInfo?: FooterInfo; // 页脚配置
   markdown?: Markdown; // markdown插件配置
+  social?: Social[]; // 社交信息配置
   themeName?: string; // 主题名称
   themeEnhance?: ThemeEnhance; // 主题增强配置
   toComment?: ToComment; // 滚动到评论区配置

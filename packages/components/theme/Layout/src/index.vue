@@ -5,6 +5,7 @@ import { onMounted, useSlots } from "vue";
 
 import { useMistConfig, usePageState } from "@mist/components/theme/ConfigProvider";
 import { logMistConfigMembers, logSlotInfo } from "./debugUtils";
+import { MtFooterInfo } from "@mist/components/theme/FooterInfo";
 import { MtArticleShare } from "@mist/components/theme/ArticleShare";
 import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
 import { MtHomeUnderline } from "@mist/components/theme/HomeUnderline";
@@ -64,6 +65,15 @@ const usedSlots = [
         <MtHomeUnderline v-if="isHomePage" />
         <slot name="mist-click-effect-after" />
         <slot name="layout-top" />
+      </template>
+
+      <template #layout-bottom>
+        <slot name="mist-footer-info-before" />
+        <slot name="mist-footer-info">
+          <MtFooterInfo v-if="isHomePage" />
+        </slot>
+        <slot name="mist-footer-info-after" />
+        <slot name="layout-bottom" />
       </template>
 
       <template #nav-bar-content-after>

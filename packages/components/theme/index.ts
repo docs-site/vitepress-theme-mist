@@ -7,6 +7,7 @@ export * from "./CodeBlockToggle";
 export * from "./ConfigProvider";
 export * from "./DemoCode";
 export * from "./DocFooterCopyright";
+export * from "./FooterInfo";
 export * from "./HomeUnderline";
 export * from "./Layout";
 export * from "./RightBottomButton";
