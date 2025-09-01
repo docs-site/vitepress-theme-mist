@@ -1,8 +1,11 @@
 <script setup lang="ts" name="MistLayout">
 import type { MistConfig } from "@mist/config";
 import DefaultTheme from "vitepress/theme";
-import { onMounted, useSlots } from "vue";
+import { onMounted, useSlots, computed } from "vue";
+import { useData } from "vitepress";
 
+import { isBoolean } from "@mist/helper";
+import { useNamespace } from "@mist/composables";
 import { useMistConfig, usePageState } from "@mist/components/theme/ConfigProvider";
 import { logMistConfigMembers, logSlotInfo } from "./debugUtils";
 import { MtFooterInfo } from "@mist/components/theme/FooterInfo";
@@ -13,14 +16,17 @@ import { MtNavigationPage } from "@mist/components/theme/NavigationPage";
 import { MtCataloguePage } from "@mist/components/theme/CataloguePage";
 import { MtArticleAnalyze } from "@mist/components/theme/ArticleAnalyze";
 import { MtCodeBlockToggle } from "@mist/components/theme/CodeBlockToggle";
+import { MtCommentGiscus } from "@mist/components/theme/CommentGiscus";
 import { MtDocFooterCopyright } from "@mist/components/theme/DocFooterCopyright";
 import { MtRightBottomButton } from "@mist/components/theme/RightBottomButton";
 
 import { MtClickEffect } from "@mist/components/common/ClickEffect";
 
 const { Layout } = DefaultTheme;
+const ns = useNamespace("layout");
 const { getMistConfigRef } = useMistConfig();
 const { isHomePage, isNavigation, isCataloguePage } = usePageState();
+const { frontmatter } = useData();
 // useSlots() 只返回直接传递的插槽(也就是.vitepress/theme/components/MistLayoutProvider.vue)传递过来的，
 // 而 $slots 包含所有可用的插槽。
 const slots = useSlots();
@@ -36,6 +42,19 @@ onMounted(() => {
   logSlotInfo(slots);
 });
 
+const commentConfig = computed(() => {
+  const comment = frontmatter.value.comment ?? mistConfig.value.comment;
+  if (isBoolean(comment)) return { enabled: comment };
+
+  return {
+    enabled: true,
+    components: {
+      giscus: MtCommentGiscus,
+    },
+    provider: comment.provider,
+    options: comment.options,
+  };
+});
 // 维护已使用的插槽，防止外界传来的插槽覆盖已使用的插槽
 const usedSlots = [
   "layout-top",
@@ -43,6 +62,7 @@ const usedSlots = [
   "nav-bar-content-after",
   "page-top",
   "doc-before",
+  "doc-after",
   "doc-footer-before",
 ];
 </script>
@@ -117,6 +137,23 @@ const usedSlots = [
         <MtCodeBlockToggle v-if="mistConfig.codeBlock.enabled" />
         <MtArticleAnalyze />
         <slot name="mist-article-analyze-after" />
+      </template>
+      
+      <template #doc-after>
+        <slot name="doc-after" />
+        <slot name="mist-comment-before" />
+        <!-- 评论区 -->
+        <template v-if="commentConfig.enabled && commentConfig.provider">
+          <template v-if="commentConfig.provider === 'render'"><slot name="mist-comment" /></template>
+          <component
+            v-else
+            :is="commentConfig.components?.[commentConfig.provider]"
+            :id="`${ns.namespace}-comment`"
+            :class="ns.e('comment')"
+          />
+        </template>
+
+        <slot name="mist-comment-after" />
       </template>
 
       <!-- doc-footer-before插槽 -->

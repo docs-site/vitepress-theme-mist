@@ -6,6 +6,7 @@ import type {
   Breadcrumb,
   ClickEffect,
   CodeBlock,
+  CommentConfig,
   DocAnalysis,
   FooterInfo,
   DocFooterCopyright,
@@ -39,6 +40,12 @@ export interface MistConfig {
   clickEffect?: ClickEffect; // 点击特效配置
   codeBlock?: CodeBlock; // 代码块配置
   comment?: // 评论配置,toComment要用到，这里先添加
+    | CommentConfig<"">
+    | CommentConfig<"twikoo">
+    | CommentConfig<"waline">
+    | CommentConfig<"giscus">
+    | CommentConfig<"artalk">
+    | CommentConfig<"render">
     | boolean;
   docAnalysis?: DocAnalysis; // 文章分析配置
   docFooterCopyright?: DocFooterCopyright; // 页脚版权配置

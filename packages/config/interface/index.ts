@@ -5,6 +5,7 @@ export type * from "./backTop";
 export type * from "./breadcrumb";
 export type * from "./clickEffect";
 export type * from "./codeBlock";
+export type * from "./comment";
 export type * from "./docAnalysis";
 export type * from "./docFooterCopyright";
 export type * from "./footerInfo";

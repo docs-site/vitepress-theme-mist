@@ -77,7 +77,29 @@ const defaultMistConfig: Required<MistConfig> = {
     overlayHeight: 400,
     langTextTransform: "lowercase", // 语言文本显示样式
   },
-  comment: false,
+  comment: {
+    provider: "giscus", // 评论区提供者
+    // 评论区配置项，根据 provider 不同而不同，具体看对应官网的使用介绍
+    options: {
+      // twikoo 配置，官网：https://twikoo.js.org/
+      // envId: "your envId",
+
+      // waline 配置，官网：https://waline.js.org/
+      // serverURL: "your serverURL",
+      // jsLink: "https://unpkg.com/@waline/client@v3/dist/waline.js",
+      // cssLink: "https://unpkg.com/@waline/client@v3/dist/waline.css",
+
+      // giscus 配置，官网：https://giscus.app/zh-CN
+      repo: "docs-site/giscus-discussions", //"your name/your repo",
+      repoId: "R_kgDOO2tZSw", //"your repoId",
+      category: "General", //"your category",
+      categoryId: "DIC_kwDOO2tZS84CrFIH", //"your categoryId",
+
+      // artalk 配置，官网：https://artalk.js.org/
+      // server: "your server",
+      // site: "site",
+    },
+  },
   docAnalysis: {
     enabled: true,
     title: "${icon}站点信息",
