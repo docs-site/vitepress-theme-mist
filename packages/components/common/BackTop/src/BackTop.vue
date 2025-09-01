@@ -1,6 +1,7 @@
 <script setup lang="ts" name="BackTop">
 import { onBeforeUnmount, onMounted, ref, computed } from "vue";
 import { useNamespace } from "@mist/composables";
+import { isClient } from "@mist/helper";
 import type { BackTopOption } from "./BackTop";
 
 /**
@@ -85,6 +86,7 @@ const circumference = computed(() => 2 * Math.PI * radius);
  * @details 使用平滑滚动效果
  */
 function scrollToTop() {
+  if (!isClient) return;
   window.scrollTo({
     top: 0,
     behavior: "smooth",

@@ -2,6 +2,7 @@ import type {
   ArticleAnalyze,
   ArticleShare,
   Author,
+  BackTop,
   Breadcrumb,
   ClickEffect,
   CodeBlock,
@@ -10,6 +11,7 @@ import type {
   Markdown,
   Plugins,
   ThemeEnhance,
+  ToComment,
 } from "./interface";
 
 export type * from "./interface";
@@ -30,6 +32,7 @@ export interface MistConfig {
   articleAnalyze?: ArticleAnalyze; // 文章信息配置
   articleShare?: ArticleShare; // 文章分享配置
   author?: Author; // 文章作者配置
+  backTop?: BackTop; // 回到顶部按钮配置
   breadcrumb?: Breadcrumb; // 面包屑配置
   clickEffect?: ClickEffect; // 点击特效配置
   codeBlock?: CodeBlock; // 代码块配置
@@ -38,6 +41,7 @@ export interface MistConfig {
   markdown?: Markdown; // markdown插件配置
   themeName?: string; // 主题名称
   themeEnhance?: ThemeEnhance; // 主题增强配置
+  toComment?: ToComment; // 滚动到评论区配置
   vitePlugins?: Plugins; // 内置 Vite 插件配置
   // ...
 }

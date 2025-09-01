@@ -9,4 +9,5 @@ export * from "./DemoCode";
 export * from "./DocFooterCopyright";
 export * from "./HomeUnderline";
 export * from "./Layout";
+export * from "./RightBottomButton";
 export * from "./ThemeEnhance";

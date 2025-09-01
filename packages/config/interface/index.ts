@@ -1,6 +1,7 @@
 export type * from "./articleAnalyze";
 export type * from "./articleShare";
 export type * from "./author";
+export type * from "./backTop";
 export type * from "./breadcrumb";
 export type * from "./clickEffect";
 export type * from "./codeBlock";
@@ -9,3 +10,4 @@ export type * from "./docFooterCopyright";
 export type * from "./markdown";
 export type * from "./plugins";
 export type * from "./themeEnhance";
+export type * from "./toComment";

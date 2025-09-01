@@ -138,6 +138,17 @@ const defaultMistConfig: Required<MistConfig> = {
     licenseName: "BY-NC-SA 4.0",
     licenseLink: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
   },
+    // 右下角回到顶部配置
+  backTop: {
+    enabled: true, // 是否启动回到顶部功能
+    content: "progress", // 回到顶部按钮的显示内容，可选配置 progress | icon
+    done: TkMessage => TkMessage.success("返回顶部成功"), // 回到顶部后的回调
+  },
+  // 滚动到评论区配置
+  toComment: {
+    enabled: true, // 是否启动滚动到评论区功能
+    done: TkMessage => TkMessage.success("滚动到评论区成功"), // 滚动到评论区后的回调
+  },
 } as Required<MistConfig>;
 
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {

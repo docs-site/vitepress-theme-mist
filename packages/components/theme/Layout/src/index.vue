@@ -13,8 +13,8 @@ import { MtCataloguePage } from "@mist/components/theme/CataloguePage";
 import { MtArticleAnalyze } from "@mist/components/theme/ArticleAnalyze";
 import { MtCodeBlockToggle } from "@mist/components/theme/CodeBlockToggle";
 import { MtDocFooterCopyright } from "@mist/components/theme/DocFooterCopyright";
+import { MtRightBottomButton } from "@mist/components/theme/RightBottomButton";
 
-import { MtBackTop } from "@mist/components/common/BackTop";
 import { MtClickEffect } from "@mist/components/common/ClickEffect";
 
 const { Layout } = DefaultTheme;
@@ -49,6 +49,13 @@ const usedSlots = [
 <!-- 注意：不能出现同名插槽，因为在 Vue 中如果有同名插槽，后面的插槽定义会覆盖前面的插槽定义 -->
 <template>
   <template v-if="mistConfig.useTheme">
+    <MtRightBottomButton>
+      <!-- 通用插槽 -->
+      <template v-for="(_, name) in $slots" :key="name" #[name]="scope">
+        <slot :name="name" v-bind="scope" />
+      </template>
+    </MtRightBottomButton>
+
     <Layout>
       <!-- layout-top插槽 -->
       <template #layout-top>
@@ -105,8 +112,6 @@ const usedSlots = [
       <!-- doc-footer-before插槽 -->
       <template #doc-footer-before>
         <slot name="doc-footer-before" />
-        <!-- 将插槽内容传递给vitepress -->
-        <MtBackTop />
         <MtDocFooterCopyright />
       </template>
 
