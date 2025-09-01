@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.0...v1.1.1) (2025-09-01)
+
+
+### Features
+
+* **theme:** 🚀 添加评论区组件 ([17203bb](https://github.com/docs-site/vitepress-theme-mist/commit/17203bb43f12b227505fb68887abbd9ff1f29776))
+* **theme:** 🚀 添加首页页脚信息组件 ([626cb3b](https://github.com/docs-site/vitepress-theme-mist/commit/626cb3b78d61b2e33d2eed39197194b577e12495))
+
+
+### Bug Fixes
+
+* **build:** 🐞 修复编译报错问题 ([9c3c13c](https://github.com/docs-site/vitepress-theme-mist/commit/9c3c13cd3f1fe526aa5f1da089b97bf28f63d922))
+* **theme:** 🐞 修复开启永久链接后面包屑导航跳转异常问题 ([6fa139f](https://github.com/docs-site/vitepress-theme-mist/commit/6fa139f6cc896d0b2e9edb46a555846b8ad69826))
+* **theme:** 🐞 修复FooterInfo组件style目录文件引用异常问题 ([5616f53](https://github.com/docs-site/vitepress-theme-mist/commit/5616f53f133082623da1a60a8ffa6fb91901851a))
+
+
+### Code Refactoring
+
+* **theme:** ♻️ @mist/config中内置插件版本改为workspace:*(便于调试) ([229d0e8](https://github.com/docs-site/vitepress-theme-mist/commit/229d0e8f9802f1f65ad76905486b28fc4cf66bce))
+* **theme:** ♻️ 更新主题增强组件默认配置 ([08a4855](https://github.com/docs-site/vitepress-theme-mist/commit/08a48553d8633931c891cafb29dcbe151edba88a))
+* **theme:** ♻️ 默认关闭评论区 ([93b7827](https://github.com/docs-site/vitepress-theme-mist/commit/93b78277e52bca3510ab5514c35b7a09cf03bc1c))
+* **theme:** ♻️ 取消MtBackTop的全局注册 ([dfb44ae](https://github.com/docs-site/vitepress-theme-mist/commit/dfb44aeaf93e58a194f63900c47579346eb967de))
+* **theme:** ♻️ 去掉主题增强组件的布局主题色默认配置 ([686c4e5](https://github.com/docs-site/vitepress-theme-mist/commit/686c4e507b8fd493bf1f000d898d66539128b502))
+* **theme:** ♻️ 重新实现BackTop按钮 ([1166da5](https://github.com/docs-site/vitepress-theme-mist/commit/1166da509bb1c3035fc2ef56c688a7a69a8f2434))
+
+
+### Docs
+
+* **site:** 📚 更新开发文档 ([f5a22bd](https://github.com/docs-site/vitepress-theme-mist/commit/f5a22bd91256072ea89c07bbabc2594baa46f7d6))
+* **workspace:** 📚 更新工作区README.md ([6b2c8ad](https://github.com/docs-site/vitepress-theme-mist/commit/6b2c8ad84ad06b25968efc853e7e5db1660c429a))
+
 ## [1.1.0](https://github.com/docs-site/vitepress-theme-mist/compare/v1.0.10...v1.1.0) (2025-08-31)
 
 
