@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.1...v1.1.2) (2025-09-02)
+
+
+### Features
+
+* **theme:** 🚀 添加FooterGroup组件 ([65d23ca](https://github.com/docs-site/vitepress-theme-mist/commit/65d23cae85924124ea47f98e557b6ab2ff3fce7b))
+
+
+### Others
+
+* **issue:** 🔨 更新ISSUE_TEMPLATE [deploy] ([50816c8](https://github.com/docs-site/vitepress-theme-mist/commit/50816c8d4736cabb3ab7059549a3b67da8d16513))
+
+
+### Docs
+
+* **plugins:** 📚 更新@docs-site/vitepress-plugin-permalink的README.md ([2151ff4](https://github.com/docs-site/vitepress-theme-mist/commit/2151ff44c97e17b252b0d4b6cb577de0c584dc2d))
+
 ### [1.1.1](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.0...v1.1.1) (2025-09-01)
 
 
