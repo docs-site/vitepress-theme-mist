@@ -8,6 +8,7 @@ import type {
   CodeBlock,
   CommentConfig,
   DocAnalysis,
+  FooterGroup,
   FooterInfo,
   DocFooterCopyright,
   Markdown,
@@ -50,6 +51,7 @@ export interface MistConfig {
   docAnalysis?: DocAnalysis; // 文章分析配置
   docFooterCopyright?: DocFooterCopyright; // 页脚版权配置
   footerInfo?: FooterInfo; // 页脚配置
+  footerGroup?: FooterGroup[]; // 页脚信息组配置
   markdown?: Markdown; // markdown插件配置
   social?: Social[]; // 社交信息配置
   themeName?: string; // 主题名称

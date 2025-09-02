@@ -8,6 +8,7 @@ export * from "./CommentGiscus";
 export * from "./ConfigProvider";
 export * from "./DemoCode";
 export * from "./DocFooterCopyright";
+export * from "./FooterGroup";
 export * from "./FooterInfo";
 export * from "./HomeUnderline";
 export * from "./Layout";

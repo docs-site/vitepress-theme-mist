@@ -8,6 +8,7 @@ import { isBoolean } from "@mist/helper";
 import { useNamespace } from "@mist/composables";
 import { useMistConfig, usePageState } from "@mist/components/theme/ConfigProvider";
 import { logMistConfigMembers, logSlotInfo } from "./debugUtils";
+import { MtFooterGroup } from "@mist/components/theme/FooterGroup";
 import { MtFooterInfo } from "@mist/components/theme/FooterInfo";
 import { MtArticleShare } from "@mist/components/theme/ArticleShare";
 import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
@@ -88,6 +89,7 @@ const usedSlots = [
       </template>
 
       <template #layout-bottom>
+        <MtFooterGroup v-if="isHomePage" />
         <slot name="mist-footer-info-before" />
         <slot name="mist-footer-info">
           <MtFooterInfo v-if="isHomePage" />

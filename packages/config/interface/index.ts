@@ -8,6 +8,7 @@ export type * from "./codeBlock";
 export type * from "./comment";
 export type * from "./docAnalysis";
 export type * from "./docFooterCopyright";
+export type * from "./footerGroup";
 export type * from "./footerInfo";
 export type * from "./markdown";
 export type * from "./plugins";

@@ -6,6 +6,9 @@ import { demoPlugin, containerPlugin } from "../markdown";
 import { registerPluginAndGet } from "./vitePlugins";
 import { version } from "../../packages/mist/version";
 
+import {
+  FooterGroupConfig,
+} from "./defaultConfig"
 export type * from "./types";
 
 /**
@@ -112,7 +115,9 @@ const defaultMistConfig: Required<MistConfig> = {
       permalink: true,
     },
   },
-    // 页脚配置
+  // 页脚信息组配置
+  footerGroup: FooterGroupConfig,
+  // 页脚配置
   footerInfo: {
     // 页脚信息，支持 HTML 格式（位于主题版权上方）
     topMessage: ["莫道桑榆晚, 为霞尚满天"],
