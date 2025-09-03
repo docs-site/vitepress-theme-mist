@@ -4,11 +4,16 @@ import type { MistConfig } from "./types";
 // import type { PluginOption } from "vite";
 import { demoPlugin, containerPlugin } from "../markdown";
 import { registerPluginAndGet } from "./vitePlugins";
-import { version } from "../../packages/mist/version";
 // import { createRewrites } from "@docs-site/vitepress-plugin-permalink";
 
 import {
+  articleAnalyzeConfig,
+  docAnalysisConfig,
+  docFooterCopyrightConfig,
   FooterGroupConfig,
+  FooterInfoConfig,
+  themeEnhanceConfig,
+  vitePluginsConfig,
 } from "./defaultConfig"
 export type * from "./types";
 
@@ -41,20 +46,7 @@ export type * from "./types";
 // 默认配置
 const defaultMistConfig: Required<MistConfig> = {
   useTheme: true,
-  articleAnalyze: {
-    showIcon: true,
-    dateFormat: "yyyy-MM-dd",
-    showInfo: true,
-    showAuthor: true,
-    showCreateDate: true,
-    showUpdateDate: false,
-    showCategory: false,
-    showTag: false,
-    teleport: {
-      position: "after",
-      className: "teleport",
-    },
-  },
+  articleAnalyze: articleAnalyzeConfig,
   articleShare: {
     enabled: true,
   },
@@ -105,38 +97,11 @@ const defaultMistConfig: Required<MistConfig> = {
   //     // site: "site",
   //   },
   // },
-  docAnalysis: {
-    enabled: true,
-    title: "${icon}站点信息",
-    wordCount: true,
-    readingTime: true,
-    statistics: {
-      siteView: true,
-      pageView: true,
-      permalink: true,
-    },
-  },
+  docAnalysis: docAnalysisConfig,
   // 页脚信息组配置
   footerGroup: FooterGroupConfig,
   // 页脚配置
-  footerInfo: {
-    // 页脚信息，支持 HTML 格式（位于主题版权上方）
-    topMessage: ["莫道桑榆晚, 为霞尚满天"],
-    // 页脚信息，支持 HTML 格式（位于主题版权下方）
-    bottomMessage: [""],
-    // 主题版权配置
-    theme: {
-      show: true, // 是否显示主题版权，建议显示
-      name: `mist@${version}`, // 自定义名称
-      link: "https://github.com/docs-site/vitepress-theme-mist", // 自定义链接
-    },
-    // 博客版权配置
-    copyright: {
-      show: true, // 是否显示博客版权
-      createYear: 2025, // 创建年份
-      suffix: "苏木", // 后缀
-    }
-  },
+  footerInfo: FooterInfoConfig,
   markdown: {},
   social: [
     {
@@ -151,65 +116,10 @@ const defaultMistConfig: Required<MistConfig> = {
     },
   ],
   themeName: "mist",
-  themeEnhance: {
-    enabled: true, // 启用主题增强功能
-    position: "top", // 位置，top 为导航栏右侧，bottom 为右下角
-    // 布局切换配置
-    layoutSwitch: {
-      disabled: false, // 禁用布局切换
-      defaultMode: "fullWidth", // 布局切换的默认模式
-      disableHelp: false, // 禁用帮助提示
-      disableAnimation: false, // 禁用布局切换动画
-      defaultDocMaxWidth: 90, // 内容布局最大宽度的默认百分比，仅限 0-100
-      disableDocMaxWidthHelp: false, // 禁用帮助提示
-      defaultPageMaxWidth: 95, // 页面布局最大宽度的默认百分比，仅限 0-100
-      disablePageMaxWidthHelp: false, // 禁用帮助提示
-    },
-    // 布局主题色配置
-    themeColor: {
-      // disabled: false, // 禁用布局主题色切换
-      // defaultColorName: "vp-default", // 布局默认主题色
-      // defaultSpread: false, // 是否将主题色扩散到其他元素（根据主题色计算其他元素需要的颜色）
-      // disableHelp: false, // 禁用帮助提示
-      // disabledInMobile: false, // 是否在移动端禁用
-    }
-  },
-  vitePlugins: {
-    enabled: true,
-    docAnalysis: true,
-    fileContentLoaderIgnore: [],
-    demoOption: {
-      str: "mist",
-    },
-    navSidebarOption: {
-      path: "sdoc",
-      debugInfo: false,
-      navOption: {
-        maxLevel: 2,
-        debugPrint: false,
-        saveToFile: false
-      },
-      sideBarOption: {
-        type: "object",
-        ignoreList: ["index.md", "README.md"],
-        initItems: false, // 这个设置为true的话进入某个导航栏路径时可能不显示侧边栏
-        collapsed: true,
-        debugPrint: false,
-        saveToFile: false,
-        // resolveRule: "rewrites" // rewrite的时候这里要改成对应的规则才能保证正常生成侧边栏
-      }
-    }
-  },
-  docFooterCopyright: {
-    enabled: true,
-    author: "苏木",
-    authorLink: "https://docs-site.github.io/vitepress-theme-mist/",
-    pathMapping: {},
-    copyrightText: "本博客所有文章除特别声明外，均采用",
-    licenseName: "BY-NC-SA 4.0",
-    licenseLink: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-  },
-    // 右下角回到顶部配置
+  themeEnhance: themeEnhanceConfig,
+  vitePlugins: vitePluginsConfig,
+  docFooterCopyright: docFooterCopyrightConfig,
+  // 右下角回到顶部配置
   backTop: {
     enabled: true, // 是否启动回到顶部功能
     content: "progress", // 回到顶部按钮的显示内容，可选配置 progress | icon
