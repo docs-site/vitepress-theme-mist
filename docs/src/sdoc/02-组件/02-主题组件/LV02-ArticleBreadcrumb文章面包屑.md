@@ -1,3 +1,24 @@
+---
+title: LV02-ArticleBreadcrumb文章面包屑
+date: 2025-09-03 19:31:26
+icon: famicons:logo-markdown
+permalink: /sdoc/component/theme-component/126b07e426261f6561194202
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:31:26.502
+  fulluuid: 561194202c7b49a590e68b71e259f0a4
+  useduuid: 561194202
+---
+
 这一部分来了解一下ArticleBreadcrumb文章面包屑组件。
 
 <!-- more -->

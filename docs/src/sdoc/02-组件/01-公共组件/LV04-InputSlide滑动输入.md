@@ -1,3 +1,24 @@
+---
+title: LV04-InputSlide滑动输入
+date: 2025-09-03 19:31:21
+icon: famicons:logo-markdown
+permalink: /sdoc/component/common-omponent/126b07e426211e820106ce41
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:31:21.488
+  fulluuid: 20106ce41106495bb53a523e78309e48
+  useduuid: 20106ce41
+---
+
 <script setup>
 import { MtInputSlide } from "vitepress-theme-mist"
 import { ref } from 'vue'

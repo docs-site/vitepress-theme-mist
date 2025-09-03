@@ -1,3 +1,24 @@
+---
+title: LV08-Popover气泡卡片
+date: 2025-09-03 19:31:21
+icon: famicons:logo-markdown
+permalink: /sdoc/component/common-omponent/126b07e426211fee0fe4e6df
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:31:21.510
+  fulluuid: e0fe4e6df50d4da893bfdf08990c0e04
+  useduuid: e0fe4e6df
+---
+
 <script setup>
 import { MtPopover, MtButton } from "vitepress-theme-mist"
 import { ref } from 'vue'

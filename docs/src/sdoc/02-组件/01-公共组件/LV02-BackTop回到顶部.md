@@ -1,3 +1,24 @@
+---
+title: LV02-BackTop回到顶部
+date: 2025-09-03 19:31:21
+icon: famicons:logo-markdown
+permalink: /sdoc/component/common-omponent/126b07e426211e383be37ae4
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:31:21.483
+  fulluuid: 83be37ae42b1440d8e0c87f77e25042e
+  useduuid: 83be37ae4
+---
+
 <script setup>
 import { MtBackTop } from "vitepress-theme-mist"
 </script>

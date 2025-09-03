@@ -1,3 +1,24 @@
+---
+title: LV06-Button按钮
+date: 2025-09-03 19:31:21
+icon: famicons:logo-markdown
+permalink: /sdoc/component/common-omponent/126b07e426211f4efe567dec
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:31:21.500
+  fulluuid: efe567dec07b4aa69a2fee617e5ee209
+  useduuid: efe567dec
+---
+
 <script setup>
 import { MtButton } from "vitepress-theme-mist"
 import { ref } from 'vue'

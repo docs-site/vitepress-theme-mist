@@ -1,3 +1,24 @@
+---
+title: LV03-ArticleInfo文章信息
+date: 2025-09-03 19:31:26
+icon: famicons:logo-markdown
+permalink: /sdoc/component/theme-component/126b07e426261fc7e55ccebb
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:31:26.508
+  fulluuid: 7e55ccebb297438da73f37967e35f269
+  useduuid: 7e55ccebb
+---
+
 这一部分来了解一下ArticleInfo文章信息组件。
 
 <!-- more -->

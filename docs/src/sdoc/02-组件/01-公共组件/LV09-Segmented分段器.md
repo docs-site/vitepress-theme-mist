@@ -1,3 +1,24 @@
+---
+title: LV09-Segmented分段器
+date: 2025-09-03 19:31:21
+icon: famicons:logo-markdown
+permalink: /sdoc/component/common-omponent/126b07e4262120558dabd0d0
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:31:21.517
+  fulluuid: 58dabd0d094e4320b2033cdf909cc626
+  useduuid: 58dabd0d0
+---
+
 <script setup>
 import { MtSegmented, MtSegmentedItem } from "vitepress-theme-mist"
 import { ref } from 'vue'

@@ -1,3 +1,24 @@
+---
+title: LV07-Vite插件
+date: 2025-09-03 19:30:53
+icon: famicons:logo-markdown
+permalink: /sdoc/develop/126b07e425dd1846daae8bc9
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:30:53.388
+  fulluuid: 6daae8bc9f6c412086ab838990409a9f
+  useduuid: 6daae8bc9
+---
+
 VitePress 处于 Vite 环境下，因此天然支持 Vite 插件。
 
 ## 一、Vite 插件基础模板

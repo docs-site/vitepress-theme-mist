@@ -1,3 +1,24 @@
+---
+title: LV11-Breadcrumb面包屑
+date: 2025-09-03 19:31:21
+icon: famicons:logo-markdown
+permalink: /sdoc/component/common-omponent/126b07e4262120fe996735d3
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:31:21.527
+  fulluuid: e996735d35674ee19ac4e6756c620ae9
+  useduuid: e996735d3
+---
+
 这一部分来了解一下Breadcrumb面包屑组件。
 
 <!-- more -->

@@ -1,3 +1,24 @@
+---
+title: LV03-TransitionCollapse折叠
+date: 2025-09-03 19:31:21
+icon: famicons:logo-markdown
+permalink: /sdoc/component/common-omponent/126b07e426211e51798834a5
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:31:21.485
+  fulluuid: 1798834a59d94121ac457dfa4bb01866
+  useduuid: 1798834a5
+---
+
 <script setup>
 import { MtTransitionCollapse } from "vitepress-theme-mist"
 import { ref } from 'vue'

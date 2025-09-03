@@ -1,3 +1,24 @@
+---
+title: LV09-standard-version
+date: 2025-09-03 19:30:53
+icon: famicons:logo-markdown
+permalink: /sdoc/develop/126b07e425dd188e67e63568
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:30:53.392
+  fulluuid: e67e635686834c628f79459e7025af6d
+  useduuid: e67e63568
+---
+
 # Standard-Version 自动生成CHANGELOG.md
 
 ## 一、Standard-Version是什么

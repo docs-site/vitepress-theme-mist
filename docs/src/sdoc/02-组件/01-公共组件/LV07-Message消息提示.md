@@ -1,3 +1,24 @@
+---
+title: LV07-Message消息提示
+date: 2025-09-03 19:31:21
+icon: famicons:logo-markdown
+permalink: /sdoc/component/common-omponent/126b07e426211f9e66b38f5e
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:31:21.505
+  fulluuid: e66b38f5e4e849f4b13ce3b8038ce543
+  useduuid: e66b38f5e
+---
+
 <script setup>
 import { MtMessage } from "vitepress-theme-mist"
 import { ref } from 'vue'

@@ -1,3 +1,24 @@
+---
+title: LV01-pnpm工作区
+date: 2025-09-03 19:30:53
+icon: famicons:logo-markdown
+permalink: /sdoc/develop/126b07e425dd16cde8cddce7
+index: true
+tags:
+categories:
+copyright: false
+keywords:
+cover:
+comments:
+mathjax:
+top:
+description:
+tdoc:
+  detailDate: 2025-09-03 19:30:53.364
+  fulluuid: de8cddce7d20450baf040b1cb753b0b8
+  useduuid: de8cddce7
+---
+
 <!-- more -->
 
 ## 一、工作区
