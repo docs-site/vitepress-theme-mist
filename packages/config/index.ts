@@ -4,7 +4,6 @@ import type { MistConfig } from "./types";
 // import type { PluginOption } from "vite";
 import { demoPlugin, containerPlugin } from "../markdown";
 import { registerPluginAndGet } from "./vitePlugins";
-// import { createRewrites } from "@docs-site/vitepress-plugin-permalink";
 
 import {
   articleAnalyzeConfig,
@@ -16,6 +15,7 @@ import {
   vitePluginsConfig,
 } from "./defaultConfig"
 export type * from "./types";
+export { createRewrites } from "@docs-site/vitepress-plugin-permalink";
 
 /**
  * @brief 定义Mist主题的配置
@@ -179,6 +179,5 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
     themeConfig: {
       ...mergedConfig,
     },
-    // rewrites: createRewrites({ srcDir: 'src' }), // 这里需要填项目根目录(.vtiepress所在目录，若是.vitepress和package.json在同级，则可为空)
   };
 };

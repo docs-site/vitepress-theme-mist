@@ -25,20 +25,27 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
         site: { themeConfig = {} },
         srcDir, // 此工作区中的站点配置中未配置，默认为 D:/xxx/vitepress-theme-mist/docs/src
         rewrites: rewritesObj,
+        userConfig,
       } = config.vitepress;
 
       const { path, debugInfo, sideBarOption } = option;
       const baseDir = path ? join(srcDir, path) : srcDir;
+
+      // 如果使用 ./rewrites.ts 的 createRewrites 创建的 rewrites，则这里自动使用rewrite
+      let createRule: "filePath" | "rewrites" = "filePath";
       const rewrites = rewritesObj.map || {};
       const rewritesLength = Object.keys(rewrites).length;
-      // 如果 指定 rewrites 规则，但是 rewrites 不存在，则走 filePath 逻辑
-      const resolveRule = sideBarOption?.resolveRule ?? "filePath"
-      const isFilePathRule = resolveRule === "filePath" || (resolveRule === "rewrites" && !rewritesLength);
-      const isRewritesRule = resolveRule === "rewrites" && rewritesLength;
+      if (
+        userConfig?.rewrites?.__create__ === "vitepress-plugin-permalink"
+        && rewritesLength !== 0
+      ) {
+        createRule = "rewrites";
+      };
 
-      if(debugInfo) {
+      if (debugInfo) {
         logger.prt(`srcDir: ${srcDir}`);
         logger.prt(`baseDir: ${baseDir}"`);
+        logger.prt(`createRule: ${createRule}, rewritesLength: ${rewritesLength}`);
       }
       //=============================================
       // 获取导航栏数据,不管哪种模式，都是检测index.md，所以这里可以不用支持rewrite，也没有问题
@@ -50,17 +57,15 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
       setNavBar(themeConfig, navData); // 设置导航栏
       //=============================================
       // 获取侧边栏数据
-      //  filePath 规则
-      if (isFilePathRule){
-        const sideBarData = createFilePathSidebar(
+      let sideBarData: any;
+      if (createRule === "filePath") { //  filePath 规则
+        sideBarData = createFilePathSidebar(
           { ...option.sideBarOption, path: baseDir }, // 展开原始的 option 对象，并覆盖 path 属性为 baseDir
           option.path,
           srcDir
         );
-        setSideBar(themeConfig, sideBarData, sideBarOption?.type);
       }
-      else if(isRewritesRule) {
-
+      else if (createRule === "rewrites") { //  rewrites 规则
         // 去掉每一项键中的 option.sideBarOption.path 路径部分
         // 这个是要是让sdoc为基础目录来生成侧边栏，不然后面的逻辑会全部变成一个侧边栏，且位于sdoc下
         const pathToRemove = option.sideBarOption?.path || 'sdoc';
@@ -71,13 +76,13 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
           ])
         ) as Record<string, string>;
         // console.log(filteredRewrites);
-        const rewriteSideBarData = createRewritesSidebar(
+        sideBarData = createRewritesSidebar(
           filteredRewrites,
           option.path,
           { ...option.sideBarOption, path: baseDir }
         );
-        return setSideBar(themeConfig, rewriteSideBarData, sideBarOption?.type);
       }
+      setSideBar(themeConfig, sideBarData, sideBarOption?.type, createRule)
     }
   };
 }
@@ -100,7 +105,8 @@ const setNavBar = (
 const setSideBar = (
   themeConfig: any,
   autoSidebar: DefaultTheme.SidebarMulti | DefaultTheme.SidebarItem[],
-  type: SidebarOption["type"]
+  type: SidebarOption["type"],
+  createRule: any
 ) => {
   // 防止 themeConfig 为 undefined
   themeConfig = themeConfig || {};
@@ -119,5 +125,5 @@ const setSideBar = (
     ];
   }
 
-  logger.info("Injected Sidebar Data Successfully. 注入侧边栏数据成功!");
+  logger.info(`Injected ${createRule} Sidebar Data Successfully. 注入侧边栏数据成功!`);
 };

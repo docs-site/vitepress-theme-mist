@@ -20,7 +20,6 @@ export const vitePluginsConfig = {
       collapsed: true,
       debugPrint: false,
       saveToFile: false,
-      // resolveRule: "rewrites" // rewrite的时候这里要改成对应的规则才能保证正常生成侧边栏
     }
   }
 };
