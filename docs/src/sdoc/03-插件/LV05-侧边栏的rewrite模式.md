@@ -841,13 +841,13 @@ entries 最终会得到一个键值对数组，数组中的每个元素是 `[key
 
 - 解析文件名 "01.简介.md"，得到 index=1, title="简介"
 - 读取文件内容（如果需要）
-- 创建侧边栏项：{ text: "简介", link: "/guide/intro/docs/intro.md" }
+- 创建侧边栏项：`{ text: "简介", link: "/guide/intro/docs/intro.md" }`
 
 （4）处理 "10.快速开始.md" 文件：
 
 - 解析文件名 "10.快速开始.md"，得到 index=10, title="快速开始"
 - 读取文件内容（如果需要）
-- 创建侧边栏项：{ text: "快速开始", link: "/guide/intro/docs/quickstart.md" }
+- 创建侧边栏项：`{ text: "快速开始", link: "/guide/intro/docs/quickstart.md" }`
 
 （5）根据索引排序项（1, 10），得到：
 
