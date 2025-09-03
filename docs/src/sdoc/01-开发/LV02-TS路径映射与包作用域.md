@@ -1,25 +1,3 @@
----
-title: LV02-TS路径映射与包作用域
-date: 2025-08-30 22:11:55
-icon: famicons:logo-markdown
-permalink: /docs/126b038aaf6337a72a610880
-index: true
-tags:
-categories:
-copyright: false
-keywords:
-cover:
-comments:
-mathjax:
-top:
-description:
-tdoc:
-  detailDate: 2025-08-30 22:11:55.890
-  fulluuid: 72a6108807af4d71b279ba4354e1c2c4
-  useduuid: 72a610880
----
-
-
 <!-- more -->
 
 ## 一、Typescript路径映射

@@ -1,24 +1,3 @@
----
-title: LV01-file-content-loader
-date: 2025-08-30 22:12:46
-icon: famicons:logo-markdown
-permalink: /docs/126b038aafbe288e3c883da7
-index: true
-tags:
-categories:
-copyright: false
-keywords:
-cover:
-comments:
-mathjax:
-top:
-description:
-tdoc:
-  detailDate: 2025-08-30 22:12:46.648
-  fulluuid: e3c883da7860440b9619f6194c57b185
-  useduuid: e3c883da7
----
-
 # vitepress-plugin-file-content-loader
 
 ## 一、概述

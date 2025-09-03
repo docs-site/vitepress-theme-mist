@@ -1,24 +1,3 @@
----
-title: LV02-catalogue分析文档
-date: 2025-08-30 22:12:46
-icon: famicons:logo-markdown
-permalink: /docs/126b038aafbe289291cd52cc
-index: true
-tags:
-categories:
-copyright: false
-keywords:
-cover:
-comments:
-mathjax:
-top:
-description:
-tdoc:
-  detailDate: 2025-08-30 22:12:46.649
-  fulluuid: 291cd52cc5e642808cbe11a806f445fa
-  useduuid: 291cd52cc
----
-
 # vitepress-plugin-catalogue 插件深度解析
 
 ## 一、概述

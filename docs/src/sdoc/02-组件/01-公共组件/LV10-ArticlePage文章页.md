@@ -1,25 +1,3 @@
----
-title: LV10-ArticlePage文章页
-date: 2025-08-30 22:13:20
-icon: famicons:logo-markdown
-permalink: /docs/126b038ab0082f873825be8b
-index: true
-tags:
-categories:
-copyright: false
-keywords:
-cover:
-comments:
-mathjax:
-top:
-description:
-tdoc:
-  detailDate: 2025-08-30 22:13:20.760
-  fulluuid: 73825be8bfd84f2e9592b500e50d3543
-  useduuid: 73825be8b
----
-
-
 这一部分来了解一下ArticlePage文章页组件。
 
 <!-- more -->

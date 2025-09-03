@@ -1,25 +1,3 @@
----
-title: LV01-Democode组件
-date: 2025-08-30 22:13:41
-icon: famicons:logo-markdown
-permalink: /docs/126b038ab01d20b88d1d36c0
-index: true
-tags:
-categories:
-copyright: false
-keywords:
-cover:
-comments:
-mathjax:
-top:
-description:
-tdoc:
-  detailDate: 2025-08-30 22:13:41.523
-  fulluuid: 88d1d36c00614b0193e3eb476f974e38
-  useduuid: 88d1d36c0
----
-
-
 # Demo 插件与 MtDemoCode 组件分析
 
 ## 一、概述

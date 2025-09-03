@@ -1,24 +1,3 @@
----
-title: LV10-changesets
-date: 2025-08-30 22:11:55
-icon: famicons:logo-markdown
-permalink: /docs/126b038aaf63381686cffc03
-index: true
-tags:
-categories:
-copyright: false
-keywords:
-cover:
-comments:
-mathjax:
-top:
-description:
-tdoc:
-  detailDate: 2025-08-30 22:11:55.897
-  fulluuid: 686cffc0301849948414523a2f507d1d
-  useduuid: 686cffc03
----
-
 # Changesets 自动生成CHANGELOG.md
 
 ## 一、Changesets是什么

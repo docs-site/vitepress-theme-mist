@@ -1,26 +1,3 @@
----
-title: LV06-SCSS变量未展开问题分析
-date: 2025-08-30 22:11:55
-icon: famicons:logo-markdown
-permalink: /docs/126b038aaf6337eb840fdd0c
-index: true
-tags:
-categories:
-copyright: false
-keywords:
-cover:
-comments:
-mathjax:
-top:
-description:
-tdoc:
-  detailDate: 2025-08-30 22:11:55.894
-  fulluuid: b840fdd0c70b48a3bc5e1e4e1caf63f9
-  useduuid: b840fdd0c
----
-
-
-
 # SCSS变量未展开问题分析
 
 ## 一、问题描述
