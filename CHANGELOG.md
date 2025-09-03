@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.3](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.2...v1.1.3) (2025-09-03)
+
+
+### Features
+
+* **theme:** 🚀 支持侧边栏的rewrite ([b35e20e](https://github.com/docs-site/vitepress-theme-mist/commit/b35e20e3c9804f2a5d312d36179df8ac9df2325e))
+
+
+### Bug Fixes
+
+* **plugins:** 🐞 @docs-site/vitepress-plugin-catalogue插件rewrite模式使用绝对路径 ([754b13e](https://github.com/docs-site/vitepress-theme-mist/commit/754b13e296119ca989555a2fdec246360365742a))
+
+
+### Docs
+
+* **site:** 📚 更新开发文档 ([5b29719](https://github.com/docs-site/vitepress-theme-mist/commit/5b29719219dc633f59938ee5ceea679f2c71cd41))
+* **site:** 📚 删除所有开发文档的frontmatter ([72e3a80](https://github.com/docs-site/vitepress-theme-mist/commit/72e3a80fd750aa862b9546edaa7cd1c07a347597))
+* **site:** 📚 为开发文档重新添加统一的frontmatter ([f6bf6a6](https://github.com/docs-site/vitepress-theme-mist/commit/f6bf6a6d797fa68231d3c7826accf95348d5548a))
+
+
+### Others
+
+* **release:** 插件版本更新 ([cfa14e0](https://github.com/docs-site/vitepress-theme-mist/commit/cfa14e0731f1d581488b565c6b7a782c74b9c4c6))
+
+
+### Code Refactoring
+
+* **theme:** ♻️ 把一些默认配置项放到单独文件中 ([3493865](https://github.com/docs-site/vitepress-theme-mist/commit/3493865668e8762d4e9e14933330596c7f8d8433))
+* **theme:** ♻️ 关闭rewrite模式 ([4b0ac2c](https://github.com/docs-site/vitepress-theme-mist/commit/4b0ac2caf459e533e4df71c56b3bba3ccaf33bc2))
+
 ### [1.1.2](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.1...v1.1.2) (2025-09-02)
 
 
