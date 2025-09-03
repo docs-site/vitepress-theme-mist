@@ -1,5 +1,11 @@
 # @docs-site/vitepress-auto-nav-sidebar
 
+## 1.0.2
+
+### Patch Changes
+
+- 支持侧边栏的rewrite
+
 ## 1.0.1
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@docs-site/vitepress-plugin-catalogue",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "扫描 Markdown 文档，获取目录信息",
   "author": "",
   "keywords": [
