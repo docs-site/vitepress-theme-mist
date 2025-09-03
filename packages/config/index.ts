@@ -5,6 +5,7 @@ import type { MistConfig } from "./types";
 import { demoPlugin, containerPlugin } from "../markdown";
 import { registerPluginAndGet } from "./vitePlugins";
 import { version } from "../../packages/mist/version";
+import { createRewrites } from "@docs-site/vitepress-plugin-permalink";
 
 import {
   FooterGroupConfig,
@@ -194,7 +195,8 @@ const defaultMistConfig: Required<MistConfig> = {
         initItems: false, // 这个设置为true的话进入某个导航栏路径时可能不显示侧边栏
         collapsed: true,
         debugPrint: false,
-        saveToFile: false
+        saveToFile: false,
+        resolveRule: "rewrites" // rewrite的时候这里要改成对应的规则才能保证正常生成侧边栏
       }
     }
   },
@@ -267,5 +269,6 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
     themeConfig: {
       ...mergedConfig,
     },
+    rewrites: createRewrites({ srcDir: 'src' }), // 这里需要填项目根目录(.vtiepress所在目录，若是.vitepress和package.json在同级，则可为空)
   };
 };
