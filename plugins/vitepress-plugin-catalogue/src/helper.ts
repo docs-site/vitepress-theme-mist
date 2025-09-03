@@ -158,11 +158,13 @@ const createCatalogueList = (
       const filePath = prefix + name;
 
       const { rewrites = {}, cleanUrls } = vitepressConfig;
+      const hasRewrites = Object.keys(rewrites).length > 0; // 判断是否有 rewrite 数据
+      const urlPrefix = hasRewrites ? '/' : ''; // 根据是否有 rewrite 数据决定是否添加前导 /
 
       const catalogueItem = {
         title: finalTitle,
         url:
-          (removeMarkdownExt(rewrites[`${filePath.replace(/^\//, "")}.md`]) || filePath) + (cleanUrls ? "" : ".html"),
+          urlPrefix + (removeMarkdownExt(rewrites[`${filePath.replace(/^\//, "")}.md`]) || filePath) + (cleanUrls ? "" : ".html"),
         frontmatter,
       };
 
