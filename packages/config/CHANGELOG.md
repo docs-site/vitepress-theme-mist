@@ -1,5 +1,12 @@
 # @mist/config
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @docs-site/vitepress-plugin-permalink@1.0.1
+
 ## 1.0.1
 
 ### Patch Changes

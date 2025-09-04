@@ -28,7 +28,7 @@ catalogs:
     '@docs-site/vitepress-plugin-demo': ^1.0.0
     '@docs-site/vitepress-plugin-doc-analysis': ^1.0.1
     '@docs-site/vitepress-plugin-file-content-loader': ^1.0.2
-    '@docs-site/vitepress-plugin-permalink': ^1.0.0
+    '@docs-site/vitepress-plugin-permalink': ^1.0.1
     '@docs-site/vitepress-plugin-sidebar-resolve': ^1.0.0
   vue:
     '@vue/compiler-core': ^3.5.18

@@ -1,7 +1,7 @@
 {
   "name": "@docs-site/vitepress-plugin-permalink",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "扫描 Markdown 文档，生成永久链接",
   "author": "",
   "keywords": [

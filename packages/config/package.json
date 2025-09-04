@@ -1,7 +1,7 @@
 {
   "name": "@mist/config",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A VitePress theme configuration package",
   "main": "index.ts",
   "scripts": {
