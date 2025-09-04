@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.3...v1.1.4) (2025-09-04)
+
+
+### Features
+
+* **plugins:** 导航栏支持rewrites ([a585ef9](https://github.com/docs-site/vitepress-theme-mist/commit/a585ef92253cdff668e2b91903a5c524e3e650d7))
+
+
+### Bug Fixes
+
+* **site:** 🐞 修复文档造成的页面无法渲染问题 [deploy] ([b4227df](https://github.com/docs-site/vitepress-theme-mist/commit/b4227df519d1897c1b1335ae4be6a16608d63480))
+* **theme:** 🐞 修复rewrites模式下面包屑导航链接异常问题 ([2617089](https://github.com/docs-site/vitepress-theme-mist/commit/261708912c67c4a5b4609e94be83ccce4395f564))
+
+
+### Code Refactoring
+
+* **plugins:** ♻️ 优化@docs-site/vitepress-auto-nav-sidebar的rewrites模式确认逻辑 ([e91cb9b](https://github.com/docs-site/vitepress-theme-mist/commit/e91cb9bbf7a69e3d28f12731169f737f2705ce5d))
+* **plugins:** rewrites模式下向themeConfig挂载catalogIndex数据 ([42bc16f](https://github.com/docs-site/vitepress-theme-mist/commit/42bc16ff4e01bb3cdfce039c37087e96804d2c95))
+
+
+### Others
+
+* **release:** 🔨 @docs-site/vitepress-auto-nav-sidebar@1.0.3发布 ([ab07e15](https://github.com/docs-site/vitepress-theme-mist/commit/ab07e1542a08af32019582fd8925d7a1b600db66))
+* **release:** 🔨 @docs-site/vitepress-plugin-permalink@1.0.1发布 ([dd9beb8](https://github.com/docs-site/vitepress-theme-mist/commit/dd9beb81e1217801c09b66dead76b4d42b208640))
+
 ### [1.1.3](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.2...v1.1.3) (2025-09-03)
 
 
