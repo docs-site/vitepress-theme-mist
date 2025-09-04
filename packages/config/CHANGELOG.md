@@ -1,5 +1,12 @@
 # @mist/config
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @docs-site/vitepress-auto-nav-sidebar@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

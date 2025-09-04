@@ -1,5 +1,11 @@
 # @docs-site/vitepress-auto-nav-sidebar
 
+## 1.0.3
+
+### Patch Changes
+
+- 更新@docs-site/vitepress-auto-nav-sidebar的rewrites逻辑
+
 ## 1.0.2
 
 ### Patch Changes
