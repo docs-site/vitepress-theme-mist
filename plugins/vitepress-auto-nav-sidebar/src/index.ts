@@ -5,6 +5,7 @@ import { join } from "node:path";
 import createNavigationData from "./filePathToNavigation";
 import createFilePathSidebar from "./filePathToSidebar";
 import createRewritesSidebar from "./rewritesToSidebar";
+import createRewritesNavigation from "./rewritesToNavigation";
 import logger from "./log";
 
 
@@ -48,17 +49,15 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
         logger.prt(`createRule: ${createRule}, rewritesLength: ${rewritesLength}`);
       }
       //=============================================
-      // 获取导航栏数据,不管哪种模式，都是检测index.md，所以这里可以不用支持rewrite，也没有问题
-      const navData = createNavigationData(
-        { ...option.navOption, path: baseDir },
-        option.path,
-        srcDir
-      );
-      setNavBar(themeConfig, navData); // 设置导航栏
-      //=============================================
-      // 获取侧边栏数据
+      let navData: any;
       let sideBarData: any;
       if (createRule === "filePath") { //  filePath 规则
+        navData = createNavigationData(
+          { ...option.navOption, path: baseDir },
+          option.path,
+          srcDir
+        );
+        
         sideBarData = createFilePathSidebar(
           { ...option.sideBarOption, path: baseDir }, // 展开原始的 option 对象，并覆盖 path 属性为 baseDir
           option.path,
@@ -75,6 +74,13 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
             value
           ])
         ) as Record<string, string>;
+
+        navData = createRewritesNavigation(
+          filteredRewrites,
+          option.path,
+          { ...option.navOption, path: baseDir },
+        );
+  
         // console.log(filteredRewrites);
         sideBarData = createRewritesSidebar(
           filteredRewrites,
@@ -82,6 +88,7 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
           { ...option.sideBarOption, path: baseDir }
         );
       }
+      setNavBar(themeConfig, navData); // 设置导航栏
       setSideBar(themeConfig, sideBarData, sideBarOption?.type, createRule)
     }
   };
