@@ -41,7 +41,11 @@ export function VitePluginVitePressAutoPermalink(option: PermalinkOption = {}): 
       vitepressConfig = config.vitepress;
 
       // 如果使用 ./rewrites.ts 的 createRewrites 创建的 rewrites，则不走当前逻辑
-      if (userConfig?.rewrites?.__create__ === "vitepress-plugin-permalink") return;
+      if (userConfig?.rewrites?.__create__ === "vitepress-plugin-permalink") {
+        // 提取 rewrites 中的 index.md 项并挂载到 themeConfig.catalogIndex
+        themeConfig.catalogIndex = extractCatalogIndex(rewrites);
+        return;
+      }
 
       const baseDir = option.path ? join(srcDir, option.path) : srcDir;
       const permalinks = createPermalinks({ ...option, path: baseDir }, cleanUrls);
@@ -180,6 +184,36 @@ const setActiveMatchWhenUsePermalink = (
     }
   });
 };
+
+/**
+ * 提取 rewrites 中的 index.md 项并返回 catalogIndex 对象
+ *
+ * @param rewrites 重写配置对象
+ * @returns 包含 map 和 inv 对象的 catalogIndex
+ */
+const extractCatalogIndex = (rewrites: any) => {
+  const catalogIndexMap: Record<string, string> = {};
+  const catalogIndexInv: Record<string, string> = {};
+  
+  // 过滤出 index.md 的项，保持相同的数据类型和结构
+  for (const [key, value] of Object.entries(rewrites.map || {})) {
+    if (key.endsWith("index.md")) {
+      catalogIndexMap[key] = value as string;
+      // 同时更新 inv 对象
+      if (rewrites.inv && rewrites.inv[value as string]) {
+        catalogIndexInv[value as string] = rewrites.inv[value as string];
+      }
+    }
+  }
+  
+  // 保持与 permalinks 相同的结构，包含 map 和 inv 两个对象数组
+  return {
+    arr: { "create": "vitepress-plugin-permalink" },
+    map: catalogIndexMap,
+    inv: catalogIndexInv,
+  };
+};
+
 const isESM = () => {
   return typeof __filename === "undefined" || typeof __dirname === "undefined";
 };
