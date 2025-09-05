@@ -1,5 +1,11 @@
 # @docs-site/vitepress-auto-nav-sidebar
 
+## 1.0.4
+
+### Patch Changes
+
+- 修复eslint报错
+
 ## 1.0.3
 
 ### Patch Changes

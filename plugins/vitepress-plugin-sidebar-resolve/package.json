@@ -1,7 +1,7 @@
 {
   "name": "@docs-site/vitepress-plugin-sidebar-resolve",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "扫描 Markdown 文档，自动生成侧边栏",
   "author": "",
   "keywords": [

@@ -66,12 +66,12 @@
     "@iconify/vue": "^5.0.0",
     "js-yaml": "^4.1.0",
     "markdown-it-container": "^4.0.0",
-    "@docs-site/vitepress-plugin-file-content-loader": "^1.0.2",
-    "@docs-site/vitepress-plugin-catalogue": "^1.0.4",
-    "@docs-site/vitepress-plugin-doc-analysis": "^1.0.1",
-    "@docs-site/vitepress-plugin-demo": "^1.0.0",
-    "@docs-site/vitepress-auto-nav-sidebar": "^1.0.3",
-    "@docs-site/vitepress-plugin-permalink": "^1.0.1"
+    "@docs-site/vitepress-plugin-file-content-loader": "^1.0.3",
+    "@docs-site/vitepress-plugin-catalogue": "^1.0.5",
+    "@docs-site/vitepress-plugin-doc-analysis": "^1.0.2",
+    "@docs-site/vitepress-plugin-demo": "^1.0.1",
+    "@docs-site/vitepress-auto-nav-sidebar": "^1.0.4",
+    "@docs-site/vitepress-plugin-permalink": "^1.0.2"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
