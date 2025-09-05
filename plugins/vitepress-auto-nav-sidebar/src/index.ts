@@ -8,7 +8,6 @@ import createRewritesSidebar from "./rewritesToSidebar";
 import createRewritesNavigation from "./rewritesToNavigation";
 import logger from "./log";
 
-
 export * from "./types";
 export * from "./utils";
 
@@ -36,12 +35,9 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
       let createRule: "filePath" | "rewrites" = "filePath";
       const rewrites = rewritesObj.map || {};
       const rewritesLength = Object.keys(rewrites).length;
-      if (
-        userConfig?.rewrites?.__create__ === "vitepress-plugin-permalink"
-        && rewritesLength !== 0
-      ) {
+      if (userConfig?.rewrites?.__create__ === "vitepress-plugin-permalink" && rewritesLength !== 0) {
         createRule = "rewrites";
-      };
+      }
 
       if (debugInfo) {
         logger.prt(`srcDir: ${srcDir}`);
@@ -51,60 +47,40 @@ export default function VitePluginVitePressAutoNavSidebar(option: NavSidebarOpti
       //=============================================
       let navData: any;
       let sideBarData: any;
-      if (createRule === "filePath") { //  filePath 规则
-        navData = createNavigationData(
-          { ...option.navOption, path: baseDir },
-          option.path,
-          srcDir
-        );
-        
+      if (createRule === "filePath") {
+        //  filePath 规则
+        navData = createNavigationData({ ...option.navOption, path: baseDir }, option.path, srcDir);
+
         sideBarData = createFilePathSidebar(
           { ...option.sideBarOption, path: baseDir }, // 展开原始的 option 对象，并覆盖 path 属性为 baseDir
           option.path,
           srcDir
         );
-      }
-      else if (createRule === "rewrites") { //  rewrites 规则
+      } else if (createRule === "rewrites") {
+        //  rewrites 规则
         // 去掉每一项键中的 option.sideBarOption.path 路径部分
         // 这个是要是让sdoc为基础目录来生成侧边栏，不然后面的逻辑会全部变成一个侧边栏，且位于sdoc下
-        const pathToRemove = option.sideBarOption?.path || 'sdoc';
+        const pathToRemove = option.sideBarOption?.path || "sdoc";
         const filteredRewrites = Object.fromEntries(
-          Object.entries(rewrites).map(([key, value]) => [
-            key.replace(new RegExp(`^${pathToRemove}/`, 'g'), ''),
-            value
-          ])
+          Object.entries(rewrites).map(([key, value]) => [key.replace(new RegExp(`^${pathToRemove}/`, "g"), ""), value])
         ) as Record<string, string>;
 
-        navData = createRewritesNavigation(
-          filteredRewrites,
-          option.path,
-          { ...option.navOption, path: baseDir },
-        );
-  
+        navData = createRewritesNavigation(filteredRewrites, { ...option.navOption, path: baseDir });
+
         // console.log(filteredRewrites);
-        sideBarData = createRewritesSidebar(
-          filteredRewrites,
-          option.path,
-          { ...option.sideBarOption, path: baseDir }
-        );
+        sideBarData = createRewritesSidebar(filteredRewrites, option.path, { ...option.sideBarOption, path: baseDir });
       }
       setNavBar(themeConfig, navData); // 设置导航栏
-      setSideBar(themeConfig, sideBarData, sideBarOption?.type, createRule)
-    }
+      setSideBar(themeConfig, sideBarData, sideBarOption?.type, createRule);
+    },
   };
 }
 
-const setNavBar = (
-  themeConfig: any,
-  autoNav: DefaultTheme.NavItem[]
-) => {
+const setNavBar = (themeConfig: any, autoNav: DefaultTheme.NavItem[]) => {
   // 防止 themeConfig 为 undefined
   themeConfig = themeConfig || {};
 
-  themeConfig.nav = [
-    ...(autoNav || []),
-    ...(Array.isArray(themeConfig.nav) ? themeConfig.nav : []),
-  ];
+  themeConfig.nav = [...(autoNav || []), ...(Array.isArray(themeConfig.nav) ? themeConfig.nav : [])];
 
   logger.info("Injected Navigation Data Successfully. 注入导航栏数据成功!");
 };

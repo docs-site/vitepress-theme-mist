@@ -174,13 +174,13 @@ export interface SidebarOption {
    *
    * @default []
    */
-  debugPrint?: boolean;       // 是否打印调试信息 @default false
+  debugPrint?: boolean; // 是否打印调试信息 @default false
   /**
    * 是否将数据保存到文件中
    *
    * @default false
    */
-  saveToFile?: boolean;        // 是否将数据保存到文件中 @default false
+  saveToFile?: boolean; // 是否将数据保存到文件中 @default false
 }
 
 export interface DirectoryStructure {
@@ -193,7 +193,7 @@ export interface NavOption {
    *
    * @default []
    */
-  maxLevel?: number;          // 最大遍历层级 @default 1
+  maxLevel?: number; // 最大遍历层级 @default 1
   /**
    * 生成导航栏时，忽略的文件/文件夹列表，支持正则表达式
    *
@@ -211,13 +211,13 @@ export interface NavOption {
    *
    * @default []
    */
-  debugPrint?: boolean;       // 是否打印调试信息 @default false
+  debugPrint?: boolean; // 是否打印调试信息 @default false
   /**
    * 是否将数据保存到文件中
    *
    * @default false
    */
-  saveToFile?: boolean;        // 是否将数据保存到文件中 @default false
+  saveToFile?: boolean; // 是否将数据保存到文件中 @default false
 }
 
 export interface NavSidebarOption {
@@ -227,7 +227,7 @@ export interface NavSidebarOption {
    * @default 'vitepress 的 srcDir 配置项'
    */
   path?: string;
-  
+
   /**
    * 忽略插件在构建侧边栏时生成的警告信息
    *
@@ -247,4 +247,3 @@ export interface NavSidebarOption {
    */
   sideBarOption?: SidebarOption;
 }
-

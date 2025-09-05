@@ -111,7 +111,9 @@ export default function createRewritesSidebar(
       const path = rewrites[key].split("/")[1];
       // 这里得到的是侧边栏的目录项
       // "sdoc/develop" : [ ... ]
-      sidebarObj[`/${docRootDir}/${path}/`] = initItems ? [{ ...sidebarItem, text: initItemsText ? text : "" }] : sidebarItems;
+      sidebarObj[`/${docRootDir}/${path}/`] = initItems
+        ? [{ ...sidebarItem, text: initItemsText ? text : "" }]
+        : sidebarItems;
     } else sidebarArray.push(sidebarItem);
   });
 

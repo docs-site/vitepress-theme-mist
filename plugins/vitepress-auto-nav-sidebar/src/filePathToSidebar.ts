@@ -15,49 +15,44 @@ export const DEFAULT_IGNORE_DIR = ["node_modules", "dist", ".vitepress", "public
  * 用于开发和调试阶段
  */
 function createTestSidebarData(sidebarObj: DefaultTheme.SidebarMulti, sidebarArray: DefaultTheme.SidebarItem[]) {
-  
   // 对象类型测试数据
-  sidebarObj['/guide/'] = [
+  sidebarObj["/guide/"] = [
     {
-      text: 'Guide',
+      text: "Guide",
       items: [
-        { text: 'Index', link: '/guide/' },
-        { text: 'One', link: '/guide/one' },
-        { text: 'Two', link: '/guide/two' }
-      ]
-    }
+        { text: "Index", link: "/guide/" },
+        { text: "One", link: "/guide/one" },
+        { text: "Two", link: "/guide/two" },
+      ],
+    },
   ];
 
-  sidebarObj['/config/'] = [
+  sidebarObj["/config/"] = [
     {
-      text: 'Config',
+      text: "Config",
       items: [
-        { text: 'Index', link: '/config/' },
-        { text: 'Three', link: '/config/three' },
-        { text: 'Four', link: '/config/four' }
-      ]
-    }
+        { text: "Index", link: "/config/" },
+        { text: "Three", link: "/config/three" },
+        { text: "Four", link: "/config/four" },
+      ],
+    },
   ];
 
   // 数组类型测试数据
-  sidebarArray.push(
-    {
-      text: 'Section Title A',
-      items: [
-        { text: 'Item A', link: '/item-a' },
-        { text: 'Item B', link: '/item-b' },
-      ]
-    },
-  );
-  sidebarArray.push(
-    {
-      text: 'Section Title B',
-      items: [
-        { text: 'Item C', link: '/item-c' },
-        { text: 'Item D', link: '/item-d' },
-      ]
-    }
-  );
+  sidebarArray.push({
+    text: "Section Title A",
+    items: [
+      { text: "Item A", link: "/item-a" },
+      { text: "Item B", link: "/item-b" },
+    ],
+  });
+  sidebarArray.push({
+    text: "Section Title B",
+    items: [
+      { text: "Item C", link: "/item-c" },
+      { text: "Item D", link: "/item-d" },
+    ],
+  });
 }
 
 /**
@@ -66,7 +61,7 @@ function createTestSidebarData(sidebarObj: DefaultTheme.SidebarMulti, sidebarArr
  * @param prefix 指定前缀，在生成侧边栏的 link 时，会自动加上前缀
  */
 export default (option: SidebarOption = {}, prefix = "/", srcDir: string) => {
-    const {
+  const {
     path,
     ignoreList = [],
     scannerRootMd = true,
@@ -150,6 +145,7 @@ export default (option: SidebarOption = {}, prefix = "/", srcDir: string) => {
   } catch (error) {
     // 如果路径不存在或无法访问，则使用测试数据
     createTestSidebarData(sidebarObj, sidebarArray);
+    console.log("[error]", error);
   }
   // 根据配置的type来返回数组类型或者对象类型
   const finalSidebar = isSidebarObject ? sidebarObj : sidebarArray;

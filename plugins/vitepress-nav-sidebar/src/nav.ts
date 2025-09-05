@@ -19,15 +19,16 @@ import {
  * @details 根据配置生成顶部导航栏数据
  */
 export function getNavData(navGenerateConfig: NavGenerateConfig = {}) {
-  let {
+  const {
     dirName = navGenerateConfig.dirName || "articles",
-    maxLevel = navGenerateConfig.maxLevel || CONFIG.NAV.DEFAULT_LEVEL,
     ignoreDirNames = [...DEFAULT_IGNORE_DIRS, ...(navGenerateConfig.ignoreDirNames || [])],
     // 忽略文件配置
     ignoreFileNames = [...DEFAULT_IGNORE_FILES, ...(navGenerateConfig.ignoreFileNames || [])],
     debugPrint = false,
     rootDir = navGenerateConfig.rootDir || "src",
   } = navGenerateConfig;
+
+  let { maxLevel = navGenerateConfig.maxLevel || CONFIG.NAV.DEFAULT_LEVEL } = navGenerateConfig;
 
   // 验证导航栏层级
   if (maxLevel > CONFIG.NAV.MAX_LEVEL) {
@@ -42,7 +43,7 @@ export function getNavData(navGenerateConfig: NavGenerateConfig = {}) {
   const rootDirPath = resolve(process.cwd(), rootDir);
   const rootDirPathLen = rootDirPath.length;
   // 生成导航数据 [传递ignoreFileNames和rootDirPathLen]
-  let result = getNavDataArr(dirFullPath, rootDirPathLen, 1, maxLevel, ignoreDirNames, ignoreFileNames);
+  const result = getNavDataArr(dirFullPath, rootDirPathLen, 1, maxLevel, ignoreDirNames, ignoreFileNames);
 
   // 如果结果为空，添加默认导航项
   if (result.length === 0) {
@@ -108,7 +109,7 @@ function getNavDataArr(
   }
   const result: DefaultTheme.NavItem[] = [];
   // 遍历当前目录下的每个子项
-  allDirAndFileNameArr.map((fileOrDirName: string, idx: number) => {
+  allDirAndFileNameArr.map((fileOrDirName: string) => {
     const fileOrDirFullPath = join(dirFullPath, fileOrDirName);
     const stats = statSync(fileOrDirFullPath);
     // 生成链接路径
@@ -157,17 +158,17 @@ function getNavDataArr(
       dirData.activeMatch = link + "/";
       result.push(dirData);
     } else if (isMarkdownFile(fileOrDirName) && !hasMatchingMdFile) {
-      if (0) {
-        // 不添加文档到导航栏
-        // 处理文件项
-        const fileData: DefaultTheme.NavItem = {
-          text,
-          link,
-        };
-        // 设置激活匹配规则
-        fileData.activeMatch = link + "/";
-        result.push(fileData);
-      }
+      // if (0) {
+      //   // 不添加文档到导航栏
+      //   // 处理文件项
+      //   const fileData: DefaultTheme.NavItem = {
+      //     text,
+      //     link,
+      //   };
+      //   // 设置激活匹配规则
+      //   fileData.activeMatch = link + "/";
+      //   result.push(fileData);
+      // }
     }
   });
 

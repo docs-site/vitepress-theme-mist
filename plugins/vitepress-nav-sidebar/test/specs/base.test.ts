@@ -11,8 +11,8 @@ describe("Test: base test", () => {
       dirName: "resources",
       debugPrint: false,
     });
-    // console.log('Sidebar Data:');
-    // console.log(JSON.stringify(sidebarData, null, 2));
+    console.log("Sidebar Data:");
+    console.log(JSON.stringify(sidebarData, null, 2));
 
     // 获取导航数据并打印
     const navData = getNavData({
@@ -20,8 +20,8 @@ describe("Test: base test", () => {
       dirName: "resources",
       debugPrint: false,
     });
-    // console.log('Nav Data:');
-    // console.log(JSON.stringify(navData, null, 2));
+    console.log("Nav Data:");
+    console.log(JSON.stringify(navData, null, 2));
   });
 
   it("[Nav Test]Directory structure generation", () => {

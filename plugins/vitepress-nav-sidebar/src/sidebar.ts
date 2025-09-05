@@ -17,15 +17,16 @@ import {
  * @details 遍历指定目录，生成侧边栏树形结构数据
  */
 export function getSidebarData(sidebarGenerateConfig: SidebarGenerateConfig = {}) {
-  let {
+  const {
     dirName = sidebarGenerateConfig.dirName || "articles",
     // 使用数组并合并默认值
     ignoreFileNames = [...DEFAULT_IGNORE_FILES, ...(sidebarGenerateConfig.ignoreFileNames || [])],
     ignoreDirNames = [...DEFAULT_IGNORE_DIRS, ...(sidebarGenerateConfig.ignoreDirNames || [])],
-    maxLevel = sidebarGenerateConfig.maxLevel || CONFIG.SIDEBAR.DEFAULT_LEVEL,
     debugPrint = false,
     rootDir = sidebarGenerateConfig.rootDir || "src",
   } = sidebarGenerateConfig;
+
+  let { maxLevel = sidebarGenerateConfig.maxLevel || CONFIG.SIDEBAR.DEFAULT_LEVEL } = sidebarGenerateConfig;
 
   // 验证侧边栏层级
   if (maxLevel > CONFIG.SIDEBAR.MAX_LEVEL) {
@@ -54,7 +55,7 @@ export function getSidebarData(sidebarGenerateConfig: SidebarGenerateConfig = {}
 
   // 遍历目录下的每个子项
   allDirAndFileNameArr.map(dirName => {
-    let subDirFullName = join(dirFullPath, dirName);
+    const subDirFullName = join(dirFullPath, dirName);
     const stats = statSync(subDirFullName);
 
     // 生成侧边栏项的key和对应的树形数据
@@ -138,7 +139,7 @@ function getSideBarItemTreeData(
     } else {
       return result;
     }
-  } catch (e: any) {
+  } catch {
     return result;
   }
 
@@ -191,7 +192,6 @@ function getSideBarItemTreeData(
   // 后处理文件
   allDirAndFileNameArr.forEach((fileOrDirName: string) => {
     const fileOrDirFullPath = join(dirFullPath, fileOrDirName);
-    const stats = statSync(fileOrDirFullPath);
 
     // 检查是否在忽略列表中
     if (isMarkdownFile(fileOrDirName) && !ignoreFileNames.includes(fileOrDirName)) {

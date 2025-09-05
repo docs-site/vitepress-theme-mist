@@ -21,8 +21,8 @@ export default defineBuildConfig({
   hooks: {
     "build:done": async () => {
       await copy("src/vitepress-router.d.ts", "dist/vitepress-router.d.ts");
-      const pkg = require("./package.json");
-      console.log(`✅ Build completed successfully! Package: ${pkg.name}@${pkg.version}`);
+      const { name, version } = await import("./package.json");
+      console.log(`✅ Build completed successfully! Package: ${name}@${version}`);
     },
   },
 });

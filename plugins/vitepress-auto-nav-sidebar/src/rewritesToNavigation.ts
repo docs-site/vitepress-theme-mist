@@ -12,41 +12,28 @@ function createTestRewritesNavigation(): DefaultTheme.NavItem[] {
   const navDataArray: DefaultTheme.NavItem[] = [];
 
   // 默认导航数据
-  navDataArray.push(
-    { "text": "开发", "link": "/sdoc/develop/126b07e425dd1639079fc233" }
-  );
-  navDataArray.push(
-    {
-      "text": "组件",
-      "items": [
-        { "text": "公共组件", "link": "/sdoc/component/common-omponent/126b07e426211d981dabe777" },
-        { "text": "主题组件", "link": "/sdoc/component/theme-component/126b07e426261ee5180ba94f" }
-      ],
-    }
-  );
-  navDataArray.push(
-    {
-      "text": "插件",
-      "link": "/sdoc/plugin/126b07e4263338b58be0c6f4",
-    },
-  );
+  navDataArray.push({ text: "开发", link: "/sdoc/develop/126b07e425dd1639079fc233" });
+  navDataArray.push({
+    text: "组件",
+    items: [
+      { text: "公共组件", link: "/sdoc/component/common-omponent/126b07e426211d981dabe777" },
+      { text: "主题组件", link: "/sdoc/component/theme-component/126b07e426261ee5180ba94f" },
+    ],
+  });
+  navDataArray.push({
+    text: "插件",
+    link: "/sdoc/plugin/126b07e4263338b58be0c6f4",
+  });
 
   return navDataArray;
 }
 
-export default (
-  rewrites: Record<string, string> = {},
-  docRootDir: string = "sdoc",
-  option: NavOption = {},
-  prefix: string = "/"
-) => {
-    const {
-    path,
-  } = option;
+export default (rewrites: Record<string, string> = {}, option: NavOption = {}, prefix: string = "/") => {
+  const { path } = option;
 
   // 如果 path 为 falsy 值 (undefined, null, 空字符串等)，使用测试数据
   if (!path) return [];
-  
+
   // 使用 fs.existsSync 检查路径在文件系统中是否存在
   if (!existsSync(path)) return createTestRewritesNavigation();
 
@@ -128,9 +115,9 @@ const createNavigationItems = (
     // 查找该目录下的 index.md 作为链接
     let link: string | undefined;
     if (fileInfo["index.md"]) {
-        link = `/${fileInfo["index.md"]}`;
+      link = `/${fileInfo["index.md"]}`;
     } else if (fileInfo["index.MD"]) {
-        link = `/${fileInfo["index.MD"]}`;
+      link = `/${fileInfo["index.MD"]}`;
     }
 
     // 如果达到最大层级，则作为简单链接项 (如果有 index.md)
@@ -143,7 +130,7 @@ const createNavigationItems = (
 
     // 递归处理子目录
     const subItems = createNavigationItems(fileInfo, fullPath, option, `${prefix}${name}/`, currentLevel + 1);
-    
+
     // 如果有子项，则作为带下拉菜单的项
     if (subItems.length > 0) {
       // 即使有 link，VitePress 的 NavItemWithChildren 也不能同时有 link 和 items
@@ -160,5 +147,3 @@ const createNavigationItems = (
 
   return navItems;
 };
-
-

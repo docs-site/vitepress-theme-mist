@@ -13,7 +13,7 @@ export const info = (message: string, level: ColorsKey = "green", option: LogOpt
   logger.info(picocolors[level](message), option);
 };
 
-export const prt = (message: string, level: ColorsKey = "green", option: LogOptions = { timestamp: true }) => {
+export const prt = (message: string, option: LogOptions = { timestamp: true }) => {
   logger.info(message, option);
 };
 

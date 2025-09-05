@@ -194,7 +194,7 @@ const setActiveMatchWhenUsePermalink = (
 const extractCatalogIndex = (rewrites: any) => {
   const catalogIndexMap: Record<string, string> = {};
   const catalogIndexInv: Record<string, string> = {};
-  
+
   // 过滤出 index.md 的项，保持相同的数据类型和结构
   for (const [key, value] of Object.entries(rewrites.map || {})) {
     if (key.endsWith("index.md")) {
@@ -205,10 +205,10 @@ const extractCatalogIndex = (rewrites: any) => {
       }
     }
   }
-  
+
   // 保持与 permalinks 相同的结构，包含 map 和 inv 两个对象数组
   return {
-    arr: { "create": "vitepress-plugin-permalink" },
+    arr: { create: "vitepress-plugin-permalink" },
     map: catalogIndexMap,
     inv: catalogIndexInv,
   };

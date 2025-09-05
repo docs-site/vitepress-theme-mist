@@ -21,7 +21,7 @@ export const DEFAULT_IGNORE_DIR = ["node_modules", "dist", ".vitepress", "public
  *
  * @note 该函数会递归调用自身处理子目录
  * @warning 注意目录深度限制，避免无限递归
- * 
+ *
  * @example
  * [
  *   { "text": "开发", "link": "/sdoc/01-开发/" },
@@ -40,15 +40,12 @@ export const DEFAULT_IGNORE_DIR = ["node_modules", "dist", ".vitepress", "public
  */
 function scanDirectory(
   option: NavOption,
-  fullDirPath: string,   // D:\xxx\vitepress-theme-mist\docs\src\sdoc
-  prefix: string  = "/", // sdoc
+  fullDirPath: string, // D:\xxx\vitepress-theme-mist\docs\src\sdoc
+  prefix: string = "/", // sdoc
   currentLevel: number = 1,
   currentPath: string = ""
 ): DefaultTheme.NavItem[] {
-  const {
-    maxLevel = Infinity,
-    ignoreList = [],
-  } = option;
+  const { maxLevel = Infinity, ignoreList = [] } = option;
   // 最大层级配置，默认为无穷大
   // D:\xxx\vitepress-theme-mist\docs\src\sdoc\lv1
   // D:\xxx\vitepress-theme-mist\docs\src\sdoc\lv1\lv2
@@ -62,8 +59,8 @@ function scanDirectory(
 
   const navItems: DefaultTheme.NavItem[] = [];
   // 读取目录名（文件和文件夹） D:\xxx\vitepress-theme-mist\docs\src\sdoc
-  let dirOrFilenames = readdirSync(fullDirPath);
-  
+  const dirOrFilenames = readdirSync(fullDirPath);
+
   // 检查是否只有.md文件而没有子目录
   const hasDirectories = dirOrFilenames.some(dirOrFilename => {
     const filePath = resolve(fullDirPath, dirOrFilename);
@@ -71,16 +68,14 @@ function scanDirectory(
     const stat = statSync(filePath);
     return stat.isDirectory();
   });
-  
-  const hasMdFiles = dirOrFilenames.some(dirOrFilename =>
-    dirOrFilename.endsWith('.md')
-  );
+
+  const hasMdFiles = dirOrFilenames.some(dirOrFilename => dirOrFilename.endsWith(".md"));
 
   // 如果只有.md文件而没有子目录，则生成/prefix/这一项
   if (!hasDirectories && hasMdFiles && currentLevel === 1 && prefix) {
     const navItem: DefaultTheme.NavItem = {
       text: prefix,
-      link: `/${prefix}/`
+      link: `/${prefix}/`,
     };
     navItems.push(navItem);
   } else {
@@ -88,42 +83,46 @@ function scanDirectory(
       // 在 JavaScript/TypeScript 中，Array.prototype.forEach() 方法会对数组中的每个元素执行一次提供的回调函数。
       // 如果在 forEach 回调函数中使用 return 语句，它只会提前结束当前迭代，而不会终止整个 forEach 循环或其所在的外层函数。
       if (isSome(ignoreListAll, dirOrFilename)) return [];
-    
+
       // 获取文件或者目录路径，判断是否存在
       const filePath = resolve(fullDirPath, dirOrFilename);
       if (!existsSync(filePath)) return;
-      
+
       const stat = statSync(filePath); // 获取文件状态
-      if(stat.isDirectory()) {
+      if (stat.isDirectory()) {
         // 检查是否存在同名的.md文件，如果是则跳过该目录
         const parentDir = resolve(filePath, "..");
         const dirName = dirOrFilename;
         const mdFileName = `${dirName}.md`;
         const mdFilePath = resolve(parentDir, mdFileName);
-        
+
         if (existsSync(mdFilePath) && statSync(mdFilePath).isFile()) {
           return; // 跳过该目录
         }
-        if(option.debugPrint) {
+        if (option.debugPrint) {
           console.log("Scan Dir: ", filePath);
         }
         // 递归调用时传入选项和下一级层级
         const nextPath = currentPath ? `${currentPath}/${dirName}` : dirName;
         const childNavItems = scanDirectory(option, filePath, prefix, currentLevel + 1, nextPath);
-        const displayName = dirName.replace(/^\d+-/, '');
+        const displayName = dirName.replace(/^\d+-/, "");
         if (childNavItems.length > 0) {
           const navItem: DefaultTheme.NavItem = {
             text: displayName,
-            items: childNavItems as unknown as (DefaultTheme.NavItemComponent | DefaultTheme.NavItemWithLink | DefaultTheme.NavItemChildren)[]
+            items: childNavItems as unknown as (
+              | DefaultTheme.NavItemComponent
+              | DefaultTheme.NavItemWithLink
+              | DefaultTheme.NavItemChildren
+            )[],
           };
           navItems.push(navItem);
         } else {
-          const basePath = prefix ? `/${prefix}` : '';
+          const basePath = prefix ? `/${prefix}` : "";
           const fullPath = currentPath ? `${basePath}/${currentPath}/${dirName}/` : `${basePath}/${dirName}/`;
-          
+
           const navItem: DefaultTheme.NavItem = {
             text: displayName,
-            link: fullPath
+            link: fullPath,
           };
           navItems.push(navItem);
         }
@@ -141,40 +140,34 @@ function createTestSidebarData(): DefaultTheme.NavItem[] {
   const navDataArray: DefaultTheme.NavItem[] = [];
 
   // 默认导航数据
-  navDataArray.push({ text: 'Guide', link: '/guide' });
-  navDataArray.push(
-    {
-      text: 'Dropdown Menu',
-      items: [
-        { text: 'Item A', link: '/item-1' },
-        { text: 'Item B', link: '/item-2' },
-        { text: 'Item C', link: '/item-3' }
-      ]
-    }
-  );
-  navDataArray.push(
-    {
-      text: 'Dropdown Menu',
-      items: [
-        {
-          // 该部分的标题
-          text: 'Section A Title',
-          items: [
-            { text: 'Section A Item A', link: '...' },
-            { text: 'Section B Item B', link: '...' }
-          ]
-        }
-      ]
-    },
-  );
+  navDataArray.push({ text: "Guide", link: "/guide" });
+  navDataArray.push({
+    text: "Dropdown Menu",
+    items: [
+      { text: "Item A", link: "/item-1" },
+      { text: "Item B", link: "/item-2" },
+      { text: "Item C", link: "/item-3" },
+    ],
+  });
+  navDataArray.push({
+    text: "Dropdown Menu",
+    items: [
+      {
+        // 该部分的标题
+        text: "Section A Title",
+        items: [
+          { text: "Section A Item A", link: "..." },
+          { text: "Section B Item B", link: "..." },
+        ],
+      },
+    ],
+  });
 
   return navDataArray;
 }
 
 export default (option: NavOption = {}, prefix: string = "/", srcDir: string) => {
-  const {
-    path,
-  } = option;
+  const { path } = option;
 
   if (!path) return []; // 防止path是undefined
   //  export type NavItem = NavItemComponent | NavItemWithLink | NavItemWithChildren
@@ -194,6 +187,7 @@ export default (option: NavOption = {}, prefix: string = "/", srcDir: string) =>
   } catch (error) {
     // 如果路径不存在或无法访问，则使用默认导航数据
     navDataArray.push(...createTestSidebarData());
+    console.log("[error]", error);
   }
 
   // 如果 debugPrint 为 true，则打印导航数据到控制台
