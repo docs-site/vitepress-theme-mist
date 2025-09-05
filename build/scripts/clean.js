@@ -17,7 +17,7 @@ async function removeDir(dirPath) {
 function dirExists(dirPath) {
   try {
     return fs.statSync(dirPath).isDirectory();
-  } catch (error) {
+  } catch {
     return false;
   }
 }
@@ -46,7 +46,7 @@ function findDirs(rootDir, targetDirName) {
           }
         }
       }
-    } catch (error) {
+    } catch {
       // 忽略无法访问的目录
     }
   }
@@ -73,7 +73,7 @@ function findProjectRoot(startDir) {
       if (packageJson.private === true) {
         return projectRoot;
       }
-    } catch (error) {
+    } catch {
       // 解析失败，使用原来的搜索方法
     }
   }
@@ -91,7 +91,7 @@ function findProjectRoot(startDir) {
         if (packageJson.name === "vitepress-theme-mist" || packageJson.private === true) {
           return currentDir;
         }
-      } catch (error) {
+      } catch {
         // 解析失败，继续向上搜索
       }
     }

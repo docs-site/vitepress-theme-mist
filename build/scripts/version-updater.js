@@ -9,8 +9,5 @@ module.exports.readVersion = function (contents) {
 
 module.exports.writeVersion = function (contents, version) {
   // 更新版本号，保持原有格式
-  return contents.replace(
-    /export const version = "[^"]+";/,
-    `export const version = "${version}";`
-  );
+  return contents.replace(/export const version = "[^"]+";/, `export const version = "${version}";`);
 };
