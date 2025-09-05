@@ -19,5 +19,5 @@ export const themeEnhanceConfig = {
     // defaultSpread: false, // 是否将主题色扩散到其他元素（根据主题色计算其他元素需要的颜色）
     // disableHelp: false, // 禁用帮助提示
     // disabledInMobile: false, // 是否在移动端禁用
-  }
+  },
 };

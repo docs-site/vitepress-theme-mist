@@ -29,7 +29,7 @@ export type {
   FileInfo as DocDocAnalysisFileInfo,
   FilePathInfo,
 } from "@docs-site/vitepress-plugin-doc-analysis";
-export type { DemoOption } from "@docs-site/vitepress-plugin-demo"
+export type { DemoOption } from "@docs-site/vitepress-plugin-demo";
 
 export interface MistConfig {
   useTheme?: boolean; // 是否开启主题
@@ -41,7 +41,7 @@ export interface MistConfig {
   clickEffect?: ClickEffect; // 点击特效配置
   codeBlock?: CodeBlock; // 代码块配置
   comment?: // 评论配置,toComment要用到，这里先添加
-    | CommentConfig<"">
+  | CommentConfig<"">
     | CommentConfig<"twikoo">
     | CommentConfig<"waline">
     | CommentConfig<"giscus">

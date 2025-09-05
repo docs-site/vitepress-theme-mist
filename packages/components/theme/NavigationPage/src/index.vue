@@ -172,6 +172,6 @@ onMounted(() => {
 
   <!-- 普通组件模式 -->
   <div v-else :class="ns.e('links')">
-    <NavigationPageLinkItem v-for="item in items" :noIcon="noIcon" v-bind="item" />
+    <NavigationPageLinkItem v-for="item in items" :key="item.title" :noIcon="noIcon" v-bind="item" />
   </div>
 </template>

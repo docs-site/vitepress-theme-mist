@@ -5,8 +5,8 @@ import FileContentLoader, { FileContentLoaderOptions } from "@docs-site/vitepres
 import { transformData, transformRaw } from "./post";
 import Catalogue from "@docs-site/vitepress-plugin-catalogue";
 import DocAnalysis from "@docs-site/vitepress-plugin-doc-analysis";
-import VitePluginVitePressDemo from "@docs-site/vitepress-plugin-demo"
-import VitePluginVitePressAutoNavSidebar from "@docs-site/vitepress-auto-nav-sidebar"
+import VitePluginVitePressDemo from "@docs-site/vitepress-plugin-demo";
+import VitePluginVitePressAutoNavSidebar from "@docs-site/vitepress-auto-nav-sidebar";
 import Permalink from "@docs-site/vitepress-plugin-permalink";
 
 export const registerPluginAndGet = (vitePlugins: Plugins = {}, mistTheme = true) => {
@@ -32,9 +32,9 @@ export const registerPluginAndGet = (vitePlugins: Plugins = {}, mistTheme = true
 const registerLoosePlugins = (vitePlugins: Plugins, ignoreDir: Record<string, any[]>) => {
   const plugins: any[] = [];
 
-  const { 
-    docAnalysis = true, 
-    docAnalysisOption = {}, 
+  const {
+    docAnalysis = true,
+    docAnalysisOption = {},
     demoOption = {},
     permalink = true,
     permalinkOption = {},
@@ -53,7 +53,7 @@ const registerLoosePlugins = (vitePlugins: Plugins, ignoreDir: Record<string, an
   if (permalink) {
     plugins.push(...Permalink(permalinkOption));
   }
-  
+
   return plugins;
 };
 
@@ -63,11 +63,7 @@ const registerLoosePlugins = (vitePlugins: Plugins, ignoreDir: Record<string, an
 export const registerTightPlugins = (vitePlugins: Plugins, ignoreDir: Record<string, any[]>) => {
   const plugins: any[] = [];
 
-  const { 
-    catalogueOption = {}, 
-    fileContentLoaderIgnore = [],
-    navSidebarOption = {},
-  } = vitePlugins || {};
+  const { catalogueOption = {}, fileContentLoaderIgnore = [], navSidebarOption = {} } = vitePlugins || {};
 
   // 目录页插件
   plugins.push(Catalogue(catalogueOption));
@@ -89,7 +85,6 @@ export const registerTightPlugins = (vitePlugins: Plugins, ignoreDir: Record<str
   plugins.push(FileContentLoader<MtContentData, PostData>(fileContentLoaderOptions));
 
   // 自动侧边栏插件
-  plugins.push(VitePluginVitePressAutoNavSidebar(navSidebarOption))
+  plugins.push(VitePluginVitePressAutoNavSidebar(navSidebarOption));
   return plugins;
 };
-

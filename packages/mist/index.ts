@@ -1,10 +1,6 @@
 import DefaultTheme from "vitepress/theme";
 
-import {
-  MtDemoCode,
-  MistConfigProvider,
-  MtLayout,
-} from "@mist/components";
+import { MtDemoCode, MistConfigProvider, MtLayout } from "@mist/components";
 
 import "../theme-chalk/src/index.scss";
 
@@ -21,7 +17,7 @@ export * from "@mist/components";
 export default {
   extends: DefaultTheme,
   Layout: MistConfigProvider(MtLayout),
-  enhanceApp({ app, siteData }) {
+  enhanceApp({ app }) {
     app.component("MtDemoCode", MtDemoCode);
   },
 } as DefaultThemeType & { extends: DefaultThemeType };

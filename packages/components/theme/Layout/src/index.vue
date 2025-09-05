@@ -140,7 +140,7 @@ const usedSlots = [
         <MtArticleAnalyze />
         <slot name="mist-article-analyze-after" />
       </template>
-      
+
       <template #doc-after>
         <slot name="doc-after" />
         <slot name="mist-comment-before" />

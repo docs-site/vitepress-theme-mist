@@ -16,5 +16,5 @@ export const FooterInfoConfig = {
     show: true, // 是否显示博客版权
     createYear: 2025, // 创建年份
     suffix: "苏木", // 后缀
-  }
+  },
 };

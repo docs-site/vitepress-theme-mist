@@ -11,4 +11,4 @@ export const articleAnalyzeConfig = {
     position: "after",
     className: "teleport",
   },
-}
+};

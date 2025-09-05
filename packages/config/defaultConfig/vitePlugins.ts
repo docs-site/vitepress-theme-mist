@@ -11,7 +11,7 @@ export const vitePluginsConfig = {
     navOption: {
       maxLevel: 2,
       debugPrint: false,
-      saveToFile: false
+      saveToFile: false,
     },
     sideBarOption: {
       type: "object",
@@ -20,6 +20,6 @@ export const vitePluginsConfig = {
       collapsed: true,
       debugPrint: false,
       saveToFile: false,
-    }
-  }
+    },
+  },
 };

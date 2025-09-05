@@ -13,7 +13,7 @@ import {
   FooterInfoConfig,
   themeEnhanceConfig,
   vitePluginsConfig,
-} from "./defaultConfig"
+} from "./defaultConfig";
 export type * from "./types";
 export { createRewrites } from "@docs-site/vitepress-plugin-permalink";
 
@@ -61,7 +61,7 @@ const defaultMistConfig: Required<MistConfig> = {
   },
   clickEffect: {
     enabled: false,
-    textArray: [ "富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善" ],
+    textArray: ["富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善"],
     fontSize: 16,
     random: false,
   },
@@ -135,13 +135,13 @@ const defaultMistConfig: Required<MistConfig> = {
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {
   // 获取用户的配置，进行逻辑处理
   const { vitePlugins, markdown = {}, ...MistThemeConfig } = config;
-  
+
   // 合并默认配置和用户配置的 vitePlugins
   const mergedVitePlugins = {
     ...defaultMistConfig.vitePlugins,
     ...vitePlugins,
   };
-  
+
   const plugins = registerPluginAndGet(mergedVitePlugins, MistThemeConfig.useTheme);
 
   // 合并默认配置和用户配置
@@ -151,11 +151,11 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
     articleShare: {
       ...defaultMistConfig.articleShare,
       ...MistThemeConfig.articleShare,
-    }
+    },
   };
 
   // if (!mergedConfig.useTheme) return {};
-  
+
   return {
     // ignoreDeadLinks 默认值修改为 true，当用户在 VitePress 手动改为 false 才为 false
     ignoreDeadLinks: true,

@@ -1,4 +1,4 @@
-<script setup lang="ts" name="Button">
+<script setup lang="ts" name="MtButton">
 import { computed, ref } from "vue";
 import { useNamespace } from "@mist/composables";
 import type { ButtonOption } from "./button";
@@ -13,7 +13,7 @@ const ns = useNamespace("button");
  * @brief 定义组件选项
  * @details 设置组件名称为"Button"
  */
-defineOptions({ name: "Button" });
+defineOptions({ name: "MtButton" });
 
 /**
  * @brief 定义组件props

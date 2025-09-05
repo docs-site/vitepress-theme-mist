@@ -43,7 +43,7 @@ import { onMounted, onUnmounted, useTemplateRef } from "vue";
  * // <div ref="myElement">要移动的内容</div>
  * // <div class="target-container"></div>
  */
-export function moveDomElements(refName: string, targetSelector = ".VPHero .text", clearTarget = true) {
+export function moveDomElements(refName: string, targetSelector = ".VPHero .text") {
   // 获取模板引用对应的 DOM 元素
   const elementRef = useTemplateRef<HTMLElement>(refName);
   // 创建占位注释节点，用于标记元素原始位置

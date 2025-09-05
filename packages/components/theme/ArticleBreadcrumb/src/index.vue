@@ -42,17 +42,17 @@ const breadcrumb = getMistConfigRef<BreadcrumbType>("breadcrumb", {
 const relativePathArr = computed(() => {
   const filePath = page.value.filePath;
   const permalink = frontmatter.value.permalink;
-  
+
   // 将文件路径按 "/" 分割成数组
   // 例如: "sdoc/01-开发/LV07-Vite插件.md" => [ "sdoc", "01-开发", "LV07-Vite插件.md" ]
   const splitFilePath = filePath.split("/") || [];
   const splitPermalink = permalink ? permalink.split("/") || [] : [];
-  
+
   return {
     filePath,
     splitFilePath,
     permalink,
-    splitPermalink
+    splitPermalink,
   };
 });
 
@@ -83,20 +83,20 @@ const isRewriteMode = computed(() => {
   if (!theme.value || !theme.value.catalogIndex || !theme.value.catalogIndex.arr) {
     return false;
   }
-  
+
   // 检查 catalogIndex.arr 是否是对象，并且有 create 属性等于 vitepress-plugin-permalink
-  if (typeof theme.value.catalogIndex.arr === 'object' &&
-      theme.value.catalogIndex.arr.create === 'vitepress-plugin-permalink') {
+  if (
+    typeof theme.value.catalogIndex.arr === "object" &&
+    theme.value.catalogIndex.arr.create === "vitepress-plugin-permalink"
+  ) {
     return true;
   }
-  
+
   // 如果是数组，检查其中是否有 create 等于 vitepress-plugin-permalink 的项
   if (Array.isArray(theme.value.catalogIndex.arr)) {
-    return theme.value.catalogIndex.arr.some((item: any) =>
-      item && item.create === 'vitepress-plugin-permalink'
-    );
+    return theme.value.catalogIndex.arr.some((item: any) => item && item.create === "vitepress-plugin-permalink");
   }
-  
+
   return false;
 });
 
@@ -108,7 +108,7 @@ const breadcrumbList = computed(() => {
   relativePathArrConst.forEach((item, index) => {
     // 去除「序号-」的前缀，并获取文件名，例如: "01-开发" => "guide"
     const fileName = item.replace(/^\d+\-/, "").split(".")?.[0] || "";
-  
+
     // 兼容国际化功能，如果配置多语言，在面包屑去掉多语言根目录名
     // 同时检查是否需要显示当前页面名称
     if (
@@ -124,8 +124,8 @@ const breadcrumbList = computed(() => {
         const pathSegments: string[] = [];
         // 遍历从路径开始到当前层级的所有片段。// 例如: 当item=01-开发 index=1 时，pathSegments = ["sdoc", "01-开发"]
         for (let i = 0; i <= index; i++) {
-          let segment = relativePathArrConst[i];// 这里是构建路径的，要保证完整路径
-          
+          let segment = relativePathArrConst[i]; // 这里是构建路径的，要保证完整路径
+
           // 如果是最后一级且看起来像文件（包含点号），则去除扩展名
           // 例如: "getting-started.md" => "getting-started"
           if (i === index && segment.includes(".")) {
@@ -142,17 +142,17 @@ const breadcrumbList = computed(() => {
             url += "/";
           }
         }
-        if(isRewriteMode.value && theme.value.catalogIndex?.map) {
+        if (isRewriteMode.value && theme.value.catalogIndex?.map) {
           // 在 rewrite 模式下，构建完整的 index.md 路径作为键
           // 注意：pathSegments 包含的是带序号的原始路径片段，需要构建完整的文件路径
-          const indexMdKey = pathSegments.join('/') + '/index.md';
-          
+          const indexMdKey = pathSegments.join("/") + "/index.md";
+
           // 在 catalogIndex.map 中查找对应的重写路径
           const rewrittenPath = theme.value.catalogIndex.map[indexMdKey];
-          
+
           if (rewrittenPath) {
             // 如果找到重写路径，使用重写后的路径作为 URL
-            url = rewrittenPath.replace(/\.md$/, '');
+            url = rewrittenPath.replace(/\.md$/, "");
           }
         }
       }
