@@ -39,10 +39,6 @@ const mockPostBasic = ref({
   },
   date: "2025-08-20",
 });
-
-// 模拟作用域
-const articleScope = "article";
-const postScope = "post";
 </script>
 
 <template>
