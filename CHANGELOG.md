@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.5...v1.2.0) (2025-09-08)
+
+### Bug Fixes
+
+- **theme:** 🐞 修复站点build时报错问题([#8](https://github.com/docs-site/vitepress-theme-mist/issues/8)) ([00da23b](https://github.com/docs-site/vitepress-theme-mist/commit/00da23b6885be3d256d40ad2a3cfd005a95007c7))
+
 ### [1.1.5](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.4...v1.1.5) (2025-09-08)
 
 ### Features
