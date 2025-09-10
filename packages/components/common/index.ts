@@ -5,6 +5,7 @@ export * from "./DataLoader";
 export * from "./BackTop";
 export * from "./LinkCard";
 export * from "./TransitionCollapse";
+export * from "./ImageViewer";
 export * from "./InputSlide";
 export * from "./Icon";
 export * from "./Button";
