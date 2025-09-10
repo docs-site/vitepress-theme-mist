@@ -11,6 +11,7 @@ import { logMistConfigMembers, logSlotInfo } from "./debugUtils";
 import { MtFooterGroup } from "@mist/components/theme/FooterGroup";
 import { MtFooterInfo } from "@mist/components/theme/FooterInfo";
 import { MtArticleShare } from "@mist/components/theme/ArticleShare";
+import { MtArticleImagePreview } from "@mist/components/theme/ArticleImagePreview";
 import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
 import { MtHomeUnderline } from "@mist/components/theme/HomeUnderline";
 import { MtNavigationPage } from "@mist/components/theme/NavigationPage";
@@ -138,6 +139,7 @@ const usedSlots = [
         <slot name="mist-article-analyze-before" />
         <MtCodeBlockToggle v-if="mistConfig.codeBlock.enabled" />
         <MtArticleAnalyze />
+        <MtArticleImagePreview />
         <slot name="mist-article-analyze-after" />
       </template>
 

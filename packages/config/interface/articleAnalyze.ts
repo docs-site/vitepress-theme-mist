@@ -1,3 +1,5 @@
+import type { ImageViewerProps } from "@mist/components/common/ImageViewer/src/imageViewer";
+
 export type ArticleInfoPosition = "post" | "article";
 
 export interface ArticleAnalyze {
@@ -71,4 +73,8 @@ export interface ArticleAnalyze {
      */
     className?: string;
   };
+  /**
+   * 文章页图片查看器配置
+   */
+  imageViewer?: Omit<ImageViewerProps, "urlList" | "initialIndex" | "infinite">;
 }
