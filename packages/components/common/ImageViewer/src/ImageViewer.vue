@@ -190,6 +190,36 @@ const handleMouseDown = (e: MouseEvent) => {
   e.preventDefault();
 };
 
+const handleTouchStart = (e: TouchEvent) => {
+  if (loading.value || !wrapper.value || !e.touches[0]) return;
+  transform.value.enableTransition = false;
+
+  const { offsetX, offsetY } = transform.value;
+  const startTouch = e.touches[0];
+  const startX = startTouch.clientX;
+  const startY = startTouch.clientY;
+
+  const touchMoveHandler = useDebounce((ev: TouchEvent) => {
+    if (!ev.touches[0]) return;
+    const touch = ev.touches[0];
+    transform.value = {
+      ...transform.value,
+      offsetX: offsetX + touch.clientX - startX,
+      offsetY: offsetY + touch.clientY - startY,
+    };
+  });
+
+  const removeTouchMoveHandler = () => {
+    document.removeEventListener("touchmove", touchMoveHandler);
+    document.removeEventListener("touchend", removeTouchMoveHandler);
+  };
+
+  document.addEventListener("touchmove", touchMoveHandler, { passive: false });
+  document.addEventListener("touchend", removeTouchMoveHandler);
+
+  e.preventDefault();
+};
+
 const reset = () => {
   transform.value = {
     scale: 1,
@@ -384,6 +414,7 @@ defineExpose({
               @load="handleImgLoad"
               @error="handleImgError"
               @mousedown="handleMouseDown"
+              @touchstart="handleTouchStart"
             />
           </div>
           <slot />
