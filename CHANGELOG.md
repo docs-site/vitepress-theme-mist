@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.5...v1.2.1) (2025-09-10)
+
+### Features
+
+- **theme:** 🚀 添加ArticleImagePreview组件 ([36713d4](https://github.com/docs-site/vitepress-theme-mist/commit/36713d4a2de8aa30e93203f6257049504d12f165))
+- **theme:** 🚀 添加ImageViewer组件 ([432d6ee](https://github.com/docs-site/vitepress-theme-mist/commit/432d6ee0fc21acf8834c1ac6f430398229750d62))
+
+### Bug Fixes
+
+- **theme:** 🐞 修复移动端图片预览无法拖动问题 ([1f1857f](https://github.com/docs-site/vitepress-theme-mist/commit/1f1857f1a50d13d08f6e30f1a05b9d3452357786))
+- **theme:** 🐞 修复站点build时报错问题([#8](https://github.com/docs-site/vitepress-theme-mist/issues/8)) ([00da23b](https://github.com/docs-site/vitepress-theme-mist/commit/00da23b6885be3d256d40ad2a3cfd005a95007c7))
+
+### Others
+
+- **release:** 1.2.0 [publish] ([a542e96](https://github.com/docs-site/vitepress-theme-mist/commit/a542e9634ec3c4eb200c932b5296c620ae8388ce))
+
+### Code Refactoring
+
+- **theme:** ♻️ 优化代码逻辑 ([ec2d02f](https://github.com/docs-site/vitepress-theme-mist/commit/ec2d02f15cbed55277155868a4e5101e0e0578cb))
+
 ## [1.2.0](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.5...v1.2.0) (2025-09-08)
 
 ### Bug Fixes
