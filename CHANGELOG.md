@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.5...v1.2.2) (2025-09-12)
+
+### Features
+
+- **plugins:** 🚀 添加@docs-site/vitepress-plugin-md-h1@1.0.0插件 ([0b953b6](https://github.com/docs-site/vitepress-theme-mist/commit/0b953b69c9a5695c472ac1736358bc2e43e85451))
+- **theme:** 🚀 添加ArchivesPage组件 ([9eed20b](https://github.com/docs-site/vitepress-theme-mist/commit/9eed20b5418972ca745edd63af2dca684ba8e57f))
+- **theme:** 🚀 添加ArticleImagePreview组件 ([36713d4](https://github.com/docs-site/vitepress-theme-mist/commit/36713d4a2de8aa30e93203f6257049504d12f165))
+- **theme:** 🚀 添加ArticleTitle组件 ([a124103](https://github.com/docs-site/vitepress-theme-mist/commit/a1241037a78dc9140c0ea9e6d7a0f2aa908e9519))
+- **theme:** 🚀 添加ImageViewer组件 ([432d6ee](https://github.com/docs-site/vitepress-theme-mist/commit/432d6ee0fc21acf8834c1ac6f430398229750d62))
+- **theme:** 🚀 主题添加@docs-site/vitepress-plugin-md-h1插件 ([340e057](https://github.com/docs-site/vitepress-theme-mist/commit/340e057a50f802177d53486f13cbb607d1db0000))
+
+### Bug Fixes
+
+- **theme:** 🐞 修复移动端图片预览无法拖动问题 ([1f1857f](https://github.com/docs-site/vitepress-theme-mist/commit/1f1857f1a50d13d08f6e30f1a05b9d3452357786))
+- **theme:** 🐞 修复站点build时报错问题([#8](https://github.com/docs-site/vitepress-theme-mist/issues/8)) ([00da23b](https://github.com/docs-site/vitepress-theme-mist/commit/00da23b6885be3d256d40ad2a3cfd005a95007c7))
+
+### Others
+
+- **release:** 1.2.0 [publish] ([a542e96](https://github.com/docs-site/vitepress-theme-mist/commit/a542e9634ec3c4eb200c932b5296c620ae8388ce))
+- **release:** 1.2.1 [publish] [deploy] ([6470151](https://github.com/docs-site/vitepress-theme-mist/commit/6470151c8987e49c7636ebe140c94221a6940940))
+
+### Docs
+
+- **site:** 📚 更新站点文档 ([7c2aada](https://github.com/docs-site/vitepress-theme-mist/commit/7c2aada62c4508398a1ae534e9e53aa691bcb15b))
+
+### Code Refactoring
+
+- **site:** ♻️ 更新工作区内site配置 ([4d8a652](https://github.com/docs-site/vitepress-theme-mist/commit/4d8a652fff0173ae0f6c01072c5c30e0311ca98b))
+- **theme:** ♻️ 全局注册MtTitleTag组件并在文档中应用 ([03a9fdb](https://github.com/docs-site/vitepress-theme-mist/commit/03a9fdb852dbd9ccc26ff5aa48c724c9e2abcfd5))
+- **theme:** ♻️ 为文档一级标题添加渐变色 ([6d17a32](https://github.com/docs-site/vitepress-theme-mist/commit/6d17a324cce6c4c6046477cf2eb93ec8bd1ad2d6))
+- **theme:** ♻️ 优化代码逻辑 ([ec2d02f](https://github.com/docs-site/vitepress-theme-mist/commit/ec2d02f15cbed55277155868a4e5101e0e0578cb))
+- **theme:** ♻️ 增加fileContentLoader忽略文件和目录 ([bd68f78](https://github.com/docs-site/vitepress-theme-mist/commit/bd68f781eb4442b04d8306aabce1228efff6a2dc))
+
 ### [1.2.1](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.5...v1.2.1) (2025-09-10)
 
 ### Features
