@@ -17,7 +17,16 @@ export const registerPluginAndGet = (vitePlugins: Plugins = {}, mistTheme = true
   const ignoreDir = {
     mdH1: ["@pages", ".scripts"],
     docAnalysis: ["@pages", /目录页/, ".scripts"],
-    fileContentLoader: ["**/components/**", "**/.vitepress/**", "**/public/**", "**/*目录页*/**", "**/.scripts/**"],
+    fileContentLoader: [
+      "**/components/**",
+      "**/.vitepress/**",
+      "**/public/**",
+      "**/*目录页*/**",
+      "**/.scripts/**",
+      "**/test/**",
+      "**/index.md",
+      "**/Examples/**",
+    ],
   };
 
   plugins.push(...registerLoosePlugins(vitePlugins, ignoreDir));
