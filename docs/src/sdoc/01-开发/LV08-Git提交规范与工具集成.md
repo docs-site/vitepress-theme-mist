@@ -19,8 +19,6 @@ tdoc:
   useduuid: f604fb585
 ---
 
-# Git 提交规范与工具集成
-
 在现代前端开发中，规范化的 Git 提交信息对于项目维护和版本管理至关重要。本文将详细介绍 husky、cz-git 和 @commitlint/cli 三个工具的使用方法，以及如何建立一套完整的 Git 提交规范体系。
 
 > 为方便后面演示，可以通过`npm init -y`命令初始化一个测试项目，初始化完成后使用`git init`命令创建版本库。
@@ -772,22 +770,22 @@ rules: {
 
 #### 4.4 常见规则参考
 
-| 规则名称               | 描述                   | 示例值                                                       |
-| ---------------------- | ---------------------- | ------------------------------------------------------------ |
-| `type-enum`            | 限制提交类型枚举值     | `["feat", "fix"]`                                            |
-| `type-case`            | 提交类型的大小写格式   | `"lower-case"`                                               |
-| `type-empty`           | 是否允许提交类型为空   | `never`                                                      |
-| `scope-case`           | 作用域的大小写格式     | `"lower-case"`                                               |
+| 规则名称               | 描述                   | 示例值                                                         |
+| ---------------------- | ---------------------- | -------------------------------------------------------------- |
+| `type-enum`            | 限制提交类型枚举值     | `["feat", "fix"]`                                              |
+| `type-case`            | 提交类型的大小写格式   | `"lower-case"`                                                 |
+| `type-empty`           | 是否允许提交类型为空   | `never`                                                        |
+| `scope-case`           | 作用域的大小写格式     | `"lower-case"`                                                 |
 | `subject-case`         | 提交主题的大小写格式   | `["sentence-case", "start-case", "pascal-case", "upper-case"]` |
-| `subject-empty`        | 是否允许提交主题为空   | `never`                                                      |
-| `subject-full-stop`    | 提交主题是否以句号结尾 | `"."`                                                        |
-| `subject-max-length`   | 提交主题最大长度       | `100`                                                        |
-| `subject-min-length`   | 提交主题最小长度       | `10`                                                         |
-| `body-leading-blank`   | 正文前是否需要空行     | `always`                                                     |
-| `body-max-line-length` | 正文每行最大长度       | `100`                                                        |
-| `body-empty`           | 是否允许正文为空       | `never`                                                      |
-| `footer-leading-blank` | 页脚前是否需要空行     | `always`                                                     |
-| `footer-empty`         | 是否允许页脚为空       | `never`                                                      |
+| `subject-empty`        | 是否允许提交主题为空   | `never`                                                        |
+| `subject-full-stop`    | 提交主题是否以句号结尾 | `"."`                                                          |
+| `subject-max-length`   | 提交主题最大长度       | `100`                                                          |
+| `subject-min-length`   | 提交主题最小长度       | `10`                                                           |
+| `body-leading-blank`   | 正文前是否需要空行     | `always`                                                       |
+| `body-max-line-length` | 正文每行最大长度       | `100`                                                          |
+| `body-empty`           | 是否允许正文为空       | `never`                                                        |
+| `footer-leading-blank` | 页脚前是否需要空行     | `always`                                                       |
+| `footer-empty`         | 是否允许页脚为空       | `never`                                                        |
 
 更多规则请参考 [commitlint 官方文档](https://commitlint.js.org/#/reference-rules)。
 
@@ -804,7 +802,7 @@ rules: {
 - **与 Husky 集成良好**：可以轻松地与 Husky 配合使用，在 pre-commit 钩子中运行
 - **支持修复功能**：可以自动修复发现的问题并重新添加到暂存区
 
->[LintStaged 中文网](https://lint-staged.nodejs.cn/)
+> [LintStaged 中文网](https://lint-staged.nodejs.cn/)
 
 ### 2. 安装与配置
 
@@ -894,6 +892,7 @@ npx husky add .husky/pre-commit "npm run lint:lint-staged"
 ```
 
 这样，每次执行 `git commit` 时都会自动运行 lint-staged 来检查暂存区的文件。
+
 #### 3.3 独立配置文件的执行方式
 
 当创建独立的 lint-staged 配置文件后，有几种方式来执行配置中的命令：
@@ -933,6 +932,7 @@ npx lint-staged -c .lintstagedrc.js
 ```
 
 在的项目中，已经有一个 `.husky/lintstagedrc.js` 配置文件，并且在 package.json 中应该有类似这样的配置：
+
 ```json
 "lint:lint-staged": "lint-staged -c .husky/lintstagedrc.js"
 ```
@@ -1221,4 +1221,3 @@ git push
 
 - pre-commit 阶段：运行 lint-staged 对暂存文件进行代码检查和格式化
 - commit-msg 阶段：使用 commitlint 验证提交信息是否符合规范
-

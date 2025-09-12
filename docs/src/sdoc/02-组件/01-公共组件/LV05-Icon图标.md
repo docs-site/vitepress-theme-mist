@@ -40,8 +40,6 @@ const svg = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" 
 
 <!-- more-->
 
-# Icon 图标
-
 `MtIcon` 是一个图标组件，支持多种图标类型，包括 Iconify 在线图标、SVG 图标、Font 图标、图片等。
 
 ## 基本用法
@@ -127,17 +125,17 @@ const svg = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" 
 
 ## 组件属性
 
-| 属性名 | 类型 | 默认值 | 说明 |
-|--------|------|--------|------|
-| icon | string \| Object \| Component \| IconifyIcon | - | 图标内容，支持多种格式 |
-| iconType | "svg" \| "unicode" \| "iconfont" \| "symbol" \| "img" \| "component" \| "iconifyOffline" \| "iconifyOnline" | - | 图标类型 |
-| size | string \| number | 'inherit' | 图标大小 |
-| color | string | 'inherit' | 图标颜色 |
-| hover | boolean | false | 是否启用悬停效果 |
-| hoverColor | string | 'var(--tk-theme-color)' | 悬停时图标颜色 |
-| imgAlt | string | - | 图片标签的 alt 属性（iconType 为 img 时生效） |
-| pointer | boolean | false | 是否使用鼠标手形 |
-| style | Record<string, any> | - | 自定义图标样式 |
+| 属性名     | 类型                                                                                                        | 默认值                  | 说明                                          |
+| ---------- | ----------------------------------------------------------------------------------------------------------- | ----------------------- | --------------------------------------------- |
+| icon       | string \| Object \| Component \| IconifyIcon                                                                | -                       | 图标内容，支持多种格式                        |
+| iconType   | "svg" \| "unicode" \| "iconfont" \| "symbol" \| "img" \| "component" \| "iconifyOffline" \| "iconifyOnline" | -                       | 图标类型                                      |
+| size       | string \| number                                                                                            | 'inherit'               | 图标大小                                      |
+| color      | string                                                                                                      | 'inherit'               | 图标颜色                                      |
+| hover      | boolean                                                                                                     | false                   | 是否启用悬停效果                              |
+| hoverColor | string                                                                                                      | 'var(--tk-theme-color)' | 悬停时图标颜色                                |
+| imgAlt     | string                                                                                                      | -                       | 图片标签的 alt 属性（iconType 为 img 时生效） |
+| pointer    | boolean                                                                                                     | false                   | 是否使用鼠标手形                              |
+| style      | Record<string, any>                                                                                         | -                       | 自定义图标样式                                |
 
 ## 图标类型自动识别
 
@@ -184,7 +182,6 @@ import { gitee, email, WhatsApp, telegram, github, bilibili, moblieQQ, music } f
   <MtIcon :icon="fullScreenOneIcon" icon-type="svg" />
 </div>
 
-
 ## 注意事项
 
 （1）使用 iconfont 图标时，需要先引入对应的 CSS 文件
@@ -208,7 +205,7 @@ import { gitee, email, WhatsApp, telegram, github, bilibili, moblieQQ, music } f
   7  |  export { WhatsApp, bilibili, email, gitee, github, moblieQQ, music, telegram } from './components/common/Icon/src/SocialIcons.mjs';
   8  |  export { addCollection as addIcons } from '@iconify/vue';
      |                                             ^
-  9  |  
+  9  |
   10 |  var index = {
 ```
 
@@ -219,4 +216,3 @@ npm i -D @iconify/vue
 ```
 
 但是这样还是不行，需要在`../vitepress-theme-mist/dist/vitepress-theme-mist/`这个目录中安装才行。
-

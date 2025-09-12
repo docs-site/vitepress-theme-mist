@@ -19,8 +19,6 @@ tdoc:
   useduuid: 7a69ead28
 ---
 
-# vitepress-plugin-file-content-loader
-
 ## 一、概述
 
 `vitepress-plugin-file-content-loader` 是 [Teek](https://github.com/sumu-blog/vitepress-theme-teek) 主题生态系统中的一个重要插件，专门用于在 VitePress 项目构建时扫描和处理指定的文件内容。该插件将 VitePress 官方的[构建时数据加载](https://vitepress.dev/zh/guide/data-loading)功能封装成独立的插件形式，使开发者能够更便捷地获取和处理项目中的 Markdown 文件内容。
@@ -487,4 +485,3 @@ npm run dev
 4. **易用性**：简洁的 API 设计和详细的文档说明
 
 在未来的发展中，该插件还可以进一步优化，例如支持更多的文件格式、提供更丰富的数据处理选项等。但就目前而言，它已经能够很好地满足大部分项目的需求，是构建内容驱动型网站的重要工具。
-

@@ -1,5 +1,5 @@
 ---
-title: LV01-pnpm工作区
+title: LV01-pnpm工作区 <Badge type="tip" text="PNPM" />
 date: 2025-09-03 19:30:53
 icon: famicons:logo-markdown
 permalink: /sdoc/develop/126b07e425dd16cde8cddce7
@@ -68,12 +68,12 @@ pnpm 内置了对单一存储库（也称为多包存储库、多项目存储库
 
 ```json
 {
-	"dependencies": {
-		"foo": "workspace:*",
-		"bar": "workspace:~",
-		"qar": "workspace:^",
-		"zoo": "workspace:^1.5.0"
-	}
+  "dependencies": {
+    "foo": "workspace:*",
+    "bar": "workspace:~",
+    "qar": "workspace:^",
+    "zoo": "workspace:^1.5.0"
+  }
 }
 ```
 
@@ -81,12 +81,12 @@ pnpm 内置了对单一存储库（也称为多包存储库、多项目存储库
 
 ```json
 {
-	"dependencies": {
-		"foo": "1.5.0",
-		"bar": "~1.5.0",
-		"qar": "^1.5.0",
-		"zoo": "^1.5.0"
-	}
+  "dependencies": {
+    "foo": "1.5.0",
+    "bar": "~1.5.0",
+    "qar": "^1.5.0",
+    "zoo": "^1.5.0"
+  }
 }
 ```
 
@@ -120,13 +120,13 @@ pnpm 内置了对单一存储库（也称为多包存储库、多项目存储库
 ```yaml
 packages:
   # specify a package in a direct subdir of the root
-  - 'my-app'
+  - "my-app"
   # all packages in direct subdirs of packages/
-  - 'packages/*'
+  - "packages/*"
   # all packages in subdirs of components/
-  - 'components/**'
+  - "components/**"
   # exclude packages that are inside test directories
-  - '!**/test/**'
+  - "!**/test/**"
 ```
 
 即使使用自定义位置通配符，根包也始终包含在内。
@@ -135,7 +135,7 @@ packages:
 
 ```yaml
 packages:
-  - 'packages/*'
+  - "packages/*"
 
 catalog:
   chalk: ^4.1.2
@@ -280,7 +280,7 @@ catalogs:
 {
   "name": "@example/components",
   "dependencies": {
-    "react": "catalog:react18",
+    "react": "catalog:react18"
   }
 }
 ```
@@ -291,7 +291,7 @@ catalogs:
 {
   "name": "@example/components",
   "dependencies": {
-    "react": "^18.3.1",
+    "react": "^18.3.1"
   }
 }
 ```
@@ -312,8 +312,6 @@ catalogs:
 - strict - 仅允许目录中的依赖版本。添加目录版本范围之外的依赖将导致错误。
 - prefer - 优先使用目录版本，但如果未找到兼容版本，则会回退到直接依赖。
 - 手动（默认） - 不会自动将依赖添加到目录中。
-
-
 
 ## 五、pnpm基本命令
 
@@ -832,5 +830,3 @@ pnpm remove @my-workspace/sub-package -O -w
 （3）然后运行 `pnpm install` 来更新依赖
 
 使用 `-w` 或 `--workspace-root` 标志可以指定在根工作区中安装依赖，而不是在某个特定的子包中。
-
-

@@ -21,8 +21,6 @@ tdoc:
 
 <!-- more -->
 
-# 目录页的rewrite模式
-
 ## 一、catalogue插件导入
 
 在`vitepress-plugin-catalogue/src/index.ts`这样导入：

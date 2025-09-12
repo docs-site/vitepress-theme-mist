@@ -19,8 +19,6 @@ tdoc:
   useduuid: 9d884d864
 ---
 
-# vitepress-plugin-catalogue 插件深度解析
-
 ## 一、概述
 
 `vitepress-plugin-catalogue` 是 [Teek](https://github.com/sumu-blog/vitepress-theme-teek) 主题生态系统中的一个重要插件，专门用于在 VitePress 项目构建时扫描 Markdown 文档并生成目录信息。该插件能够自动识别标记为目录页的文档，并为其生成结构化的目录数据，便于开发者创建美观实用的目录页面。
@@ -701,4 +699,3 @@ npm run dev
 4. **易于集成**：生成的数据结构清晰，便于在 Vue 组件中使用
 
 在未来的发展中，该插件还可以进一步优化，例如支持更多的自定义选项、提供更丰富的数据处理功能等。但就目前而言，它已经能够很好地满足大部分项目的需求，是构建结构化文档网站的重要工具。
-

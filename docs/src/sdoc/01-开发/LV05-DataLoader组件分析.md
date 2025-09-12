@@ -21,8 +21,6 @@ tdoc:
 
 # DataLoader 组件导入过程分析
 
-## 概述
-
 本文档详细分析了 DataLoader 组件在项目中的目录结构、各文件作用以及从组件实现到最终在 `@docs-site/vitepress-theme-mist` 主题中注册的完整导入链路。
 
 ## 1. 目录结构分析
@@ -101,18 +99,18 @@ export * from "./src/instance";
 
 ```vue
 <script setup lang="ts" name="DataLoader">
-import { useData } from 'vitepress'
+import { useData } from "vitepress";
 
-const { site, page } = useData()
-const siteData = site.value
-const pageData = page.value
+const { site, page } = useData();
+const siteData = site.value;
+const pageData = page.value;
 </script>
 
 <template>
   <div class="mt-data-loader">
     <p>页面数据:</p>
     <pre class="mt-data-loader-pre">{{ JSON.stringify(pageData, null, 2) }}</pre>
-    
+
     <p>站点数据:</p>
     <pre class="mt-data-loader-pre">{{ JSON.stringify(siteData, null, 2) }}</pre>
   </div>
@@ -125,7 +123,7 @@ const pageData = page.value
 
 ```typescript
 export interface DataLoaderOptions {
-  name?: string;         // 数据加载器名称
+  name?: string; // 数据加载器名称
 }
 ```
 
@@ -223,7 +221,7 @@ export * from "./common";
 
 ```typescript
 import DataLoader from "./src/DataLoader.vue";
-export { DataLoader as MtDataLoader };  // 👈 关键：别名导出
+export { DataLoader as MtDataLoader }; // 👈 关键：别名导出
 export default DataLoader;
 
 export type { DataLoaderOptions as MtDataLoaderOptions } from "./src/DataLoader";
@@ -234,18 +232,18 @@ export * from "./src/instance";
 
 ```typescript
 // 导入语句：
-import { MtDataLoader } from "@mist/components"
+import { MtDataLoader } from "@mist/components";
 
 // 解析流程：
-import { MtDataLoader } from "@mist/components" // packages/mist/index.ts
+import { MtDataLoader } from "@mist/components"; // packages/mist/index.ts
 //                  ▼
-export * from "./common"  // packages/components/index.ts
+export * from "./common"; // packages/components/index.ts
 //                  ▼
-export * from "./DataLoader" // packages/components/common/index.ts
-//                  ▼    
-export { DataLoader as MtDataLoader }
+export * from "./DataLoader"; // packages/components/common/index.ts
+//                  ▼
+export { DataLoader as MtDataLoader };
 //                  ▼       // packages/components/common/DataLoader/index.ts
-DataLoader.vue (实际组件实现)  // packages/components/common/DataLoader/src/
+DataLoader.vue(实际组件实现); // packages/components/common/DataLoader/src/
 ```
 
 ## 3. 组件注册机制
@@ -262,15 +260,15 @@ import { MtDataLoader } from "@mist/components";
 export default {
   // 继承 VitePress 的默认主题
   extends: DefaultTheme,
-  
+
   // 使用默认主题的布局组件
   Layout: DefaultTheme.Layout,
-  
+
   // 增强 App 配置的函数
   enhanceApp({ app, siteData }) {
     // 打印日志表明主题增强函数被调用
-    console.log('vitepress-theme-mist enhanceApp called!');
-    
+    console.log("vitepress-theme-mist enhanceApp called!");
+
     // 将 MtDataLoader 组件注册为全局组件
     // 第一个参数是组件在模板中的名称
     // 第二个参数是组件的实际实现
@@ -292,11 +290,11 @@ export default {
 
 也可以在 Markdown 文档中使用：
 
-````markdown
+```markdown
 ## 效果
 
 <MtDataLoader />
-````
+```
 
 或者通过编程方式使用其提供的类型：
 
@@ -306,7 +304,7 @@ import { MtDataLoaderOptions } from "@mist/components";
 
 // 在组件中使用类型
 const options: MtDataLoaderOptions = {
-  name: "MyDataLoader"
+  name: "MyDataLoader",
 };
 ```
 
@@ -317,7 +315,7 @@ const options: MtDataLoaderOptions = {
 import type { DataLoaderInstance } from "@mist/components";
 
 // 在模板引用中使用类型
-import { ref } from 'vue';
+import { ref } from "vue";
 const dataLoaderRef = ref<DataLoaderInstance>();
 
 // 访问组件实例的数据
@@ -330,10 +328,10 @@ const dataLoaderRef = ref<DataLoaderInstance>();
 DataLoader 组件通过标准的 ES6 模块重新导出机制，实现了从组件实现到全局注册的完整链路。其设计遵循了现代前端项目的最佳实践，在保证功能完整性的同时，也考虑到了开发者的使用便利性和项目的可维护性。
 
 通过对各个 TypeScript 文件导出声明的详细解析，我们可以看到该项目充分利用了 ES6 模块系统的各种特性：
+
 - 命名导出和默认导出的结合使用
 - 类型导出提供完整的 TypeScript 支持
 - 重新导出实现模块间的解耦和封装
 - 别名导出解决命名空间管理问题
 
 这种设计不仅使组件易于使用，还提供了良好的类型安全性和开发体验。
-

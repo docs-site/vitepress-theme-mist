@@ -19,8 +19,6 @@ tdoc:
   useduuid: 17fa41782
 ---
 
-# Changesets 自动生成CHANGELOG.md
-
 ## 一、Changesets是什么
 
 ### 1. 简介
@@ -888,4 +886,3 @@ jobs:
 ```
 
 通过合理的配置和使用，Changesets 可以成为 monorepo 项目版本管理的强大工具，提供精确的版本控制和灵活的发布流程。
-

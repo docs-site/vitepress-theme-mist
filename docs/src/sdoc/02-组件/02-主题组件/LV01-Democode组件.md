@@ -19,8 +19,6 @@ tdoc:
   useduuid: 7de3c8301
 ---
 
-# Demo 插件与 MtDemoCode 组件分析
-
 ## 一、概述
 
 本文档深入分析 VitePress 主题中的 `demo` 插件 (`packages/markdown/plugins/demo.ts`) 和 `MtDemoCode` 组件 (`packages/components/theme/DemoCode/src/index.vue`)。这两个组件协同工作，实现在 Markdown 文档中嵌入可交互的 Vue 组件示例，并提供源代码查看、复制等功能。
@@ -70,40 +68,39 @@ validate(params) {
 
 （1）**提取描述信息**：
 
-   ```ts
+```ts
 const desc = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
 let description = desc && desc.length > 1 ? desc[1].trim() : "";
 const effect = description.startsWith("effect");
 if (effect) description = description.replace("effect", "").trim();
-   ```
+```
 
 （2）**获取源文件路径**：
 
-   ```ts
+```ts
 const sourceFileToken = tokens[idx + 2];
 const yamlToken = tokens[idx + 1];
 const { sourceFile, effectPath } = getDemoFile(sourceFileToken, yamlToken);
-   ```
+```
 
 （3）**读取源文件内容**：
 
-   ```ts
+```ts
 let source = "";
 if (sourceFile) source = readFileSync(resolve(demoPath, sourceFile), "utf-8");
 if (!source) throw new Error(`Incorrect source file path: ${sourceFile}`);
-   ```
+```
 
 （4）**生成 MtDemoCode 组件调用**：
+
 ```ts
 if (tokens[idx].nesting === 1 /* 标签打开 */) {
   return `<TkDemoCode effect="${effect}" source="${encodeURIComponent(
-      md.render(`\`\`\` vue\n${source}\`\`\``)
+    md.render(`\`\`\` vue\n${source}\`\`\``)
   )}" path="${posix.join(path, effectPath)}" raw-source="${encodeURIComponent(
-      source
+    source
   )}" description="${encodeURIComponent(md.render(description))}" options="${encodeURIComponent(JSON.stringify(option))}">`;
-} 
-else 
-  return "</TkDemoCode>";
+} else return "</TkDemoCode>";
 ```
 
 需要注意的是，demo 插件是一个相对独立的插件，它不依赖于 `packages/markdown` 目录中的其他插件或辅助函数。它直接使用了以下外部依赖：
@@ -181,12 +178,12 @@ h1 {
 
 ```html
 <MtDemoCode
-	effect="false"
-	source="%3Cpre%3E%3Ccode%3E%3Cspan%20class%3D%22token%20tag%22%3E%26lt%3Btemplate%26gt%3B%3C%2Fspan%3E%0A%20%20%26lt%3Bdiv%20class%3D%22hello-world%22%26gt%3B%0A%20%20%20%20%26lt%3Bh1%26gt%3BHello%2C%20World!%26lt%3B%2Fh1%26gt%3B%0A%20%20%20%20%26lt%3Bp%26gt%3BThis%20is%20a%20simple%20demo%20component.%26lt%3B%2Fp%26gt%3B%0A%20%20%26lt%3B%2Fdiv%26gt%3B%0A%26lt%3B%2Ftemplate%26gt%3B%0A%0A%26lt%3Bscript%20setup%20lang%3D%22ts%22%26gt%3B%0A%2F%2F%20%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%20Vue%203%20%E7%BB%84%E4%BB%B6%E7%A4%BA%E4%BE%8B%0A%26lt%3B%2Fscript%26gt%3B%0A%0A%26lt%3Bstyle%20scoped%26gt%3B%0A.hello-world%20%7B%0A%20%20padding%3A%2020px%3B%0A%20%20border%3A%201px%20solid%20%23ccc%3B%0A%20%20border-radius%3A%204px%3B%0A%7D%0A%0Ah1%20%7B%0A%20%20color%3A%20%2342b983%3B%0A%7D%0A%26lt%3B%2Fstyle%26gt%3B%3C%2Fcode%3E%3C%2Fpre%3E%0A"
-	path="examples/HelloWorld.vue"
-	raw-source="%3Ctemplate%3E%0A%20%20%3Cdiv%20class%3D%22hello-world%22%3E%0A%20%20%20%20%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E%0A%20%20%20%20%3Cp%3EThis%20is%20a%20simple%20demo%20component.%3C%2Fp%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Ftemplate%3E%0A%0A%3Cscript%20setup%20lang%3D%22ts%22%3E%0A%2F%2F%20%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%20Vue%203%20%E7%BB%84%E4%BB%B6%E7%A4%BA%E4%BE%8B%0A%3C%2Fscript%3E%0A%0A%3Cstyle%20scoped%3E%0A.hello-world%20%7B%0A%20%20padding%3A%2020px%3B%0A%20%20border%3A%201px%20solid%20%23ccc%3B%0A%20%20border-radius%3A%204px%3B%0A%7D%0A%0Ah1%20%7B%0A%20%20color%3A%20%2342b983%3B%0A%7D%0A%3C%2Fstyle%3E"
-	description="%3Cp%3E%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%20HelloWorld%20%E7%A4%BA%E4%BE%8B%3C%2Fp%3E%0A"
-	options="%7B%7D"
+  effect="false"
+  source="%3Cpre%3E%3Ccode%3E%3Cspan%20class%3D%22token%20tag%22%3E%26lt%3Btemplate%26gt%3B%3C%2Fspan%3E%0A%20%20%26lt%3Bdiv%20class%3D%22hello-world%22%26gt%3B%0A%20%20%20%20%26lt%3Bh1%26gt%3BHello%2C%20World!%26lt%3B%2Fh1%26gt%3B%0A%20%20%20%20%26lt%3Bp%26gt%3BThis%20is%20a%20simple%20demo%20component.%26lt%3B%2Fp%26gt%3B%0A%20%20%26lt%3B%2Fdiv%26gt%3B%0A%26lt%3B%2Ftemplate%26gt%3B%0A%0A%26lt%3Bscript%20setup%20lang%3D%22ts%22%26gt%3B%0A%2F%2F%20%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%20Vue%203%20%E7%BB%84%E4%BB%B6%E7%A4%BA%E4%BE%8B%0A%26lt%3B%2Fscript%26gt%3B%0A%0A%26lt%3Bstyle%20scoped%26gt%3B%0A.hello-world%20%7B%0A%20%20padding%3A%2020px%3B%0A%20%20border%3A%201px%20solid%20%23ccc%3B%0A%20%20border-radius%3A%204px%3B%0A%7D%0A%0Ah1%20%7B%0A%20%20color%3A%20%2342b983%3B%0A%7D%0A%26lt%3B%2Fstyle%26gt%3B%3C%2Fcode%3E%3C%2Fpre%3E%0A"
+  path="examples/HelloWorld.vue"
+  raw-source="%3Ctemplate%3E%0A%20%20%3Cdiv%20class%3D%22hello-world%22%3E%0A%20%20%20%20%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E%0A%20%20%20%20%3Cp%3EThis%20is%20a%20simple%20demo%20component.%3C%2Fp%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Ftemplate%3E%0A%0A%3Cscript%20setup%20lang%3D%22ts%22%3E%0A%2F%2F%20%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%20Vue%203%20%E7%BB%84%E4%BB%B6%E7%A4%BA%E4%BE%8B%0A%3C%2Fscript%3E%0A%0A%3Cstyle%20scoped%3E%0A.hello-world%20%7B%0A%20%20padding%3A%2020px%3B%0A%20%20border%3A%201px%20solid%20%23ccc%3B%0A%20%20border-radius%3A%204px%3B%0A%7D%0A%0Ah1%20%7B%0A%20%20color%3A%20%2342b983%3B%0A%7D%0A%3C%2Fstyle%3E"
+  description="%3Cp%3E%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%20HelloWorld%20%E7%A4%BA%E4%BE%8B%3C%2Fp%3E%0A"
+  options="%7B%7D"
 ></MtDemoCode>
 ```
 
@@ -329,8 +326,6 @@ packages/
 HelloWorld
 :::
 
-
-
 - 只显示效果
 
 ::: demo effect
@@ -362,4 +357,3 @@ HelloWorld
 `demo` 插件和 `MtDemoCode` 组件构成了一个完整的解决方案，使得开发者能够在 Markdown 文档中轻松地插入交互式的 Vue 组件示例。这种设计不仅提高了文档的可读性和实用性，还增强了用户体验，使读者能够直接查看和尝试代码效果。
 
 通过合理的文件组织和样式管理，该功能模块具有良好的可维护性和扩展性。
-

@@ -19,8 +19,6 @@ tdoc:
   useduuid: e67e63568
 ---
 
-# Standard-Version 自动生成CHANGELOG.md
-
 ## 一、Standard-Version是什么
 
 ### 1. 简介
@@ -133,7 +131,7 @@ npm i -D standard-version
 
 ##### 2.3.2 skip
 
->[standard-version/README.md at master · conventional-changelog/standard-version · GitHub](https://github.com/conventional-changelog/standard-version/blob/master/README.md#skipping-lifecycle-steps)
+> [standard-version/README.md at master · conventional-changelog/standard-version · GitHub](https://github.com/conventional-changelog/standard-version/blob/master/README.md#skipping-lifecycle-steps)
 
 我们可以跳过任何生命周期步骤（' bump ', ' changelog ', ' commit ', ' tag '），通过在package.json中添加以下内容：
 
@@ -154,10 +152,9 @@ npm i -D standard-version
   //...
   "skip": {
     "tag": true
-  },
+  }
   //...
 }
-
 ```
 
 像这里，就配置了跳过打tag的步骤，因为我在GithubAction中发布时会自动打tag并创建release，这个时候本地打了tag的话就会冲突了。
@@ -177,6 +174,7 @@ Standard-Version 支持自定义配置来处理非标准的版本文件。通过
 Standard-Version 的 `bumpFiles` 配置用于指定需要更新版本号的文件。默认情况下，它只能处理 JSON 格式的文件（如 `package.json`），但通过自定义 `updater`，我们可以扩展其功能来处理任意格式的文件。
 
 （1）创建自定义 updater：创建一个 JavaScript 模块，实现 `readVersion` 和 `writeVersion` 两个方法
+
 - `readVersion(contents)`：从文件内容中解析出版本号
 - `writeVersion(contents, version)`：将新版本号写入文件内容
 
@@ -202,10 +200,7 @@ module.exports.readVersion = function (contents) {
 
 module.exports.writeVersion = function (contents, version) {
   // 更新版本号，保持原有格式
-  return contents.replace(
-    /export const version = "[^"]+";/,
-    `export const version = "${version}";`
-  );
+  return contents.replace(/export const version = "[^"]+";/, `export const version = "${version}";`);
 };
 ```
 
@@ -237,8 +232,6 @@ module.exports.writeVersion = function (contents, version) {
 ```json
 
 ```
-
-
 
 #### 2.4 GitHub 链接配置
 
@@ -578,4 +571,3 @@ All notable changes to this project will be documented in this file. See [standa
 （2）检查生成的 CHANGELOG.md 文件内容
 
 （3）验证 Git 标签是否正确创建
-
