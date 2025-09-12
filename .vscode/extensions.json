@@ -1,6 +1,8 @@
 {
-	"recommendations": [
-		"editorconfig.editorconfig",
-		"ms-vs-extensions.vssm-tool"
-	]
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "ms-vs-extensions.vssm-tool",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint"
+  ]
 }
