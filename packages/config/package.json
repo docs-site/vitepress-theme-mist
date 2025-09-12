@@ -18,6 +18,7 @@
     "@docs-site/vitepress-plugin-demo": "workspace:*",
     "@docs-site/vitepress-plugin-doc-analysis": "workspace:*",
     "@docs-site/vitepress-plugin-file-content-loader": "workspace:*",
+    "@docs-site/vitepress-plugin-md-h1": "workspace:*",
     "@docs-site/vitepress-plugin-permalink": "workspace:*",
     "gray-matter": "catalog:",
     "vitepress": "catalog:"

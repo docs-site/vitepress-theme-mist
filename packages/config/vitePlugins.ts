@@ -8,12 +8,14 @@ import DocAnalysis from "@docs-site/vitepress-plugin-doc-analysis";
 import VitePluginVitePressDemo from "@docs-site/vitepress-plugin-demo";
 import VitePluginVitePressAutoNavSidebar from "@docs-site/vitepress-auto-nav-sidebar";
 import Permalink from "@docs-site/vitepress-plugin-permalink";
+import MdH1 from "@docs-site/vitepress-plugin-md-h1";
 
 export const registerPluginAndGet = (vitePlugins: Plugins = {}, mistTheme = true) => {
   const plugins: any[] = [];
 
   // 定义各插件扫描时忽略的目录
   const ignoreDir = {
+    mdH1: ["@pages", ".scripts"],
     docAnalysis: ["@pages", /目录页/, ".scripts"],
     fileContentLoader: ["**/components/**", "**/.vitepress/**", "**/public/**", "**/*目录页*/**", "**/.scripts/**"],
   };
@@ -38,6 +40,8 @@ const registerLoosePlugins = (vitePlugins: Plugins, ignoreDir: Record<string, an
     demoOption = {},
     permalink = true,
     permalinkOption = {},
+    mdH1 = true,
+    mdH1Option = {},
   } = vitePlugins || {};
 
   // 文档内容分析插件
@@ -53,7 +57,22 @@ const registerLoosePlugins = (vitePlugins: Plugins, ignoreDir: Record<string, an
   if (permalink) {
     plugins.push(...Permalink(permalinkOption));
   }
+  // 自动给 MD 添加一级标题插件
+  if (mdH1) {
+    const selfBeforeInject = mdH1Option.beforeInject;
+    mdH1Option.beforeInject = (frontmatter, id, title) => {
+      if (["cataloguePage", "MtCataloguePage"].includes(frontmatter.layout) || frontmatter.catalogue) return false;
+      if (["archivesPage", "MtArchivesPage"].includes(frontmatter.layout) || frontmatter.archivesPage) return false;
+      if (frontmatter.titleTag) {
+        return `${title} <MtTitleTag size="large">${frontmatter.titleTag}</MtTitleTag>`;
+      }
 
+      return selfBeforeInject?.(frontmatter, id, title);
+    };
+    mdH1Option.ignoreList = [...(mdH1Option?.ignoreList || []), ...ignoreDir.mdH1];
+
+    plugins.push(MdH1(mdH1Option));
+  }
   return plugins;
 };
 
