@@ -2,7 +2,7 @@
  * @file ConfigProvider 模块
  * @brief 提供主题配置管理功能，用于创建和配置布局组件。
  */
-import type { MistConfig } from "@mist/config";
+import type { WindowTransition, MistConfig } from "@mist/config";
 import type { PostData } from "@mist/config/post/types";
 import { emptyPost } from "@mist/config/post/helper";
 import type { Component, Ref, InjectionKey } from "vue";
@@ -148,4 +148,16 @@ export const usePosts = (): Ref<PostData> => {
 
   // 兼容国际化功能，先从多语言下获取 posts 数据，获取不到说明没有使用多语言功能，则获取所有 posts 数据。因为多语言可以随时切换，因此使用 computed
   return computed(() => posts.locales?.[localeIndex.value] || posts);
+};
+
+export const useWindowTransitionConfig = (condition?: (windowTransition: WindowTransition) => boolean | undefined) => {
+  const { getMistConfigRef } = useMistConfig();
+  const windowTransitionConfig = getMistConfigRef<WindowTransition>("windowTransition", true);
+
+  return computed(() => {
+    const windowTransition = windowTransitionConfig.value;
+    if (windowTransition === undefined) return true;
+
+    return isObject(windowTransition) ? (condition?.(windowTransition) ?? true) : windowTransition !== false;
+  });
 };

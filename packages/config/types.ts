@@ -16,6 +16,7 @@ import type {
   ThemeEnhance,
   ToComment,
   Social,
+  WindowTransition,
 } from "./interface";
 
 export type * from "./interface";
@@ -58,5 +59,6 @@ export interface MistConfig {
   themeEnhance?: ThemeEnhance; // 主题增强配置
   toComment?: ToComment; // 滚动到评论区配置
   vitePlugins?: Plugins; // 内置 Vite 插件配置
+  windowTransition?: boolean | WindowTransition; // 是否全局启用视图渐入过渡效果
   // ...
 }

@@ -15,6 +15,7 @@ import { MtArticleImagePreview } from "@mist/components/theme/ArticleImagePrevie
 import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
 import { MtHomeUnderline } from "@mist/components/theme/HomeUnderline";
 import { MtNavigationPage } from "@mist/components/theme/NavigationPage";
+import { MtArchivesPage } from "@mist/components/theme/ArchivesPage";
 import { MtCataloguePage } from "@mist/components/theme/CataloguePage";
 import { MtArticleAnalyze } from "@mist/components/theme/ArticleAnalyze";
 import { MtCodeBlockToggle } from "@mist/components/theme/CodeBlockToggle";
@@ -27,7 +28,7 @@ import { MtClickEffect } from "@mist/components/common/ClickEffect";
 const { Layout } = DefaultTheme;
 const ns = useNamespace("layout");
 const { getMistConfigRef } = useMistConfig();
-const { isHomePage, isNavigation, isCataloguePage } = usePageState();
+const { isHomePage, isArchivesPage, isNavigation, isCataloguePage } = usePageState();
 const { frontmatter } = useData();
 // useSlots() 只返回直接传递的插槽(也就是.vitepress/theme/components/MistLayoutProvider.vue)传递过来的，
 // 而 $slots 包含所有可用的插槽。
@@ -121,6 +122,11 @@ const usedSlots = [
       <template #page-top>
         <slot name="page-top" />
         <slot name="mist-page-top-before" />
+        <MtArchivesPage v-if="isArchivesPage">
+          <template v-for="(_, name) in $slots" :key="name" #[name]="scope">
+            <slot :name="name" v-bind="scope" />
+          </template>
+        </MtArchivesPage>
         <MtNavigationPage v-if="isNavigation">
           <template v-for="(_, name) in $slots" :key="name" #[name]="scope">
             <slot :name="name" v-bind="scope" />

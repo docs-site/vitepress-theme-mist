@@ -130,6 +130,7 @@ const defaultMistConfig: Required<MistConfig> = {
     enabled: true, // 是否启动滚动到评论区功能
     done: TkMessage => TkMessage.success("滚动到评论区成功"), // 滚动到评论区后的回调
   },
+  windowTransition: true, // 是否全局启用视图渐入过渡效果
 } as Required<MistConfig>;
 
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {

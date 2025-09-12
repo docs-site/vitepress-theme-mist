@@ -15,3 +15,4 @@ export type * from "./plugins";
 export type * from "./social";
 export type * from "./themeEnhance";
 export type * from "./toComment";
+export type * from "./windowTransition";
