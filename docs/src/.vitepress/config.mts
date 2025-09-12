@@ -17,15 +17,15 @@ export default defineConfig({
   title: "vitepress-theme-mist",
   description: "Mist Instruction Manual",
   base: "/vitepress-theme-mist/", // 计划将站点部署到 https://docs-site.github.io/vitepress-theme-mist/，那么应该将 base 设置为 '/vitepress-theme-mist/'。它应该始终以 / 开头和结尾。
-  // rewrites: createRewrites({ srcDir: 'src' }), // 这里需要填项目根目录(.vtiepress所在目录，若是.vitepress和package.json在同级，则可为空)
+  // rewrites: createRewrites({ srcDir: "src" }), // 这里需要填项目根目录(.vtiepress所在目录，若是.vitepress和package.json在同级，则可为空)
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       {
         text: "功能页",
         items: [
-          { text: "归档页", link: "/@pages/archivesPage" },
-          { text: "导航页", link: "/@pages/Navigation" },
+          { text: "归档页", link: "/archives" },
+          { text: "导航页", link: "/Navigation" },
         ],
       },
     ],

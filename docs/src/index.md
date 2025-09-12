@@ -8,11 +8,14 @@ hero:
   tagline: My great project tagline
   actions:
     - theme: brand
-      text: 开发
-      link: /sdoc/01-开发/
+      text: 目录
+      link: /sdoc/126b07e425cf34050557ccbe
     - theme: alt
-      text: 组件
-      link: /sdoc/02-组件/
+      text: 导航
+      link: /Navigation
+    - theme: alt
+      text: 归档
+      link: /archives
   image:
     src: /images/blog.svg
     alt: VitePress
@@ -33,4 +36,3 @@ features:
     details: 苏木的hexo site
     link: https://docs-site.github.io/site-hexo/
 ---
-

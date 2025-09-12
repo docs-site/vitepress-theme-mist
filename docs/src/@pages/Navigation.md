@@ -1,6 +1,7 @@
 ---
 title: 我的导航
 Navigation: true
+permalink: /Navigation
 layout: page
 article: false
 sidebar: false
@@ -383,5 +384,4 @@ navigationData:
 
 > 这是一个导航页面的示例内容。
 
-
-*导航页面功能已启用*
+_导航页面功能已启用_
