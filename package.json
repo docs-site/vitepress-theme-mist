@@ -50,7 +50,8 @@
     "@mist/locale": "workspace:*",
     "@mist/markdown": "workspace:*",
     "@mist/static": "workspace:*",
-    "@mist/theme-chalk": "workspace:*"
+    "@mist/theme-chalk": "workspace:*",
+    "@vue/compiler-dom": "catalog:vue"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.6",

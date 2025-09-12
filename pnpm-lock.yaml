@@ -52,6 +52,9 @@ catalogs:
       specifier: ^3.5.18
       version: 3.5.18
   vue:
+    '@vue/compiler-dom':
+      specifier: ^3.5.18
+      version: 3.5.18
     '@vue/runtime-core':
       specifier: ^3.5.18
       version: 3.5.18
@@ -87,6 +90,9 @@ importers:
       '@mist/theme-chalk':
         specifier: workspace:*
         version: link:packages/theme-chalk
+      '@vue/compiler-dom':
+        specifier: catalog:vue
+        version: 3.5.18
     devDependencies:
       '@changesets/cli':
         specifier: ^2.29.6

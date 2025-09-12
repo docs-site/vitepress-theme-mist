@@ -3,6 +3,7 @@ export * from "./ArticleBreadcrumb";
 export * from "./ArticleImagePreview";
 export * from "./ArticleInfo";
 export * from "./ArticleShare";
+export * from "./ArticleTitle";
 export * from "./CataloguePage";
 export * from "./CodeBlockToggle";
 export * from "./CommentGiscus";
