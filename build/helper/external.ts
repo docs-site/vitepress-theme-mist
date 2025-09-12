@@ -30,4 +30,5 @@ export const externalModule = [
   "@docs-site/vitepress-plugin-demo",
   "@docs-site/vitepress-auto-nav-sidebar",
   "@docs-site/vitepress-plugin-permalink",
+  "@docs-site/vitepress-plugin-md-h1",
 ];
