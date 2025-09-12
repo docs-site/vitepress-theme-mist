@@ -17,6 +17,7 @@ tdoc:
   detailDate: 2025-09-03 19:30:53.366
   fulluuid: 3305d82dab814efb882a6fcaabb90051
   useduuid: 3305d82da
+titleTag: TS
 ---
 
 <!-- more -->
@@ -533,6 +534,7 @@ import "@docs-site/theme-chalk/src/var/theme-color.scss";
 例如，如果我们需要将 `packages` 目录重命名为 `modules`：
 
 （1）修改 `tsconfig.base.json` 中的路径映射：
+
 ```json
 {
   "paths": {
@@ -989,4 +991,3 @@ import "../packages/theme-chalk/src/var/theme-color.scss";
 （5）**构建兼容性**：通过正确的配置，确保开发和生产环境的一致性。
 
 这种方式特别适用于大型项目或者组件库的开发，能够有效提升开发效率和代码质量。通过结合使用TypeScript路径映射和npm包作用域，我们不仅解决了代码组织的问题，还建立了清晰的模块边界，使得项目更易于维护和扩展。
-

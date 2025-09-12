@@ -2,7 +2,7 @@ import type { EnhanceAppContext } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { isClient } from "@mist/helper";
 
-import { MtDemoCode, MistConfigProvider, MtLayout } from "@mist/components";
+import { MtDemoCode, MtTitleTag, MistConfigProvider, MtLayout } from "@mist/components";
 
 import "../theme-chalk/src/index.scss";
 
@@ -21,6 +21,7 @@ export default {
   Layout: MistConfigProvider(MtLayout),
   async enhanceApp({ app, siteData, router }) {
     app.component("MtDemoCode", MtDemoCode);
+    app.component("MtTitleTag", MtTitleTag);
     if (!isClient) return;
     const { themeConfig } = siteData.value;
     // 处理永久链接导致 404 问题
