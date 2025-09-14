@@ -177,7 +177,13 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
         // 这种方式避免了多次重复书写 `md.use(...)`，使代码更加简洁明了。
         if (!demo?.disabled) md.use(demoPlugin, demo).use(containerPlugin, container.label);
       },
+      lineNumbers: true,
+      image: {
+        // 默认禁用；设置为 true 可为所有图片启用懒加载。
+        lazyLoading: true,
+      },
     },
+    lastUpdated: true, // 显示最后更新时间
     themeConfig: {
       ...mergedConfig,
     },
