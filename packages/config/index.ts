@@ -2,7 +2,7 @@
 import type { DefaultTheme, UserConfig } from "vitepress";
 import type { MistConfig } from "./types";
 // import type { PluginOption } from "vite";
-import { demoPlugin, containerPlugin } from "../markdown";
+import { demoPlugin, containerPlugin, imgLazyLoadPlugin } from "../markdown";
 import { registerPluginAndGet } from "./vitePlugins";
 
 import {
@@ -176,6 +176,11 @@ export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Co
         // 每个 `.use()` 方法都会返回 `md` 实例本身，因此可以连续调用多个插件。
         // 这种方式避免了多次重复书写 `md.use(...)`，使代码更加简洁明了。
         if (!demo?.disabled) md.use(demoPlugin, demo).use(containerPlugin, container.label);
+        // 自动为 HTML img 标签添加 loading="lazy" 属性
+        // 使用最终的 markdown 配置中的 lazyLoading 值
+        const finalConfig = md.options as any;
+        const lazyLoading = finalConfig.image?.lazyLoading ?? true;
+        md.use(imgLazyLoadPlugin, lazyLoading);
       },
       lineNumbers: true,
       image: {

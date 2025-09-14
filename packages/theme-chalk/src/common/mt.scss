@@ -43,9 +43,9 @@
 }
 
 /*
-  图片懒加载，未加载完成显示骨架屏，完成后显示图片
-  用法：1. 给 img 标签添加父元素 div，父元素添加类名 skeleton-image
-       2. img 标签添加 @load="(e: Event) => (e.target as HTMLElement)?.classList.add('loaded')"
+ * 图片懒加载，未加载完成显示骨架屏，完成后显示图片（改为插件自动添加）
+ * 用法：1. 手动给 img 标签添加父元素 div，父元素添加类名 skeleton-image
+ *      2. img 标签添加 @load="(e: Event) => (e.target as HTMLElement)?.classList.add('loaded')"
 */
 .skeleton-image:has(:not(.loaded)) {
   background-image: linear-gradient(
