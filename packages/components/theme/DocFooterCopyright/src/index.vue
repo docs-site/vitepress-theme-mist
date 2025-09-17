@@ -132,7 +132,7 @@ watch(
     <p :class="ns.e('line')">
       <MtIcon :icon="usericon" icon-type="svg" size="22px" />
       文章作者：
-      <a :href="authorLink" :class="ns.e('author-link')">{{ author }}</a>
+      <a :href="authorLink" :class="ns.e('author-link')" target="_blank">{{ author }}</a>
     </p>
     <p :class="ns.e('line')">
       <MtIcon :icon="linkicon" icon-type="svg" size="22px" />
@@ -148,7 +148,7 @@ watch(
         {{ licenseName }}
       </a>
       许可协议。 转载请注明来自
-      <a :href="authorLink" :class="ns.e('author-link')">{{ author }}</a>
+      <a :href="authorLink" :class="ns.e('author-link')" target="_blank">{{ author }}</a>
     </p>
   </div>
 </template>
