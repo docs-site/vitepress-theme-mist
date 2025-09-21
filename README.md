@@ -40,7 +40,6 @@
   </a>
 </P>
 
-
 - [element-plus](https://github.com/element-plus/element-plus)、[element-plus-docs](https://element-plus.org/zh-CN/)
 
 <p align="center">
@@ -52,12 +51,13 @@
   </a>
 </P>
 
+> Tips：当前同步版本为 [Kele-Bingtang/vitepress-theme-teek at 464aab731d9b2f46b6322c9ea7caf793e816d8a6](https://github.com/Kele-Bingtang/vitepress-theme-teek/tree/464aab731d9b2f46b6322c9ea7caf793e816d8a6)
 
 ## 小徽章
 
->- [badgen.net](https://badgen.net/)
->- [Shields.io | Shields.io](https://shields.io/)
->- [For the Badge](https://forthebadge.com/)
+> - [badgen.net](https://badgen.net/)
+> - [Shields.io | Shields.io](https://shields.io/)
+> - [For the Badge](https://forthebadge.com/)
 
 ## git提交记录规范
 
