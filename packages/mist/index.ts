@@ -15,6 +15,7 @@ export type * from "@mist/config";
 
 export * from "@mist/static";
 export * from "@mist/components";
+export * from "@mist/composables";
 
 export default {
   extends: DefaultTheme,
