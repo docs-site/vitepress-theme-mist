@@ -7,12 +7,24 @@ import { registerPluginAndGet } from "./vitePlugins";
 
 import {
   articleAnalyzeConfig,
+  articleShareConfig,
+  authorConfig,
+  backTopConfig,
+  breadcrumbConfig,
+  clickEffectConfig,
+  codeBlockConfig,
+  commentConfig,
   docAnalysisConfig,
   docFooterCopyrightConfig,
   FooterGroupConfig,
   FooterInfoConfig,
+  markdownConfig,
+  socialConfig,
   themeEnhanceConfig,
+  themeNameConfig,
+  toCommentConfig,
   vitePluginsConfig,
+  windowTransitionConfig,
 } from "./defaultConfig";
 export type * from "./types";
 export { createRewrites } from "@docs-site/vitepress-plugin-permalink";
@@ -47,90 +59,28 @@ export { createRewrites } from "@docs-site/vitepress-plugin-permalink";
 const defaultMistConfig: Required<MistConfig> = {
   useTheme: true,
   articleAnalyze: articleAnalyzeConfig,
-  articleShare: {
-    enabled: true,
-  },
-  author: {
-    name: "苏木",
-  },
-  breadcrumb: {
-    enabled: true,
-    showCurrentName: false,
-    separator: "/",
-    homeLabel: "首页",
-  },
-  clickEffect: {
-    enabled: false,
-    textArray: ["富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善"],
-    fontSize: 16,
-    random: false,
-  },
-  codeBlock: {
-    enabled: true,
-    collapseHeight: 500,
-    copiedDone: MtMessage => MtMessage.success("复制成功！"),
-    overlay: false,
-    overlayHeight: 400,
-    langTextTransform: "lowercase", // 语言文本显示样式
-  },
-  comment: false,
-  // comment: {
-  //   provider: "giscus", // 评论区提供者
-  //   // 评论区配置项，根据 provider 不同而不同，具体看对应官网的使用介绍
-  //   options: {
-  //     // twikoo 配置，官网：https://twikoo.js.org/
-  //     // envId: "your envId",
-
-  //     // waline 配置，官网：https://waline.js.org/
-  //     // serverURL: "your serverURL",
-  //     // jsLink: "https://unpkg.com/@waline/client@v3/dist/waline.js",
-  //     // cssLink: "https://unpkg.com/@waline/client@v3/dist/waline.css",
-
-  //     // giscus 配置，官网：https://giscus.app/zh-CN
-  //     repo: "your name/your repo",
-  //     repoId: "your repoId",
-  //     category: "your category",
-  //     categoryId: "your categoryId",
-
-  //     // artalk 配置，官网：https://artalk.js.org/
-  //     // server: "your server",
-  //     // site: "site",
-  //   },
-  // },
+  articleShare: articleShareConfig,
+  author: authorConfig,
+  breadcrumb: breadcrumbConfig,
+  clickEffect: clickEffectConfig,
+  codeBlock: codeBlockConfig,
+  comment: commentConfig,
   docAnalysis: docAnalysisConfig,
   // 页脚信息组配置
   footerGroup: FooterGroupConfig,
   // 页脚配置
   footerInfo: FooterInfoConfig,
-  markdown: {},
-  social: [
-    {
-      icon: "",
-      name: "",
-      link: "",
-    },
-    {
-      icon: "",
-      name: "",
-      link: "",
-    },
-  ],
-  themeName: "mist",
+  markdown: markdownConfig,
+  social: socialConfig,
+  themeName: themeNameConfig,
   themeEnhance: themeEnhanceConfig,
   vitePlugins: vitePluginsConfig,
   docFooterCopyright: docFooterCopyrightConfig,
   // 右下角回到顶部配置
-  backTop: {
-    enabled: true, // 是否启动回到顶部功能
-    content: "progress", // 回到顶部按钮的显示内容，可选配置 progress | icon
-    done: TkMessage => TkMessage.success("返回顶部成功"), // 回到顶部后的回调
-  },
+  backTop: backTopConfig,
   // 滚动到评论区配置
-  toComment: {
-    enabled: true, // 是否启动滚动到评论区功能
-    done: TkMessage => TkMessage.success("滚动到评论区成功"), // 滚动到评论区后的回调
-  },
-  windowTransition: true, // 是否全局启用视图渐入过渡效果
+  toComment: toCommentConfig,
+  windowTransition: windowTransitionConfig,
 } as Required<MistConfig>;
 
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {
