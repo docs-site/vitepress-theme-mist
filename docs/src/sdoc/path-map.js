@@ -9,4 +9,5 @@ export default {
   "01-公共组件": "common-omponent", // 02-组件/01-公共组件
   "02-主题组件": "theme-component", // 02-组件/02-主题组件
   "03-插件": "plugin", // 03-插件
+  "04-使用": "use", // 04-使用
 };
