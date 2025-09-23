@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.4](https://github.com/docs-site/vitepress-theme-mist/compare/v1.2.3...v1.2.4) (2025-09-23)
+
+### Features
+
+- **site:** 🚀 工作区内站点开启复制提示 ([18dcd77](https://github.com/docs-site/vitepress-theme-mist/commit/18dcd77f5c30adc44ed9a79a3bfcec711a22fdee))
+- **theme:** 🚀 新增复制提示功能 ([f200493](https://github.com/docs-site/vitepress-theme-mist/commit/f2004932325c1b2f0210e0f89d0228ac5b6e2e83))
+
+### Bug Fixes
+
+- **theme:** 🐞 修复DocFooterCopyright组件点击作者名未新建标签页问题 ([a041b23](https://github.com/docs-site/vitepress-theme-mist/commit/a041b23751885394854bd80cf9eacf07863df51e))
+
+### Docs
+
+- **workspace:** 📚 更新工作区README.md文档 ([a89f79c](https://github.com/docs-site/vitepress-theme-mist/commit/a89f79c6edacebf8d98a610d936647d9231a74b8))
+
+### Build System
+
+- 📦️ 新增 simplePkgName 常量用于统一包名前缀 ([b4d86a0](https://github.com/docs-site/vitepress-theme-mist/commit/b4d86a05563891b2f9db462cc01793e7327caf7a))
+
+### Code Refactoring
+
+- **theme:** ♻️ 把默认配置项独立成单独文件 ([cc75202](https://github.com/docs-site/vitepress-theme-mist/commit/cc752022afddf371ac669babb052ae673d3b007e))
+
 ### [1.2.3](https://github.com/docs-site/vitepress-theme-mist/compare/v1.1.5...v1.2.3) (2025-09-14)
 
 ### Features
