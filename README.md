@@ -51,7 +51,7 @@
   </a>
 </P>
 
-> Tips：当前同步版本为 [Kele-Bingtang/vitepress-theme-teek at 464aab731d9b2f46b6322c9ea7caf793e816d8a6](https://github.com/Kele-Bingtang/vitepress-theme-teek/tree/464aab731d9b2f46b6322c9ea7caf793e816d8a6)
+> Tips：当前同步版本为[Kele-Bingtang/vitepress-theme-teek at cdd7fe5f3976c6097c6e7f168209faaea0a43d24](https://github.com/Kele-Bingtang/vitepress-theme-teek/tree/cdd7fe5f3976c6097c6e7f168209faaea0a43d24)
 
 ## 小徽章
 
