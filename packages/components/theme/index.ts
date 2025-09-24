@@ -16,4 +16,5 @@ export * from "./FooterInfo";
 export * from "./HomeUnderline";
 export * from "./Layout";
 export * from "./RightBottomButton";
+export * from "./SidebarTrigger";
 export * from "./ThemeEnhance";

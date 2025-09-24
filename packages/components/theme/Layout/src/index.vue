@@ -20,6 +20,7 @@ import { MtCataloguePage } from "@mist/components/theme/CataloguePage";
 import { MtArticleAnalyze } from "@mist/components/theme/ArticleAnalyze";
 import { MtCodeBlockToggle } from "@mist/components/theme/CodeBlockToggle";
 import { MtCommentGiscus } from "@mist/components/theme/CommentGiscus";
+import { MtSidebarTrigger } from "@mist/components/theme/SidebarTrigger";
 import { MtDocFooterCopyright } from "@mist/components/theme/DocFooterCopyright";
 import { MtRightBottomButton } from "@mist/components/theme/RightBottomButton";
 
@@ -37,6 +38,7 @@ const slots = useSlots();
 // 支持 provide、frontmatter.mt、frontmatter、theme 配置
 const mistConfig = getMistConfigRef<Required<MistConfig>>(null, {
   useTheme: true,
+  sidebarTrigger: false,
 });
 
 // 在组件挂载后打印 mistConfig 成员和插槽信息
@@ -80,7 +82,7 @@ const usedSlots = [
       </template>
     </MtRightBottomButton>
 
-    <Layout>
+    <Layout :class="[ns.b(), ns.has('sidebar-trigger', mistConfig.sidebarTrigger)]">
       <!-- layout-top插槽 -->
       <template #layout-top>
         <slot name="mist-click-effect-before" />
@@ -147,6 +149,12 @@ const usedSlots = [
         <MtArticleAnalyze />
         <MtArticleImagePreview />
         <slot name="mist-article-analyze-after" />
+
+        <MtSidebarTrigger v-if="mistConfig.sidebarTrigger">
+          <template #default="scope">
+            <slot name="mist-sidebar-trigger" v-bind="scope" />
+          </template>
+        </MtSidebarTrigger>
       </template>
 
       <template #doc-after>

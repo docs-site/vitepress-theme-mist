@@ -72,6 +72,7 @@ const defaultMistConfig: Required<MistConfig> = {
   footerInfo: FooterInfoConfig,
   markdown: markdownConfig,
   social: socialConfig,
+  sidebarTrigger: true,
   themeName: themeNameConfig,
   themeEnhance: themeEnhanceConfig,
   vitePlugins: vitePluginsConfig,
