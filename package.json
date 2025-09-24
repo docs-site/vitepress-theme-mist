@@ -21,10 +21,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "cz": "git add . && git-cz",
-    "release": "standard-version",
-    "release-major": "standard-version --release-as major",
-    "release-minor": "standard-version --release-as minor",
-    "release-patch": "standard-version --release-as patch",
+    "release": "standard-version --no-verify",
+    "release-major": "standard-version --release-as major --no-verify",
+    "release-minor": "standard-version --release-as minor --no-verify",
+    "release-patch": "standard-version --release-as patch --no-verify",
     "release-as": "standard-version --release-as",
     "release-prerelease": "standard-version --prerelease",
     "cs": "changeset",
@@ -83,6 +83,11 @@
   "config": {
     "commitizen": {
       "path": "node_modules/cz-git"
+    }
+  },
+  "standard-version": {
+    "scripts": {
+      "postchangelog": "git add CHANGELOG.md && npm run lint:lint-staged"
     }
   }
 }

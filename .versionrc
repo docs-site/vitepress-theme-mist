@@ -59,9 +59,9 @@
   "skip": {
     "tag": true
   },
-  "message": "chore(release): {{currentTag}} [publish]",
+  "releaseCommitMessageFormat": "chore(release): {{currentTag}} [publish]",
   "bumpFiles": [
-	{
+    {
       "filename": "package.json",
       "type": "json"
     },
