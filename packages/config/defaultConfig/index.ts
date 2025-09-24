@@ -16,4 +16,3 @@ export * from "./themeEnhance";
 export * from "./themeName";
 export * from "./toComment";
 export * from "./vitePlugins";
-export * from "./windowTransition";

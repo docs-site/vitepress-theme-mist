@@ -6,10 +6,11 @@ import type { WindowTransition, MistConfig } from "@mist/config";
 import type { PostData } from "@mist/config/post/types";
 import { emptyPost } from "@mist/config/post/helper";
 import type { Component, Ref, InjectionKey } from "vue";
-import { computed, defineComponent, h, inject, unref } from "vue";
-import { useData } from "vitepress";
+import { computed, defineComponent, h, inject, nextTick, ref, unref, watch } from "vue";
+import { useData, useRoute } from "vitepress";
+import { useAnchorScroll, useMediaQuery } from "@mist/composables";
 import { isFunction, isObject } from "@mist/helper";
-import { useAnchorScroll } from "@mist/composables";
+import { isClient } from "@mist/helper";
 export const mistConfigContext: InjectionKey<MistConfig | Ref<MistConfig>> = Symbol("mistConfig");
 
 /**
@@ -150,6 +151,9 @@ export const usePosts = (): Ref<PostData> => {
   return computed(() => posts.locales?.[localeIndex.value] || posts);
 };
 
+/**
+ * 视图渐入过渡效果的响应式配置项获取
+ */
 export const useWindowTransitionConfig = (condition?: (windowTransition: WindowTransition) => boolean | undefined) => {
   const { getMistConfigRef } = useMistConfig();
   const windowTransitionConfig = getMistConfigRef<WindowTransition>("windowTransition", true);
@@ -160,4 +164,37 @@ export const useWindowTransitionConfig = (condition?: (windowTransition: WindowT
 
     return isObject(windowTransition) ? (condition?.(windowTransition) ?? true) : windowTransition !== false;
   });
+};
+
+/**
+ * 获取常用响应式变量
+ */
+export const useCommon = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  return { isMobile };
+};
+
+/**
+ * 侧边栏相关属性
+ */
+export const useSidebar = () => {
+  const hasSidebar = ref(true);
+  const route = useRoute();
+
+  watch(
+    () => route.path,
+    async () => {
+      if (!isClient) return;
+
+      await nextTick();
+      // 检查是否存在侧边栏
+      const sidebarDom = document.querySelector(".VPSidebar");
+      if (sidebarDom) hasSidebar.value = true;
+      else hasSidebar.value = false;
+    },
+    { immediate: true, flush: "post" }
+  );
+
+  return { hasSidebar };
 };

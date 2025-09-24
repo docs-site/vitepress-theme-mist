@@ -24,7 +24,6 @@ import {
   themeNameConfig,
   toCommentConfig,
   vitePluginsConfig,
-  windowTransitionConfig,
 } from "./defaultConfig";
 export type * from "./types";
 export { createRewrites } from "@docs-site/vitepress-plugin-permalink";
@@ -61,27 +60,23 @@ const defaultMistConfig: Required<MistConfig> = {
   articleAnalyze: articleAnalyzeConfig,
   articleShare: articleShareConfig,
   author: authorConfig,
+  backTop: backTopConfig, // 右下角回到顶部配置
   breadcrumb: breadcrumbConfig,
   clickEffect: clickEffectConfig,
   codeBlock: codeBlockConfig,
   comment: commentConfig,
   docAnalysis: docAnalysisConfig,
-  // 页脚信息组配置
-  footerGroup: FooterGroupConfig,
-  // 页脚配置
-  footerInfo: FooterInfoConfig,
+  docFooterCopyright: docFooterCopyrightConfig,
+  footerGroup: FooterGroupConfig, // 页脚信息组配置
+  footerInfo: FooterInfoConfig, // 页脚配置
   markdown: markdownConfig,
-  social: socialConfig,
   sidebarTrigger: true,
+  social: socialConfig,
   themeName: themeNameConfig,
   themeEnhance: themeEnhanceConfig,
+  toComment: toCommentConfig, // 滚动到评论区配置
   vitePlugins: vitePluginsConfig,
-  docFooterCopyright: docFooterCopyrightConfig,
-  // 右下角回到顶部配置
-  backTop: backTopConfig,
-  // 滚动到评论区配置
-  toComment: toCommentConfig,
-  windowTransition: windowTransitionConfig,
+  windowTransition: true, // 是否全局启用视图渐入过渡效果
 } as Required<MistConfig>;
 
 export const defineMistConfig = (config: MistConfig & UserConfig<DefaultTheme.Config> = {}): UserConfig => {

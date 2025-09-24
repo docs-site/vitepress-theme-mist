@@ -54,8 +54,8 @@ export interface MistConfig {
   footerInfo?: FooterInfo; // 页脚配置
   footerGroup?: FooterGroup[]; // 页脚信息组配置
   markdown?: Markdown; // markdown插件配置
-  social?: Social[]; // 社交信息配置
   sidebarTrigger?: boolean; // 是否启用侧边栏展开/折叠触发器
+  social?: Social[]; // 社交信息配置
   themeName?: string; // 主题名称
   themeEnhance?: ThemeEnhance; // 主题增强配置
   toComment?: ToComment; // 滚动到评论区配置

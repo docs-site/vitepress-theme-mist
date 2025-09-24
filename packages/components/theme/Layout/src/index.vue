@@ -1,45 +1,52 @@
 <script setup lang="ts" name="MistLayout">
 import type { MistConfig } from "@mist/config";
 import DefaultTheme from "vitepress/theme";
-import { onMounted, useSlots, computed } from "vue";
 import { useData } from "vitepress";
-
-import { isBoolean } from "@mist/helper";
+import { computed, onMounted, useSlots } from "vue";
 import { useNamespace } from "@mist/composables";
+import { isBoolean } from "@mist/helper";
+
 import { useMistConfig, usePageState } from "@mist/components/theme/ConfigProvider";
 import { logMistConfigMembers, logSlotInfo } from "./debugUtils";
 import { MtFooterGroup } from "@mist/components/theme/FooterGroup";
 import { MtFooterInfo } from "@mist/components/theme/FooterInfo";
-import { MtArticleShare } from "@mist/components/theme/ArticleShare";
 import { MtArticleImagePreview } from "@mist/components/theme/ArticleImagePreview";
-import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
-import { MtHomeUnderline } from "@mist/components/theme/HomeUnderline";
-import { MtNavigationPage } from "@mist/components/theme/NavigationPage";
-import { MtArchivesPage } from "@mist/components/theme/ArchivesPage";
-import { MtCataloguePage } from "@mist/components/theme/CataloguePage";
 import { MtArticleAnalyze } from "@mist/components/theme/ArticleAnalyze";
-import { MtCodeBlockToggle } from "@mist/components/theme/CodeBlockToggle";
-import { MtCommentGiscus } from "@mist/components/theme/CommentGiscus";
-import { MtSidebarTrigger } from "@mist/components/theme/SidebarTrigger";
-import { MtDocFooterCopyright } from "@mist/components/theme/DocFooterCopyright";
-import { MtRightBottomButton } from "@mist/components/theme/RightBottomButton";
+import { MtArticleShare } from "@mist/components/theme/ArticleShare";
 
 import { MtClickEffect } from "@mist/components/common/ClickEffect";
+import { MtDocFooterCopyright } from "@mist/components/theme/DocFooterCopyright";
+import { MtHomeUnderline } from "@mist/components/theme/HomeUnderline";
+import { MtNavigationPage } from "@mist/components/theme/NavigationPage";
+
+import { MtCommentGiscus } from "@mist/components/theme/CommentGiscus";
+import { MtCodeBlockToggle } from "@mist/components/theme/CodeBlockToggle";
+import { MtRightBottomButton } from "@mist/components/theme/RightBottomButton";
+import { MtThemeEnhance } from "@mist/components/theme/ThemeEnhance";
+
+import { MtArchivesPage } from "@mist/components/theme/ArchivesPage";
+import { MtCataloguePage } from "@mist/components/theme/CataloguePage";
+import { MtSidebarTrigger } from "@mist/components/theme/SidebarTrigger";
 
 const { Layout } = DefaultTheme;
 const ns = useNamespace("layout");
 const { getMistConfigRef } = useMistConfig();
 const { isHomePage, isArchivesPage, isNavigation, isCataloguePage } = usePageState();
 const { frontmatter } = useData();
-// useSlots() 只返回直接传递的插槽(也就是.vitepress/theme/components/MistLayoutProvider.vue)传递过来的，
-// 而 $slots 包含所有可用的插槽。
-const slots = useSlots();
 
 // 支持 provide、frontmatter.mt、frontmatter、theme 配置
 const mistConfig = getMistConfigRef<Required<MistConfig>>(null, {
   useTheme: true,
   sidebarTrigger: false,
+  codeBlock: { enabled: true },
+  comment: { provider: "" },
+  articleShare: {},
+  themeEnhance: { enabled: true },
 });
+
+// useSlots() 只返回直接传递的插槽(也就是.vitepress/theme/components/MistLayoutProvider.vue)传递过来的，
+// 而 $slots 包含所有可用的插槽。
+const slots = useSlots();
 
 // 在组件挂载后打印 mistConfig 成员和插槽信息
 onMounted(() => {
@@ -62,13 +69,13 @@ const commentConfig = computed(() => {
 });
 // 维护已使用的插槽，防止外界传来的插槽覆盖已使用的插槽
 const usedSlots = [
-  "layout-top",
-  "aside-outline-before",
   "nav-bar-content-after",
-  "page-top",
+  "layout-top",
+  "doc-footer-before",
   "doc-before",
   "doc-after",
-  "doc-footer-before",
+  "page-top",
+  "aside-outline-before",
 ];
 </script>
 
@@ -83,6 +90,16 @@ const usedSlots = [
     </MtRightBottomButton>
 
     <Layout :class="[ns.b(), ns.has('sidebar-trigger', mistConfig.sidebarTrigger)]">
+      <template #nav-bar-content-after>
+        <slot name="nav-bar-content-after" />
+
+        <MtThemeEnhance v-if="mistConfig.themeEnhance.enabled ?? true">
+          <template v-for="(_, name) in $slots" :key="name" #[name]="scope">
+            <slot :name="name" v-bind="scope" />
+          </template>
+        </MtThemeEnhance>
+      </template>
+
       <!-- layout-top插槽 -->
       <template #layout-top>
         <slot name="mist-click-effect-before" />
@@ -102,22 +119,42 @@ const usedSlots = [
         <slot name="layout-bottom" />
       </template>
 
-      <template #nav-bar-content-after>
-        <slot name="nav-bar-content-after" />
+      <template #doc-before>
+        <slot name="doc-before" />
+        <slot name="mist-article-analyze-before" />
+        <MtCodeBlockToggle v-if="mistConfig.codeBlock.enabled" />
+        <MtArticleAnalyze />
+        <MtArticleImagePreview />
+        <slot name="mist-article-analyze-after" />
 
-        <MtThemeEnhance v-if="mistConfig.themeEnhance.enabled ?? true">
-          <template v-for="(_, name) in $slots" :key="name" #[name]="scope">
-            <slot :name="name" v-bind="scope" />
+        <MtSidebarTrigger v-if="mistConfig.sidebarTrigger">
+          <template #default="scope">
+            <slot name="mist-sidebar-trigger" v-bind="scope" />
           </template>
-        </MtThemeEnhance>
+        </MtSidebarTrigger>
       </template>
 
-      <template #aside-outline-before>
-        <slot name="mist-article-share-before" />
-        <MtArticleShare v-if="mistConfig.articleShare.enabled" />
-        <slot name="mist-article-share-after" />
-        <slot name="aside-outline-before" />
-        <!-- 将插槽内容传递给vitepress -->
+      <!-- doc-footer-before插槽 -->
+      <template #doc-footer-before>
+        <slot name="doc-footer-before" />
+        <MtDocFooterCopyright />
+      </template>
+
+      <template #doc-after>
+        <slot name="doc-after" />
+        <slot name="mist-comment-before" />
+        <!-- 评论区 -->
+        <template v-if="commentConfig.enabled && commentConfig.provider">
+          <template v-if="commentConfig.provider === 'render'"><slot name="mist-comment" /></template>
+          <component
+            v-else
+            :is="commentConfig.components?.[commentConfig.provider]"
+            :id="`${ns.namespace}-comment`"
+            :class="ns.e('comment')"
+          />
+        </template>
+
+        <slot name="mist-comment-after" />
       </template>
 
       <!-- page-top插槽 - 导航页面组件 -->
@@ -142,42 +179,11 @@ const usedSlots = [
         <slot name="mist-page-top-after" />
       </template>
 
-      <template #doc-before>
-        <slot name="doc-before" />
-        <slot name="mist-article-analyze-before" />
-        <MtCodeBlockToggle v-if="mistConfig.codeBlock.enabled" />
-        <MtArticleAnalyze />
-        <MtArticleImagePreview />
-        <slot name="mist-article-analyze-after" />
-
-        <MtSidebarTrigger v-if="mistConfig.sidebarTrigger">
-          <template #default="scope">
-            <slot name="mist-sidebar-trigger" v-bind="scope" />
-          </template>
-        </MtSidebarTrigger>
-      </template>
-
-      <template #doc-after>
-        <slot name="doc-after" />
-        <slot name="mist-comment-before" />
-        <!-- 评论区 -->
-        <template v-if="commentConfig.enabled && commentConfig.provider">
-          <template v-if="commentConfig.provider === 'render'"><slot name="mist-comment" /></template>
-          <component
-            v-else
-            :is="commentConfig.components?.[commentConfig.provider]"
-            :id="`${ns.namespace}-comment`"
-            :class="ns.e('comment')"
-          />
-        </template>
-
-        <slot name="mist-comment-after" />
-      </template>
-
-      <!-- doc-footer-before插槽 -->
-      <template #doc-footer-before>
-        <slot name="doc-footer-before" />
-        <MtDocFooterCopyright />
+      <template #aside-outline-before>
+        <slot name="mist-article-share-before" />
+        <MtArticleShare v-if="mistConfig.articleShare.enabled" />
+        <slot name="mist-article-share-after" />
+        <slot name="aside-outline-before" />
       </template>
 
       <!-- 通过了 v-for 遍历所有 未使用 VitePress 的插槽，并使用 #[name]="slotData" 将插槽内容传递给 VitePress -->
