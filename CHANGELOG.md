@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.5](https://github.com/docs-site/vitepress-theme-mist/compare/v1.2.4...v1.2.5) (2025-09-24)
+
+### Features
+
+- **theme:** 🚀 添加侧边栏打开关闭功能 ([f8ad262](https://github.com/docs-site/vitepress-theme-mist/commit/f8ad262254420e9b7370c8b36aa294c7bd4e8b77))
+- **theme:** 🚀 阅读文档添加聚光灯效果 ([e76a128](https://github.com/docs-site/vitepress-theme-mist/commit/e76a1281c49ba52e81685d5920722a6ca836d0bc))
+
+### Docs
+
+- **workspace:** 📚 更新README.md文档 ([c514745](https://github.com/docs-site/vitepress-theme-mist/commit/c5147456b6886705a1a24046aa7eb111c6593d0d))
+
+### Code Refactoring
+
+- **theme:** ♻️ 优化代码格式 ([bc5eb6b](https://github.com/docs-site/vitepress-theme-mist/commit/bc5eb6b4f62097a08f991536700477466dcdb59f))
+
+### Others
+
+- **standard-version:** 🔨 standard-version工具优化 ([deb8d66](https://github.com/docs-site/vitepress-theme-mist/commit/deb8d66b7ce0973182ce48814bfe7866c271beea))
+
 ### [1.2.4](https://github.com/docs-site/vitepress-theme-mist/compare/v1.2.3...v1.2.4) (2025-09-23)
 
 ### Features
