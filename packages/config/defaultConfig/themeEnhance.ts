@@ -12,6 +12,11 @@ export const themeEnhanceConfig = {
     defaultPageMaxWidth: 95, // 页面布局最大宽度的默认百分比，仅限 0-100
     disablePageMaxWidthHelp: false, // 禁用帮助提示
   },
+  spotlight: {
+    disabled: false,
+    defaultStyle: "aside",
+    defaultValue: true,
+  },
   // 布局主题色配置
   themeColor: {
     // disabled: false, // 禁用布局主题色切换

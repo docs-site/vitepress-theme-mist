@@ -12,6 +12,9 @@ import LayoutSwitch from "./LayoutSwitch.vue";
 import LayoutPageWidthSlide from "./LayoutPageWidthSlide.vue";
 import LayoutDocWidthSlide from "./LayoutDocWidthSlide.vue";
 import ThemeColor from "./ThemeColor.vue";
+import Spotlight from "./Spotlight.vue";
+import SpotlightStyle from "./SpotlightStyle.vue";
+
 defineOptions({ name: "ThemeEnhance" });
 
 const { getMistConfigRef } = useMistConfig();
@@ -21,6 +24,7 @@ const disabledList = computed(() => {
   return {
     layoutSwitch: themeEnhanceConfig.value.layoutSwitch?.disabled ?? false,
     themeColor: themeEnhanceConfig.value.themeColor?.disabled ?? false,
+    spotlight: themeEnhanceConfig.value.spotlight?.disabled ?? false,
   };
 });
 </script>
@@ -45,6 +49,11 @@ const disabledList = computed(() => {
 
       <template v-if="!disabledList.themeColor">
         <ThemeColor />
+      </template>
+
+      <template v-if="!disabledList.spotlight">
+        <Spotlight />
+        <SpotlightStyle />
       </template>
 
       <slot name="mist-theme-enhance-bottom" />

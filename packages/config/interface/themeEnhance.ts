@@ -1,6 +1,7 @@
 import type {
   ThemeColorName,
   LayoutMode,
+  SpotlightStyle,
   LayoutModeVal,
   ThemeColorOption,
 } from "../../components/theme/ThemeEnhance/src/themeEnhance";
@@ -10,7 +11,7 @@ export interface ThemeEnhance {
    * 启用主题增强功能
    *
    * @default true
-   * @version 1.4.0
+   * @since 1.4.0
    */
   enabled?: boolean;
   /**
@@ -25,6 +26,8 @@ export interface ThemeEnhance {
   layoutSwitch?: {
     /**
      * 禁用布局切换
+     *
+     * @default false
      */
     disabled?: boolean;
     /**
@@ -47,6 +50,8 @@ export interface ThemeEnhance {
     disableHelp?: boolean;
     /**
      * 禁用布局切换动画
+     *
+     * @default false
      */
     disableAnimation?: boolean;
     /**
@@ -88,7 +93,7 @@ export interface ThemeEnhance {
      * 从 0 完全自定义布局主题色，不使用内置主题色
      *
      * @default false
-     * @version 1.4.1
+     * @since 1.4.1
      */
     customize?:
       | boolean
@@ -163,5 +168,34 @@ export interface ThemeEnhance {
        */
       options: ThemeColorOption[];
     }[];
+  };
+  /**
+   * 聚光灯配置
+   */
+  spotlight?: {
+    /**
+     * 禁用聚光灯
+     *
+     * @default false
+     */
+    disabled?: boolean;
+    /**
+     * 聚光灯默认样式
+     *
+     * @default SpotlightStyle.Aside
+     */
+    defaultStyle?: SpotlightStyle | "aside" | "under";
+    /**
+     * 禁用帮助提示
+     *
+     * @default false
+     */
+    disableHelp?: boolean;
+    /**
+     * 聚光灯默认开关状态
+     *
+     * @default true
+     */
+    defaultValue?: boolean;
   };
 }
