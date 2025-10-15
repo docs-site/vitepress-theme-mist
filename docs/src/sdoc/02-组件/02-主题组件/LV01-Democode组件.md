@@ -95,12 +95,12 @@ if (!source) throw new Error(`Incorrect source file path: ${sourceFile}`);
 
 ```ts
 if (tokens[idx].nesting === 1 /* 标签打开 */) {
-  return `<TkDemoCode effect="${effect}" source="${encodeURIComponent(
+  return `<MtDemoCode effect="${effect}" source="${encodeURIComponent(
     md.render(`\`\`\` vue\n${source}\`\`\``)
   )}" path="${posix.join(path, effectPath)}" raw-source="${encodeURIComponent(
     source
   )}" description="${encodeURIComponent(md.render(description))}" options="${encodeURIComponent(JSON.stringify(option))}">`;
-} else return "</TkDemoCode>";
+} else return "</MtDemoCode>";
 ```
 
 需要注意的是，demo 插件是一个相对独立的插件，它不依赖于 `packages/markdown` 目录中的其他插件或辅助函数。它直接使用了以下外部依赖：
@@ -192,7 +192,7 @@ h1 {
 - `effect`: 布尔值，表示是否只显示组件效果。在我们的示例中为 `"false"`，因为描述文本不以 `"effect"` 开头。
 - `source`: 经过 Markdown 渲染的代码块 HTML，已进行 URI 编码。这是通过 `md.render(\`\`\` vue\n${source}\`\`\`))`生成的，其中`source` 是 HelloWorld.vue 的完整内容。生成的结果是一个包含语法高亮的 HTML 代码块。
 - `path`: 组件文件路径，用于在运行时加载实际的 Vue 组件。在我们的示例中为 `"examples/HelloWorld.vue"`。
-- `raw-source`: 原始的 Vue 文件内容，已进行 URI 编码。这用于"复制代码"功能，确保用户能获得未经修改的原始代码。
+- `raw-source`: 原始的 Vue 文件内容，已进行 URI 编码。这用于 "复制代码" 功能，确保用户能获得未经修改的原始代码。
 - `description`: 经过 Markdown 渲染的描述内容，已进行 URI 编码。在我们的示例中，"一个简单的 HelloWorld 示例" 被渲染为一个包含 `<p>` 标签的 HTML 片段。
 - `options`: JSON 序列化后的配置选项，已进行 URI 编码。在我们的示例中为一个空对象 `"{}"` 的编码形式。
 
@@ -318,26 +318,14 @@ packages/
 
 ## 七、组件使用实例
 
-### 1. 编写示例组件
-
-- 效果和源码
-
-::: demo
-HelloWorld
-:::
-
-- 只显示效果
-
-::: demo effect
-HelloWorld
-:::
-
-### 2. 在 Markdown 中使用
+### 1. 在 Markdown 中语法
 
 使用 `:::demo` 容器时，请注意：
 
 （1）描述文本放在第一行
+
 （2）文件路径放在第二行
+
 （3）可以使用 `effect` 关键词只显示效果，不显示工具栏
 
 示例：
@@ -351,6 +339,138 @@ HelloWorld
 ./MyComponent.vue
 :::
 ```
+
+Demo 容器默认在项目根目录的 `test` 目录下寻找组件，如指定 `demo/button-primary` 路径，则目录结构应该如下：
+
+```bash
+.
+├─ .vitepress       # 默认基于 vitepress（项目根目录）层级下的  test 目录扫描
+├─ test
+│  ├─ demo
+│  │  ├─ button-primary.vue
+```
+
+### 2. 使用 demo
+
+#### 1.1 基础 demo
+
+在 makrdown 文档中输入以下内容：
+
+```markdown
+::: demo
+HelloWorld
+:::
+```
+
+这个 HelloWorld.vue 位于 `.vitepress` 同级目录的 `test/HelloWorld.vue`，然后在渲染后的效果如下所示：
+
+::: demo
+HelloWorld
+:::
+
+这里会有一个组件效果，然后下面可以展开是这个组件的源码。
+
+#### 1.2 带描述
+
+在 makrdown 文档中输入以下内容：
+
+```markdown
+::: demo
+HelloWorld
+:::
+```
+
+这个 HelloWorld.vue 位于 `.vitepress` 同级目录的 `test/HelloWorld.vue`，然后在渲染后的效果如下所示：
+
+::: demo 这行是一个 HelloWorld 组件的演示描述
+HelloWorld
+:::
+
+#### 1.2 只显示效果
+
+在 makrdown 文档中输入以下内容：
+
+```markdown
+::: demo effect
+HelloWorld
+:::
+```
+
+会有如下效果，只会有这个组件的渲染效果，而不会有源码内容：
+
+::: demo effect
+HelloWorld
+:::
+
+#### 1.3 只渲染组件效果和描述
+
+在 makrdown 文档中输入以下内容：
+
+```markdown
+::: demo effect
+HelloWorld
+:::
+```
+
+会有如下效果，只会有这个组件的渲染效果，而不会有源码内容：
+
+::: demo effect 这行是只有渲染效果和描述的 HelloWorld 组件的演示描述信息
+HelloWorld
+:::
+
+#### 1.4 渲染组件和源码文件区分
+
+- 源码为vue组件
+
+有些场景希望页面渲染的效果是一个 Vue 组件，查看源代码并复制是另一个 Vue 组件（当然也不局限于vue文件），此时使用 `yaml` 语法指定组件和源码文件：
+
+````markdown
+::: demo
+
+​`yaml
+effect: HelloWorld
+file: popover/basic.vue
+​`
+
+:::
+````
+
+此时页面看到的效果 `HelloWorld.vue` 组件，但是展开源代码查看的是 `popover/basic.vue` 组件代码：
+
+::: demo
+
+```yaml
+effect: HelloWorld
+file: popover/basic.vue
+```
+
+:::
+
+- 源码为 c 语言文件
+
+还可以复制一个其他文件，例如：
+
+````markdown
+::: demo
+
+​`yaml
+effect: HelloWorld
+file: c-demo/helloworld.c
+​`
+
+:::
+````
+
+此时页面看到的效果 `HelloWorld.vue` 组件，但是展开源代码查看的是 `c-demo/helloworld.c` 代码：
+
+::: demo
+
+```yaml
+effect: HelloWorld
+file: c-demo/helloworld.c
+```
+
+:::
 
 ## 八、总结
 
