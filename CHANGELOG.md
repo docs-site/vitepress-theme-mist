@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.6](https://github.com/docs-site/vitepress-theme-mist/compare/v1.2.5...v1.2.6) (2025-10-15)
+
+### Code Refactoring
+
+- **theme:** ♻️ demoCode组件支持非vue组件的源码复制 ([0a47b36](https://github.com/docs-site/vitepress-theme-mist/commit/0a47b36dc22ee8cf6ffe4073fce89264f8b58c14))
+
+### Docs
+
+- **site:** 📚 更新工作区站点文档 ([6c58937](https://github.com/docs-site/vitepress-theme-mist/commit/6c589370c391121c7dc2b68a2bacdc4c17295aaa))
+
+### Others
+
+- **site:** 🔨 更新工作区内站点图标资源 [deploy] ([ab0849c](https://github.com/docs-site/vitepress-theme-mist/commit/ab0849cdac7d1106e683659dc15317d2b230ab5f))
+
 ### [1.2.5](https://github.com/docs-site/vitepress-theme-mist/compare/v1.2.4...v1.2.5) (2025-09-24)
 
 ### Features
