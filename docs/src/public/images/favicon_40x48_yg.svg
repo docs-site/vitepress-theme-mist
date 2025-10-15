@@ -20,34 +20,29 @@
  <defs>
   <!-- linearGradient 线性渐变 -->
   <!-- clipPath 定义裁剪路径, 裁剪路径可以遮罩其他元素，只显示路径内部的内容-->
-  <style>
-   :root {
-    --blue-color:#41d1ff;
-    --purple-color: #bd34fe;
-   }
-  </style>
   <clipPath id="clip0">
    <rect width="160" height="192" fill="white" id="svg_8"/>
   </clipPath>
-  <linearGradient id="paint0_linear_1288_1252" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop stop-color="#a7f4eb"/>
-      <stop offset="1" stop-color="#e0a8ff"/>
-     </linearGradient>
-  <linearGradient id="paint1_linear_1288_1252" x1="0%" y1="0%" x2="100%" y2="100%">
-   <stop stop-color="var(--blue-color)"/>
-   <stop offset="1" stop-color="var(--purple-color)"/>
+  <linearGradient id="paint0_linear_1288_1252" x1="0.00302" y1="0.00235" x2="1.00303" y2="0.99739">
+   <stop stop-color="rgba(255, 216, 89, 0.2)"/>
+   <stop offset="1" stop-color="rgba(61, 214, 140, 0.2)"/>
   </linearGradient>
-  <linearGradient id="paint2_linear_1288_1252" x1="0%" y1="0%" x2="100%" y2="100%">
-   <stop stop-color="var(--blue-color)"/>
-   <stop offset="1" stop-color="var(--purple-color)"/>
+  <linearGradient id="paint1_linear_1288_1252" x1="0.00791" y1="0.10524" x2="0.9925" y2="0.89379">
+   <stop stop-color="rgba(255, 216, 89, 1)"/>
+   <stop offset="1" stop-color="rgba(61, 214, 140, 1)"/>
   </linearGradient>
-  <linearGradient id="paint3_linear_1288_1252" x1="0%" y1="0%" x2="100%" y2="100%">
-   <stop stop-color="var(--blue-color)"/>
-   <stop offset="1" stop-color="var(--purple-color)"/>
+  <linearGradient id="paint2_linear_1288_1252" x1="0.04943" y1="0.2578" x2="0.92572" y2="0.96632">
+   <stop stop-color="rgba(255, 216, 89, 1)"/>
+   <stop offset="1" stop-color="rgba(61, 214, 140, 1)"/>
   </linearGradient>
-  <linearGradient id="paint5_linear_1288_1252" x1="0%" y1="0%" x2="100%" y2="100%">
-   <stop stop-color="var(--blue-color)"/>
-   <stop offset="1" stop-color="var(--purple-color)"/>
+  <linearGradient id="paint3_linear_1288_1252" x1="0.00814" y1="0.2376" x2="1.0322" y2="0.78349">
+   <stop stop-color="rgba(255, 216, 89, 1)"/>
+   <stop offset="1" stop-color="rgba(61, 214, 140, 1)"/>
+  </linearGradient>
+  <linearGradient id="paint5_linear_1288_1252" x1="0.21383" y1="0.06371" x2="0.62036" y2="0.88784">
+   <stop stop-color="#FFEA83"/>
+   <stop offset="0.08333" stop-color="#FFDD35"/>
+   <stop offset="1" stop-color="#FFA800"/>
   </linearGradient>
  </defs>
 </svg>
