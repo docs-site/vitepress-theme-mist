@@ -18,6 +18,7 @@
     "packages:stub": "pnpm -r --filter=./packages/* run stub",
     "plugins:stub": "pnpm -r --filter=./plugins/* run stub",
     "plugins:build": "pnpm -r --filter=./plugins/* run build",
+    "git-sync-force": "node scripts/sync-force.mjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "cz": "git add . && git-cz",
