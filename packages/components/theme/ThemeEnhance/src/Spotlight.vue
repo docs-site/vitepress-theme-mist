@@ -53,7 +53,8 @@ const segmentedOptions = computed(() => [
   },
 ]);
 
-const tips = [
+// tips 依赖多语言文案，使用 computed 包装以在切换语言时自动更新
+const tips = computed(() => [
   {
     title: `ON ${t("mt.themeEnhance.spotlight.onTipTitle")}`,
     content: t("mt.themeEnhance.spotlight.onHelpTipContent"),
@@ -62,7 +63,7 @@ const tips = [
     title: `OFF ${t("mt.themeEnhance.spotlight.offTipTitle")}`,
     content: t("mt.themeEnhance.spotlight.offHelpTipContent"),
   },
-];
+]);
 </script>
 
 <template>

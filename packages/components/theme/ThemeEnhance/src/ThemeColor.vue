@@ -1,7 +1,7 @@
 <script setup lang="ts" name="ThemeColor">
 import type { ThemeEnhance } from "@mist/config";
 import type { ThemeColorOption } from "./themeEnhance";
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { useData } from "vitepress";
 import { isClient } from "@mist/helper";
 import { useStorage, useMediaQuery, useLocale, useThemeColor, varNameList } from "@mist/composables";
@@ -103,10 +103,11 @@ watch(
 // 扩散到其他 var 变量（useThemeColor composables）
 watch(isSpread, updateSpread, { immediate: true, flush: "post" });
 
-const tips = [
+// tips 依赖多语言文案，使用 computed 包装以在切换语言时自动更新
+const tips = computed(() => [
   { title: t("mt.themeEnhance.themeColor.vpHelpTipTitle"), content: t("mt.themeEnhance.themeColor.vpHelpTipContent") },
   { title: t("mt.themeEnhance.themeColor.epHelpTipTitle"), content: t("mt.themeEnhance.themeColor.epHelpTipContent") },
-];
+]);
 
 const handleChangePrimaryColor = (option: ThemeColorOption) => {
   themeColorName.value = option.value;

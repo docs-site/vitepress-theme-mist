@@ -57,13 +57,14 @@ watch(pageMaxWidth, update);
 
 const format = (val: number) => `${Math.ceil(val / 100)}%`;
 
-const tips = [
+// tips 依赖多语言文案，使用 computed 包装以在切换语言时自动更新
+const tips = computed(() => [
   {
     title: t("mt.themeEnhance.pageLayoutMaxWidth.helpTipTitle"),
     icon: scaleIcon,
     content: t("mt.themeEnhance.pageLayoutMaxWidth.helpTipContent"),
   },
-];
+]);
 </script>
 
 <template>
