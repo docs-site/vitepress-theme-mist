@@ -1,5 +1,8 @@
 import { isClient } from "../is";
 
+// 文件需按模块处理，declare global 才会生效，避免打包时出现 global 未定义问题
+export {};
+
 declare global {
   interface Window {
     umami: Function;

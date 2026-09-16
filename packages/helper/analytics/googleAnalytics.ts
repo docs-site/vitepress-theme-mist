@@ -2,6 +2,10 @@ import { isClient } from "../is";
 
 declare const dataLayer: any[];
 declare const gtag: (...args: any[]) => void;
+
+// 文件需按模块处理，declare global 才会生效，避免打包时出现 global 未定义问题
+export {};
+
 declare global {
   interface Window {
     dataLayer?: typeof dataLayer;
