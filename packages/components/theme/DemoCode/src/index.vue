@@ -60,7 +60,8 @@ const handleToggleSourceVisible = (bol?: boolean) => {
  * 去 Playground 编辑
  */
 const handleEditPlayground = () => {
-  const encoded = getPlaygroundEncoded(props.source);
+  // 使用原始源码，source 是 HTML 转义后的内容，直接传给 Playground 会出现转义字符
+  const encoded = getPlaygroundEncoded(props.rawSource);
   const darkParam = isDark.value ? "?theme=dark" : "";
   const link = playgroundUrl.includes("?")
     ? `${playgroundUrl}${darkParam.replace("?", "&")}`
@@ -75,7 +76,8 @@ const getPlaygroundEncoded = (source: string) => {
   const originCode = {
     [playgroundMainFileName]: code,
   };
-  const encoded = btoa(JSON.stringify(originCode));
+  // btoa 仅支持 Latin1 字符，源码包含中文等字符时需先转换为 UTF-8 二进制字符串再编码
+  const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(originCode))));
   return encoded;
 };
 
