@@ -109,8 +109,9 @@ watch(
   () => {
     if (usePageView.value) {
       // 如果使用了 permalink 插件且 permalink 为 true，则代表使用 permalink 作为统计链接
+      // permalink 数据在路由切换后稍晚才就绪，延迟请求避免统计链接取不到值
       if (statisticsConfig.value.permalink && router.state?.permalinkPlugin) {
-        nextTick(request);
+        setTimeout(request, 50);
       } else request();
     }
   },
