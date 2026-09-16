@@ -134,10 +134,13 @@ const breadcrumbList = computed(() => {
           pathSegments.push(segment);
         }
 
-        // 构建URL，不以/开头，以/结尾
-        // 例如: ["sdoc", "01-开发"] => "sdoc/01-开发/"
+        // 构建URL，统一以/开头、以/结尾，模板中不再拼接前缀斜杠，避免重写路径出现双斜杠
+        // 例如: ["sdoc", "01-开发"] => "/sdoc/01-开发/"
         if (pathSegments.length > 0) {
           url = pathSegments.join("/");
+          if (!url.startsWith("/")) {
+            url = "/" + url;
+          }
           if (!url.endsWith("/")) {
             url += "/";
           }
@@ -182,7 +185,7 @@ const breadcrumbList = computed(() => {
       <MtBreadcrumbItem v-for="(item, index) in breadcrumbList" :key="index">
         <component
           :is="item.url ? 'a' : 'span'"
-          :href="item.url && withBase(`/${item.url}`)"
+          :href="item.url && withBase(`${item.url}`)"
           :title="item.fileName"
           :class="[item.url ? 'hover-color' : '']"
           :aria-label="item.fileName"
