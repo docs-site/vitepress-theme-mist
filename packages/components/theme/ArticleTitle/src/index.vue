@@ -23,7 +23,14 @@ const { t } = useLocale();
     />
 
     <slot>
-      <component v-if="post.title" :is="createDynamicComponent(post.title)" />
+      <!-- 标题包含行内代码包裹的尖括号时，编译为 Vue 组件会失败，改为纯文本渲染 -->
+      <template v-if="post.title">
+        <component
+          v-if="!post.title.includes('`<') && !post.title.includes('>`')"
+          :is="createDynamicComponent(post.title)"
+        />
+        <span v-else>{{ post.title }}</span>
+      </template>
     </slot>
 
     <MtTitleTag
