@@ -1,10 +1,11 @@
 <script setup lang="ts" name="RightBottomButton">
 import type { BackTop, MistConfig, ThemeEnhance, ToComment } from "@mist/config";
-import { computed } from "vue";
+import { computed, inject } from "vue";
 import { useData } from "vitepress";
 import { isBoolean } from "@mist/helper";
 import { useMistConfig } from "@mist/components/theme/ConfigProvider";
 import { mobileMaxWidthMedia } from "@mist/components/theme/ThemeEnhance";
+import { giscusContext } from "@mist/components/theme/CommentGiscus";
 import { useMediaQuery } from "@mist/composables";
 import { ns } from "./namespace";
 import BackTopComponent from "./BackTop.vue";
@@ -23,6 +24,10 @@ const { frontmatter } = useData();
 const commentConfig = computed(() => {
   const comment = frontmatter.value.comment ?? mistConfig.value.comment;
   if (isBoolean(comment)) return { enabled: comment };
+
+  // 评论区组件通过实例注入方式使用时，无 provider 配置也应视为启用
+  const getGiscusInstance = inject(giscusContext, null);
+  if (getGiscusInstance) return { enabled: true };
 
   return { enabled: true, provider: comment.provider };
 });
@@ -48,7 +53,7 @@ const disabledThemeColor = computed(() => {
       </template>
     </BackTopComponent>
 
-    <ToCommentComponent v-if="toCommentConfig.enabled && commentConfig.enabled && commentConfig.provider">
+    <ToCommentComponent v-if="toCommentConfig.enabled && (commentConfig.enabled || commentConfig.provider)">
       <template #default="scope">
         <slot name="mist-to-comment" v-bind="scope" />
       </template>

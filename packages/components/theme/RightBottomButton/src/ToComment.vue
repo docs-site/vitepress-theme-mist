@@ -14,7 +14,8 @@ defineOptions({ name: "ToComment" });
 const { t } = useLocale();
 const { getMistConfigRef } = useMistConfig();
 
-const toCommentConfig = getMistConfigRef<ToComment>("toComment");
+// 配置缺失时给空对象默认值，避免读取属性时报错
+const toCommentConfig = getMistConfigRef<ToComment>("toComment", {});
 
 // 前往评论区
 const scrollTop = ref(0);
