@@ -32,7 +32,7 @@ const { Layout } = DefaultTheme;
 const ns = useNamespace("layout");
 const { getMistConfigRef } = useMistConfig();
 const { isHomePage, isArchivesPage, isNavigation, isCataloguePage } = usePageState();
-const { frontmatter } = useData();
+const { frontmatter, theme } = useData();
 
 // 支持 provide、frontmatter.mt、frontmatter、theme 配置
 const mistConfig = getMistConfigRef<Required<MistConfig>>(null, {
@@ -55,16 +55,24 @@ onMounted(() => {
 });
 
 const commentConfig = computed(() => {
-  const comment = frontmatter.value.comment ?? mistConfig.value.comment;
-  if (isBoolean(comment)) return { enabled: comment };
+  const frontmatterComment = frontmatter.value.comment;
+  // 全局评论配置从 theme 层读取，避免被 frontmatter 的同名字段覆盖成布尔值
+  const configComment = theme.value.comment;
+  let commentConfig = frontmatterComment ?? configComment;
+
+  // frontmatter 明确为 false 时关闭评论区；为 true 时回落到全局评论配置，避免丢失 provider 与 options
+  if (isBoolean(frontmatterComment)) {
+    if (frontmatterComment === false) return { enabled: false };
+    commentConfig = configComment;
+  }
 
   return {
     enabled: true,
     components: {
       giscus: MtCommentGiscus,
     },
-    provider: comment.provider,
-    options: comment.options,
+    provider: commentConfig?.provider,
+    options: commentConfig?.options,
   };
 });
 // 维护已使用的插槽，防止外界传来的插槽覆盖已使用的插槽
