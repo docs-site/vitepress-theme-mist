@@ -80,8 +80,12 @@
   }
 }
 
-h1 {
+// 文档页 h1 内的标题标签使用绝对定位垂直居中，避免与一级标题文字重合
+.VPDoc h1 {
   @include b(title-tag) {
-    transform: translateY(-4px);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 6px;
   }
 }
