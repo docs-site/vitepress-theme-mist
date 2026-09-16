@@ -76,9 +76,9 @@ export default function createRewritesSidebar(
     if (!existsSync(dirRelativePath)) return;
     if (!isSome(ignoreList, dirName) && !statSync(dirRelativePath).isDirectory()) return;
 
-    // 获取 rewrites 的 value 的第一个 / 前内容
-    const key = Object.keys(rewrites).find(item => item.startsWith(dirName));
-    if (!key) return;
+    // 获取当前一级目录匹配的所有 rewrites 键，同一目录下的文件可能使用不同的 rewrites 前缀
+    const keys = Object.keys(rewrites).filter(item => item.startsWith(dirName));
+    if (!keys?.length) return;
 
     // 验证 rewrites 的同目录下的前缀是否一致
     !ignoreWarn && checkRewritesPrefix && validateRewritesPrefix(rewrites, dirName, ignoreList);
@@ -104,8 +104,11 @@ export default function createRewritesSidebar(
     };
 
     if (isSidebarObject) {
-      const path = rewrites[key].split("/")[0];
-      sidebarObj[`/${path}/`] = initItems ? [{ ...sidebarItem, text: initItemsText ? text : "" }] : sidebarItems;
+      keys.forEach(key => {
+        // 获取 rewrites 的 value 的第一个 / 前内容，作为侧边栏的 key
+        const path = rewrites[key].split("/")[0];
+        sidebarObj[`/${path}/`] = initItems ? [{ ...sidebarItem, text: initItemsText ? text : "" }] : sidebarItems;
+      });
     } else sidebarArray.push(sidebarItem);
   });
 
