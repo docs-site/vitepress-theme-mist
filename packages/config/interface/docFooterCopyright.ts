@@ -9,14 +9,14 @@ export interface DocFooterCopyright {
   /**
    * 文章作者名称
    *
-   * @default 'Hyde'
+   * @default '苏木'
    */
   author?: string;
 
   /**
    * 作者链接
    *
-   * @default 'https://teek.seasir.top/'
+   * @default 'https://docs-site.github.io/vitepress-theme-mist/'
    */
   authorLink?: string;
 

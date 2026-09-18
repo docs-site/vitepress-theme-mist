@@ -13,7 +13,7 @@ export const FooterGroupConfig = [
   //   links: [
   //     { name: "site-vitepress", link: "https://docs-site.github.io/site-vitepress/" },
   //     { name: "site-hexo", link: "https://github.com/docs-site/site-hexo.git" },
-  //     { name: "Teek", link: "https://vp.teek.top/"}
+  //     { name: "Mist", link: "https://docs-site.github.io/vitepress-theme-mist/" }
   //   ]
   // },
   // {
