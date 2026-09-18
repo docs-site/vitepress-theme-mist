@@ -198,4 +198,23 @@ export interface ThemeEnhance {
      */
     defaultValue?: boolean;
   };
+  /**
+   * 评论区开关配置
+   *
+   * @since 1.2.6
+   */
+  comment?: {
+    /**
+     * 禁用评论区开关
+     *
+     * @default false
+     */
+    disabled?: boolean;
+    /**
+     * 禁用帮助提示
+     *
+     * @default false
+     */
+    disableHelp?: boolean;
+  };
 }

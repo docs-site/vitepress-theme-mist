@@ -14,6 +14,11 @@ import { isClient } from "@mist/helper";
 export const mistConfigContext: InjectionKey<MistConfig | Ref<MistConfig>> = Symbol("mistConfig");
 
 /**
+ * 运行时主题配置：供主题增强面板等场景在运行时修改配置，修改后实时生效，优先级高于静态主题配置
+ */
+export const mistRuntimeConfig = ref<MistConfig>({});
+
+/**
  * @brief 创建并返回一个配置好的 Layout 组件，此函数接收一个 Vue 组件作为参数，将其封装成一个新的组件，
  *        并通过 Vue 的 h 函数渲染传入的 layout 组件。
  * @param layout - 要被封装和渲染的 Vue 布局组件
@@ -57,21 +62,41 @@ export const useMistConfig = () => {
 
     // 返回所有 MistConfig 数据
     if (!key) {
-      return { ...dv, ...theme.value, ...frontmatter.value, ...frontmatter.value.mt, ...unref(mistConfigProvide) };
+      return {
+        ...dv,
+        ...theme.value,
+        ...frontmatter.value,
+        ...frontmatter.value.mt,
+        ...unref(mistConfigProvide),
+        // 运行时配置优先级最高，修改后实时生效
+        ...unref(mistRuntimeConfig),
+      };
     }
 
     // 返回指定 key 的 MistConfig 数据
     const valueFromTheme = theme.value[key];
     const valueFromFrontmatter = frontmatter.value.mt?.[key] ?? frontmatter.value[key];
     const valueFromInject = unref(mistConfigProvide)[key];
+    const valueFromRuntime = unref(mistRuntimeConfig)[key];
 
     // 对象格式，根据优先级合并里面的内容
-    if (isObject(valueFromTheme) || isObject(valueFromFrontmatter) || isObject(valueFromInject)) {
-      return { ...dv, ...valueFromTheme, ...valueFromFrontmatter, ...(valueFromInject as object) };
+    if (
+      isObject(valueFromTheme) ||
+      isObject(valueFromFrontmatter) ||
+      isObject(valueFromInject) ||
+      isObject(valueFromRuntime)
+    ) {
+      return {
+        ...dv,
+        ...valueFromTheme,
+        ...valueFromFrontmatter,
+        ...(valueFromInject as object),
+        ...(valueFromRuntime as object),
+      };
     }
 
     // 非对象格式，则根据优先级返回
-    return valueFromInject ?? valueFromFrontmatter ?? valueFromTheme ?? dv;
+    return valueFromRuntime ?? valueFromInject ?? valueFromFrontmatter ?? valueFromTheme ?? dv;
   };
 
   /**

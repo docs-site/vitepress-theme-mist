@@ -259,6 +259,12 @@ export default {
         underHelpTipContent:
           "Add a solid background below the current element under the mouse pointer to highlight its position.",
       },
+      comment: {
+        title: "Comment Section",
+        label: "Giscus Comment",
+        helpDesc:
+          "Load or unload the Giscus comment section at the bottom of articles in real time without refreshing the page.",
+      },
     },
     login: {
       label: "Login Page",

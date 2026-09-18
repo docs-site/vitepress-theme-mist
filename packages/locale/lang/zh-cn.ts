@@ -254,6 +254,11 @@ export default {
         underTipTitle: "置于底部",
         underHelpTipContent: "在当前鼠标悬停的元素下方添加一个纯色背景以突出显示当前鼠标悬停的位置。",
       },
+      comment: {
+        title: "评论区",
+        label: "Giscus 评论区",
+        helpDesc: "实时加载或卸载文章底部的 Giscus 评论区，无需刷新页面。",
+      },
     },
     login: {
       label: "登录页",

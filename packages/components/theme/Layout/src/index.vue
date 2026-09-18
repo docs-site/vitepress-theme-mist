@@ -4,9 +4,9 @@ import DefaultTheme from "vitepress/theme";
 import { useData } from "vitepress";
 import { computed, onMounted, useSlots } from "vue";
 import { useNamespace } from "@mist/composables";
-import { isBoolean } from "@mist/helper";
+import { isBoolean, isObject } from "@mist/helper";
 
-import { useMistConfig, usePageState } from "@mist/components/theme/ConfigProvider";
+import { mistRuntimeConfig, useMistConfig, usePageState } from "@mist/components/theme/ConfigProvider";
 import { logMistConfigMembers, logSlotInfo } from "./debugUtils";
 import { MtFooterGroup } from "@mist/components/theme/FooterGroup";
 import { MtFooterInfo } from "@mist/components/theme/FooterInfo";
@@ -56,8 +56,9 @@ onMounted(() => {
 
 const commentConfig = computed(() => {
   const frontmatterComment = frontmatter.value.comment;
-  // 全局评论配置从 theme 层读取，避免被 frontmatter 的同名字段覆盖成布尔值
-  const configComment = theme.value.comment;
+  // 全局评论配置优先读取运行时配置（如主题增强面板的评论区开关，修改后实时生效），
+  // 其次读取 theme 层静态配置，避免被 frontmatter 的同名字段覆盖成布尔值
+  const configComment = mistRuntimeConfig.value.comment ?? theme.value.comment;
   let commentConfig = frontmatterComment ?? configComment;
 
   // frontmatter 明确为 false 时关闭评论区；为 true 时回落到全局评论配置，避免丢失 provider 与 options
@@ -66,13 +67,16 @@ const commentConfig = computed(() => {
     commentConfig = configComment;
   }
 
+  // 配置为布尔值（如通过面板在运行时关闭评论区）时视为未配置评论提供者
+  const finalConfig = isObject(commentConfig) ? commentConfig : undefined;
+
   return {
     enabled: true,
     components: {
       giscus: MtCommentGiscus,
     },
-    provider: commentConfig?.provider,
-    options: commentConfig?.options,
+    provider: finalConfig?.provider,
+    options: finalConfig?.options,
   };
 });
 // 维护已使用的插槽，防止外界传来的插槽覆盖已使用的插槽

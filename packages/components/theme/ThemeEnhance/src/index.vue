@@ -14,6 +14,7 @@ import LayoutDocWidthSlide from "./LayoutDocWidthSlide.vue";
 import ThemeColor from "./ThemeColor.vue";
 import Spotlight from "./Spotlight.vue";
 import SpotlightStyle from "./SpotlightStyle.vue";
+import CommentSwitch from "./CommentSwitch.vue";
 
 defineOptions({ name: "ThemeEnhance" });
 
@@ -25,6 +26,7 @@ const disabledList = computed(() => {
     layoutSwitch: themeEnhanceConfig.value.layoutSwitch?.disabled ?? false,
     themeColor: themeEnhanceConfig.value.themeColor?.disabled ?? false,
     spotlight: themeEnhanceConfig.value.spotlight?.disabled ?? false,
+    comment: themeEnhanceConfig.value.comment?.disabled ?? false,
   };
 });
 </script>
@@ -54,6 +56,10 @@ const disabledList = computed(() => {
       <template v-if="!disabledList.spotlight">
         <Spotlight />
         <SpotlightStyle />
+      </template>
+
+      <template v-if="!disabledList.comment">
+        <CommentSwitch />
       </template>
 
       <slot name="mist-theme-enhance-bottom" />
