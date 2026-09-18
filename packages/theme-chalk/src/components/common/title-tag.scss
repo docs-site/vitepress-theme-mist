@@ -88,4 +88,13 @@
     transform: translateY(-50%);
     margin-left: 6px;
   }
+
+  // h1 渐变文字使用 background-clip: text 裁剪实现，行内流中的 inline-block 徽标会被 Edge
+  // 重复绘制出一层无背景的残影，改为绝对定位脱离行内流后不再触发
+  .VPBadge {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 6px;
+  }
 }
