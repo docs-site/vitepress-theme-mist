@@ -15,6 +15,7 @@ import { MtArticleAnalyze } from "@mist/components/theme/ArticleAnalyze";
 import { MtArticleShare } from "@mist/components/theme/ArticleShare";
 
 import { MtClickEffect } from "@mist/components/common/ClickEffect";
+import { MtDocAsideOutline } from "@mist/components/common/ArticlePage";
 import { MtDocFooterCopyright } from "@mist/components/theme/DocFooterCopyright";
 import { MtHomeUnderline } from "@mist/components/theme/HomeUnderline";
 import { MtHomeTypewriter } from "@mist/components/theme/HomeTypewriter";
@@ -203,6 +204,8 @@ const usedSlots = [
         <slot name="mist-article-share-before" />
         <MtArticleShare v-if="mistConfig.articleShare.enabled" />
         <slot name="mist-article-share-after" />
+        <!-- 使用主题内置大纲替换默认 VPDocAsideOutline（后者通过 aside.scss 隐藏），支持分组折叠 -->
+        <MtDocAsideOutline />
         <slot name="aside-outline-before" />
       </template>
 

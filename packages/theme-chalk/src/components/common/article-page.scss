@@ -134,6 +134,68 @@
     padding-left: 16px;
   }
 
+  @include e(row) {
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+
+    a {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+
+  @include e(caret) {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 32px;
+    margin-left: -16px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: var(--vp-c-text-3);
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--vp-c-text-1);
+    }
+
+    svg {
+      transition: transform 0.2s;
+    }
+
+    @include is(expanded) {
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  @include e(collapse) {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s cubic-bezier(0, 1, 0.5, 1);
+
+    > ul {
+      min-height: 0;
+      overflow: hidden;
+      visibility: hidden;
+      transition: visibility 0.25s;
+    }
+
+    @include is(expanded) {
+      grid-template-rows: 1fr;
+
+      > ul {
+        visibility: visible;
+      }
+    }
+  }
+
   @include m(link) {
     display: block;
     line-height: 32px;
