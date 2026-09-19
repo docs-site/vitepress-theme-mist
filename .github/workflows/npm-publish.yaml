@@ -5,7 +5,7 @@ name: Publish Package to npmjs
 on:
   push:
     branches:
-      - master # 仅在 master 分支的推送时触发
+      - main # 仅在 main 分支的推送时触发
     tags:
       - 'v*' # 避免标签推送循环触发
   workflow_dispatch: # 允许从 GitHub Actions 页面手动触发
