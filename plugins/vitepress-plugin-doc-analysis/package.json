@@ -11,7 +11,7 @@
     "analysis"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/Docs-Site/vitepress-theme-mist/tree/master/plugins/vitepress-plugin-doc-analysis",
+  "homepage": "https://github.com/Docs-Site/vitepress-theme-mist/tree/main/plugins/vitepress-plugin-doc-analysis",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Docs-Site/vitepress-theme-mist.git"

@@ -11,7 +11,7 @@
     "sidebar"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/master/plugins/vitepress-plugin-sidebar-resolve",
+  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/main/plugins/vitepress-plugin-sidebar-resolve",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/docs-site/vitepress-theme-mist.git"

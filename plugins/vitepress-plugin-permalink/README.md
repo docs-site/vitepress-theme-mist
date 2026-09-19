@@ -6,7 +6,7 @@
 
 ### 1. 插件功能
 
--  支持给 Markdown 文档设置唯一的访问 **永久链接**，不再因为 Markdown 文档路径移动而导致访问地址发生变化
+- 支持给 Markdown 文档设置唯一的访问 **永久链接**，不再因为 Markdown 文档路径移动而导致访问地址发生变化
 - 读取 Markdown 文档 `frontmatter` 的 `permalink`，挂载到 `themeConfig.permalinks`
 - 支持 locales 国际化，自动给 **永久链接** 添加语言前缀，不同语言的永久链接不会重复
 - 支持 rewrite 路由重写，最终得到的文档路径是 rewrite 路由重写后的路径
@@ -88,7 +88,7 @@ export const createRewrites = (
 }
 ```
 
-`createRewrites` 函数支持除了传入 `@docs-site/vitepress-plugin-permalink` 的[配置项](https://github.com/docs-site/vitepress-theme-mist/blob/master/plugins/vitepress-plugin-permalink/src/types.ts)，也支持额外传入两个配置项：
+`createRewrites` 函数支持除了传入 `@docs-site/vitepress-plugin-permalink` 的[配置项](https://github.com/docs-site/vitepress-theme-mist/blob/main/plugins/vitepress-plugin-permalink/src/types.ts)，也支持额外传入两个配置项：
 
 - `srcDir`：VitePress 的 [srcDir](https://vitepress.dev/zh/reference/site-config#srcdir)，默认为 `.`，即当前项目的绝对目录。
 
@@ -136,7 +136,7 @@ rewrites: createRewrites({srcDir: 'src'}),
 
 > 注意：该方式会打乱原来的文件结构，因此侧边栏不再是基于文件路径配置，而是需要基于 `frontmatter.permalink` 属性配置。
 
-Rewrites 方式推荐和[vitepress-auto-nav-sidebar](https://github.com/docs-site/vitepress-theme-mist/tree/master/plugins/vitepress-auto-nav-sidebar)插件一起使用，`vitepress-plugin-sidebar-resolve` 支持基于 rewrites 生成侧边栏，无需手动配置侧边栏。
+Rewrites 方式推荐和[vitepress-auto-nav-sidebar](https://github.com/docs-site/vitepress-theme-mist/tree/main/plugins/vitepress-auto-nav-sidebar)插件一起使用，`vitepress-plugin-sidebar-resolve` 支持基于 rewrites 生成侧边栏，无需手动配置侧边栏。
 
 ## 四、Usage
 

@@ -11,7 +11,7 @@
     "catalogue"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/master/plugins/vitepress-plugin-catalogue",
+  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/main/plugins/vitepress-plugin-catalogue",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/docs-site/vitepress-theme-mist.git"

@@ -58,7 +58,7 @@ docs
 
 ### 2. rewrite配置
 
-在[packages/config/index.ts](https://github.com/docs-site/vitepress-theme-mist/blob/master/packages/config/index.ts)文件中添加以下内容：
+在[packages/config/index.ts](https://github.com/docs-site/vitepress-theme-mist/blob/main/packages/config/index.ts)文件中添加以下内容：
 
 ```typescript
 import { createRewrites } from "vitepress-plugin-permalink";

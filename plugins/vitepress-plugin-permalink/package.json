@@ -11,7 +11,7 @@
     "permalink"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/master/plugins/vitepress-plugin-permalink",
+  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/main/plugins/vitepress-plugin-permalink",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/docs-site/vitepress-theme-mist.git"

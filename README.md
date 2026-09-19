@@ -20,7 +20,7 @@
   </a>
   <img src="https://img.shields.io/badge/v22.16.x-x?logo=node.js&label=node" alt="node version">
   <img src="https://img.shields.io/badge/v10.14.0-x?logo=node.js&label=PNPM" alt="pnpm version">
-  <a title="MIT License" target="_blank" href="https://github.com/docs-site/vitepress-theme-mist/blob/master/LICENSE">
+  <a title="MIT License" target="_blank" href="https://github.com/docs-site/vitepress-theme-mist/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License">
   </a>
 </p>

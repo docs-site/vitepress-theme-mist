@@ -11,7 +11,7 @@
     "mdH1"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/master/plugins/vitepress-plugin-md-h1",
+  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/main/plugins/vitepress-plugin-md-h1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/docs-site/vitepress-theme-mist.git"

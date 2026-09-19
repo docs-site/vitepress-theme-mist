@@ -10,7 +10,7 @@
     "plugin"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/master/plugins/vitepress-plugin-file-content-loader",
+  "homepage": "https://github.com/docs-site/vitepress-theme-mist/tree/main/plugins/vitepress-plugin-file-content-loader",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/docs-site/vitepress-theme-mist.git"
