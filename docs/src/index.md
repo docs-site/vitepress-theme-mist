@@ -20,6 +20,14 @@ hero:
     src: /images/blog.svg
     alt: VitePress
 
+# 首页打字机文案，覆盖配置文件中的同名配置
+homeTypewriter:
+  texts:
+    - "你好，我是苏木..."
+    - "记录学习，分享成长"
+    - "学而不思则罔，思而不学则殆"
+    - "莫道桑榆晚，为霞尚满天"
+
 features:
   - icon: 📋
     title: VitePress

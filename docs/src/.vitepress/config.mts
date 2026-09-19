@@ -11,7 +11,6 @@ const myThemeConfig = defineMistConfig({
   },
   homeTypewriter: {
     enabled: true,
-    texts: ["你好，我是苏木 👋", "记录学习，分享成长", "学而不思则罔，思而不学则殆", "莫道桑榆晚，为霞尚满天"],
   },
 });
 
