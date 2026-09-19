@@ -18,6 +18,7 @@ import {
   docFooterCopyrightConfig,
   FooterGroupConfig,
   FooterInfoConfig,
+  homeTypewriterConfig,
   markdownConfig,
   socialConfig,
   themeEnhanceConfig,
@@ -69,6 +70,7 @@ const defaultMistConfig: Required<MistConfig> = {
   docFooterCopyright: docFooterCopyrightConfig,
   footerGroup: FooterGroupConfig, // 页脚信息组配置
   footerInfo: FooterInfoConfig, // 页脚配置
+  homeTypewriter: homeTypewriterConfig, // 首页打字机配置
   markdown: markdownConfig,
   sidebarTrigger: true,
   social: socialConfig,

@@ -27,6 +27,20 @@ export interface TypesOption {
 }
 
 /**
+ * 将文本按字素簇拆分为字符数组
+ *
+ * substring 按 UTF-16 编码单元截取，会把 emoji 等多码点字符截成一半而渲染出乱码，
+ * 因此打字/删字均基于字素簇进行，优先使用 Intl.Segmenter，不支持时退化为按 Unicode 码点拆分
+ */
+const splitChars = (text: string): string[] => {
+  const Segmenter = (Intl as any)?.Segmenter;
+  if (typeof Segmenter === "function") {
+    return Array.from(new Segmenter().segment(text), (s: any) => s.segment);
+  }
+  return Array.from(text);
+};
+
+/**
  * 打字功能
  *
  * @param data 数据
@@ -40,6 +54,7 @@ export const useTextTypes = (data: MaybeRefOrGetter<string[]>, options: TypesOpt
   const isFinished = ref(false);
 
   let originText = "";
+  let originChars: string[] = [];
   let inputTimer: ReturnType<typeof setInterval> | null;
   let outputTimer: ReturnType<typeof setInterval> | null;
   // 为 originText 长度服务
@@ -70,9 +85,10 @@ export const useTextTypes = (data: MaybeRefOrGetter<string[]>, options: TypesOpt
 
     if (!originText) return stop();
 
-    text.value = originText.substring(0, textIndex++);
+    originChars = splitChars(originText);
+    text.value = originChars.slice(0, textIndex++).join("");
 
-    if (textIndex > originText.length) {
+    if (textIndex > originChars.length) {
       clearInputTimer();
       isFinished.value = true;
       setTimeout(() => {
@@ -88,7 +104,7 @@ export const useTextTypes = (data: MaybeRefOrGetter<string[]>, options: TypesOpt
   const typesOut = () => {
     if (textIndex >= 0) {
       isFinished.value = false;
-      text.value = originText.substring(0, textIndex--);
+      text.value = originChars.slice(0, textIndex--).join("");
     } else {
       clearOutputTimer();
       isFinished.value = true;
@@ -106,6 +122,9 @@ export const useTextTypes = (data: MaybeRefOrGetter<string[]>, options: TypesOpt
           // 按顺序选择下一个文本
           dataIndex = (dataIndex + 1) % dataComputed.value.length;
         }
+
+        // 删字结束后 textIndex 为 -1，需归零，避免新文案首次打字被 slice 截掉末尾字符
+        textIndex = 0;
 
         inputTimer = setInterval(() => {
           typesIn();
@@ -137,6 +156,7 @@ export const useTextTypes = (data: MaybeRefOrGetter<string[]>, options: TypesOpt
     if (restore) {
       text.value = "";
       originText = "";
+      originChars = [];
       textIndex = 0;
       dataIndex = 0;
     }

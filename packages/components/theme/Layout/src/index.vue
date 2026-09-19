@@ -17,6 +17,7 @@ import { MtArticleShare } from "@mist/components/theme/ArticleShare";
 import { MtClickEffect } from "@mist/components/common/ClickEffect";
 import { MtDocFooterCopyright } from "@mist/components/theme/DocFooterCopyright";
 import { MtHomeUnderline } from "@mist/components/theme/HomeUnderline";
+import { MtHomeTypewriter } from "@mist/components/theme/HomeTypewriter";
 import { MtNavigationPage } from "@mist/components/theme/NavigationPage";
 
 import { MtCommentGiscus } from "@mist/components/theme/CommentGiscus";
@@ -88,6 +89,7 @@ const usedSlots = [
   "doc-after",
   "page-top",
   "aside-outline-before",
+  "home-hero-actions-after",
 ];
 </script>
 
@@ -119,6 +121,12 @@ const usedSlots = [
         <MtHomeUnderline v-if="isHomePage" />
         <slot name="mist-click-effect-after" />
         <slot name="layout-top" />
+      </template>
+
+      <!-- 首页 hero 按钮下方的打字机 -->
+      <template #home-hero-actions-after>
+        <slot name="home-hero-actions-after" />
+        <MtHomeTypewriter v-if="isHomePage" />
       </template>
 
       <template #layout-bottom>

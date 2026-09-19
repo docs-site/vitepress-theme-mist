@@ -13,6 +13,7 @@ export * from "./DemoCode";
 export * from "./DocFooterCopyright";
 export * from "./FooterGroup";
 export * from "./FooterInfo";
+export * from "./HomeTypewriter";
 export * from "./HomeUnderline";
 export * from "./Layout";
 export * from "./RightBottomButton";

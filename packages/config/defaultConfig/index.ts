@@ -10,6 +10,7 @@ export * from "./docAnalysis";
 export * from "./docFooterCopyright";
 export * from "./FooterGroup";
 export * from "./FooterInfo";
+export * from "./homeTypewriter";
 export * from "./markdown";
 export * from "./social";
 export * from "./themeEnhance";

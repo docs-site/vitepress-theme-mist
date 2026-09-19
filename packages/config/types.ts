@@ -11,6 +11,7 @@ import type {
   FooterGroup,
   FooterInfo,
   DocFooterCopyright,
+  HomeTypewriter,
   Markdown,
   Plugins,
   ThemeEnhance,
@@ -53,6 +54,7 @@ export interface MistConfig {
   docFooterCopyright?: DocFooterCopyright; // 页脚版权配置
   footerInfo?: FooterInfo; // 页脚配置
   footerGroup?: FooterGroup[]; // 页脚信息组配置
+  homeTypewriter?: HomeTypewriter; // 首页打字机配置
   markdown?: Markdown; // markdown插件配置
   sidebarTrigger?: boolean; // 是否启用侧边栏展开/折叠触发器
   social?: Social[]; // 社交信息配置

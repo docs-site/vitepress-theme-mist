@@ -9,6 +9,10 @@ const myThemeConfig = defineMistConfig({
   clickEffect: {
     enabled: true,
   },
+  homeTypewriter: {
+    enabled: true,
+    texts: ["你好，我是苏木 👋", "记录学习，分享成长", "学而不思则罔，思而不学则殆", "莫道桑榆晚，为霞尚满天"],
+  },
 });
 
 // https://vitepress.dev/reference/site-config
@@ -20,11 +24,11 @@ export default defineConfig({
   // rewrites: createRewrites({ srcDir: "src" }), // 这里需要填项目根目录(.vtiepress所在目录，若是.vitepress和package.json在同级，则可为空)
   vite: {
     server: {
-			host: "0.0.0.0",
-			allowedHosts: true
-		}
-	},
-	themeConfig: {
+      host: "0.0.0.0",
+      allowedHosts: true,
+    },
+  },
+  themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       {

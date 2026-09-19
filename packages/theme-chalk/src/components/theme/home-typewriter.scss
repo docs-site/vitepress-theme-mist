@@ -1,0 +1,27 @@
+@use "../../mixins/bem" as *;
+
+@include b(home-typewriter) {
+  min-height: 32px;
+  margin-top: 24px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--vp-c-text-1);
+
+  @include e(cursor) {
+    opacity: 1;
+
+    &.is-animation {
+      animation: mt-typewriter-fade-out 1s infinite;
+    }
+  }
+}
+
+@keyframes mt-typewriter-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
