@@ -16,7 +16,7 @@ export const mistConfigContext: InjectionKey<MistConfig | Ref<MistConfig>> = Sym
 /**
  * 运行时主题配置：供主题增强面板等场景在运行时修改配置，修改后实时生效，优先级高于静态主题配置
  */
-export const mistRuntimeConfig = ref<MistConfig>({});
+export const mistRuntimeConfig: Ref<MistConfig> = ref<MistConfig>({});
 
 /**
  * @brief 创建并返回一个配置好的 Layout 组件，此函数接收一个 Vue 组件作为参数，将其封装成一个新的组件，

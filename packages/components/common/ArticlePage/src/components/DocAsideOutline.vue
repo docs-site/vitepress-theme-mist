@@ -21,8 +21,8 @@ onMounted(() => {
   if (!headers.value?.length) headers.value = getHeaders(frontmatter.value.outline ?? theme.value.outline);
 });
 
-const container = ref();
-const marker = ref();
+const container = ref<HTMLElement | null>(null);
+const marker = ref<HTMLElement | null>(null);
 
 // ---- 折叠展开状态：默认全部折叠，展开当前激活标题所在分组 ----
 const expandedLinks = reactive(new Set<string>());

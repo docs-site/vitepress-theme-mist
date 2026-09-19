@@ -84,8 +84,8 @@ export function resolveHeaders(headers: MenuItem[], range?: DefaultTheme.Config[
 }
 
 export const useActiveAnchor = (
-  container: Ref<HTMLElement>,
-  marker: Ref<HTMLElement>,
+  container: Ref<HTMLElement | null>,
+  marker: Ref<HTMLElement | null>,
   hooks?: {
     /** 激活锚点变化时回调（hash 已解码），用于展开当前标题所在分组 */
     onActivate?: (hash: string | null) => void;
@@ -175,7 +175,7 @@ export const useActiveAnchor = (
     if (decoded) {
       prevActiveLink = hooks?.resolveAnchor
         ? hooks.resolveAnchor(decoded)
-        : container.value.querySelector(`a[href="${decoded}"]`);
+        : (container.value?.querySelector<HTMLAnchorElement>(`a[href="${decoded}"]`) ?? null);
     } else {
       prevActiveLink = null;
     }
@@ -190,7 +190,7 @@ export const useActiveAnchor = (
         marker.value.style.top = activeLink.offsetTop + 39 + "px";
         marker.value.style.opacity = "1";
       });
-    } else {
+    } else if (marker.value) {
       marker.value.style.top = "33px";
       marker.value.style.opacity = "0";
     }

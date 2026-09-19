@@ -1,5 +1,5 @@
 <script setup lang="ts" name="CommentSwitch">
-import type { ThemeEnhance } from "@mist/config";
+import type { MistConfig, ThemeEnhance } from "@mist/config";
 import { computed } from "vue";
 import { useData } from "vitepress";
 import { isObject } from "@mist/helper";
@@ -17,7 +17,7 @@ const themeEnhanceConfig = getMistConfigRef<ThemeEnhance>("themeEnhance", {});
 const { theme } = useData();
 
 // 静态评论配置（theme 层），重新开启评论区时优先还原该配置
-const staticComment = computed(() => theme.value.comment);
+const staticComment = computed<MistConfig["comment"]>(() => theme.value.comment);
 
 // 评论区开关状态：配置了评论提供者时视为开启，切换后实时加载或卸载评论区
 const commentEnabled = computed({
@@ -29,8 +29,8 @@ const commentEnabled = computed({
     mistRuntimeConfig.value.comment = value
       ? isObject(staticComment.value) && staticComment.value.provider
         ? staticComment.value
-        : // 未配置静态评论时，回退到 Giscus 评论提供者
-          { provider: "giscus", options: {} }
+        : // 未配置静态评论时，回退到 Giscus 评论提供者（options 由评论区组件按默认值处理）
+          { provider: "giscus", options: {} as any }
       : false;
   },
 });
