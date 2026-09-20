@@ -6,8 +6,10 @@
 export default {
   "01-开发": "develop", // 01-开发
   "02-组件": "component", // 02-组件
-  "01-公共组件": "common-omponent", // 02-组件/01-公共组件
+  "01-公共组件": "common-component", // 02-组件/01-公共组件
   "02-主题组件": "theme-component", // 02-组件/02-主题组件
   "03-插件": "plugin", // 03-插件
+  "01-独立插件包": "standalone-plugin", // 03-插件/01-独立插件包
+  "02-内置插件": "builtin-plugin", // 03-插件/02-内置插件
   "04-使用": "use", // 04-使用
 };
