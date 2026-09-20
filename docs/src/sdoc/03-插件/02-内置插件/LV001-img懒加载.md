@@ -158,7 +158,7 @@ md.renderer.rules.html_block = (tokens: Token[], idx: number, options, env, self
 
 - `<img>`
 
-<img src="./LV10-img懒加载/img/image-20250914160313926.png" alt="image-20250914160313926" style="zoom: 59%;" />
+<img src="./LV001-img懒加载/img/image-20250914160313926.png" alt="image-20250914160313926" style="zoom: 59%;" />
 
 ## 四、配置选项
 
